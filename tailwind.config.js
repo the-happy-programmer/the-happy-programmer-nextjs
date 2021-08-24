@@ -25,8 +25,21 @@ module.exports = {
       },
     },
     extend: {},
+    screens: {
+      sm: { min: "640px", max: "767px" },
+      md: { min: "768px", max: "1023px" },
+      lg: { min: "1024px", max: "1199px" },
+      xl: { min: "1200px" },
+    },
     container: {
       center: true,
+      maxWidth: {
+        sm: "660px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1110px",
+        "2xl": "1110px",
+      },
     },
   },
   variants: {

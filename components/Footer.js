@@ -20,7 +20,7 @@ export default function Footer() {
         <div className='flex flex-row'>
           {socials.map(([href, icon]) => (
             <a key={icon} href={href}>
-              <div className='justify-self-auto fill-current text-gray-700 dark:text-gray-400 h-5 ml-4 p-1 hover:text-gray-900 cursor-pointer dark:hover:text-gray-100'>
+              <div className='justify-self-auto fill-current text-gray-500 dark:text-gray-400 h-5 ml-4 p-1 hover:text-gray-900 cursor-pointer dark:hover:text-gray-100'>
                 <Svgtoreact name={icon} height={18} />
               </div>
             </a>

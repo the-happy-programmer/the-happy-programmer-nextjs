@@ -1,8 +1,11 @@
 import Head from "next/head"
 import { getHomePosts } from "../lib/api"
 import HappyLink from "../components/HappyLink"
+import Headerlayout from "../widget/Headerlayout"
+import Header from "../components/Header"
 export default function Home({ posts }) {
   const { edges } = posts
+  console.log(posts)
   return (
     <div>
       <Head>
@@ -11,19 +14,25 @@ export default function Home({ posts }) {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='container grid grid-cols-2 gap-y-3'>
-        <div className='bg-gray-400'>
-          {edges.map((node) => (
-            <div className='flex flex-row' key={node.node.postId}>
-              <HappyLink href={`/${node.node.slug}`}>
-                <a className='text-gray-900 dark:text-gray-50'>
-                  {node.node.title}
-                </a>
-              </HappyLink>
-            </div>
-          ))}
-          <div className='bg-gray-500'></div>
+      <Headerlayout>
+        <Header title='SwiftUI and Flutter Blog' />
+      </Headerlayout>
+      <main className='border-t border-b dark:border-gray-600'>
+        <div className='bg-gray-100 dark:bg-gray-800'>
+          <div className='container px-4 py-6'>
+            {edges.map((node) => (
+              <div className='flex flex-row' key={node.node.postId}>
+                <HappyLink href={`/${node.node.slug}`}>
+                  <a className='text-gray-900 dark:text-gray-50'>
+                    {node.node.title}
+                  </a>
+                </HappyLink>
+                <div>{node.node.excerpt}</div>
+              </div>
+            ))}
+          </div>
         </div>
+        <div className='bg-gray-500'></div>
       </main>
     </div>
   )
