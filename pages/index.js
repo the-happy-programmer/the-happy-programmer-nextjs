@@ -5,7 +5,19 @@ import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
 export default function Home({ posts }) {
   const { edges } = posts
-  console.log(posts)
+  // console.log(posts.edges)
+
+  const dt = (date) => new Date(date).toDateString()
+
+  const categories = (cat) => {
+    return cat.map((categories) => (
+      <HappyLink href={`${categories.uri}`}>
+        <a className='dark:text-gray-400 mr-2.5 dark:hover:text-gray-200 uppercase'>
+          {categories.name}
+        </a>
+      </HappyLink>
+    ))
+  }
   return (
     <div>
       <Head>
@@ -21,13 +33,27 @@ export default function Home({ posts }) {
         <div className='bg-gray-100 dark:bg-gray-800'>
           <div className='container px-4 py-6'>
             {edges.map((node) => (
-              <div className='flex flex-row' key={node.node.postId}>
+              <div
+                className='flex flex-col py-4 border-b border-gray-600'
+                key={node.node.postId}
+              >
+                <div className='flex flex-row pb-2'>
+                  {categories(node.node.categories.nodes)}
+                </div>
                 <HappyLink href={`/${node.node.slug}`}>
-                  <a className='text-gray-900 dark:text-gray-50'>
+                  <a className=' text-2xl text-gray-900 dark:text-gray-50'>
                     {node.node.title}
                   </a>
                 </HappyLink>
-                <div>{node.node.excerpt}</div>
+                <p className='text-gray-900 dark:text-gray-300 leading-loose'>
+                  {node.node.excerpt}
+                </p>
+                <div className='py-5'>
+                  <p className='dark:text-gray-50'>
+                    {node.node.author.node.firstName}
+                  </p>
+                  <p className='dark:text-gray-400'>{dt(node.node.date)}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -39,5 +65,6 @@ export default function Home({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await getHomePosts()
-  return { props: { posts } }
+
+  return { props: { posts: posts.posts, categories: posts.categories } }
 }
