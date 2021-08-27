@@ -3,8 +3,9 @@ import { getHomePosts } from "../lib/api"
 import HappyLink from "../components/HappyLink"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
-export default function Home({ posts }) {
+export default function Home({ posts, category }) {
   const { edges } = posts
+  console.log(category.nodes)
   // console.log(posts.edges)
 
   const dt = (date) => new Date(date).toDateString()
@@ -65,6 +66,5 @@ export default function Home({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await getHomePosts()
-
-  return { props: { posts: posts.posts, categories: posts.categories } }
+  return { props: { posts: posts.posts, category: posts.categories } }
 }
