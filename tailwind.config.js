@@ -28,8 +28,8 @@ module.exports = {
     screens: {
       sm: { min: "640px", max: "767px" },
       md: { min: "768px", max: "1023px" },
-      lg: { min: "1024px", max: "1199px" },
-      xl: { min: "1200px" },
+      lg: { min: "1024px", max: "1024px" },
+      xl: { min: "1024px" },
     },
     container: {
       center: true,
@@ -37,8 +37,8 @@ module.exports = {
         sm: "660px",
         md: "768px",
         lg: "1024px",
-        xl: "1110px",
-        "2xl": "1110px",
+        xl: "1024px",
+        "2xl": "1024px",
       },
     },
   },

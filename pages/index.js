@@ -1,24 +1,11 @@
 import Head from "next/head"
 import { getHomePosts } from "../lib/api"
-import HappyLink from "../components/HappyLink"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
+import Posthome from "../components/Posthome"
 export default function Home({ posts, category }) {
   const { edges } = posts
-  console.log(category.nodes)
-  // console.log(posts.edges)
-
-  const dt = (date) => new Date(date).toDateString()
-
-  const categories = (cat) => {
-    return cat.map((categories) => (
-      <HappyLink href={`${categories.uri}`}>
-        <a className='dark:text-gray-400 mr-2.5 dark:hover:text-gray-200 uppercase'>
-          {categories.name}
-        </a>
-      </HappyLink>
-    ))
-  }
+  console.log("category", category)
   return (
     <div>
       <Head>
@@ -32,34 +19,24 @@ export default function Home({ posts, category }) {
       </Headerlayout>
       <main className='border-t border-b dark:border-gray-600'>
         <div className='bg-gray-100 dark:bg-gray-800'>
-          <div className='container px-4 py-6'>
-            {edges.map((node) => (
-              <div
-                className='flex flex-col py-4 border-b border-gray-600'
-                key={node.node.postId}
-              >
-                <div className='flex flex-row pb-2'>
-                  {categories(node.node.categories.nodes)}
-                </div>
-                <HappyLink href={`/${node.node.slug}`}>
-                  <a className=' text-2xl text-gray-900 dark:text-gray-50'>
-                    {node.node.title}
-                  </a>
-                </HappyLink>
-                <p className='text-gray-900 dark:text-gray-300 leading-loose'>
-                  {node.node.excerpt}
-                </p>
-                <div className='py-5'>
-                  <p className='dark:text-gray-50'>
-                    {node.node.author.node.firstName}
-                  </p>
-                  <p className='dark:text-gray-400'>{dt(node.node.date)}</p>
-                </div>
+          <div className='container grid grid-cols-5 px-4 gap-x-14'>
+            <div className='col-span-4'>
+              {edges.map((node) => (
+                <Posthome post={node} key={node.node.postId} />
+              ))}
+            </div>
+            <div className='pt-6 flex flex-col dark:text-gray-300'>
+              <p className='dark:text-gray-50 text-xl py-2'>Category</p>
+              <div className='divide-y divide-gray-700'>
+                {category.nodes.map((cat) => (
+                  <div className='py-2' key={cat.slug}>
+                    <a className='dark:text-gray-300'>{cat.name}</a>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
-        <div className='bg-gray-500'></div>
       </main>
     </div>
   )
