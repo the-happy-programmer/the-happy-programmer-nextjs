@@ -3,6 +3,7 @@ import { getHomePosts } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
 import Posthome from "../components/Posthome"
+import SvgtoReact from "../components/Svgtoreact"
 export default function Home({ posts, category }) {
   const { edges } = posts
   console.log("category", category)
@@ -24,13 +25,28 @@ export default function Home({ posts, category }) {
               {edges.map((node) => (
                 <Posthome post={node} key={node.node.postId} />
               ))}
+              <div className='flex flex-col my-20 '>
+                <a className='dark:text-accent cursor-pointer self-center uppercase'>
+                  Load More
+                </a>
+                <SvgtoReact
+                  height='16'
+                  width='16'
+                  name='arrow'
+                  class='fill-current cursor-pointer self-center transform mt-4 mx-3 text-accent'
+                />
+              </div>
             </div>
-            <div className='pt-6 flex flex-col dark:text-gray-300'>
-              <p className='dark:text-gray-50 text-xl py-2'>Category</p>
-              <div className='divide-y divide-gray-700'>
+            <div className='pt-6 flex flex-col'>
+              <p className='dark:text-gray-50 text-gray-900 text-xl py-2'>
+                Category
+              </p>
+              <div className='divide-y dark:divide-gray-700'>
                 {category.nodes.map((cat) => (
                   <div className='py-2' key={cat.slug}>
-                    <a className='dark:text-gray-300'>{cat.name}</a>
+                    <a className='dark:text-gray-300 dark:hover:text-gray-50 text-gray-600 hover:text-gray-900 cursor-pointer'>
+                      {cat.name}
+                    </a>
                   </div>
                 ))}
               </div>
