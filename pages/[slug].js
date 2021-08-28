@@ -1,8 +1,23 @@
 import { useRouter } from "next/router"
+import Postbody from "../components/post-body"
+import { getPost, getAllPostsWithSlug } from "../lib/api"
+export default function Post({ post }) {
+  return <Postbody content={post.post.content} />
+}
 
-export default function Post() {
-  const router = useRouter()
-  const { slug } = router.query
-  console.log(slug)
-  return <h1>welcome to Post {slug}</h1>
+export async function getStaticProps({ params }) {
+  const post = await getPost(params.slug)
+  return {
+    props: {
+      post: post,
+    },
+  }
+}
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPostsWithSlug()
+  return {
+    paths: allPosts.edges.map(({ node }) => `/${node.slug}`) || [],
+    fallback: false,
+  }
 }

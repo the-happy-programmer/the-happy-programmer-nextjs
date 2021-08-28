@@ -15,7 +15,7 @@ export default function Footer() {
     <div className='bg-white dark:bg-black'>
       <footer className='container mx-auto flex flex-row justify-between p-4'>
         <div className='justify-self-auto stroke-current fill-current text-gray-700 dark:text-gray-400'>
-          <Svgtoreact name={"fulllogo"} height={30} width={"auto"} />
+          <Svgtoreact name={"fulllogo"} height={30} width={100} />
         </div>
         <div className='flex flex-row'>
           {socials.map(([href, icon]) => (

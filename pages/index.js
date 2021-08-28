@@ -21,23 +21,23 @@ export default function Home({ posts, category }) {
       <main className='border-t border-b dark:border-gray-600'>
         <div className='bg-gray-100 dark:bg-gray-800'>
           <div className='container grid grid-cols-5 px-4 gap-x-14'>
-            <div className='col-span-4'>
+            <div className='col-span-5 md:col-span-4 lg:col-span-4 xl:col-span-4'>
               {edges.map((node) => (
                 <Posthome post={node} key={node.node.postId} />
               ))}
               <div className='flex flex-col my-20 '>
-                <a className='dark:text-accent cursor-pointer self-center uppercase'>
+                <a className='text-accent dark:text-darkaccent cursor-pointer self-center uppercase'>
                   Load More
                 </a>
                 <SvgtoReact
                   height='16'
                   width='16'
                   name='arrow'
-                  class='fill-current cursor-pointer self-center transform mt-4 mx-3 text-accent'
+                  class='fill-current cursor-pointer self-center transform mt-4 mx-3 dark:text-darkaccent text-accent'
                 />
               </div>
             </div>
-            <div className='pt-6 flex flex-col'>
+            <div className='hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col'>
               <p className='dark:text-gray-50 text-gray-900 text-xl py-2'>
                 Category
               </p>

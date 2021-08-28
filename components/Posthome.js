@@ -22,7 +22,7 @@ export default function Posthome({ post }) {
       <div className='flex flex-row pb-2'>
         {categories(post.node.categories.nodes)}
       </div>
-      <HappyLink href={`/${post.node.slug}`} classes='mr-auto'>
+      <HappyLink href={`${post.node.slug}`} classes='mr-auto'>
         <a className='w-auto flex flex-row text-2xl hover:underline text-gray-900 dark:text-gray-50'>
           {icontitle(post.node.tags.nodes)}
           {post.node.title}
@@ -33,7 +33,7 @@ export default function Posthome({ post }) {
       </p>
       <div className='pb-2 pt-5'>
         <p className='dark:text-gray-50'>{post.node.author.node.firstName}</p>
-        <p className='dark:text-gray-400 text-gray-400'>{dt(post.node.date)}</p>
+        <p className='dark:text-gray-400 text-gray-600'>{dt(post.node.date)}</p>
       </div>
     </div>
   )
