@@ -11,8 +11,8 @@ module.exports = {
       body: ["Inter", "system-ui", "sans-serif"],
     },
     colors: {
-      accent: "#0151b2",
-      darkaccent: "#51a1ff",
+      accent: "#0041d6",
+      darkaccent: "#4198ff",
       gray: {
         50: "#fff",
         100: "#FAFAFA",

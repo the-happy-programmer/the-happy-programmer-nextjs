@@ -7,7 +7,7 @@ export default function Posthome({ post }) {
   const categories = (cat) => {
     return cat.map((categories) => (
       <HappyLink href={`${categories.uri}`} key={categories.uri}>
-        <a className='text-gray-600 hover:text-gray-900 dark:text-gray-400 mr-2.5 cursor-pointer dark:hover:text-gray-50 uppercase'>
+        <a className='text-gray-600 hover:text-gray-900  text-sm dark:text-gray-400 cursor-pointer mr-2.5 dark:hover:text-gray-50 uppercase'>
           {categories.name}
         </a>
       </HappyLink>
@@ -15,11 +15,16 @@ export default function Posthome({ post }) {
   }
   const icontitle = (tag) =>
     tag.map((tag) => (
-      <SvgtoReact key={tag.slug} height='30' class='mr-4' name={tag.slug} />
+      <SvgtoReact
+        key={tag.slug}
+        height='30'
+        class='mr-4'
+        name={tag.slug.toLowerCase()}
+      />
     ))
   return (
     <div className='flex flex-col py-8 border-b dark:border-gray-600 border-gray-200'>
-      <div className='flex flex-row pb-2'>
+      <div className='flex flex-row pb-2 items-center'>
         {categories(post.node.categories.nodes)}
       </div>
       <HappyLink href={`${post.node.slug}`} classes='mr-auto'>
