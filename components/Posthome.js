@@ -16,7 +16,7 @@ export default function Posthome({ post }) {
   const icontitle = (tag) =>
     tag.map((tag) => (
       <SvgtoReact
-        key={tag.slu}
+        key={tag.slug}
         height='30'
         class='mr-4'
         name={tag.slug.toLowerCase()}
