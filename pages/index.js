@@ -1,12 +1,25 @@
+import { useState } from "react"
 import Head from "next/head"
 import { getHomePosts } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
 import Posthome from "../components/Posthome"
 import SvgtoReact from "../components/Svgtoreact"
+
 export default function Home({ posts, category }) {
   const { edges } = posts
-  console.log("category", category)
+  const [initposts, setInitposts] = useState(edges)
+  async function loadmore() {
+    try {
+      const e = await getHomePosts(10)
+      const { posts } = e
+      setInitposts(posts.edges)
+      console.log(initposts)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div>
       <Head>
@@ -22,11 +35,15 @@ export default function Home({ posts, category }) {
         <div className='bg-gray-100 dark:bg-gray-800'>
           <div className='container grid grid-cols-5 px-4 gap-x-14'>
             <div className='col-span-5 md:col-span-4 lg:col-span-4 xl:col-span-4'>
-              {edges.map((node) => (
-                <Posthome post={node} key={node.node.postId} />
-              ))}
+              {initposts.map((node) => {
+                console.log(node)
+                return <Posthome post={node} key={node.node.postId} />
+              })}
               <div className='flex flex-col my-20 '>
-                <a className='text-accent dark:text-darkaccent cursor-pointer self-center uppercase'>
+                <a
+                  onClick={(e) => loadmore()}
+                  className='text-accent dark:text-darkaccent cursor-pointer self-center uppercase'
+                >
                   Load More
                 </a>
                 <SvgtoReact
@@ -58,6 +75,6 @@ export default function Home({ posts, category }) {
   )
 }
 export async function getStaticProps() {
-  const posts = await getHomePosts()
+  const posts = await getHomePosts(5)
   return { props: { posts: posts.posts, category: posts.categories } }
 }
