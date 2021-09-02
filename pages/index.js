@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Head from "next/head"
-import { getHomePosts } from "../lib/api"
+import { getHomePosts, searchqr } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
 import Posthome from "../components/Posthome"
@@ -8,16 +8,25 @@ import SvgtoReact from "../components/Svgtoreact"
 
 export default function Home({ posts, category }) {
   const { edges } = posts
+  console.log("POSTS: ", posts)
   const [initposts, setInitposts] = useState(edges)
-  async function loadmore() {
+  const [loading, setLoading] = useState(false)
+  const loadmore = async () => {
     try {
+      setLoading(true)
       const e = await getHomePosts(10)
       const { posts } = e
       setInitposts(posts.edges)
-      console.log(initposts)
+      setLoading(false)
     } catch (error) {
       console.log(error)
     }
+  }
+
+  const search = async () => {
+    try {
+      const e = await searchqr(searchTerm, after)
+    } catch (error) {}
   }
 
   return (
@@ -50,7 +59,9 @@ export default function Home({ posts, category }) {
                   height='16'
                   width='16'
                   name='arrow'
-                  class='fill-current cursor-pointer self-center transform mt-4 mx-3 dark:text-darkaccent text-accent'
+                  class={`${
+                    loading ? "animate-bounce" : ""
+                  } fill-current cursor-pointer self-center transform mt-4 mx-3 dark:text-darkaccent text-accent`}
                 />
               </div>
             </div>
