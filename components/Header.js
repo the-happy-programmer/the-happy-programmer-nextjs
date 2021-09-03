@@ -6,6 +6,8 @@ export default function Header({ title }) {
   const [searchQuery, setSearchQuery] = useState("")
   const [searching, setSearching] = useState(false)
 
+  const 
+
   const searchcall = async (e) => {
     if (e.key === "Enter") {
       try {
