@@ -46,14 +46,14 @@ export default function Header({ title }) {
       <h2 className='text-4xl mt-1 dark:text-gray-50'>{title}</h2>
       <div className={`relative mt-10 `} onFocus={(e) => setSearching(true)}>
         <SvgtoReact
-          height='14'
-          width='14'
+          height='12'
+          width='12'
           name='search'
           className={`${
             searching
               ? "stroke-current dark:text-gray-100 text-gray-600"
               : "text-gray-300 dark:text-gray-600 stroke-current"
-          } z-10 absolute top-3 left-3`}
+          } z-10 absolute top-3.5 left-3`}
         />
         <input
           onChange={(e) => changeInput(e)}
