@@ -33,7 +33,7 @@ export default function Post({ post }) {
         <div className='container flex px-3 py-3 flex-col items-center'>
           <HappyLink
             href='/'
-            classes='fill-current text-gray-600 dark:text-gray-400 dark:hover:text-gray-50 place-self-start'
+            classes='fill-current text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 place-self-start'
           >
             <a className='pl-4 flex flex-row '>
               <SvgtoReact
