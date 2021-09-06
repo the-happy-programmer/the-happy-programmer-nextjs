@@ -18,8 +18,6 @@ export default function Header({ title }) {
       try {
         setLoading(true)
         const res = await searchqr(e.target.value)
-        console.log("RES:", res)
-
         setSearchList(res)
         setLoading(false)
       } catch (error) {
