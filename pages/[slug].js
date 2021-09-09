@@ -1,5 +1,5 @@
 import HappyLink from "../components/HappyLink"
-import Postbody from "../components/post-body"
+import Postbody from "../components/PostBody"
 import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
