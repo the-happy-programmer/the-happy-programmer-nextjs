@@ -1,3 +1,3 @@
 export default function PostList() {
-  return
+  return <>lol</>
 }
