@@ -1,10 +1,8 @@
 import SvgtoReact from "./Svgtoreact"
 import HappyButton from "./Happybutton"
-import { useRouter } from "next/router"
 import HappyLink from "./HappyLink"
 
 const Nav = () => {
-  const router = useRouter()
   const sublinks = [
     ["/category/swiftui", "SwiftUI"],
     ["/category/flutter", "Flutter"],

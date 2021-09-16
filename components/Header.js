@@ -1,30 +1,16 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import { searchqr } from "../lib/api"
-import HappyLink from "./HappyLink"
 import Link from "next/link"
 
 import SvgtoReact from "./Svgtoreact"
 
-export default function Header({ title }) {
+export default function Header({ title, posts }) {
   const router = useRouter()
 
   const [searchQuery, setSearchQuery] = useState("")
   const [searching, setSearching] = useState(false)
   const [searchList, setSearchList] = useState([])
-  const [loading, setLoading] = useState(false)
-  const searchcall = async (e) => {
-    if (e.key === "Enter" && searchQuery) {
-      try {
-        setLoading(true)
-        const res = await searchqr(e.target.value)
-        setSearchList(res)
-        setLoading(false)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-  }
 
   const changeInput = (e) => {
     if (e.target.value === "") {
@@ -32,8 +18,13 @@ export default function Header({ title }) {
       setSearchQuery(e.target.value)
       return
     }
+    console.log(e.target.value)
+    const obj = posts.find((o) => o.node.title == e.target.value)
+    console.log("OBJ", obj)
+    console.log("posts", posts[0].node.title)
+    setSearchQuery(e.target.value)
 
-    return setSearchQuery(e.target.value)
+    return
   }
 
   return (
@@ -47,17 +38,11 @@ export default function Header({ title }) {
           height='12'
           width='12'
           name='search'
-          className={`${
-            searching
-              ? "stroke-current dark:text-gray-100 text-gray-600"
-              : "text-gray-300 dark:text-gray-600 stroke-current"
-          } z-10 absolute top-3.5 left-3`}
+          className='text-gray-300 dark:text-gray-600 stroke-current z-10 absolute top-3.5 left-3'
         />
         <input
           onChange={(e) => changeInput(e)}
-          onSubmit={(e) => console.log("lol")}
           onBlur={(e) => setSearching(false)}
-          onKeyDown={searchcall}
           type='text'
           className={`py-2 pl-9 pr-4 border-gray-200 dark:border-gray-600 dark:placeholder-gray-600 placeholder-gray-300 text-sm border dark:bg-gray-900  ${
             searching
@@ -115,31 +100,19 @@ export default function Header({ title }) {
               </div>
             ) : (
               <div className='dark:text-gray-100 flex items-center my-auto mx-auto'>
-                {loading ? (
-                  <SvgtoReact
-                    name='fulllogo'
-                    class={
-                      "stroke-current animate-pulse dark:text-gray-100 text-gray-700 fill-current"
-                    }
-                    height={50}
-                  />
-                ) : (
-                  <>
-                    <div className='pr-2'>
-                      <SvgtoReact
-                        name='search'
-                        class={
-                          "stroke-current dark:text-gray-300 text-gray-600"
-                        }
-                        height={13}
-                        width={13}
-                      />
-                    </div>
-                    <p className='pl-2 border-l text-gray-600 border-gray-200 dark:text-gray-300 dark:border-gray-600'>
-                      Press Enter to Search
-                    </p>
-                  </>
-                )}
+                <>
+                  <div className='pr-2'>
+                    <SvgtoReact
+                      name='search'
+                      class={"stroke-current dark:text-gray-300 text-gray-600"}
+                      height={13}
+                      width={13}
+                    />
+                  </div>
+                  <p className='pl-2 border-l text-gray-600 border-gray-200 dark:text-gray-300 dark:border-gray-600'>
+                    Press Enter to Search
+                  </p>
+                </>
               </div>
             )}
           </div>

@@ -1,33 +1,12 @@
 import { useState } from "react"
 import Head from "next/head"
-import { getHomePosts, searchqr } from "../lib/api"
+import { getHomePosts } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
 import Posthome from "../components/Posthome"
-import SvgtoReact from "../components/Svgtoreact"
 
 export default function Home({ posts, category }) {
   const { edges } = posts
-  console.log("POSTS: ", posts)
-  const [initposts, setInitposts] = useState(edges)
-  const [loading, setLoading] = useState(false)
-  const loadmore = async () => {
-    try {
-      setLoading(true)
-      const e = await getHomePosts(10)
-      const { posts } = e
-      setInitposts(posts.edges)
-      setLoading(false)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const search = async () => {
-    try {
-      const e = await searchqr(searchTerm, after)
-    } catch (error) {}
-  }
 
   return (
     <div>
@@ -38,16 +17,23 @@ export default function Home({ posts, category }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Headerlayout>
-        <Header title='SwiftUI and Flutter Blog' />
+        <Header title='SwiftUI and Flutter Blog' posts={edges} />
       </Headerlayout>
       <main className='border-t border-b dark:border-gray-600'>
         <div className='bg-gray-100 dark:bg-gray-800'>
           <div className='container grid grid-cols-5 px-4 gap-x-14'>
             <div className='col-span-5 md:col-span-4 lg:col-span-4 xl:col-span-4'>
-              {initposts.map((node) => {
-                console.log(node)
-                return <Posthome post={node} key={node.node.postId} />
-              })}
+              {edges.slice(0, 5).map((node) => (
+                <Posthome post={node} key={node.node.postId} plain={true} />
+              ))}
+              <div className='py-20'>
+                <p className='text-2xl border-b border-gray-200 dark:border-gray-600 py-3 text-gray-900 dark:text-gray-50'>
+                  Older Posts
+                </p>
+                {edges.slice(5).map((node) => (
+                  <Posthome post={node} key={node.node.postId} plain={false} />
+                ))}
+              </div>
             </div>
             <div className='hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col'>
               <p className='dark:text-gray-50 text-gray-900 text-xl py-2'>
@@ -70,6 +56,6 @@ export default function Home({ posts, category }) {
   )
 }
 export async function getStaticProps() {
-  const posts = await getHomePosts(5)
+  const posts = await getHomePosts(1000)
   return { props: { posts: posts.posts, category: posts.categories } }
 }

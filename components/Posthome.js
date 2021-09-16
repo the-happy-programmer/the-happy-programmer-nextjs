@@ -1,7 +1,7 @@
 import HappyLink from "./HappyLink"
 import SvgtoReact from "./Svgtoreact"
 
-export default function Posthome({ post }) {
+export default function Posthome({ post, plain }) {
   const dt = (date) => new Date(date).toDateString()
 
   const categories = (cat) => {
@@ -24,9 +24,11 @@ export default function Posthome({ post }) {
     ))
   return (
     <div className='flex flex-col py-8 border-b dark:border-gray-600 border-gray-200'>
-      <div className='flex flex-row pb-2 items-center'>
-        {categories(post.node.categories.nodes)}
-      </div>
+      {plain ? (
+        <div className='flex flex-row pb-2 items-center'>
+          {categories(post.node.categories.nodes)}
+        </div>
+      ) : null}
       <HappyLink href={`${post.node.slug}`} classes='mr-auto'>
         <a className='w-auto flex flex-row text-2xl hover:underline text-gray-900 dark:text-gray-50'>
           {icontitle(post.node.tags.nodes)}
@@ -36,10 +38,14 @@ export default function Posthome({ post }) {
       <p className='text-gray-600 dark:text-gray-300 leading-loose'>
         {post.node.excerpt}
       </p>
-      <div className='pb-2 pt-5'>
-        <p className='dark:text-gray-50'>{post.node.author.node.firstName}</p>
-        <p className='dark:text-gray-400 text-gray-600'>{dt(post.node.date)}</p>
-      </div>
+      {plain ? (
+        <div className='pb-2 pt-5'>
+          <p className='dark:text-gray-50'>{post.node.author.node.firstName}</p>
+          <p className='dark:text-gray-400 text-gray-600'>
+            {dt(post.node.date)}
+          </p>
+        </div>
+      ) : null}
     </div>
   )
 }
