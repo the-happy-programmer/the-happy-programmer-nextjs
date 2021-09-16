@@ -48,22 +48,6 @@ export default function Home({ posts, category }) {
                 console.log(node)
                 return <Posthome post={node} key={node.node.postId} />
               })}
-              <div className='flex flex-col my-20 '>
-                <a
-                  onClick={(e) => loadmore()}
-                  className='text-accent dark:text-darkaccent cursor-pointer self-center uppercase'
-                >
-                  Load More
-                </a>
-                <SvgtoReact
-                  height='16'
-                  width='16'
-                  name='arrow'
-                  class={`${
-                    loading ? "animate-bounce" : ""
-                  } fill-current cursor-pointer self-center transform mt-4 mx-3 dark:text-darkaccent text-accent`}
-                />
-              </div>
             </div>
             <div className='hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col'>
               <p className='dark:text-gray-50 text-gray-900 text-xl py-2'>

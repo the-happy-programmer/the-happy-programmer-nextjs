@@ -4,19 +4,11 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
-export default function Post({ post }) {
+export default function Post({ post, socials }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar, slug } = author.node
   const dt = (date) => new Date(date).toDateString()
-  const socials = [
-    ["https://twitter.com/happy_prog", "twitter"],
-    ["https://www.patreon.com/thehappyprogrammer", "patreon"],
-    [
-      "https://www.facebook.com/The-Happy-Programmer-106178104593013",
-      "facebook",
-    ],
-    ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
-  ]
+
   const postIcon = (tag) =>
     tag.map((tag) => (
       <SvgtoReact
@@ -88,10 +80,20 @@ export default function Post({ post }) {
 }
 
 export async function getStaticProps({ params }) {
+  const socials = [
+    ["https://twitter.com/happy_prog", "twitter"],
+    ["https://www.patreon.com/thehappyprogrammer", "patreon"],
+    [
+      "https://www.facebook.com/The-Happy-Programmer-106178104593013",
+      "facebook",
+    ],
+    ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
+  ]
   const post = await getPost(params.slug)
   return {
     props: {
       post: post,
+      socials: socials,
     },
   }
 }
