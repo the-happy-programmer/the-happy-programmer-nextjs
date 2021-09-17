@@ -38,14 +38,12 @@ export default function Posthome({ post, plain }) {
       <p className='text-gray-600 dark:text-gray-300 leading-loose'>
         {post.node.excerpt}
       </p>
-      {plain ? (
-        <div className='pb-2 pt-5'>
+      <div className='pb-2 pt-5'>
+        {plain ? (
           <p className='dark:text-gray-50'>{post.node.author.node.firstName}</p>
-          <p className='dark:text-gray-400 text-gray-600'>
-            {dt(post.node.date)}
-          </p>
-        </div>
-      ) : null}
+        ) : null}
+        <p className='dark:text-gray-400 text-gray-600'>{dt(post.node.date)}</p>
+      </div>
     </div>
   )
 }

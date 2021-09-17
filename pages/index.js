@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Head from "next/head"
 import { getHomePosts } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
