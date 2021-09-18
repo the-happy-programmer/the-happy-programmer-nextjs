@@ -3,6 +3,7 @@ import { getHomePosts } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
 import Posthome from "../components/Posthome"
+import Support from "../components/Support"
 
 export default function Home({ posts, category }) {
   const { edges } = posts
@@ -49,6 +50,7 @@ export default function Home({ posts, category }) {
               </div>
             </div>
           </div>
+          <Support />
         </div>
       </main>
     </div>
