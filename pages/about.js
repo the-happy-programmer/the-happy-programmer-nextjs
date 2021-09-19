@@ -1,8 +1,39 @@
+import Headerlayout from "../widget/Headerlayout"
+import Image from "next/image"
+import Me from "../public/me.jpeg"
+import SvgtoReact from "../components/Svgtoreact"
 export default function About({ socials, projects }) {
-  return <div></div>
+  return (
+    <div className='container'>
+      <div className='border-b '>
+        <Headerlayout>
+          <Image src={Me} className='rounded-full' height={150} width={150} />
+        </Headerlayout>
+      </div>
+      <div className=''>
+        {projects.map(([svg, desc, link]) => (
+          <div key={svg} className=''>
+            <SvgtoReact name={svg} height={45} />
+            <p>{desc}</p>
+            <p>{link}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export function getStaticProps() {
+  const pic = {
+    src: "",
+  }
+
+  const author = {
+    desc: "My name is Tony",
+    job: "And I am a Software Engineer",
+    mail: "info@thehappyprogramer.com",
+  }
+
   const socials = [
     ["https://twitter.com/happy_prog", "twitter"],
     ["https://www.patreon.com/thehappyprogrammer", "patreon"],

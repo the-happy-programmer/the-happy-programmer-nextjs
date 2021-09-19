@@ -4,6 +4,11 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
+
+const myLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+}
+
 export default function Post({ post, socials }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar, slug } = author.node

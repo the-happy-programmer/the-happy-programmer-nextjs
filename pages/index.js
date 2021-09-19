@@ -19,7 +19,7 @@ export default function Home({ posts, category }) {
       <Headerlayout>
         <Header title='SwiftUI and Flutter Blog' posts={edges} />
       </Headerlayout>
-      <main className='border-t border-b dark:border-gray-600'>
+      <main className='border-t dark:border-gray-600'>
         <div className='bg-gray-100 dark:bg-gray-800'>
           <div className='container grid grid-cols-5 px-4 gap-x-14'>
             <div className='col-span-5 md:col-span-4 lg:col-span-4 xl:col-span-4'>
@@ -50,7 +50,6 @@ export default function Home({ posts, category }) {
               </div>
             </div>
           </div>
-          <Support />
         </div>
       </main>
     </div>
