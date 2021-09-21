@@ -5,9 +5,9 @@ import SvgtoReact from "../components/Svgtoreact"
 import HappyLink from "../components/HappyLink"
 export default function About({ socials, projects }) {
   return (
-    <div className=' bg-gray-50'>
+    <div className=' bg-gray-50 dark:bg-gray-900'>
       <div className=''>
-        <div className='border-b'>
+        <div className='border-b dark:border-gray-600'>
           <div className='container'>
             <Headerlayout>
               <Image
@@ -19,17 +19,40 @@ export default function About({ socials, projects }) {
             </Headerlayout>
           </div>
         </div>
-        <div className='bg-gray-100'>
+        <div className='bg-gray-100 dark:bg-gray-800'>
+          <p className='container text-gray-800 dark:text-gray-50 px-3 py-8 text-2xl'>
+            Experience.{" "}
+            <span className='dark:text-gray-400 text-gray-500'>
+              You can see my projects on GitHub
+            </span>
+          </p>
           <div className='grid grid-cols-4 px-2 gap-5 container'>
             {projects.map(([svg, desc, link]) => (
-              <div key={svg} className='bg-gray-50 p-5 border rounded-xl'>
+              <div
+                key={svg}
+                className='flex flex-col bg-gray-50 dark:bg-gray-900 p-5 border dark:border-gray-600 rounded-xl'
+              >
                 <div className='py-5'>
-                  <SvgtoReact name={svg.toLowerCase()} height={45} />
+                  <SvgtoReact
+                    className='fill-current dark:text-gray-50'
+                    name={svg.toLowerCase()}
+                    height={45}
+                  />
                 </div>
-                <p className='text-2xl'>{svg}</p>
-                <p className='leading-loose text-gray-600 '>{desc}</p>
-                <HappyLink classes='font-bold' href={link}>
-                  Projects
+                <p className='text-2xl dark:text-gray-50'>{svg}</p>
+                <p className='leading-loose text-gray-600 dark:text-gray-300 py-2'>
+                  {desc}
+                </p>
+                <HappyLink
+                  classes='dark:text-gray-50 font-bold justify-between mt-auto flex items-center'
+                  href={link}
+                >
+                  Projects{" "}
+                  <SvgtoReact
+                    name='arrow'
+                    className='transform fill-current -rotate-90 dark:text-gray-50'
+                    height={15}
+                  />
                 </HappyLink>
               </div>
             ))}
@@ -68,7 +91,7 @@ export function getStaticProps() {
     ],
     [
       "Python",
-      "python is very strong when dealing with strings, on The Happy Programmer we will be creating some interesting projects",
+      "on The Happy Programmer we will be creating some interesting projects",
       "https://github.com/MyNameIsBond/exercises_2nd_year",
     ],
     [
@@ -78,17 +101,17 @@ export function getStaticProps() {
     ],
     [
       "Flutter",
-      "Flutter is arguably the hottest kid in the neighborhood, In The Happy Programmer we will be creating numerous full projects on Flutter",
+      "In The Happy Programmer we will be creating numerous full projects on Flutter",
       "https://github.com/MyNameIsBond/eventApp",
     ],
     [
       "Frontity",
-      "Frontity is a WordPress focus ReactJS framework that avoids using GraphQL to create headless cms. A replica of this website too is being created on Frontity follow the link below.",
+      "A replica of this website too is being created using Frontity follow the link below.",
       "https://github.com/MyNameIsBond/the-happy-programmer",
     ],
     [
       "NextJS",
-      "NextJS is growing so rapidly that The Happy Programmer has included a couple of projects including this website.",
+      "The Happy Programmer has included a couple of projects including this website.",
       "https://github.com/MyNameIsBond/the-happy-programmer-nextjs",
     ],
     [
@@ -98,7 +121,7 @@ export function getStaticProps() {
     ],
     [
       "React",
-      "using React Native you can create apps for iOS and Android, The Happy Programmer will focus highly on React Native.",
+      "The Happy Programmer will focus highly on React Native.",
       "https://github.com/MyNameIsBond/UberEatsReactNative",
     ],
     [

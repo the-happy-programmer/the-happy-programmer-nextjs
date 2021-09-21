@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <div className=''>
       <Support />
-      <div className='bg-white dark:bg-black border-t container'>
+      <div className='bg-white dark:bg-black border-t dark:border-gray-700 container'>
         <footer className='container mx-auto flex flex-row justify-between p-4'>
           <div className='justify-self-auto stroke-current fill-current text-gray-700 dark:text-gray-400'>
             <Svgtoreact name={"fulllogo"} height={30} width={100} />
