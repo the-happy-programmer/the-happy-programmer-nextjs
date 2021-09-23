@@ -1,23 +1,44 @@
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
 import Me from "../public/me.jpg"
-import SvgtoReact from "../components/Svgtoreact"
-import HappyLink from "../components/HappyLink"
-export default function About({ socials, projects }) {
+import DisplayInfo from "../widget/DisplayInfo"
+import DisplayCard from "../components/DisplayCard"
+
+export default function About({ socials, projects, author }) {
   return (
     <div className=' bg-gray-50 dark:bg-gray-900'>
-      <div className=''>
-        <div className='border-b dark:border-gray-600'>
-          <div className='container'>
-            <Headerlayout>
-              <Image
-                src={Me}
-                className='rounded-full'
-                height={150}
-                width={150}
-              />
-            </Headerlayout>
+      <div className='dark:border-gray-600'>
+        <Headerlayout>
+          <div className='container flex justify-center content-center'>
+            <Image src={Me} className='rounded-full' height={120} width={120} />
+            <div className='dark:text-gray-50 text-gray-900 my-auto pl-5'>
+              <p className='text-2xl'>{author.desc}</p>
+              <p className='dark:text-gray-400 text-gray-700 py-1 pb-2'>
+                {author.job}
+              </p>
+              <a
+                className='dark:text-darkaccent text-accent'
+                href={`mailto:${author.mail}`}
+              >
+                {author.mail}
+              </a>
+            </div>
           </div>
+        </Headerlayout>
+        <div className=' border-t dark:border-gray-600'>
+          <DisplayInfo title='Socials' subtitle=' Follow on my socials'>
+            {socials.map(([link, svg, desc]) => (
+              <DisplayCard svg={svg} desc={desc} link={link} socials={true} />
+            ))}
+          </DisplayInfo>
+          <DisplayInfo
+            title='Experience'
+            subtitle=' You can see my projects on GitHub'
+          >
+            {projects.map(([svg, desc, link]) => (
+              <DisplayCard svg={svg} desc={desc} link={link} />
+            ))}
+          </DisplayInfo>
         </div>
       </div>
     </div>
@@ -25,24 +46,29 @@ export default function About({ socials, projects }) {
 }
 
 export function getStaticProps() {
-  const pic = {
-    src: "",
-  }
-
   const author = {
     desc: "My name is Tony",
-    job: "And I am a Software Engineer",
+    job: "I am a Software Engineer",
     mail: "info@thehappyprogramer.com",
   }
 
   const socials = [
-    ["https://twitter.com/happy_prog", "twitter"],
-    ["https://www.patreon.com/thehappyprogrammer", "patreon"],
+    ["https://twitter.com/happy_prog", "twitter", "@happy_prog"],
+    [
+      "https://www.patreon.com/thehappyprogrammer",
+      "patreon",
+      "/thehappyprogrammer",
+    ],
     [
       "https://www.facebook.com/The-Happy-Programmer-106178104593013",
       "facebook",
+      "The Happy Programmer",
     ],
-    ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
+    [
+      "https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA",
+      "youtube",
+      "The Happy Programmer",
+    ],
   ]
   const projects = [
     [
@@ -100,6 +126,7 @@ export function getStaticProps() {
     props: {
       socials: socials,
       projects: projects,
+      author: author,
     },
   }
 }
