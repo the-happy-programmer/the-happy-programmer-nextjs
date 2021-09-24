@@ -9,15 +9,15 @@ export default function About({ socials, projects, author }) {
     <div className=' bg-gray-50 dark:bg-gray-900'>
       <div className='dark:border-gray-600'>
         <Headerlayout>
-          <div className='container flex justify-center content-center'>
-            <Image src={Me} className='rounded-full' height={120} width={120} />
-            <div className='dark:text-gray-50 text-gray-900 my-auto pl-5'>
-              <p className='text-2xl'>{author.desc}</p>
-              <p className='dark:text-gray-400 text-gray-700 py-1 pb-2'>
+          <div className='flex-col pt-5 text-center sm:text-left sm:flex-row sm:pt-16 md:text-left md:flex-row md:pt-16 lg:text-left lg:flex-row lg:pt-16 xl:text-left xl:flex-row xl:pt-16 container flex justify-center items-center'>
+            <Image src={Me} className='rounded-full' height={130} width={130} />
+            <div className='dark:text-gray-50 text-gray-900 my-auto pl-8'>
+              <p className='text-4xl'>{author.desc}</p>
+              <p className='dark:text-gray-400 text-gray-700 py-1 pb-4'>
                 {author.job}
               </p>
               <a
-                className='dark:text-darkaccent text-accent'
+                className='dark:text-darkaccent hover:underline text-accent'
                 href={`mailto:${author.mail}`}
               >
                 {author.mail}
@@ -25,10 +25,16 @@ export default function About({ socials, projects, author }) {
             </div>
           </div>
         </Headerlayout>
-        <div className=' border-t dark:border-gray-600'>
-          <DisplayInfo title='Socials' subtitle=' Follow on my socials'>
+        <div className=' border-t dark:border-gray-600 py-10 bg-gray-100 dark:bg-gray-800'>
+          <DisplayInfo title='Socials' subtitle=' Follow me on my socials'>
             {socials.map(([link, svg, desc]) => (
-              <DisplayCard svg={svg} desc={desc} link={link} socials={true} />
+              <DisplayCard
+                key={link}
+                svg={svg}
+                desc={desc}
+                link={link}
+                socials={true}
+              />
             ))}
           </DisplayInfo>
           <DisplayInfo
@@ -36,7 +42,7 @@ export default function About({ socials, projects, author }) {
             subtitle=' You can see my projects on GitHub'
           >
             {projects.map(([svg, desc, link]) => (
-              <DisplayCard svg={svg} desc={desc} link={link} />
+              <DisplayCard key={link} svg={svg} desc={desc} link={link} />
             ))}
           </DisplayInfo>
         </div>

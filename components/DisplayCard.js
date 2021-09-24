@@ -14,7 +14,7 @@ export default function DisplayCard({ svg, desc, link, socials }) {
           height={socials ? 30 : 45}
         />
       </div>
-      <p className='text-2xl dark:text-gray-50'>{svg}</p>
+      <p className='text-2xl capitalize dark:text-gray-50'>{svg}</p>
       <p className='leading-loose text-gray-600 dark:text-gray-300 py-2'>
         {desc}
       </p>
