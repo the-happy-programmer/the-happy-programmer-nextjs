@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
-
 import SvgtoReact from "./Svgtoreact"
 
 export default function Header({ title, posts }) {
@@ -36,7 +35,7 @@ export default function Header({ title, posts }) {
       <h1 className='text-gray-500 dark:text-gray-300 '>
         The Happy Programmer
       </h1>
-      <h2 className='text-4xl mt-1 dark:text-gray-50'>{title}</h2>
+      <h2 className='text-4xl mt-1 dark:text-gray-50 capitalize'>{title}</h2>
       <div className='relative mt-10' onFocus={(e) => setSearching(true)}>
         <SvgtoReact
           height='12'

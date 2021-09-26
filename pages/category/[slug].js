@@ -1,14 +1,29 @@
-import { category, getAllCategories } from "../../lib/api"
+import { useRouter } from "next/router"
+import Header from "../../components/Header"
+import PostList from "../../components/PostList"
+import { category, getAllCategories, getHomePosts } from "../../lib/api"
+import Headerlayout from "../../widget/Headerlayout"
 
-export default function Category({ categories, category }) {
-  return <h1>asdasd</h1>
+export default function Category({ categories, post, search }) {
+  const router = useRouter()
+  const { slug } = router.query
+
+  return (
+    <div>
+      <Headerlayout>
+        <Header title={slug} posts={search.edges} />
+      </Headerlayout>
+      <PostList edges={search.edges} category={categories} />
+    </div>
+  )
 }
 export async function getStaticProps({ params }) {
   const categories = await getAllCategories()
   const cate = await category(params.slug)
-  console.log("cate", cate)
+  const search = await getHomePosts(1000)
+
   return {
-    props: { categories: categories, category: cate },
+    props: { categories: categories, post: cate, search: search.posts },
   }
 }
 

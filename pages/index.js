@@ -2,11 +2,10 @@ import Head from "next/head"
 import { getHomePosts } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
-import Posthome from "../components/Posthome"
+import PostList from "../components/PostList"
 
 export default function Home({ posts, category }) {
-  const { edges } = posts
-
+  console.log("CATEGORY", category)
   return (
     <div>
       <Head>
@@ -16,41 +15,9 @@ export default function Home({ posts, category }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Headerlayout>
-        <Header title='SwiftUI and Flutter Blog' posts={edges} />
+        <Header title='SwiftUI and Flutter Blog' posts={posts.edges} />
       </Headerlayout>
-      <main className='border-t dark:border-gray-600'>
-        <div className='bg-gray-100 dark:bg-gray-800'>
-          <div className='container grid grid-cols-5 px-4 gap-x-14'>
-            <div className='col-span-5 md:col-span-4 lg:col-span-4 xl:col-span-4'>
-              {edges.slice(0, 5).map((node) => (
-                <Posthome post={node} key={node.node.postId} plain={true} />
-              ))}
-              <div className='py-20'>
-                <p className='text-2xl border-b border-gray-200 dark:border-gray-600 py-3 text-gray-900 dark:text-gray-50'>
-                  Older Posts
-                </p>
-                {edges.slice(5).map((node) => (
-                  <Posthome post={node} key={node.node.postId} plain={false} />
-                ))}
-              </div>
-            </div>
-            <div className='hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col'>
-              <p className='dark:text-gray-50 text-gray-900 text-xl py-2'>
-                Category
-              </p>
-              <div className='divide-y dark:divide-gray-700'>
-                {category.nodes.map((cat) => (
-                  <div className='py-2' key={cat.slug}>
-                    <a className='dark:text-gray-300 dark:hover:text-gray-50 text-gray-600 hover:text-gray-900 cursor-pointer'>
-                      {cat.name}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+      <PostList edges={posts} category={category} />
     </div>
   )
 }
