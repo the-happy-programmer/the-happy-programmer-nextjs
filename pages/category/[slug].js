@@ -4,26 +4,26 @@ import PostList from "../../components/PostList"
 import { category, getAllCategories, getHomePosts } from "../../lib/api"
 import Headerlayout from "../../widget/Headerlayout"
 
-export default function Category({ categories, post, search }) {
+export default function Category({ categories, posts, search }) {
   const router = useRouter()
   const { slug } = router.query
-
+  const { edges } = categories
   return (
     <div>
       <Headerlayout>
         <Header title={slug} posts={search.edges} />
       </Headerlayout>
-      <PostList edges={search.edges} category={categories} />
+      <PostList posts={posts.edges} categories={categories.categories.edges} />
     </div>
   )
 }
 export async function getStaticProps({ params }) {
   const categories = await getAllCategories()
-  const cate = await category(params.slug)
+  const posts = await category(params.slug)
   const search = await getHomePosts(1000)
 
   return {
-    props: { categories: categories, post: cate, search: search.posts },
+    props: { categories: categories, posts: posts.posts, search: search.posts },
   }
 }
 

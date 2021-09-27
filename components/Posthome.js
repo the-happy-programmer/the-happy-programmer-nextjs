@@ -29,7 +29,7 @@ export default function Posthome({ post, plain }) {
           {categories(post.node.categories.nodes)}
         </div>
       ) : null}
-      <HappyLink href={`${post.node.slug}`} classes='mr-auto'>
+      <HappyLink href={`/${post.node.slug}`} classes='mr-auto'>
         <a className='w-auto flex flex-row text-2xl hover:underline text-gray-900 dark:text-gray-50'>
           {icontitle(post.node.tags.nodes)}
           {post.node.title}

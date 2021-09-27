@@ -1,11 +1,10 @@
 import Head from "next/head"
-import { getHomePosts } from "../lib/api"
+import { getAllCategories, getHomePosts } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Header from "../components/Header"
 import PostList from "../components/PostList"
 
 export default function Home({ posts, category }) {
-  console.log("CATEGORY", category)
   return (
     <div>
       <Head>
@@ -17,11 +16,12 @@ export default function Home({ posts, category }) {
       <Headerlayout>
         <Header title='SwiftUI and Flutter Blog' posts={posts.edges} />
       </Headerlayout>
-      <PostList edges={posts} category={category} />
+      <PostList posts={posts.edges} categories={category.edges} />
     </div>
   )
 }
 export async function getStaticProps() {
   const posts = await getHomePosts(1000)
-  return { props: { posts: posts.posts, category: posts.categories } }
+  const category = await getAllCategories()
+  return { props: { posts: posts.posts, category: category.categories } }
 }
