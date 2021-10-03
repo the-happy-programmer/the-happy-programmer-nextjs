@@ -25,8 +25,8 @@ export default function Header({ title, posts }) {
       setSearchQuery(e.target.value)
       return
     }
-    setSearchQuery(e.target.value)
-    setSearchList(filterItems(posts, e.target.value))
+    setSearchQuery(e.target.value.toLowerCase())
+    setSearchList(filterItems(posts, e.target.value.toLowerCase()))
     return
   }
 
