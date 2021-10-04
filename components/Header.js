@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import SvgtoReact from "./Svgtoreact"
-
+// Header
 export default function Header({ title, posts }) {
   const router = useRouter()
 
