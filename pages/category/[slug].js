@@ -7,7 +7,7 @@ import Headerlayout from "../../widget/Headerlayout"
 export default function Category({ categories, posts, search }) {
   const router = useRouter()
   const { slug } = router.query
-  const { edges } = categories
+
   return (
     <div>
       <Headerlayout>
@@ -17,6 +17,7 @@ export default function Category({ categories, posts, search }) {
     </div>
   )
 }
+
 export async function getStaticProps({ params }) {
   const categories = await getAllCategories()
   const posts = await category(params.slug)
