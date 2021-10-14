@@ -27,7 +27,7 @@ const Nav = () => {
               {links.map(([link, name]) => (
                 <div key={name} className='pr-5 sm:pr-6 md:pr-10'>
                   <HappyLink
-                    classes='px-0 pb-5 sm:pb-6 sm:px-5 md:px-5 lg:px-5 xl:px-5  hover:text-gray-900 dark:hover:text-gray-50'
+                    classes='px-0 pb-5 sm:pb-6 sm:px-5 md:px-5 lg:px-5 xl:px-5  hover:text-gray-900 dark:hover:text-gray-50 active:text-gray-50'
                     href={link}
                   >
                     {name}
@@ -49,7 +49,7 @@ const Nav = () => {
               {sublinks.map(([link, name]) => (
                 <div className='px-4 py-4' key={name}>
                   <HappyLink
-                    classes='px-0 sm:px-4 md:px-4 lg:px-4 xl:px-4 pb-4 hover:text-gray-900 dark:hover:text-gray-50'
+                    classes='px-0 sm:px-4 md:px-4 lg:px-4 xl:px-4 pb-4 hover:text-gray-900 dark:hover:text-gray-50 active:text-gray-200'
                     href={link}
                   >
                     {name}

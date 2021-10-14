@@ -2,7 +2,6 @@ import Posthome from "./Posthome"
 import Link from "next/link"
 
 export default function PostList({ posts, categories }) {
-  console.log("CATEGORIES:", categories)
   return (
     <main className='border-t dark:border-gray-600'>
       <div className='bg-gray-100 dark:bg-gray-800'>
@@ -13,7 +12,7 @@ export default function PostList({ posts, categories }) {
             ))}
             {posts.length >= 5 ? (
               <div className='py-20'>
-                <p className='text-2xl border-b border-gray-200 dark:border-gray-600 py-3 text-gray-900 dark:text-gray-50'>
+                <p className='text-2xl border-b border-gray-200 dark:border-gray-600 py-3 text-gray-900 dark:text-gray-50 '>
                   Older Posts
                 </p>
                 {posts?.slice(5).map((node) => (
