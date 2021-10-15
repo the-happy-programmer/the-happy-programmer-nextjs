@@ -39,7 +39,7 @@ export default function Post({ post, socials }) {
                 height='15'
                 width='15'
               />
-              Back
+              Back to posts
             </a>
           </HappyLink>
           {postIcon(tags.nodes)}
