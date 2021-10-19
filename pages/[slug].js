@@ -4,12 +4,14 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
+// import { renderToStaticMarkup } from "react-dom/server"
+// import { Parser } from "html-to-react"
 
 const myLoader = ({ src, width, quality }) => {
   return `https://example.com/${src}?w=${width}&q=${quality || 75}`
 }
 
-export default function Post({ post, socials }) {
+export default function Post({ post, socials, content }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar, slug } = author.node
   const dt = (date) => new Date(date).toDateString()
@@ -79,7 +81,7 @@ export default function Post({ post, socials }) {
           </div>
         </div>
       </Headerlayout>
-      <Postbody content={post.post.content} />
+      <Postbody content={content} />
     </>
   )
 }
@@ -95,10 +97,14 @@ export async function getStaticProps({ params }) {
     ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
   ]
   const post = await getPost(params.slug)
+  // const e = new Parser()
+  // const ReactElement = e.parse(post.post.content)
+  // const content = renderToStaticMarkup(ReactElement)
   return {
     props: {
       post: post,
       socials: socials,
+      content: post.post.content,
     },
   }
 }
