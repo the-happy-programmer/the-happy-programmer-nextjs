@@ -4,8 +4,6 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
-// import { renderToStaticMarkup } from "react-dom/server"
-// import { Parser } from "html-to-react"
 
 const myLoader = ({ src, width, quality }) => {
   return `https://example.com/${src}?w=${width}&q=${quality || 75}`
@@ -97,9 +95,7 @@ export async function getStaticProps({ params }) {
     ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
   ]
   const post = await getPost(params.slug)
-  // const e = new Parser()
-  // const ReactElement = e.parse(post.post.content)
-  // const content = renderToStaticMarkup(ReactElement)
+
   return {
     props: {
       post: post,
