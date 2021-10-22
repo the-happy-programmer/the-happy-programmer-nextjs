@@ -25,7 +25,7 @@ export default function Posthome({ post, plain }) {
   return (
     <div className='flex flex-col py-8 border-b dark:border-gray-600 border-gray-200'>
       {plain ? (
-        <div className='flex flex-row pb-2 items-center'>
+        <div className='flex flex-row pb-3 items-center'>
           {categories(post.node.categories.nodes)}
         </div>
       ) : null}

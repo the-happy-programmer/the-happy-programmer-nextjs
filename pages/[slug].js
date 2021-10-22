@@ -4,10 +4,7 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
-
-const myLoader = ({ src, width, quality }) => {
-  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
-}
+import highlighter from "../lib/highlighter"
 
 export default function Post({ post, socials, content }) {
   const { author, date, tags, title } = post.post
@@ -95,12 +92,12 @@ export async function getStaticProps({ params }) {
     ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
   ]
   const post = await getPost(params.slug)
-
+  const content = highlighter(post.post.content)
   return {
     props: {
       post: post,
       socials: socials,
-      content: post.post.content,
+      content: content,
     },
   }
 }

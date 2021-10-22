@@ -27,7 +27,7 @@ export default function PostList({ posts, categories }) {
             </p>
             <div className='divide-y dark:divide-gray-700'>
               {categories.map((cat) => (
-                <div className='py-2' key={cat.node.uri}>
+                <div className='py-3' key={cat.node.uri}>
                   <Link href={`${cat.node.uri}`}>
                     <a className='dark:text-gray-300 dark:hover:text-gray-50 text-gray-600 hover:text-gray-900 cursor-pointer'>
                       {cat.node.name}
