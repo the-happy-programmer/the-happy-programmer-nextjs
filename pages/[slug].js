@@ -8,7 +8,7 @@ import highlighter from "../lib/highlighter"
 
 export default function Post({ post, socials, content }) {
   const { author, date, tags, title } = post.post
-  const { firstName, avatar, slug } = author.node
+  const { firstName, avatar } = author.node
   const dt = (date) => new Date(date).toDateString()
 
   const postIcon = (tag) =>
