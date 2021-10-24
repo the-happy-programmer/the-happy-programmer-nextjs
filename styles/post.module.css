@@ -52,7 +52,7 @@
 }
 
 .content code {
-  @apply text-sm font-bold dark:text-gray-100;
+  @apply text-sm dark:text-gray-100;
 }
 
 .content figcaption {

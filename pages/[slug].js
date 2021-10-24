@@ -5,7 +5,6 @@ import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
 import highlighter from "../lib/highlighter"
-
 export default function Post({ post, socials, content }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar } = author.node
