@@ -1,4 +1,3 @@
-import React, { useEffect } from "react"
 import styles from "../styles/post.module.css"
 
 export default function Postbody({ content }) {

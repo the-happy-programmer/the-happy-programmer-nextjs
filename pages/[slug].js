@@ -4,8 +4,8 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
+import Script from "next/script"
 import highlighter from "../lib/highlighter"
-import Head from "next/head"
 export default function Post({ post, socials, content }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar } = author.node
@@ -23,9 +23,6 @@ export default function Post({ post, socials, content }) {
     ))
   return (
     <>
-      <Head>
-        <link href='../styles/xcode.css' rel='stylesheet' />
-      </Head>
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
           <HappyLink
@@ -94,15 +91,13 @@ export async function getStaticProps({ params }) {
     ],
     ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
   ]
-
   const post = await getPost(params.slug)
-  const content = await highlighter(post.post.content)
-
+  const pp = await highlighter(post.post.content)
   return {
     props: {
       post: post,
       socials: socials,
-      content: content,
+      content: pp,
     },
   }
 }
