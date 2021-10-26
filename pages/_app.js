@@ -3,11 +3,9 @@ import Sitelayout from "../widget/Sitelayout"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <html lang='en'>
-      <Sitelayout>
-        <Component {...pageProps} />
-      </Sitelayout>
-    </html>
+    <Sitelayout>
+      <Component {...pageProps} />
+    </Sitelayout>
   )
 }
 
