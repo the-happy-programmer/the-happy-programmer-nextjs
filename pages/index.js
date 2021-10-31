@@ -14,7 +14,11 @@ export default function Home({ posts, category }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Headerlayout>
-        <Header title='SwiftUI and Flutter Academy' posts={posts.edges} />
+        <Header
+          subtitle='SwiftUI and Flutter Academy'
+          title='The Happy Programmer'
+          posts={posts.edges}
+        />
       </Headerlayout>
       <PostList posts={posts.edges} categories={category.edges} />
     </div>

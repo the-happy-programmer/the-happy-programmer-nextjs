@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+
 function useDynamicSVGImport(name, options = {}) {
   const ImportedIconRef = useRef()
   const [loading, setLoading] = useState(false)
@@ -39,7 +40,7 @@ const SvgtoReact = ({ name, onCompleted, onError, ...rest }) => {
     return error.message
   }
   if (loading) {
-    return "Loading..."
+    return ""
   }
   if (SvgIcon) {
     return <SvgIcon {...rest} />

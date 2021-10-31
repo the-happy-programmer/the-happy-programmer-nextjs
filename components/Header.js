@@ -2,8 +2,9 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import SvgtoReact from "./Svgtoreact"
+import styles from "../styles/search.module.css"
 
-export default function Header({ title, posts }) {
+export default function Header({ title, subtitle, posts }) {
   const router = useRouter()
 
   const [searchQuery, setSearchQuery] = useState("")
@@ -20,6 +21,8 @@ export default function Header({ title, posts }) {
   }
 
   const changeInput = (e) => {
+    console.log("pffff")
+    console.log("searching: ", searching)
     if (e.target.value === "") {
       setSearchList([])
       setSearchQuery(e.target.value)
@@ -32,14 +35,12 @@ export default function Header({ title, posts }) {
 
   return (
     <div className='container px-4 pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-20'>
-      <h1 className='text-gray-500 dark:text-gray-300 '>
-        The Happy Programmer
-      </h1>
+      <h1 className='text-gray-500 dark:text-gray-300 '>{subtitle}</h1>
       <h2 className='text-4xl mt-1 dark:text-gray-50 capitalize'>{title}</h2>
-      <div className='relative mt-10' onFocus={(e) => setSearching(true)}>
+      <div className='relative mt-10'>
         <SvgtoReact
-          height='12'
-          width='12'
+          height={12}
+          width={12}
           name='search'
           className={`${
             searching
@@ -48,13 +49,12 @@ export default function Header({ title, posts }) {
           } stroke-current z-10 absolute top-3.5 left-3`}
         />
         <input
+          onFocus={(e) => setSearching(true)}
           onChange={(e) => changeInput(e)}
           onBlur={(e) => setSearching(false)}
           type='text'
-          className={`py-2 pl-9 pr-4 border-gray-200 dark:border-gray-600 dark:placeholder-gray-600 placeholder-gray-300 text-sm border dark:bg-gray-900  ${
-            searching
-              ? "rounded-t-lg w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
-              : "rounded-md w-3/4 sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/5"
+          className={` ${styles.searchstyle} ${
+            searching ? styles.issearching : styles.isnotsearching
           }  ds-input dark:text-gray-50
         focus:border-gray-300  dark:focus:border-gray-300 focus:border-4 focus:outline-none`}
           placeholder='Search posts...'

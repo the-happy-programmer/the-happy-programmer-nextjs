@@ -54,7 +54,7 @@ export default function About({ socials, projects, author }) {
 export function getStaticProps() {
   const author = {
     desc: "My name is Tony",
-    job: "I am a Software Engineer and Writter",
+    job: "I am a Software Engineer",
     mail: "info@thehappyprogramer.com",
   }
 

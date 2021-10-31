@@ -1,27 +1,26 @@
 import HappyLink from "./HappyLink"
 import SvgtoReact from "./Svgtoreact"
 
+const categories = (cat) => {
+  return cat.map((categories) => (
+    <HappyLink href={`${categories.uri}`} key={categories.uri}>
+      <a className='text-gray-600 hover:text-gray-900  text-sm dark:text-gray-400 cursor-pointer mr-2.5 dark:hover:text-gray-50 uppercase'>
+        {categories.name}
+      </a>
+    </HappyLink>
+  ))
+}
+
+const icontitle = (tag) =>
+  tag.map((tag) => (
+    <div className='w-12' key={tag.slug}>
+      <SvgtoReact height={30} class='mr-4' name={tag.slug.toLowerCase()} />
+    </div>
+  ))
+
 export default function Posthome({ post, plain }) {
   const dt = (date) => new Date(date).toDateString()
 
-  const categories = (cat) => {
-    return cat.map((categories) => (
-      <HappyLink href={`${categories.uri}`} key={categories.uri}>
-        <a className='text-gray-600 hover:text-gray-900  text-sm dark:text-gray-400 cursor-pointer mr-2.5 dark:hover:text-gray-50 uppercase'>
-          {categories.name}
-        </a>
-      </HappyLink>
-    ))
-  }
-  const icontitle = (tag) =>
-    tag.map((tag) => (
-      <SvgtoReact
-        key={tag.slug}
-        height='30'
-        class='mr-4'
-        name={tag.slug.toLowerCase()}
-      />
-    ))
   return (
     <div className='flex flex-col py-8 border-b dark:border-gray-600 border-gray-200'>
       {plain ? (

@@ -5,6 +5,7 @@ import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
 import highlighter from "../lib/highlighter"
+
 export default function Post({ post, socials, content }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar } = author.node
@@ -12,13 +13,14 @@ export default function Post({ post, socials, content }) {
 
   const postIcon = (tag) =>
     tag.map((tag) => (
-      <SvgtoReact
-        key={tag.name}
-        height={60}
-        width={60}
-        class='mr-4'
-        name={tag.name.toLowerCase()}
-      />
+      <div key={tag.name} className='h-16'>
+        <SvgtoReact
+          height={60}
+          width={60}
+          class='mr-4'
+          name={tag.name.toLowerCase()}
+        />
+      </div>
     ))
   return (
     <>
@@ -90,6 +92,7 @@ export async function getStaticProps({ params }) {
     ],
     ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
   ]
+
   const post = await getPost(params.slug)
   const pp = await highlighter(post.post.content)
   return {

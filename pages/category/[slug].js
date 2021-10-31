@@ -11,7 +11,11 @@ export default function Category({ categories, posts, search }) {
   return (
     <div>
       <Headerlayout>
-        <Header title={slug} posts={search.edges} />
+        <Header
+          subtitle='The Happy Programmer'
+          title={slug}
+          posts={search.edges}
+        />
       </Headerlayout>
       <PostList posts={posts.edges} categories={categories.categories.edges} />
     </div>

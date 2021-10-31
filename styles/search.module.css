@@ -1,0 +1,11 @@
+.searchstyle {
+  @apply py-2 pl-9 pr-4 border-gray-200 dark:border-gray-600 dark:placeholder-gray-600 placeholder-gray-300 text-sm border dark:bg-gray-900;
+}
+
+.issearching {
+  @apply rounded-t-lg w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4;
+}
+
+.isnotsearching {
+  @apply rounded-md w-3/4 sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/5;
+}
