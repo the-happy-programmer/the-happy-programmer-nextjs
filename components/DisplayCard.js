@@ -7,7 +7,7 @@ export default function DisplayCard({ svg, desc, link, socials }) {
       key={svg}
       className='flex flex-col bg-gray-50 dark:bg-gray-900 p-5 border dark:border-gray-600 rounded-xl'
     >
-      <div className='pt-5 pb-2 h-20'>
+      <div className={`pt-5 pb-2 ${socials ? "h-16" : "h-20"}`}>
         <SvgtoReact
           className='fill-current dark:text-gray-50'
           name={svg.toLowerCase()}
