@@ -1,8 +1,7 @@
 import Headerlayout from "../widget/Headerlayout"
-import Image from "next/image"
-import Me from "../public/me.jpg"
 import DisplayInfo from "../widget/DisplayInfo"
 import DisplayCard from "../components/DisplayCard"
+import SvgtoReact from "../components/Svgtoreact"
 
 export default function About({ socials, projects, author }) {
   return (
@@ -10,7 +9,10 @@ export default function About({ socials, projects, author }) {
       <div className='dark:border-gray-600'>
         <Headerlayout>
           <div className='flex-col pt-5 text-center sm:text-left sm:flex-row sm:pt-16 md:text-left md:flex-row md:pt-16 lg:text-left lg:flex-row lg:pt-16 xl:text-left xl:flex-row xl:pt-16 container flex justify-center items-center'>
-            <Image src={Me} className='rounded-full' height={130} width={130} />
+            <div className='h-36 w-36'>
+              <SvgtoReact height={150} name='face' />
+            </div>
+
             <div className='dark:text-gray-50 text-gray-900 my-auto pl-8'>
               <p className='text-4xl'>{author.desc}</p>
               <p className='dark:text-gray-400 text-gray-700 py-1 pb-4'>

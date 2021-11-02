@@ -1,17 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-  <g id="Group_69" data-name="Group 69" transform="translate(-351 -19)">
-    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(351 19)" fill="none" stroke="#000" stroke-width="6">
-      <circle cx="18" cy="18" r="18" stroke="none"/>
-      <circle cx="18" cy="18" r="15" fill="none"/>
-    </g>
-    <path id="Path_52" data-name="Path 52" d="M7.953,0l7.953,13.807H0Z" transform="translate(361 28)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278 274">
+  <g id="Ellipse_11" data-name="Ellipse 11" fill="none" stroke="none" stroke-width="47">
+    <circle cx="137" cy="137" r="113.5" fill="none"/>
   </g>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-  <g id="Group_69" data-name="Group 69" transform="translate(-351 -19)">
-    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(351 19)" fill="none"  stroke-width="5">
-      <circle cx="18" cy="18" r="15"/>
-    </g>
-    <path id="Path_52" data-name="Path 52" d="M7.953,0l7.953,13.807H0Z" transform="translate(361 28)"/>
-  </g>
+  <path d="M62.233,0l62.233,108.044H0Z" transform="translate(75.199 68.148)"/>
 </svg>

@@ -79,7 +79,7 @@ export default function Header({ title, subtitle, posts }) {
                         width={13}
                       />
                     </div>
-                    <p className='pl-2 border-l dark:text-gray-300 text-gray-600 dark:border-gray-300 border-gray-300'>
+                    <p className='pl-2 border-l dark:text-gray-300 text-gray-600 dark:border-gray-600 border-gray-300'>
                       No results found
                     </p>
                   </div>
