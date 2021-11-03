@@ -1,5 +1,6 @@
 .searchstyle {
   @apply py-2 pl-9 pr-4 border-gray-200 dark:border-gray-600 dark:placeholder-gray-600 placeholder-gray-300 text-sm border dark:bg-gray-900;
+  @apply ds-input dark:text-gray-50 focus:border-gray-300  dark:focus:border-gray-300 focus:border-4 focus:outline-none;
 }
 
 .issearching {

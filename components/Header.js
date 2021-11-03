@@ -53,10 +53,9 @@ export default function Header({ title, subtitle, posts }) {
           onChange={(e) => changeInput(e)}
           onBlur={(e) => setSearching(false)}
           type='text'
-          className={` ${styles.searchstyle} ${
+          className={`${styles.searchstyle} ${
             searching ? styles.issearching : styles.isnotsearching
-          }  ds-input dark:text-gray-50
-        focus:border-gray-300  dark:focus:border-gray-300 focus:border-4 focus:outline-none`}
+          }`}
           placeholder='Search posts...'
         />
         <div
