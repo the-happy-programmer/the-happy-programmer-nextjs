@@ -1,5 +1,5 @@
 .content {
-  @apply text-lg leading-relaxed container max-w-xl text-gray-900 dark:text-gray-200 pt-4;
+  @apply text-lg leading-relaxed container max-w-xl text-gray-900 dark:text-gray-200 pt-4 px-3;
 }
 
 .content p,
@@ -56,11 +56,11 @@
 }
 
 .content p code {
-  @apply font-bold text-gray-500 dark:text-gray-300 border-solid;
+  @apply dark:bg-gray-100 bg-gray-800 p-1 font-bold text-gray-50 dark:text-gray-900 rounded;
 }
 
 .content ul code {
-  @apply font-bold text-gray-500 dark:text-gray-300 border-solid;
+  @apply dark:bg-gray-100 bg-gray-800 p-1 font-bold text-gray-50 dark:text-gray-900 rounded;
 }
 
 .content figcaption {
