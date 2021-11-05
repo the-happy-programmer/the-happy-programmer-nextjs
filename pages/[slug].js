@@ -4,9 +4,10 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
+import Head from "next/head"
 import highlighter from "../lib/highlighter"
-
-export default function Post({ post, socials, content }) {
+import htmltoreact from "../lib/htmltoreact"
+export default function Post({ post, socials, content, seo }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar } = author.node
   const dt = (date) => new Date(date).toDateString()
@@ -24,6 +25,7 @@ export default function Post({ post, socials, content }) {
     ))
   return (
     <>
+      <Head></Head>
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
           <HappyLink
@@ -95,11 +97,13 @@ export async function getStaticProps({ params }) {
 
   const post = await getPost(params.slug)
   const pp = await highlighter(post.post.content)
+  const seo = await htmltoreact(post.post.seo.fullHead)
   return {
     props: {
       post: post,
       socials: socials,
       content: pp,
+      seo: seo,
     },
   }
 }
