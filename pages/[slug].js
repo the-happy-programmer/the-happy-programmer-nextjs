@@ -4,13 +4,19 @@ import SvgtoReact from "../components/Svgtoreact"
 import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
-import Head from "next/head"
 import highlighter from "../lib/highlighter"
 import htmltoreact from "../lib/htmltoreact"
+import Tags from "../components/MetaTags"
+import Head from "next/head"
 export default function Post({ post, socials, content, seo }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar } = author.node
   const dt = (date) => new Date(date).toDateString()
+
+  const meta = {
+    title: "Title",
+    desciption: "Description",
+  }
 
   const postIcon = (tag) =>
     tag.map((tag) => (
@@ -25,7 +31,9 @@ export default function Post({ post, socials, content, seo }) {
     ))
   return (
     <>
-      <Head></Head>
+      <Head>
+        <Tags meta={meta} />
+      </Head>
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
           <HappyLink
