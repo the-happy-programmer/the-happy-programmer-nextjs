@@ -2,7 +2,6 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import SvgtoReact from "./Svgtoreact"
-import styles from "../styles/search.module.css"
 
 export default function Header({ title, subtitle, posts }) {
   const router = useRouter()
@@ -53,8 +52,10 @@ export default function Header({ title, subtitle, posts }) {
           onChange={(e) => changeInput(e)}
           onBlur={(e) => setSearching(false)}
           type='text'
-          className={` ${styles.searchstyle} ${
-            searching ? styles.issearching : styles.isnotsearching
+          className={`py-2 pl-9 pr-4 dark:text-gray-50 border-gray-200 dark:border-gray-600 dark:placeholder-gray-600 placeholder-gray-300 text-sm border dark:bg-gray-900 ${
+            searching
+              ? "rounded-t-lg w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
+              : "rounded-md w-3/4 sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/5"
           } focus:border-gray-300 dark:focus:border-gray-300 focus:border-4 focus:outline-none`}
           placeholder='Search posts...'
         />

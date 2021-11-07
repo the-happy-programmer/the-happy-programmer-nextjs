@@ -5,18 +5,13 @@ import { getPost, getAllPostsWithSlug } from "../lib/api"
 import Headerlayout from "../widget/Headerlayout"
 import Image from "next/image"
 import highlighter from "../lib/highlighter"
-import htmltoreact from "../lib/htmltoreact"
-import Tags from "../components/MetaTags"
-import Head from "next/head"
-export default function Post({ post, socials, content, seo }) {
+import MetaTags from "../components/MetaTags"
+import Link from "next/link"
+
+export default function Post({ post, socials, content, metalinks }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar } = author.node
   const dt = (date) => new Date(date).toDateString()
-
-  const meta = {
-    title: "Title",
-    desciption: "Description",
-  }
 
   const postIcon = (tag) =>
     tag.map((tag) => (
@@ -29,18 +24,14 @@ export default function Post({ post, socials, content, seo }) {
         />
       </div>
     ))
+
   return (
     <>
-      <Head>
-        <Tags meta={meta} />
-      </Head>
+      <MetaTags title={metalinks.title} description={metalinks.metaDesc} />
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
-          <HappyLink
-            href='/'
-            classes='fill-current text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 place-self-start'
-          >
-            <a className='pl-4 flex flex-row '>
+          <Link href='/'>
+            <a className='pl-2 flex flex-row fill-current text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 place-self-start'>
               <SvgtoReact
                 className='transform rotate-90 self-center mr-3 '
                 name='arrow'
@@ -49,7 +40,7 @@ export default function Post({ post, socials, content, seo }) {
               />
               Back to posts
             </a>
-          </HappyLink>
+          </Link>
           {postIcon(tags.nodes)}
           <h1 className='text-3xl font-bold p-3 text-gray-900 dark:text-gray-50'>
             {title}
@@ -105,13 +96,12 @@ export async function getStaticProps({ params }) {
 
   const post = await getPost(params.slug)
   const pp = await highlighter(post.post.content)
-  const seo = await htmltoreact(post.post.seo.fullHead)
   return {
     props: {
       post: post,
       socials: socials,
       content: pp,
-      seo: seo,
+      metalinks: post.post.seo,
     },
   }
 }

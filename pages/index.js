@@ -22,6 +22,7 @@ export default function Home({ posts, category }) {
     </div>
   )
 }
+
 export async function getStaticProps() {
   const posts = await getHomePosts(1000)
   const category = await getAllCategories()
