@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ["secure.gravatar.com"],
+    domains: ["secure.gravatar.com", "i1.wp.com", "i2.wp.com"],
   },
   swcMinify: true,
   reactStrictMode: true,
