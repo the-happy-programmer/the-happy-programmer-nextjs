@@ -6,7 +6,7 @@ export default function Postbody({ content }) {
       <div
         className={styles.content}
         dangerouslySetInnerHTML={{ __html: content }}
-      />
+      ></div>
     </div>
   )
 }
