@@ -1,35 +1,36 @@
-import SvgtoReact from "./Svgtoreact"
-import HappyButton from "./Happybutton"
-import HappyLink from "./HappyLink"
+import SvgtoReact from './Svgtoreact'
+import HappyButton from './Happybutton'
+import HappyLink from './HappyLink'
 
 const Nav = () => {
   const sublinks = [
-    //   ["/course/swiftui", "SwiftUI"],
-    //   ["/course/flutter", "Flutter"],
-    //   ["/course/reactnative", "React Native"],
+    // ['/course/swiftui', 'SwiftUI'],
+    // ['/course/flutter', 'Flutter'],
+    // ['/course/reactnative', 'React Native'],
   ]
 
   const links = [
-    ["/", "Blog"],
-    ["/about", "About"],
+    ['/', 'Blog'],
+    ['/about', 'About'],
   ]
+
   return (
     <div className=' dark:border-gray-600'>
       <nav className='text-gray-500 dark:text-gray-300'>
         <div className='border-b dark:border-gray-600'>
           <div className='container p-3 sm:p-4 flex items-center justify-between mx-auto'>
-            <div className='h-10 w-10'>
+            <div>
               <SvgtoReact
                 name='logo'
-                className='justify-self-auto stroke-current fill-current text-gray-900 dark:text-gray-50'
-                height={40}
+                className='justify-self-center stroke-current fill-current text-gray-900 dark:text-gray-50'
+                height={30}
               />
             </div>
             <div className='flex items-center'>
               {links.map(([link, name]) => (
                 <div key={name} className='pr-5 sm:pr-6 md:pr-10'>
                   <HappyLink
-                    classes='px-0 pb-5 sm:pb-6 sm:px-5 md:px-5 lg:px-5 xl:px-5  hover:text-gray-900 dark:hover:text-gray-50 active:text-gray-50'
+                    classes='px-0 pb-4 sm:pb-6 sm:px-5 md:px-5 lg:px-5 xl:px-5  hover:text-gray-900 dark:hover:text-gray-50 active:text-gray-50'
                     href={link}
                   >
                     {name}

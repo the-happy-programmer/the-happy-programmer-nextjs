@@ -1,5 +1,5 @@
 .content {
-  @apply text-lg leading-relaxed container max-w-xl text-gray-900 dark:text-gray-200 pt-4 px-3;
+  @apply text-lg container max-w-xl tracking-wide text-gray-700 dark:text-gray-200 pt-4 px-3;
 }
 
 .content p,
@@ -7,6 +7,12 @@
 .content ol,
 .content blockquote {
   @apply my-6 text-base;
+}
+
+.content p,
+.content ul,
+.content ol {
+  @apply leading-relaxed;
 }
 
 .content a {
@@ -35,6 +41,13 @@
   list-style: circle;
 }
 
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+  @apply text-gray-900 dark:text-gray-50 font-bold;
+}
+
 .content h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
@@ -49,6 +62,7 @@
 
 .content pre {
   @apply whitespace-pre overflow-x-auto my-6 p-5 text-sm leading-tight border  rounded-xl border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900;
+  @apply dark:text-gray-50 text-gray-900 font-semibold;
 }
 
 .content code {
@@ -68,7 +82,7 @@
 }
 
 .content blockquote {
-  @apply border-l-4 border-gray-500 bg-gray-200 italic ml-0 py-4 px-6;
+  @apply border-l-4 border-gray-500 text-gray-50 dark:text-gray-900 bg-gray-200 italic ml-0 py-4 px-6;
 }
 
 .content blockquote p {
@@ -81,104 +95,4 @@
 
 .content figure {
   @apply mx-auto flex flex-col items-center;
-}
-
-/* ----------------------------------------------- */
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #fff;
-  color: black;
-}
-
-/* Gray DOCTYPE selectors like WebKit */
-.xml .hljs-meta {
-  color: #c0c0c0;
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: #007400;
-}
-
-.hljs-tag,
-.hljs-attribute,
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-name {
-  color: #aa0d91;
-}
-
-.hljs-variable,
-.hljs-template-variable {
-  color: #3f6e74;
-}
-
-.hljs-code,
-.hljs-string,
-.hljs-meta-string {
-  color: #c41a16;
-}
-
-.hljs-regexp,
-.hljs-link {
-  color: #0e0eff;
-}
-
-.hljs-title,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-number {
-  color: #1c00cf;
-}
-
-.hljs-section,
-.hljs-meta {
-  color: #643820;
-}
-
-.hljs-class .hljs-title,
-.hljs-type,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-params {
-  color: #5c2699;
-}
-
-.hljs-attr {
-  color: #836c28;
-}
-
-.hljs-subst {
-  color: #000;
-}
-
-.hljs-formula {
-  background-color: #eee;
-  font-style: italic;
-}
-
-.hljs-addition {
-  background-color: #baeeba;
-}
-
-.hljs-deletion {
-  background-color: #ffc8bd;
-}
-
-.hljs-selector-id,
-.hljs-selector-class {
-  color: #9b703f;
-}
-
-.hljs-doctag,
-.hljs-strong {
-  font-weight: bold;
-}
-
-.hljs-emphasis {
-  font-style: italic;
 }
