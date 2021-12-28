@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --my-gray-50: #fff;
+  --my-gray-100: #fafafa;
+  --my-gray-200: #eaeaea;
+  --my-gray-300: #999;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --my-gray-50: #000;
+    --my-gray-100: #111;
+    --my-gray-200: #333;
+    --my-gray-300: #444;
+  }
+}
