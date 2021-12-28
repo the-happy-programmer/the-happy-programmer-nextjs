@@ -1,24 +1,23 @@
-import Svgtoreact from "./Svgtoreact"
-import Support from "./Support"
-import Link from "next/link"
+import Svgtoreact from './Svgtoreact'
+import Support from './Support'
+import Link from 'next/link'
 export default function Footer() {
   const socials = [
-    ["https://twitter.com/happy_prog", "twitter"],
-    ["https://www.patreon.com/thehappyprogrammer", "patreon"],
+    ['https://twitter.com/happy_prog', 'twitter'],
+    ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
     [
-      "https://www.facebook.com/The-Happy-Programmer-106178104593013",
-      "facebook",
+      'https://www.facebook.com/The-Happy-Programmer-106178104593013',
+      'facebook',
     ],
-    ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
-    ["https://www.github.com/MyNameIsBond", "github"],
+    ['https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA', 'youtube'],
+    ['https://www.github.com/MyNameIsBond', 'github'],
   ]
   return (
-    <div className=''>
-      <Support />
-      <div className='bg-white dark:bg-black border-t dark:border-gray-700 container'>
+    <div className='border-t dark:border-gray-700 border-gray-200'>
+      <div className='bg-white dark:bg-black container'>
         <footer className='container mx-auto flex flex-row justify-between p-4'>
           <div className='justify-self-auto stroke-current fill-current text-gray-700 dark:text-gray-400'>
-            <Svgtoreact name={"fulllogo"} height={30} width={100} />
+            <Svgtoreact name={'fulllogo'} height={30} width={100} />
           </div>
           <div className='flex flex-row'>
             {socials.map(([href, icon]) => (

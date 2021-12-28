@@ -1,12 +1,12 @@
-import HappyLink from "../components/HappyLink"
-import Postbody from "../components/PostBody"
-import SvgtoReact from "../components/Svgtoreact"
-import { getPost, getAllPostsWithSlug } from "../lib/api"
-import Headerlayout from "../widget/Headerlayout"
-import Image from "next/image"
-import highlighter from "../lib/highlighter"
-import MetaTags from "../components/MetaTags"
-import Link from "next/link"
+import HappyLink from '../components/HappyLink'
+import Postbody from '../components/PostBody'
+import SvgtoReact from '../components/Svgtoreact'
+import { getPost, getAllPostsWithSlug } from '../lib/api'
+import Headerlayout from '../widget/Headerlayout'
+import Image from 'next/image'
+import highlighter from '../lib/highlighter'
+import MetaTags from '../components/MetaTags'
+import Link from 'next/link'
 
 export default function Post({ post, socials, content, metalinks }) {
   const { author, date, tags, title } = post.post
@@ -30,7 +30,7 @@ export default function Post({ post, socials, content, metalinks }) {
       <MetaTags title={metalinks.title} description={metalinks.metaDesc} />
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
-          <Link href='/'>
+          <Link href='/blog'>
             <a className='pl-2 flex flex-row fill-current text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 place-self-start'>
               <SvgtoReact
                 className='transform rotate-90 self-center mr-3 '
@@ -72,7 +72,7 @@ export default function Post({ post, socials, content, metalinks }) {
                 >
                   {names}
                 </HappyLink>
-                {socials.length - 1 === i ? "" : "•"}
+                {socials.length - 1 === i ? '' : '•'}
               </div>
             ))}
           </div>
@@ -85,13 +85,13 @@ export default function Post({ post, socials, content, metalinks }) {
 
 export async function getStaticProps({ params }) {
   const socials = [
-    ["https://twitter.com/happy_prog", "twitter"],
-    ["https://www.patreon.com/thehappyprogrammer", "patreon"],
+    ['https://twitter.com/happy_prog', 'twitter'],
+    ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
     [
-      "https://www.facebook.com/The-Happy-Programmer-106178104593013",
-      "facebook",
+      'https://www.facebook.com/The-Happy-Programmer-106178104593013',
+      'facebook',
     ],
-    ["https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA", "youtube"],
+    ['https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA', 'youtube'],
   ]
 
   const post = await getPost(params.slug)
