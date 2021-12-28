@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 55.243 40.243">
+  <defs>
+    <filter id="Path_619" x="0" y="0"  filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_620" x="24.621" y="0.621"  filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Icon_feather-trending-up" data-name="Icon feather-trending-up" transform="translate(9.621 -0.879)">
+    <g transform="matrix(1, 0, 0, 1, -9.62, 0.88)" filter="url(#Path_619)">
+      <path id="Path_619-2" data-name="Path 619" d="M34.5,9,20.25,23.25l-7.5-7.5L1.5,27" transform="translate(9.62 -0.88)" fill="none" stroke="var(--my-gray-500)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -9.62, 0.88)" filter="url(#Path_620)">
+      <path id="Path_620-2" data-name="Path 620" d="M25.5,9h9v9" transform="translate(9.62 -0.88)" fill="none" stroke="var(--my-gray-500)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

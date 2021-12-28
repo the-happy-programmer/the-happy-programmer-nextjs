@@ -1,12 +1,12 @@
-import HappyLink from "./HappyLink"
+import HappyLink from './HappyLink'
 
 export default function Support() {
   return (
-    <div className='bg-gray-50 border-t border-gray-200 dark:border-gray-600 py-8 dark:bg-gray-900'>
+    <div className='bg-gray-50 border-t border-gray-200 dark:border-gray-700 py-8 dark:bg-gray-900'>
       <div className='container px-3 '>
         <div className='px-1'>
           <p className='dark:text-gray-50 text-gray-900'>
-            Consider supporting me on{" "}
+            Consider supporting me on{' '}
             <HappyLink
               classes='text-accent dark:text-darkaccent hover:underline'
               href='https://www.patreon.com/thehappyprogrammer'

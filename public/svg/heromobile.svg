@@ -40,11 +40,11 @@
   <circle id="Ellipse_105-2" data-name="Ellipse 105" cx="18" cy="18" r="18" transform="translate(112.185 323)" fill="var(--my-gray-50)"/>
   <rect id="Rectangle_397-2" data-name="Rectangle 397" width="120" height="8" rx="4" transform="translate(158.185 330)" fill="var(--my-gray-50)"/>
   <rect id="Rectangle_398-2" data-name="Rectangle 398" width="185" height="8" rx="4" transform="translate(158.185 344)" fill="var(--my-gray-50)"/>
-  <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(133 52)" fill="none" stroke="var(--my-gray-200)" stroke-width="5">
+  <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(133 52)" fill="none" stroke='#999' stroke-width="5">
     <circle cx="14" cy="14" r="14" stroke="none"/>
     <circle cx="14" cy="14" r="11.5" fill="none"/>
   </g>
-  <path id="Path_52" data-name="Path 52" d="M6.337,0l6.337,11H0Z" transform="translate(140.705 59.041)" fill="var(--my-gray-200)"/>
+  <path id="Path_52" data-name="Path 52" d="M6.337,0l6.337,11H0Z" transform="translate(140.705 59.041)" fill='#999'/>
   <text id="THE_HAPPY_PROGRAMMER" data-name="THE HAPPY 
-PROGRAMMER" transform="translate(166 65)" fill="var(--my-gray-200)" font-size="11" font-family="SFProText-Black, SF Pro Text" font-weight="800" letter-spacing="-0.062em"><tspan x="0" y="0">THE HAPPY </tspan><tspan x="0" y="9">PROGRAMMER</tspan></text>
+PROGRAMMER" transform="translate(166 65)" fill='#999' font-size="11" font-family="SFProText-Black, SF Pro Text" font-weight="800" letter-spacing="-0.062em"><tspan x="0" y="0">THE HAPPY </tspan><tspan x="0" y="9">PROGRAMMER</tspan></text>
 </svg>

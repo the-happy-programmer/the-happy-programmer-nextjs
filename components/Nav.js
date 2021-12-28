@@ -4,7 +4,6 @@ import HappyLink from './HappyLink'
 
 const Nav = () => {
   const sublinks = [
-    ['https://happynuxt.vercel.app/', 'NuxtJS'],
     // ['/course/flutter', 'Flutter'],
     // ['/course/reactnative', 'React Native'],
   ]
@@ -12,12 +11,13 @@ const Nav = () => {
   const links = [
     ['/blog', 'Blog'],
     ['/about', 'About'],
+    ['https://happynuxt.vercel.app/', 'NuxtJS'],
   ]
 
   return (
-    <div className=' dark:border-gray-600'>
+    <div className=' dark:border-gray-700'>
       <nav className='text-gray-500 dark:text-gray-300'>
-        <div className='border-b dark:border-gray-600'>
+        <div className='border-b dark:border-gray-700'>
           <div className='container px-3 py-4 sm:p-4 flex items-center justify-between mx-auto'>
             <div>
               <HappyLink href='/'>
@@ -48,7 +48,7 @@ const Nav = () => {
             </div>
           </div>
         </div>
-        <div className='dark:bg-gray-800 bg-gray-100  border-b border-gray-200 dark:border-gray-700'>
+        <div className='dark:bg-gray-800 bg-gray-100'>
           <div className='container mx-auto '>
             <div className='flex items-center'>
               {sublinks?.map(([link, name]) => (

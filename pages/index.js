@@ -1,11 +1,10 @@
-import HappyButton from '../components/Happybutton'
 import HeroCarousel from '../components/HeroCarousel'
-import SvgtoReact from '../components/Svgtoreact'
-
-export default function Home({ hero }) {
+import SubHero from '../components/SubHero'
+export default function Home({ hero, subhero }) {
   return (
     <div className='bg-gray-100 dark:bg-gray-800'>
       <HeroCarousel hero={hero} />
+      <SubHero subhero={subhero} />
     </div>
   )
 }
@@ -16,12 +15,25 @@ export async function getStaticProps() {
     subtitle:
       'Courses in every technology required to make you an expert on programming.',
   }
-  const subhero = []
+  const subhero = [
+    [
+      'understand',
+      'Understand',
+      'hard programming concepts explained in the simplest way.',
+    ],
+    [
+      'create',
+      'Create',
+      'Learn by creating in modern technologies on every device.',
+    ],
+    ['grow', 'Grow', 'be an expect on technologies you love.'],
+  ]
   const support = []
   const subsribe = []
   return {
     props: {
       hero: hero,
+      subhero: subhero,
     },
   }
 }

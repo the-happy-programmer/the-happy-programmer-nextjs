@@ -1,5 +1,5 @@
-import HappyLink from "./HappyLink"
-import SvgtoReact from "./Svgtoreact"
+import HappyLink from './HappyLink'
+import SvgtoReact from './Svgtoreact'
 
 const categories = (cat) => {
   return cat.map((categories) => (
@@ -22,7 +22,7 @@ export default function Posthome({ post, plain }) {
   const dt = (date) => new Date(date).toDateString()
 
   return (
-    <div className='flex flex-col py-8 border-b dark:border-gray-600 border-gray-200'>
+    <div className='flex flex-col py-8 border-b dark:border-gray-700 border-gray-200'>
       {plain ? (
         <div className='flex flex-row pb-3 items-center'>
           {categories(post.node.categories.nodes)}

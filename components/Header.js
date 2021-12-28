@@ -1,12 +1,12 @@
-import { useState } from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
-import SvgtoReact from "./Svgtoreact"
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import SvgtoReact from './Svgtoreact'
 
 export default function Header({ title, subtitle, posts }) {
   const router = useRouter()
 
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState('')
   const [searching, setSearching] = useState(false)
   const [searchList, setSearchList] = useState([])
 
@@ -20,9 +20,9 @@ export default function Header({ title, subtitle, posts }) {
   }
 
   const changeInput = (e) => {
-    console.log("pffff")
-    console.log("searching: ", searching)
-    if (e.target.value === "") {
+    console.log('pffff')
+    console.log('searching: ', searching)
+    if (e.target.value === '') {
       setSearchList([])
       setSearchQuery(e.target.value)
       return
@@ -43,8 +43,8 @@ export default function Header({ title, subtitle, posts }) {
           name='search'
           className={`${
             searching
-              ? "text-gray-900  dark:text-gray-50"
-              : "text-gray-300 dark:text-gray-600"
+              ? 'text-gray-900  dark:text-gray-50'
+              : 'text-gray-300 dark:text-gray-600'
           } stroke-current z-10 absolute top-3.5 left-3`}
         />
         <input
@@ -54,14 +54,14 @@ export default function Header({ title, subtitle, posts }) {
           type='text'
           className={`py-2 pl-9 pr-4 dark:text-gray-50 border-gray-200 dark:border-gray-600 dark:placeholder-gray-600 placeholder-gray-300 text-sm border dark:bg-gray-900 ${
             searching
-              ? "rounded-t-lg w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
-              : "rounded-md w-3/4 sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/5"
+              ? 'rounded-t-lg w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4'
+              : 'rounded-md w-3/4 sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/5'
           } focus:border-gray-300 dark:focus:border-gray-300 focus:border-4 focus:outline-none`}
           placeholder='Search posts...'
         />
         <div
           className={`${
-            searching ? "block" : "hidden"
+            searching ? 'block' : 'hidden'
           }  w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 h-56 dark:bg-gray-900  border-r border-b border-l border-gray-300 dark:border-gray-300 bg-gray-50  shadow-lg overflow-y-scroll rounded-b-lg`}
         >
           <div className='flex flex-col h-full w-full'>
@@ -73,7 +73,7 @@ export default function Header({ title, subtitle, posts }) {
                       <SvgtoReact
                         name='search'
                         class={
-                          "stroke-current text-gray-600 dark:text-gray-300"
+                          'stroke-current text-gray-600 dark:text-gray-300'
                         }
                         height={13}
                         width={13}
@@ -111,7 +111,7 @@ export default function Header({ title, subtitle, posts }) {
                   <div className='pr-2'>
                     <SvgtoReact
                       name='search'
-                      class={"stroke-current dark:text-gray-300 text-gray-600"}
+                      class={'stroke-current dark:text-gray-300 text-gray-600'}
                       height={13}
                       width={13}
                     />
