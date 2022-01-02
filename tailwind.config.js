@@ -12,7 +12,7 @@ module.exports = {
     },
     colors: {
       accent: '#0041d6',
-      darkaccent: '#4198ff',
+      // darkaccent: '#4198ff',
       gray: {
         50: '#fff',
         100: '#FAFAFA',
