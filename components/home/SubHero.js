@@ -1,4 +1,4 @@
-import SvgtoReact from './Svgtoreact'
+import SvgtoReact from '../Svgtoreact';
 
 export default function SubHero({ subhero }) {
   return (
@@ -23,5 +23,5 @@ export default function SubHero({ subhero }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
