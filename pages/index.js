@@ -1,10 +1,13 @@
 import HeroCarousel from '../components/home/HeroCarousel';
 import SubHero from '../components/home/SubHero';
+import Subscribe from '../components/home/Subscribe';
+
 export default function Home({ hero, subhero }) {
   return (
-    <div className='bg-gray-50 dark:bg-gray-800'>
+    <div className='bg-gray-50 dark:bg-gray-900'>
       <HeroCarousel hero={hero} />
       <SubHero subhero={subhero} />
+      <Subscribe />
     </div>
   );
 }

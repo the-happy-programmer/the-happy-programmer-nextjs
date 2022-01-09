@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 49.419 37.066">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 1 49.419 37.066">
   <defs>
     <filter id="Path_619" x="0" y="0" width="49.419" height="37.066" filterUnits="userSpaceOnUse">
       <feOffset dy="3" input="SourceAlpha"/>
@@ -9,11 +9,11 @@
     </filter>
   </defs>
   <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_619)">
-    <path id="Path_619-2" data-name="Path 619" d="M28.676,9,16.941,20.735l-6.176-6.176L1.5,23.823" transform="translate(9.62 -0.88)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <path id="Path_619-2" data-name="Path 619" d="M28.676,9,16.941,20.735l-6.176-6.176L1.5,23.823" transform="translate(9.62 -0.88)" fill="none" stroke="var(--my-icon-gray-300)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
   </g>
-  <path id="Path_620" data-name="Path 620" d="M25.5,9h7.412v7.412" transform="translate(5.387 -0.879)" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-  <rect id="Rectangle_440" data-name="Rectangle 440" width="3.011" height="8.167" rx="1.505" transform="translate(18.487 28.663)" fill="#fff"/>
-  <rect id="Rectangle_441" data-name="Rectangle 441" width="3.011" height="5.443" rx="1.505" transform="translate(10.487 31.387)" fill="#fff"/>
-  <rect id="Rectangle_442" data-name="Rectangle 442" width="3.011" height="10.886" rx="1.505" transform="translate(27.487 25.945)" fill="#fff"/>
-  <rect id="Rectangle_443" data-name="Rectangle 443" width="3.011" height="14.47" rx="1.505" transform="translate(35.487 22.361)" fill="#fff"/>
+  <path id="Path_620" data-name="Path 620" d="M25.5,9h7.412v7.412" transform="translate(5.387 -0.879)" fill="none"  stroke="var(--my-icon-gray-300)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  <rect id="Rectangle_440" data-name="Rectangle 440" width="3.011" height="8.167" rx="1.505" transform="translate(18.487 28.663)" />
+  <rect id="Rectangle_441" data-name="Rectangle 441" width="3.011" height="5.443" rx="1.505" transform="translate(10.487 31.387)" />
+  <rect id="Rectangle_442" data-name="Rectangle 442" width="3.011" height="10.886" rx="1.505" transform="translate(27.487 25.945)" />
+  <rect id="Rectangle_443" data-name="Rectangle 443" width="3.011" height="14.47" rx="1.505" transform="translate(35.487 22.361)" />
 </svg>

@@ -7,13 +7,15 @@
   --my-gray-100: #fafafa;
   --my-gray-200: #eaeaea;
   --my-gray-300: #999;
+  --my-icon-gray: #111;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --my-gray-50: #000;
+    --my-gray-50: #111;
     --my-gray-100: #111;
     --my-gray-200: #333;
     --my-gray-300: #444;
+    --my-icon-gray: #fafafa;
   }
 }
