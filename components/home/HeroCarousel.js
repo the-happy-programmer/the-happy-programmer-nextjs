@@ -1,6 +1,5 @@
-import styles from '../styles/hero.module.css'
-import HappyButton from './Happybutton'
-import SvgtoReact from './Svgtoreact'
+import HappyButton from '../Happybutton';
+import SvgtoReact from '../Svgtoreact';
 
 export default function HeroCarousel({ hero }) {
   return (
@@ -16,5 +15,5 @@ export default function HeroCarousel({ hero }) {
         <SvgtoReact name='heromobile'></SvgtoReact>
       </div>
     </div>
-  )
+  );
 }
