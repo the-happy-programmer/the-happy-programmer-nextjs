@@ -1,4 +1,4 @@
-import SvgtoReact from '../Svgtoreact';
+import SvgtoReact from './Svgtoreact'
 
 export default function SubHero({ subhero }) {
   return (
@@ -8,7 +8,7 @@ export default function SubHero({ subhero }) {
           <div className='flex flex-col items-center py-20' key={icon}>
             <div className='dark:bg-gray-700 bg-gray-200 p-4 rounded-full flex items-center justify-center w-24 h-24'>
               <SvgtoReact
-                class='fill-current stroke-current text-gray-800  dark:text-gray-100'
+                class='fill-current dark:text-gray-100 stroke-current'
                 height={35}
                 name={icon}
               />
@@ -23,5 +23,5 @@ export default function SubHero({ subhero }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

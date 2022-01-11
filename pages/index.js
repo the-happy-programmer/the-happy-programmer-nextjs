@@ -1,15 +1,12 @@
-import HeroCarousel from '../components/home/HeroCarousel';
-import SubHero from '../components/home/SubHero';
-import Subscribe from '../components/home/Subscribe';
-
+import HeroCarousel from '../components/HeroCarousel'
+import SubHero from '../components/SubHero'
 export default function Home({ hero, subhero }) {
   return (
-    <div className='bg-gray-50 dark:bg-gray-900'>
+    <div className='bg-gray-100 dark:bg-gray-800'>
       <HeroCarousel hero={hero} />
       <SubHero subhero={subhero} />
-      <Subscribe />
     </div>
-  );
+  )
 }
 
 export async function getStaticProps() {
@@ -17,7 +14,7 @@ export async function getStaticProps() {
     title: 'Courses in every technology.',
     subtitle:
       'Courses in every technology required to make you an expert on programming.',
-  };
+  }
   const subhero = [
     [
       'understand',
@@ -34,13 +31,13 @@ export async function getStaticProps() {
       'Grow',
       'be an expect and See your self to grow to a professional.',
     ],
-  ];
-  const support = [];
-  const subsribe = [];
+  ]
+  const support = []
+  const subsribe = []
   return {
     props: {
       hero: hero,
       subhero: subhero,
     },
-  };
+  }
 }
