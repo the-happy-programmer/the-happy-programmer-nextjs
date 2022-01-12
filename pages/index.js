@@ -29,11 +29,7 @@ export async function getStaticProps() {
       'Create',
       'Learn by creating in modern technologies on every device.',
     ],
-    [
-      'grow',
-      'Grow',
-      'be an expect and See your self to grow to a professional.',
-    ],
+    ['grow', 'Grow', 'be an expect and See your self grow to a professional.'],
   ];
   const support = [];
   const subsribe = [];
