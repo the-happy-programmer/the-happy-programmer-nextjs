@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 306.616 353.947">
+  <defs>
+    <filter id="Path_614" x="126.339" y="258.53" width="161.199" height="95.418" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_613" x="126.339" y="0" width="161.199" height="94.855" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_363" x="107.755" y="65.376" width="198.367" height="223.195" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_370" x="0" y="122.691" width="233.511" height="87.995" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="Path_616" data-name="Path 616" d="M3,0H15.256a3,3,0,0,1,3,3V37.893a3,3,0,0,1-3,3H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0Z" transform="translate(288.36 108.245)" fill="var(--my-gray-200)"/>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_614)">
+    <path id="Path_614-2" data-name="Path 614" d="M11.96,70.12c3.788,5.459,29.938,8.854,57.114,8.854s45.2-3.529,50.387-8.854S124,47.519,124,47.519s3.07-31.817,5.448-35.8C133.8,4.451,137.22,1.556,137.22,1.556H-5.979S1,5.274,3.971,15.5s1.938,13.922,3.5,26.937C7.523,53.2,10.467,67.968,11.96,70.12Z" transform="translate(141.32 262.97)" fill="var(--my-gray-50)"/>
+  </g>
+  <rect id="Rectangle_367" data-name="Rectangle 367" width="18.256" height="59.149" rx="2" transform="translate(283.249 179.077)" fill="var(--my-gray-200)"/>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_613)">
+    <path id="Path_613-2" data-name="Path 613" d="M11.96,10.345C15.748,4.926,41.9,1.556,69.073,1.556s45.2,3.5,50.387,8.789S124,32.781,124,32.781s3.07,31.585,5.448,35.535c4.347,7.22,7.769,10.095,7.769,10.095H-5.979S1,74.719,3.971,64.567s1.938-13.821,3.5-26.741C7.523,27.142,10.467,12.481,11.96,10.345Z" transform="translate(141.32 4.44)" fill="var(--my-gray-50)"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_363)">
+    <rect id="Rectangle_363-2" data-name="Rectangle 363" width="180.367" height="205.195" rx="30" transform="translate(116.76 71.38)" fill="var(--my-gray-200)"/>
+  </g>
+  <path id="Path_618" data-name="Path 618" d="M30,0H135.033a30,30,0,0,1,30,30V158.91a30,30,0,0,1-30,30H30a30,30,0,0,1-30-30V30A30,30,0,0,1,30,0Z" transform="translate(124.423 79.519)" fill="var(--my-gray-50)"/>
+  <circle id="Ellipse_101" data-name="Ellipse 101" cx="14.621" cy="14.621" r="14.621" transform="translate(142.488 104.284)" fill="var(--my-gray-200)"/>
+  <rect id="Rectangle_368" data-name="Rectangle 368" width="45.617" height="5.848" rx="2.924" transform="translate(230.213 107.793)" fill="var(--my-gray-200)"/>
+  <rect id="Rectangle_369" data-name="Rectangle 369" width="58.483" height="9.357" rx="4.679" transform="translate(217.347 119.49)" fill="var(--my-gray-200)"/>
+  <rect id="Rectangle_371" data-name="Rectangle 371" width="99.422" height="43.278" rx="9" transform="translate(157.694 204.875)" fill="var(--my-gray-200)"/>
+  <g id="Group_257" data-name="Group 257" transform="translate(-1230.224 -273.102)">
+    <g transform="matrix(1, 0, 0, 1, 1230.22, 273.1)" filter="url(#Rectangle_370)">
+      <rect id="Rectangle_370-2" data-name="Rectangle 370" width="215.511" height="69.995" rx="9" transform="translate(9 128.69)" fill="var(--my-gray-50)"/>
+    </g>
+    <rect id="Rectangle_417" data-name="Rectangle 417" width="92.099" height="14.736" rx="7.368" transform="translate(1268.696 417.934)" fill="var(--my-gray-200)"/>
+    <rect id="Rectangle_418" data-name="Rectangle 418" width="167.688" height="14.736" rx="7.368" transform="translate(1268.696 444.157)" fill="var(--my-gray-200)"/>
+  </g>
+</svg>
