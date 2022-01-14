@@ -1,7 +1,7 @@
-import SvgtoReact from './Svgtoreact'
+import SvgtoReact from './Svgtoreact';
 
 export default function SubHero({ subhero }) {
-  return (2
+  return (
     <div className='bg-gray-100 dark:bg-gray-800 border-t border-b border-gray-200 dark:border-gray-700'>
       <div className='container  flex gap-x-4 flex-row '>
         {subhero.map(([icon, title, subtitle]) => (
@@ -23,5 +23,5 @@ export default function SubHero({ subhero }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
