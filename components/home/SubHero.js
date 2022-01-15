@@ -6,10 +6,10 @@ export default function SubHero({ subhero }) {
       <div className='container  flex gap-x-4 flex-row '>
         {subhero.map(([icon, title, subtitle]) => (
           <div className='flex flex-col items-center py-20' key={icon}>
-            <div className='dark:bg-gray-700 bg-gray-200 p-4 rounded-full flex items-center justify-center w-24 h-24'>
+            <div className='dark:bg-gray-700 bg-gray-200 rounded-full flex items-center justify-center w-20 h-20'>
               <SvgtoReact
                 class='fill-current stroke-current text-gray-800  dark:text-gray-100'
-                height={35}
+                height={25}
                 name={icon}
               />
             </div>

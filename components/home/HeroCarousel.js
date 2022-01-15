@@ -1,6 +1,6 @@
 import HappyButton from '../Happybutton';
-import SvgtoReact from '../Svgtoreact';
 import Carousel from './Carousel';
+
 export default function HeroCarousel({ hero }) {
   return (
     <div className='flex container py-20 px-4 items-center justify-between'>
