@@ -12,7 +12,7 @@ export default function Subscribe() {
       <div>
         <input
           placeholder='example@email.com'
-          className='py-3 px-4  bg-gray-200 dark:bg-gray-900 dark:focus:border-gray-50 border dark:border-gray-600 focus:outline-none rounded-md mr-4 shadow-lg dark:text-gray-50 text-gray-900'
+          className='py-3 px-4  bg-gray-200 dark:bg-gray-800 dark:focus:border-gray-50 border dark:border-gray-600 focus:outline-none focus:border-gray-300 rounded-md mr-4 shadow-lg dark:text-gray-50 text-gray-900'
         />
         <HappyButton xl={true}> Subrcibe</HappyButton>
       </div>
