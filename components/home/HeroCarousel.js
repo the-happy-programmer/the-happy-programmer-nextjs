@@ -1,5 +1,5 @@
 import HappyButton from '../Happybutton';
-import Carousel from './Carousel';
+import SvgtoReact from '../Svgtoreact';
 
 export default function HeroCarousel({ hero }) {
   return (
@@ -12,7 +12,9 @@ export default function HeroCarousel({ hero }) {
         <HappyButton xl={true}>Subsribe</HappyButton>
       </div>
       <div>
-        <Carousel />
+        <div className=''>
+          <SvgtoReact name='herocode' height={500} />
+        </div>
       </div>
     </div>
   );

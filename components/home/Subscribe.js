@@ -1,13 +1,11 @@
 import HappyButton from '../Happybutton';
 
-export default function Subscribe() {
+export default function Subscribe({ title, subtitle }) {
   return (
     <div className='container text-center py-20'>
-      <p className='text-3xl font-bold dark:text-gray-50'>Subsribe</p>
+      <p className='text-3xl font-bold dark:text-gray-50'>{title}</p>
       <p className='p-10 text-gray-700 max-w-2xl mx-auto dark:text-gray-300'>
-        Subscribe to get notified for new content and course that will come in
-        the near future. In any way you will not get spammed or your data being
-        shared
+        {subtitle}
       </p>
       <div>
         <input
