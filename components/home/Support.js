@@ -14,16 +14,27 @@ export default function Support() {
         </div>
         <div className=''>
           <p>Choose Your Plan</p>
-          <div className='flex justify-center'>
+          <div className='flex justify-center gap-x-20'>
             <div className='rounded-lg border-gray-700'>
-              {prices.map(price => (
-              <div className='rounded-md border px-4 py-1.5 dark:border-gray-700' key={price}>
-                <p className='text-xl'>{price}</p>
-                <p>per month (+VAT)</p>
-              </div>))}
+              {prices.map((price) => (
+                <div
+                  className='rounded-md border px-6 py-2 dark:border-gray-700'
+                  key={price}
+                >
+                  <div className='flex flex-row gap-x-20 items-center'>
+                    <div>
+                      <p className='text-xl pb-1'>{price}</p>
+                      <p>per month (+VAT)</p>
+                    </div>
+                    <SvgtoReact
+                      name='tick'
+                      className='fill-current text-gray-50'
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className=' border rounded-lg border-gray-700'>b
-            </div>
+            <div className=' border rounded-lg border-gray-700'>b</div>
           </div>
         </div>
       </div>
