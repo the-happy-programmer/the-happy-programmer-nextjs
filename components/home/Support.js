@@ -9,16 +9,15 @@ export default function Support({ title, subtitle, prices, benefits }) {
       <div className='container px-4 py-10'>
         <div className='text-center'>
           <p className='text-3xl font-bold dark:text-gray-50'>{title}</p>
-          <p className='py-5'>{subtitle}</p>
+          <p className='py-5 pb-10'>{subtitle}</p>
         </div>
-        <div className=''>
-          <p>Choose Your Plan</p>
-          <div className='flex justify-center gap-x-20'>
+        <div>
+          <div className='flex flex-col-reverse justify-center gap-y-10 md:gap-x-16 lg:gap-x-16 xl:gap-x-16 sm:flex-col md:flex-row lg:flex-row xl:flex-row'>
             <div className='rounded-lg border-gray-700 flex flex-col gap-y-10'>
               {prices.map((price, index) => (
                 <div
                   key={index}
-                  className={`${
+                  className={` cursor-pointer ${
                     index === currentsupport &&
                     'dark:bg-gray-50 bg-gray-900 dark:text-gray-900 text-gray-50'
                   } rounded-md border px-6 py-2 dark:border-gray-700`}
