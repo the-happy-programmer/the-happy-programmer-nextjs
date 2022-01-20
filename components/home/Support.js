@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import SvgtoReact from '../Svgtoreact';
 
 export default function Support({ title, subtitle, prices, benefits }) {
@@ -11,7 +12,7 @@ export default function Support({ title, subtitle, prices, benefits }) {
           <p className='text-3xl font-bold dark:text-gray-50'>{title}</p>
           <p className='py-5 pb-10'>{subtitle}</p>
         </div>
-        <div>
+        <div className='min-w-min'>
           <div className='flex flex-col-reverse justify-center gap-y-10 md:gap-x-16 lg:gap-x-16 xl:gap-x-16 sm:flex-col md:flex-row lg:flex-row xl:flex-row'>
             <div className='rounded-lg border-gray-700 flex flex-col gap-y-10'>
               {prices.map((price, index) => (
@@ -41,7 +42,7 @@ export default function Support({ title, subtitle, prices, benefits }) {
                 </div>
               ))}
             </div>
-            <div className=' border rounded-lg border-gray-200 dark:border-gray-700 flex flex-col justify-center px-5'>
+            <div className=' border rounded-lg border-gray-200 dark:border-gray-700 flex flex-col px-5'>
               {benefits[currentsupport].map((e) => (
                 <div key={e} className='flex flex-row gap-x-5 m-5'>
                   <SvgtoReact
@@ -52,6 +53,9 @@ export default function Support({ title, subtitle, prices, benefits }) {
                   <p>{e}</p>
                 </div>
               ))}
+              <a className='dark:text-gray-900 text-gray-50 dark:bg-gray-50 bg-gray-900 -mx-5 mt-auto py-4 rounded-b-lg text-center'>
+                SUPPORT
+              </a>
             </div>
           </div>
         </div>
