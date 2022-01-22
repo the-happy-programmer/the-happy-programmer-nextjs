@@ -54,6 +54,7 @@ export default function Support({ title, subtitle, prices, benefits }) {
                 </div>
               ))}
               <a
+                target='_blank'
                 href='https://www.patreon.com/thehappyprogrammer'
                 className='dark:text-gray-900 text-gray-50 dark:bg-gray-50 bg-gray-900 -mx-5 mt-auto py-4 rounded-b-lg text-center hover:dark:bg-gray-200 hover:bg-gray-700'
               >
