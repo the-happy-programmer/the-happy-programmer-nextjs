@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.73",
     "html-to-react": "^1.4.7",
     "next": "^12.0.3",
     "preact": "^10.5.15",

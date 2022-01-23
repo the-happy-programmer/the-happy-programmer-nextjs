@@ -18,24 +18,27 @@ export default function Support({ title, subtitle, prices, benefits }) {
               {prices.map((price, index) => (
                 <div
                   key={index}
-                  className={` cursor-pointer ${
-                    index === currentsupport &&
-                    'dark:bg-gray-50 bg-gray-900 dark:text-gray-900 text-gray-50'
-                  } rounded-md border px-6 py-2 dark:border-gray-700`}
+                  className={` cursor-pointer rounded-md border px-6 py-2  ${
+                    index === currentsupport
+                      ? 'dark:bg-gray-50 bg-gray-900 dark:text-gray-900 text-gray-50 hover:bg-gray-700 dark:hover:bg-gray-200'
+                      : 'dark:border-gray-700 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  }`}
                   onClick={(e) => setcurrentsupport(index)}
                 >
                   <div className='flex flex-row gap-x-20 items-center'>
                     <div>
                       <p className='text-xl pb-1'>{price}</p>
-                      <p>per month (+VAT)</p>
+                      <p className='text-gray-500 dark:text-gray-400 text-sm'>
+                        per month (+VAT)
+                      </p>
                     </div>
                     <SvgtoReact
                       height={26}
                       name='tick'
                       className={
                         index === currentsupport
-                          ? 'fill-current text-gray-50 dark:text-gray-900'
-                          : 'fill-current dark:text-gray-50 text-gray-900'
+                          ? 'fill-current text-gray-50 dark:text-gray-700'
+                          : 'fill-current dark:text-gray-50 text-gray-700'
                       }
                     />
                   </div>
@@ -46,17 +49,18 @@ export default function Support({ title, subtitle, prices, benefits }) {
               {benefits[currentsupport].map((e) => (
                 <div key={e} className='flex flex-row gap-x-5 m-5'>
                   <SvgtoReact
-                    className='fill-current text-gray-900 dark:text-gray-50'
+                    className='fill-current text-gray-700 dark:text-gray-200'
                     name='tick'
                     height={26}
                   />
-                  <p>{e}</p>
+                  <p className='text-gray-700 dark:text-gray-50'>{e}</p>
                 </div>
               ))}
               <a
                 target='_blank'
+                rel='noreferrer'
                 href='https://www.patreon.com/thehappyprogrammer'
-                className='dark:text-gray-900 text-gray-50 dark:bg-gray-50 bg-gray-900 -mx-5 mt-auto py-4 rounded-b-lg text-center hover:dark:bg-gray-200 hover:bg-gray-700'
+                className='dark:text-gray-900 text-gray-50 dark:bg-gray-50 bg-gray-900 -mx-5 mt-auto py-4 rounded-b-lg text-center hover:dark:bg-gray-200 hover:bg-gray-700 dark:hover:bg-gray-200'
               >
                 SUPPORT
               </a>
