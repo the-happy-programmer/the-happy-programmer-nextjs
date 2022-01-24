@@ -2,8 +2,8 @@ import { useState, useRef } from 'react';
 import SvgtoReact from '../Svgtoreact';
 export default function Subscribe({ title, subtitle }) {
   const inputEl = useRef(null);
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [message, setMessage] = useState(null);
+  const [error, setError] = useState(null);
   const sub = async (e) => {
     e.preventDefault();
     const res = await fetch('/api/subscribe', {
@@ -20,11 +20,13 @@ export default function Subscribe({ title, subtitle }) {
     console.log('RES', res.error);
 
     if (error) {
-      setError(error);
+      setError('Something went wrong! please, try a valid email.');
+      setMessage(null);
       return;
     }
     inputEl.current.value = '';
     setMessage('You are now subscribed');
+    setError(null);
   };
   return (
     <div className='container text-center py-20'>
@@ -47,22 +49,22 @@ export default function Subscribe({ title, subtitle }) {
           Subrcibe
         </button>
         <div className='flex flex-row justify-center items-center gap-x-2 pt-4'>
-          {error != message && (
+          {!message && error && (
             <>
               <SvgtoReact
-                name={error ? 'tick ' : 'tick'}
-                className='h-5 fill-current text-gray-700 dark:text-gray-50'
+                name={error && 'cancel'}
+                className='h-5 fill-current text-danger'
               />
-              <p className='dark:text-gray-300 text-gray-900'>{error}</p>
+              <p className='text-danger'>{error}</p>
             </>
           )}
-          {message != error && (
+          {!error && message && (
             <>
               <SvgtoReact
-                name={message ? 'tick ' : 'tick'}
-                className='h-5 fill-current text-gray-700 dark:text-gray-50'
+                name={message && 'tick'}
+                className='h-5 fill-current text-success dark:text-success'
               />
-              <p className='dark:text-gray-300 text-gray-900'>{message}</p>
+              <p className='text-success'>{message}</p>
             </>
           )}
         </div>

@@ -13,6 +13,8 @@ module.exports = {
     colors: {
       accent: '#0041d6',
       darkaccent: '#4198ff',
+      danger: '#DD4A68',
+      success: '#669900',
       gray: {
         50: '#fff',
         100: '#FAFAFA',
@@ -50,4 +52,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
