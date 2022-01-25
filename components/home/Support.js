@@ -1,12 +1,11 @@
 import { useState } from 'react';
-
 import SvgtoReact from '../Svgtoreact';
 
 export default function Support({ title, subtitle, prices, benefits }) {
   const [currentsupport, setcurrentsupport] = useState(0);
 
   return (
-    <div className='border-b dark:border-gray-700 text-gray-900 dark:text-gray-300'>
+    <div className='border-b dark:border-gray-600 text-gray-900 dark:text-gray-300'>
       <div className='container px-4 py-10'>
         <div className='text-center'>
           <p className='text-3xl font-bold dark:text-gray-50'>{title}</p>
