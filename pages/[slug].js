@@ -1,17 +1,17 @@
-import HappyLink from '../components/HappyLink'
-import Postbody from '../components/PostBody'
-import SvgtoReact from '../components/Svgtoreact'
-import { getPost, getAllPostsWithSlug } from '../lib/api'
-import Headerlayout from '../widget/Headerlayout'
-import Image from 'next/image'
-import highlighter from '../lib/highlighter'
-import MetaTags from '../components/MetaTags'
-import Link from 'next/link'
+import HappyLink from '../components/HappyLink';
+import Postbody from '../components/PostBody';
+import SvgtoReact from '../components/Svgtoreact';
+import { getPost, getAllPostsWithSlug } from '../lib/api';
+import Headerlayout from '../widget/Headerlayout';
+import Image from 'next/image';
+import highlighter from '../lib/highlighter';
+// import MetaTags from '../components/MetaTags'
+import Link from 'next/link';
 
 export default function Post({ post, socials, content, metalinks }) {
-  const { author, date, tags, title } = post.post
-  const { firstName, avatar } = author.node
-  const dt = (date) => new Date(date).toDateString()
+  const { author, date, tags, title } = post.post;
+  const { firstName, avatar } = author.node;
+  const dt = (date) => new Date(date).toDateString();
 
   const postIcon = (tag) =>
     tag.map((tag) => (
@@ -23,11 +23,11 @@ export default function Post({ post, socials, content, metalinks }) {
           name={tag.name.toLowerCase()}
         />
       </div>
-    ))
+    ));
 
   return (
     <>
-      <MetaTags title={metalinks.title} description={metalinks.metaDesc} />
+      {/* <MetaTags title={metalinks.title} description={metalinks.metaDesc} /> */}
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
           <Link href='/blog'>
@@ -80,7 +80,7 @@ export default function Post({ post, socials, content, metalinks }) {
       </Headerlayout>
       <Postbody content={content} />
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ params }) {
@@ -92,10 +92,10 @@ export async function getStaticProps({ params }) {
       'facebook',
     ],
     ['https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA', 'youtube'],
-  ]
+  ];
 
-  const post = await getPost(params.slug)
-  const pp = await highlighter(post.post.content)
+  const post = await getPost(params.slug);
+  const pp = await highlighter(post.post.content);
   return {
     props: {
       post: post,
@@ -103,13 +103,13 @@ export async function getStaticProps({ params }) {
       content: pp,
       metalinks: post.post.seo,
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const allPosts = await getAllPostsWithSlug();
   return {
     paths: allPosts.edges.map(({ node }) => `/${node.slug}`) || [],
     fallback: false,
-  }
+  };
 }
