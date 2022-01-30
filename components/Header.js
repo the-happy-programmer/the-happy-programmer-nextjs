@@ -1,36 +1,34 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-import SvgtoReact from './Svgtoreact'
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import SvgtoReact from './Svgtoreact';
 
 export default function Header({ title, subtitle, posts }) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searching, setSearching] = useState(false)
-  const [searchList, setSearchList] = useState([])
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searching, setSearching] = useState(false);
+  const [searchList, setSearchList] = useState([]);
 
   const filterItems = (arr, query) => {
     return arr.filter((el) => {
       return (
         el.node.excerpt.toLowerCase().includes(query) ||
         el.node.title.toLowerCase().includes(query)
-      )
-    })
-  }
+      );
+    });
+  };
 
   const changeInput = (e) => {
-    console.log('pffff')
-    console.log('searching: ', searching)
     if (e.target.value === '') {
-      setSearchList([])
-      setSearchQuery(e.target.value)
-      return
+      setSearchList([]);
+      setSearchQuery(e.target.value);
+      return;
     }
-    setSearchQuery(e.target.value.toLowerCase())
-    setSearchList(filterItems(posts, e.target.value.toLowerCase()))
-    return
-  }
+    setSearchQuery(e.target.value.toLowerCase());
+    setSearchList(filterItems(posts, e.target.value.toLowerCase()));
+    return;
+  };
 
   return (
     <div className='container px-4 pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-20'>
@@ -126,5 +124,5 @@ export default function Header({ title, subtitle, posts }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

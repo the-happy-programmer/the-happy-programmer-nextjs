@@ -11,7 +11,9 @@ export default function HeroCarousel({ hero }) {
         <p className='text-lg py-10 text-gray-600 dark:text-gray-200'>
           {hero.subtitle}
         </p>
-        <HappyButton xl={true}>Subsribe</HappyButton>
+        <HappyButton xl={true} href='#subscribe'>
+          Subsribe
+        </HappyButton>
       </div>
       <div>
         <div className='h-96'>

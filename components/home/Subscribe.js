@@ -17,7 +17,6 @@ export default function Subscribe({ title, subtitle }) {
     });
 
     const { error } = await res.json();
-    console.log('RES', res.error);
 
     if (error) {
       setError('Something went wrong! please, try a valid email.');
@@ -43,6 +42,7 @@ export default function Subscribe({ title, subtitle }) {
           className='py-3 px-4  bg-gray-200 dark:bg-gray-800 dark:focus:border-gray-50 border dark:border-gray-600 focus:outline-none focus:border-gray-300 rounded-md mr-4 shadow-lg dark:text-gray-50 text-gray-900'
         />
         <button
+          id='subscribe'
           type='submit'
           className='dark:bg-gray-50 bg-gray-900 px-10 py-3 hover:bg-gray-700 dark:hover:bg-gray-200 rounded-md dark:text-gray-900 text-gray-50'
         >

@@ -7,7 +7,6 @@ mailchimp.setConfig({
 
 export default async function subscribe(req, res) {
   const { email } = req.body;
-  console.log('EMAILS', email);
   try {
     await mailchimp.lists.addListMember(process.env.AUDIENCE_ID, {
       email_address: email,

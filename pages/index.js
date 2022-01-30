@@ -2,20 +2,26 @@ import HeroCarousel from '../components/home/HeroCarousel';
 import SubHero from '../components/home/SubHero';
 import Subscribe from '../components/home/Subscribe';
 import Support from '../components/home/Support';
-
+import MetaTags from '../components/MetaTags';
 export default function Home({ hero, subhero, subscribe, support }) {
   return (
-    <div className='bg-gray-50 dark:bg-gray-900'>
-      <HeroCarousel hero={hero} />
-      <SubHero subhero={subhero} />
-      <Support
-        title={support.title}
-        subtitle={support.subtitle}
-        prices={support.prices}
-        benefits={support.benefits}
+    <>
+      <MetaTags
+        title='The Happy Programmer'
+        description='The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.'
       />
-      <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
-    </div>
+      <div className='bg-gray-50 dark:bg-gray-900'>
+        <HeroCarousel hero={hero} />
+        <SubHero subhero={subhero} />
+        <Support
+          title={support.title}
+          subtitle={support.subtitle}
+          prices={support.prices}
+          benefits={support.benefits}
+        />
+        <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
+      </div>
+    </>
   );
 }
 
