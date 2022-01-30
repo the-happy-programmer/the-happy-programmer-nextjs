@@ -26,7 +26,7 @@ export default function Post({ post, socials, content, metalinks }) {
     ));
 
   return (
-    <>
+    <div>
       <MetaTags title={metalinks.title} description={metalinks.metaDesc} />
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
@@ -79,7 +79,7 @@ export default function Post({ post, socials, content, metalinks }) {
         </div>
       </Headerlayout>
       <Postbody content={content} />
-    </>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import Head from "next/head"
+import Head from 'next/head';
 
 export default function MetaTags({ title, description }) {
   return (
@@ -12,5 +12,5 @@ export default function MetaTags({ title, description }) {
       <meta name='twitter:description' content={description} />
       <meta name='robots' content='follow, index' />
     </Head>
-  )
+  );
 }

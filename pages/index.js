@@ -5,7 +5,7 @@ import Support from '../components/home/Support';
 import MetaTags from '../components/MetaTags';
 export default function Home({ hero, subhero, subscribe, support }) {
   return (
-    <>
+    <div>
       <MetaTags
         title='The Happy Programmer'
         description='The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.'
@@ -21,7 +21,7 @@ export default function Home({ hero, subhero, subscribe, support }) {
         />
         <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
       </div>
-    </>
+    </div>
   );
 }
 
