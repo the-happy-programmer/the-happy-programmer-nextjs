@@ -5,7 +5,7 @@ import { getPost, getAllPostsWithSlug } from '../lib/api';
 import Headerlayout from '../widget/Headerlayout';
 import Image from 'next/image';
 import highlighter from '../lib/highlighter';
-import MetaTags from '../components/MetaTags';
+import Meta from '../components/Meta';
 import Link from 'next/link';
 
 export default function Post({ post, socials, content, metalinks }) {
@@ -26,8 +26,8 @@ export default function Post({ post, socials, content, metalinks }) {
     ));
 
   return (
-    <div>
-      <MetaTags title={metalinks.title} description={metalinks.metaDesc} />
+    <>
+      <Meta title={metalinks.title} description={metalinks.metaDesc} />
       <Headerlayout>
         <div className='container flex px-3 py-3 flex-col items-center'>
           <Link href='/blog'>
@@ -79,7 +79,7 @@ export default function Post({ post, socials, content, metalinks }) {
         </div>
       </Headerlayout>
       <Postbody content={content} />
-    </div>
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-export default function MetaTags({ title, description }) {
+export default function Meta({ title, description }) {
   return (
     <Head>
       <title>{title}</title>
