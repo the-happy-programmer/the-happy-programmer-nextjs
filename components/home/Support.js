@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import SvgtoReact from '../Svgtoreact'
-// import SvgtoReact from '../Svgtoreact'
 
 export default function Support({ title, subtitle, prices, benefits }) {
   const [currentsupport, setcurrentsupport] = useState(0)
