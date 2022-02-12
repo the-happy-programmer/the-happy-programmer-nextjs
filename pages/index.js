@@ -1,16 +1,13 @@
-import HeroCarousel from '../components/home/HeroCarousel';
-import SubHero from '../components/home/SubHero';
-import Subscribe from '../components/home/Subscribe';
-import Support from '../components/home/Support';
-import Meta from '../components/Meta';
-export default function Home({ hero, subhero, subscribe, support }) {
+import HeroCarousel from '../components/home/HeroCarousel'
+import SubHero from '../components/home/SubHero'
+import Subscribe from '../components/home/Subscribe'
+import Support from '../components/home/Support'
+import Meta from '../components/Meta'
+export default function Home({ seo, hero, subhero, subscribe, support }) {
   return (
     <>
-      <Meta
-        title='The Happy Programmer'
-        description='The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.'
-      />
-      <div className='bg-gray-50 dark:bg-gray-900'>
+      <Meta title={seo.title} description={seo.desc} />
+      <div className="bg-gray-50 dark:bg-gray-900">
         <HeroCarousel hero={hero} />
         <SubHero subhero={subhero} />
         <Support
@@ -22,15 +19,20 @@ export default function Home({ hero, subhero, subscribe, support }) {
         <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
       </div>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
+  const seo = {
+    title: 'The Happy Programmer',
+    desc: 'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
+  }
+
   const hero = {
     title: 'Courses in every technology.',
     subtitle:
       'Courses in every technology required to make you an expert on programming.',
-  };
+  }
   const subhero = [
     [
       'understand',
@@ -43,7 +45,7 @@ export async function getStaticProps() {
       'Learn by creating in modern technologies on every device.',
     ],
     ['grow', 'Grow', 'be an expect and See your self grow to a professional.'],
-  ];
+  ]
   const support = {
     title: 'Support',
     subtitle: 'Please consider supporting this website monthly.',
@@ -64,18 +66,19 @@ export async function getStaticProps() {
         'Personal Mentoring',
       ],
     ],
-  };
+  }
   const subscribe = {
     title: 'Subscribe',
     subtitle:
       'Subscribe to get notified for new content and course that will come in the near future. In any way you will not get spammed or your data being shared',
-  };
+  }
   return {
     props: {
+      seo: seo,
       hero: hero,
       subhero: subhero,
       subscribe: subscribe,
       support: support,
     },
-  };
+  }
 }

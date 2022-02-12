@@ -1,74 +1,74 @@
-import HappyLink from '../components/HappyLink';
-import Postbody from '../components/PostBody';
-import SvgtoReact from '../components/Svgtoreact';
-import { getPost, getAllPostsWithSlug } from '../lib/api';
-import Headerlayout from '../widget/Headerlayout';
-import Image from 'next/image';
-import highlighter from '../lib/highlighter';
-import Meta from '../components/Meta';
-import Link from 'next/link';
+import HappyLink from '../components/HappyLink'
+import Postbody from '../components/PostBody'
+import SvgtoReact from '../components/Svgtoreact'
+import { getPost, getAllPostsWithSlug } from '../lib/api'
+import Headerlayout from '../widget/Headerlayout'
+import Image from 'next/image'
+import highlighter from '../lib/highlighter'
+import Meta from '../components/Meta'
+import Link from 'next/link'
 
 export default function Post({ post, socials, content, metalinks }) {
-  const { author, date, tags, title } = post.post;
-  const { firstName, avatar } = author.node;
-  const dt = (date) => new Date(date).toDateString();
+  const { author, date, tags, title } = post.post
+  const { firstName, avatar } = author.node
+  const dt = (date) => new Date(date).toDateString()
 
   const postIcon = (tag) =>
     tag.map((tag) => (
-      <div key={tag.name} className='h-16'>
+      <div key={tag.name} className="h-16">
         <SvgtoReact
           height={60}
           width={60}
-          class='mr-4'
+          class="mr-4"
           name={tag.name.toLowerCase()}
         />
       </div>
-    ));
+    ))
 
   return (
     <>
       <Meta title={metalinks.title} description={metalinks.metaDesc} />
       <Headerlayout>
-        <div className='container flex px-3 py-3 flex-col items-center'>
-          <Link href='/blog'>
-            <a className='pl-2 flex flex-row fill-current text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 place-self-start'>
+        <div className="container flex flex-col items-center px-3 py-3">
+          <Link href="/blog">
+            <a className="flex flex-row place-self-start fill-current pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
               <SvgtoReact
-                className='transform rotate-90 self-center mr-3 '
-                name='arrow'
-                height='15'
-                width='15'
+                className="mr-3 rotate-90 transform self-center "
+                name="arrow"
+                height="15"
+                width="15"
               />
               Back to posts
             </a>
           </Link>
           {postIcon(tags.nodes)}
-          <h1 className='text-3xl font-bold p-3 text-gray-900 dark:text-gray-50'>
+          <h1 className="p-3 text-3xl font-bold text-gray-900 dark:text-gray-50">
             {title}
           </h1>
-          <div className='flex flex-row center'>
-            <div className='place-self-end mt-1'>
+          <div className="center flex flex-row">
+            <div className="mt-1 place-self-end">
               <Image
                 src={avatar.url}
                 height={35}
                 width={35}
-                alt='Picture of the author'
-                className='rounded-full '
+                alt="Picture of the author"
+                className="rounded-full "
               />
             </div>
-            <div className='pl-2 flex flex-col mt-0'>
-              <p className='text-gray-900 dark:text-gray-50'>{firstName}</p>
-              <p className='text-gray-500 dark:text-gray-400 text-sm'>
+            <div className="mt-0 flex flex-col pl-2">
+              <p className="text-gray-900 dark:text-gray-50">{firstName}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 {dt(date)}
               </p>
             </div>
           </div>
-          <div className='mt-4 flex flex-row'>
+          <div className="mt-4 flex flex-row">
             {socials.map(([link, names], i) => (
-              <div key={link} className='text-gray-500 dark:text-gray-300'>
+              <div key={link} className="text-gray-500 dark:text-gray-300">
                 <HappyLink
                   key={names}
                   href={link}
-                  classes='px-1.5 text-accent dark:text-darkaccent hover:underline'
+                  classes="px-1.5 text-accent dark:text-darkaccent hover:underline"
                 >
                   {names}
                 </HappyLink>
@@ -80,7 +80,7 @@ export default function Post({ post, socials, content, metalinks }) {
       </Headerlayout>
       <Postbody content={content} />
     </>
-  );
+  )
 }
 
 export async function getStaticProps({ params }) {
@@ -92,10 +92,10 @@ export async function getStaticProps({ params }) {
       'facebook',
     ],
     ['https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA', 'youtube'],
-  ];
+  ]
 
-  const post = await getPost(params.slug);
-  const pp = await highlighter(post.post.content);
+  const post = await getPost(params.slug)
+  const pp = await highlighter(post.post.content)
   return {
     props: {
       post: post,
@@ -103,13 +103,13 @@ export async function getStaticProps({ params }) {
       content: pp,
       metalinks: post.post.seo,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  const allPosts = await getAllPostsWithSlug()
   return {
     paths: allPosts.edges.map(({ node }) => `/${node.slug}`) || [],
     fallback: false,
-  };
+  }
 }

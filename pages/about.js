@@ -5,21 +5,21 @@ import SvgtoReact from '../components/Svgtoreact'
 
 export default function About({ socials, projects, author }) {
   return (
-    <div className=' bg-gray-50 dark:bg-gray-900'>
-      <div className='dark:border-gray-700'>
+    <div className=" bg-gray-50 dark:bg-gray-900">
+      <div className="dark:border-gray-700">
         <Headerlayout>
-          <div className='flex-col pt-5 text-center sm:text-left sm:flex-row sm:pt-16 md:text-left md:flex-row md:pt-16 lg:text-left lg:flex-row lg:pt-16 xl:text-left xl:flex-row xl:pt-16 container flex justify-center items-center'>
-            <div className='h-36 w-36'>
-              <SvgtoReact height={150} name='face' />
+          <div className="container flex flex-col items-center justify-center pt-5 text-center sm:flex-row sm:pt-16 sm:text-left md:flex-row md:pt-16 md:text-left lg:flex-row lg:pt-16 lg:text-left xl:flex-row xl:pt-16 xl:text-left">
+            <div className="h-36 w-36">
+              <SvgtoReact height={150} name="face" />
             </div>
 
-            <div className='dark:text-gray-50 text-gray-900 my-auto pl-8'>
-              <p className='text-4xl'>{author.desc}</p>
-              <p className='dark:text-gray-400 text-gray-700 py-1 pb-4'>
+            <div className="my-auto pl-8 text-gray-900 dark:text-gray-50">
+              <p className="text-4xl">{author.desc}</p>
+              <p className="py-1 pb-4 text-gray-700 dark:text-gray-400">
                 {author.job}
               </p>
               <a
-                className='dark:text-darkaccent hover:underline text-accent'
+                className="text-accent hover:underline dark:text-darkaccent"
                 href={`mailto:${author.mail}`}
               >
                 {author.mail}
@@ -27,8 +27,8 @@ export default function About({ socials, projects, author }) {
             </div>
           </div>
         </Headerlayout>
-        <div className=' border-t dark:border-gray-700 py-10 bg-gray-100 dark:bg-gray-800'>
-          <DisplayInfo title='Socials' subtitle=' Follow me on my socials'>
+        <div className=" border-t bg-gray-100 py-10 dark:border-gray-700 dark:bg-gray-800">
+          <DisplayInfo title="Socials" subtitle=" Follow me on my socials">
             {socials.map(([link, svg, desc]) => (
               <DisplayCard
                 key={link}
@@ -40,8 +40,8 @@ export default function About({ socials, projects, author }) {
             ))}
           </DisplayInfo>
           <DisplayInfo
-            title='Experience'
-            subtitle=' You can see my projects on GitHub'
+            title="Experience"
+            subtitle=" You can see my projects on GitHub"
           >
             {projects.map(([svg, desc, link]) => (
               <DisplayCard key={link} svg={svg} desc={desc} link={link} />

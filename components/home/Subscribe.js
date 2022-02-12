@@ -28,9 +28,9 @@ export default function Subscribe({ title, subtitle }) {
     setError(null)
   }
   return (
-    <div className="container text-center py-20">
+    <div className="container py-20 text-center">
       <p className="text-3xl font-bold dark:text-gray-50">{title}</p>
-      <p className="p-10 text-gray-700 max-w-2xl mx-auto dark:text-gray-300">
+      <p className="mx-auto max-w-2xl p-10 text-gray-700 dark:text-gray-300">
         {subtitle}
       </p>
       <form onSubmit={sub}>
@@ -39,16 +39,16 @@ export default function Subscribe({ title, subtitle }) {
           name="email"
           ref={inputEl}
           placeholder="example@email.com"
-          className="py-3 px-4  bg-gray-200 dark:bg-gray-800 dark:focus:border-gray-50 border dark:border-gray-600 focus:outline-none focus:border-gray-300 rounded-md mr-4 shadow-lg dark:text-gray-50 text-gray-900"
+          className="focus:outline-none mr-4  rounded-md border bg-gray-200 py-3 px-4 text-gray-900 shadow-lg focus:border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-50 dark:focus:border-gray-50"
         />
         <button
           id="subscribe"
           type="submit"
-          className="dark:bg-gray-50 bg-gray-900 px-10 py-3 hover:bg-gray-700 dark:hover:bg-gray-200 rounded-md dark:text-gray-900 text-gray-50"
+          className="rounded-md bg-gray-900 px-10 py-3 text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200"
         >
           Subrcibe
         </button>
-        <div className="flex flex-row justify-center items-center gap-x-2 pt-4">
+        <div className="flex flex-row items-center justify-center gap-x-2 pt-4">
           {!message && error && (
             <>
               <SvgtoReact

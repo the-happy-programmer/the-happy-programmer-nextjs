@@ -1,8 +1,8 @@
-import { useRouter } from "next/router"
-import Header from "../../components/Header"
-import PostList from "../../components/PostList"
-import { category, getAllCategories, getHomePosts } from "../../lib/api"
-import Headerlayout from "../../widget/Headerlayout"
+import { useRouter } from 'next/router'
+import Header from '../../components/Header'
+import PostList from '../../components/PostList'
+import { category, getAllCategories, getHomePosts } from '../../lib/api'
+import Headerlayout from '../../widget/Headerlayout'
 
 export default function Category({ categories, posts, search }) {
   const router = useRouter()
@@ -12,7 +12,7 @@ export default function Category({ categories, posts, search }) {
     <div>
       <Headerlayout>
         <Header
-          subtitle='The Happy Programmer'
+          subtitle="The Happy Programmer"
           title={slug}
           posts={search.edges}
         />
