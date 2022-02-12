@@ -3,10 +3,12 @@ import SvgtoReact from './Svgtoreact'
 
 const categories = (cat) => {
   return cat.map((categories) => (
-    <HappyLink href={`${categories.uri}`} key={categories.uri}>
-      <p className="mr-2.5 cursor-pointer text-sm  uppercase text-gray-600  hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-        {categories.name}
-      </p>
+    <HappyLink
+      href={`${categories.uri}`}
+      key={categories.uri}
+      classes="mr-2.5 cursor-pointer text-sm  uppercase text-gray-600  hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+    >
+      {categories.name}
     </HappyLink>
   ))
 }
@@ -28,11 +30,14 @@ export default function Posthome({ post, plain }) {
           {categories(post.node.categories.nodes)}
         </div>
       ) : null}
-      <HappyLink href={`/${post.node.slug}`} classes="mr-auto">
-        <a className="flex w-auto flex-row text-2xl text-gray-900 hover:underline dark:text-gray-50">
+      <HappyLink
+        href={`/${post.node.slug}`}
+        classes="mr-auto flex w-auto flex-row text-2xl text-gray-900 hover:underline dark:text-gray-50"
+      >
+        <>
           {icontitle(post.node.tags.nodes)}
           {post.node.title}
-        </a>
+        </>
       </HappyLink>
       <p className="leading-loose text-gray-600 dark:text-gray-300">
         {post.node.excerpt}
