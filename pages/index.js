@@ -2,14 +2,28 @@ import HeroCarousel from '../components/home/HeroCarousel'
 import SubHero from '../components/home/SubHero'
 import Subscribe from '../components/home/Subscribe'
 import Support from '../components/home/Support'
+import Technologies from '../components/home/Technologies'
 import Meta from '../components/Meta'
-export default function Home({ seo, hero, subhero, subscribe, support }) {
+
+export default function Home({
+  seo,
+  hero,
+  subhero,
+  subscribe,
+  support,
+  moderntechnologies,
+}) {
   return (
     <>
       <Meta title={seo.title} description={seo.desc} />
       <div className="bg-gray-50 dark:bg-gray-900">
         <HeroCarousel hero={hero} />
         <SubHero subhero={subhero} />
+        {/* <Technologies
+          title={moderntechnologies.title}
+          subtitle={moderntechnologies.subtitle}
+          icons={moderntechnologies.icons}
+        /> */}
         <Support
           title={support.title}
           subtitle={support.subtitle}
@@ -23,11 +37,26 @@ export default function Home({ seo, hero, subhero, subscribe, support }) {
 }
 
 export async function getStaticProps() {
+  const moderntechnologies = {
+    icons: [
+      'react',
+      'tailwind',
+      'python',
+      'nextjs',
+      'github',
+      'swiftui',
+      'nuxtjs',
+      'vue',
+      'flutter',
+    ],
+    title: 'Modern Technologies',
+    subtitle: 'The most modern technologies available stay tuned for more',
+  }
+
   const seo = {
     title: 'The Happy Programmer',
     desc: 'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
   }
-
   const hero = {
     title: 'Courses in every technology.',
     subtitle:
@@ -79,6 +108,7 @@ export async function getStaticProps() {
       subhero: subhero,
       subscribe: subscribe,
       support: support,
+      moderntechnologies: moderntechnologies,
     },
   }
 }
