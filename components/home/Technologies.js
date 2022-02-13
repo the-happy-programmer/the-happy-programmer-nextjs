@@ -4,7 +4,7 @@ import SvgtoReact from '../Svgtoreact'
 export default function Technologies({ title, subtitle, icons }) {
   return (
     <div className="border-b border-gray-50 py-20  dark:border-gray-700">
-      <div className="container flex flex-col place-content-center items-center gap-y-20 sm:flex-col sm:gap-y-20 md:flex-row md:gap-x-20 lg:flex-row lg:gap-x-20 xl:flex-row xl:gap-x-20">
+      <div className="container flex flex-col place-content-center items-center justify-between px-3 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
         <div className="grid grid-cols-3 justify-items-center gap-10 sm:gap-10 md:gap-20 lg:gap-20 xl:gap-20">
           {icons.map((icon) => (
             <SvgtoReact

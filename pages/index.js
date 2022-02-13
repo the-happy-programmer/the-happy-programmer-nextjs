@@ -19,11 +19,11 @@ export default function Home({
       <div className="bg-gray-50 dark:bg-gray-900">
         <HeroCarousel hero={hero} />
         <SubHero subhero={subhero} />
-        {/* <Technologies
+        <Technologies
           title={moderntechnologies.title}
           subtitle={moderntechnologies.subtitle}
           icons={moderntechnologies.icons}
-        /> */}
+        />
         <Support
           title={support.title}
           subtitle={support.subtitle}
