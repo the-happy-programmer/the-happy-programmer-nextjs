@@ -21,20 +21,22 @@ export default function PostList({ posts, categories }) {
               </div>
             ) : null}
           </div>
-          <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
-            <p className="py-2 text-xl text-gray-900 dark:text-gray-50">
-              Category
-            </p>
-            <div className="divide-y dark:divide-gray-700">
-              {categories.map((cat) => (
-                <div className="py-3" key={cat.node.uri}>
-                  <Link href={`${cat.node.uri}`}>
-                    <a className="cursor-pointer text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
-                      {cat.node.name}
-                    </a>
-                  </Link>
-                </div>
-              ))}
+          <div className="sticky top-16 h-screen">
+            <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
+              <p className="py-2 text-xl text-gray-900 dark:text-gray-50">
+                Category
+              </p>
+              <div className="divide-y dark:divide-gray-700">
+                {categories.map((cat) => (
+                  <div className="py-3" key={cat.node.uri}>
+                    <Link href={`${cat.node.uri}`}>
+                      <a className="cursor-pointer text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
+                        {cat.node.name}
+                      </a>
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
