@@ -64,7 +64,7 @@ export function getStaticProps() {
   const info = [
     [
       'My studies',
-      'I studied at the University of Coventry in the UK where I graduated with a first-class degree during my studies, I was awarded second best site among 2-3 thousand students',
+      'I studied at the University of Coventry in the UK where I graduated with a first-class degree on Computer Science during my studies, I was awarded second best website among 2-3 thousand students',
     ],
     [
       'Do I do freelance?',
