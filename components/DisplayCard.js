@@ -19,13 +19,13 @@ export default function DisplayCard({ svg, desc, link, socials }) {
         {desc}
       </p>
       <HappyLink
-        classes="dark:text-gray-50 font-bold justify-between mt-auto flex items-center"
+        classes="group dark:hover:text-darkaccent hover:text-accent dark:text-gray-50 font-bold justify-between mt-auto flex items-center"
         href={link}
       >
         {socials ? 'Follow' : 'Projects'}{' '}
         <SvgtoReact
           name="arrow"
-          className="-rotate-90 transform fill-current dark:text-gray-50"
+          className="-rotate-90 transform fill-current group-hover:text-accent dark:text-gray-50 dark:group-hover:text-darkaccent"
           height={15}
         />
       </HappyLink>
