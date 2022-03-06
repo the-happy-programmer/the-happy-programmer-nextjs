@@ -51,7 +51,7 @@ export default function About({ socials, projects, author, info }) {
           </DisplayInfo>
           <DropDownContainer title="Know more about me">
             {info.map(([title, subtitle]) => (
-              <DropDown title={title} subtitle={subtitle} />
+              <DropDown key={title} title={title} subtitle={subtitle} />
             ))}
           </DropDownContainer>
         </div>
