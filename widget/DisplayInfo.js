@@ -1,12 +1,12 @@
 export default function DisplayInfo({ title, subtitle, children }) {
   return (
-    <div className='bg-gray-100 dark:bg-gray-800 pb-5'>
-      <p className='container text-gray-800 dark:text-gray-50 px-3 py-6 text-2xl'>
+    <div className="bg-gray-100 pb-5 dark:bg-gray-800">
+      <p className="container px-3 py-6 text-2xl text-gray-800 dark:text-gray-50">
         {title}
-        {"."}
-        <span className='dark:text-gray-400 text-gray-500'>{subtitle}</span>
+        {'.'}
+        <span className="text-gray-500 dark:text-gray-400">{subtitle}</span>
       </p>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 px-2 gap-5  container'>
+      <div className="container grid grid-cols-1 gap-5 px-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-4">
         {children}
       </div>
     </div>

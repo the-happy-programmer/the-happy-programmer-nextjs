@@ -1,11 +1,11 @@
-import SvgtoReact from '../components/Svgtoreact'
-import HappyLink from '../components/HappyLink'
+import SvgtoReact from '../Svgtoreact'
+import HappyLink from '../HappyLink'
 
 export default function DisplayCard({ svg, desc, link, socials }) {
   return (
     <div
       key={svg}
-      className="flex flex-col rounded-xl border bg-gray-50 p-5 hover:border-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:hover:border-gray-50"
+      className="flex flex-col rounded-xl border bg-gray-50 p-5 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:hover:border-gray-500"
     >
       <div className={`pt-5 pb-2 ${socials ? 'h-16' : 'h-20'}`}>
         <SvgtoReact

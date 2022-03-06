@@ -1,9 +1,11 @@
 import Headerlayout from '../widget/Headerlayout'
 import DisplayInfo from '../widget/DisplayInfo'
-import DisplayCard from '../components/DisplayCard'
+import DisplayCard from '../components/about/DisplayCard'
 import SvgtoReact from '../components/Svgtoreact'
+import DropDown from '../components/about/DropDown'
+import DropDownContainer from '../components/about/DropDownContainer'
 
-export default function About({ socials, projects, author }) {
+export default function About({ socials, projects, author, info }) {
   return (
     <div className=" bg-gray-50 dark:bg-gray-900">
       <div className="dark:border-gray-700">
@@ -27,7 +29,7 @@ export default function About({ socials, projects, author }) {
             </div>
           </div>
         </Headerlayout>
-        <div className=" border-t bg-gray-100 py-10 dark:border-gray-700 dark:bg-gray-800">
+        <div className="border-t bg-gray-100 py-10 dark:border-gray-700 dark:bg-gray-800">
           <DisplayInfo title="Socials" subtitle=" Follow me on my socials">
             {socials.map(([link, svg, desc]) => (
               <DisplayCard
@@ -47,6 +49,11 @@ export default function About({ socials, projects, author }) {
               <DisplayCard key={link} svg={svg} desc={desc} link={link} />
             ))}
           </DisplayInfo>
+          <DropDownContainer title="Know more about me">
+            {info.map(([title, subtitle]) => (
+              <DropDown title={title} subtitle={subtitle} />
+            ))}
+          </DropDownContainer>
         </div>
       </div>
     </div>
@@ -54,6 +61,21 @@ export default function About({ socials, projects, author }) {
 }
 
 export function getStaticProps() {
+  const info = [
+    [
+      'My studies',
+      'I studied at the University of Coventry in the UK where I graduated with a first-class degree during my studies, I was awarded second best site among 2-3 thousand students',
+    ],
+    [
+      'Do I do freelance?',
+      'Yes, I still do freelance projects. not as many nowadays as I used to but you can always email me to talk on your idea and if we both are happy we can carry on',
+    ],
+    [
+      'My objectives',
+      'my objectives for the running year are to grow my YouTube channel, and finish the Swift course  I am working on',
+    ],
+  ]
+
   const author = {
     desc: 'My name is Tony',
     job: 'I am a Software Engineer',
@@ -132,6 +154,7 @@ export function getStaticProps() {
   ]
   return {
     props: {
+      info: info,
       socials: socials,
       projects: projects,
       author: author,
