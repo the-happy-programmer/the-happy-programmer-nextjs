@@ -49,11 +49,7 @@ export default function About({ socials, projects, author, info }) {
               <DisplayCard key={link} svg={svg} desc={desc} link={link} />
             ))}
           </DisplayInfo>
-          <DropDownContainer title="Know more about me">
-            {info.map(([title, subtitle]) => (
-              <DropDown key={title} title={title} subtitle={subtitle} />
-            ))}
-          </DropDownContainer>
+          <DropDownContainer title="Know more about me" info={info} />
         </div>
       </div>
     </div>

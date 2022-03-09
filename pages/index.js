@@ -4,6 +4,7 @@ import Subscribe from '../components/home/Subscribe'
 import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/Meta'
+import DropDownContainer from '../components/about/DropDownContainer'
 
 export default function Home({
   seo,
@@ -12,6 +13,7 @@ export default function Home({
   subscribe,
   support,
   moderntechnologies,
+  info,
 }) {
   return (
     <>
@@ -31,12 +33,30 @@ export default function Home({
           benefits={support.benefits}
         />
         <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
+        <DropDownContainer
+          title="How else you can benefit from THP"
+          info={info}
+        />
       </div>
     </>
   )
 }
 
 export async function getStaticProps() {
+  const info = [
+    [
+      'Advertise yourself',
+      'You can advertise your business in this website, all you have to do is send an email with your banner and the time you want the AD to last',
+    ],
+    [
+      'Ask questions',
+      'You can always ask any questions you have to improve your experience',
+    ],
+    [
+      'Source code',
+      'The happy programmer provides source code to all members you can see the code by yourself.',
+    ],
+  ]
   const moderntechnologies = {
     icons: [
       'react',
@@ -112,6 +132,7 @@ export async function getStaticProps() {
       subscribe: subscribe,
       support: support,
       moderntechnologies: moderntechnologies,
+      info: info,
     },
   }
 }
