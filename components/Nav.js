@@ -15,7 +15,7 @@ const Nav = () => {
   ]
 
   return (
-    <div className="sticky top-0 z-50  bg-gray-100 bg-opacity-80 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
+    <div className="sticky top-0 z-50  bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
       <nav className="text-gray-500 dark:text-gray-300">
         <div className="border-b dark:border-gray-700">
           <div className="container mx-auto flex items-center justify-between px-3 py-4 sm:p-4">
