@@ -15,6 +15,8 @@ module.exports = {
       darkaccent: '#4198ff',
       danger: '#DD4A68',
       success: '#669900',
+      lightpurple: '#EC4899',
+      darkpurple: '#F472B6',
       gray: {
         50: '#fff',
         100: '#FAFAFA',
@@ -52,4 +54,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+}

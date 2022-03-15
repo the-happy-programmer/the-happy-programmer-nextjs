@@ -1,5 +1,5 @@
 .content {
-  @apply text-lg container max-w-2xl tracking-wide text-gray-700 dark:text-gray-200 pt-4 px-3;
+  @apply container max-w-2xl px-3 pt-4 text-lg tracking-wide text-gray-700 dark:text-gray-200;
 }
 
 .content p,
@@ -16,7 +16,7 @@
 }
 
 .content a {
-  @apply underline text-accent dark:text-darkaccent;
+  @apply text-accent underline dark:text-darkaccent;
 }
 
 .content ul,
@@ -48,24 +48,24 @@
 .content h2,
 .content h3,
 .content h4 {
-  @apply text-gray-900 dark:text-gray-50 font-bold;
+  @apply font-bold text-gray-900 dark:text-gray-50;
 }
 
 .content h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply mt-12 mb-4 text-3xl leading-snug;
 }
 
 .content h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply mt-8 mb-4 text-2xl leading-snug;
 }
 
 .content h4 {
-  @apply text-xl mt-6 mb-4 leading-snug;
+  @apply mt-6 mb-4 text-xl leading-snug;
 }
 
 .content pre {
-  @apply whitespace-pre overflow-x-auto my-6 p-5 text-sm leading-tight border  rounded-xl border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900;
-  @apply dark:text-gray-50 text-gray-900 font-semibold;
+  @apply my-6 overflow-x-auto whitespace-pre rounded-xl border border-gray-200 bg-gray-50  p-5 text-sm leading-tight dark:border-gray-700 dark:bg-gray-900;
+  @apply font-semibold text-gray-900 dark:text-gray-50;
 }
 
 .content code {
@@ -73,19 +73,19 @@
 }
 
 .content p code {
-  @apply dark:bg-gray-100 bg-gray-800 p-1 font-bold text-gray-50 dark:text-gray-900 rounded;
+  @apply p-1 font-bold text-lightpurple dark:text-darkpurple;
 }
 
 .content ul code {
-  @apply dark:bg-gray-100 bg-gray-800 p-1 font-bold text-gray-50 dark:text-gray-900 rounded;
+  @apply p-1 font-bold text-lightpurple dark:text-darkpurple;
 }
 
 .content figcaption {
-  @apply text-center text-sm pt-2;
+  @apply pt-2 text-center text-sm;
 }
 
 .content blockquote {
-  @apply border-l-4 border-gray-500 text-gray-50 dark:text-gray-900 bg-gray-200 italic ml-0 py-4 px-6;
+  @apply ml-0 border-l-4 border-gray-500 bg-gray-200 py-4 px-6 italic text-gray-50 dark:text-gray-900;
 }
 
 .content blockquote p {
