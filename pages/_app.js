@@ -6,8 +6,11 @@ const gtag = process.env.WORDPRESS_AUTH_REFRESH_TOKEN
 function MyApp({ Component, pageProps }) {
   return (
     <Sitelayout>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${gtag}`} />
-      <Script>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
