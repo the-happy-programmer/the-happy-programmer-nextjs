@@ -1,7 +1,7 @@
 import '../styles/global.css'
 import Script from 'next/script'
 import Sitelayout from '../widget/Sitelayout'
-const gtag = process.env.WORDPRESS_AUTH_REFRESH_TOKEN
+const gtag = process.env.GTAG
 
 function MyApp({ Component, pageProps }) {
   return (
