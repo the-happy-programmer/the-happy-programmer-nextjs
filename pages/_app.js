@@ -1,8 +1,8 @@
 import '../styles/global.css'
 import Script from 'next/script'
 import Sitelayout from '../widget/Sitelayout'
-let id = process.env.NEXT_PUBLIC_ANALYTICS_ID
 function MyApp({ Component, pageProps }) {
+  const id = process.env.NEXT_PUBLIC_ANALYTICS_ID
   return (
     <Sitelayout>
       <Script
