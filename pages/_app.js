@@ -3,7 +3,6 @@ import Script from 'next/script'
 import Sitelayout from '../widget/Sitelayout'
 function MyApp({ Component, pageProps }) {
   const id = process.env.NEXT_PUBLIC_ANALYTICS_ID
-  console.log('ID:', id)
   return (
     <Sitelayout>
       <Script
