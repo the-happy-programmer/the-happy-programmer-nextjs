@@ -4,7 +4,7 @@ import Subscribe from '../components/home/Subscribe'
 import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/Meta'
-import DropDownContainer from '../components/about/DropDownContainer'
+import DropDownContainer from '../components/about/DropDownContainer/'
 
 export default function Home({
   seo,
@@ -94,9 +94,9 @@ export async function getStaticProps() {
     [
       'create',
       'Create',
-      'Learn by creating in modern technologies on every device.',
+      'Learn by coding in modern technologies on every device.',
     ],
-    ['grow', 'Grow', 'be an expect and See your self grow to a professional.'],
+    ['grow', 'Grow', 'be an expert and See yourself grow to a professional.'],
   ]
   const support = {
     title: 'Support',
@@ -122,7 +122,7 @@ export async function getStaticProps() {
   const subscribe = {
     title: 'Subscribe',
     subtitle:
-      'Subscribe to get notified for new content and course that will come in the near future. In any way you will not get spammed or your data being shared',
+      'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
   }
   return {
     props: {
