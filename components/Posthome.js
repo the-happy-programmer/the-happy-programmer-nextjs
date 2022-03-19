@@ -32,7 +32,7 @@ export default function Posthome({ post, plain }) {
       ) : null}
       <HappyLink
         href={`/${post.node.slug}`}
-        classes="mr-auto flex w-auto flex-row text-2xl text-gray-900 hover:underline dark:text-gray-50"
+        classes="mr-auto flex w-auto flex-row text-xl text-gray-800 font-semibold hover:underline dark:text-gray-100"
       >
         <>
           {icontitle(post.node.tags.nodes)}
