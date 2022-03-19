@@ -46,7 +46,7 @@ export default function Posthome({ post, plain }) {
         {plain ? (
           <p className="dark:text-gray-50">{post.node.author.node.firstName}</p>
         ) : null}
-        <p className="text-gray-600 dark:text-gray-400">{dt(post.node.date)}</p>
+        <p className="text-gray-500 dark:text-gray-400">{dt(post.node.date)}</p>
       </div>
     </div>
   )
