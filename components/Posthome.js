@@ -32,7 +32,7 @@ export default function Posthome({ post, plain }) {
       ) : null}
       <HappyLink
         href={`/${post.node.slug}`}
-        classes="mr-auto flex w-auto flex-row text-xl text-gray-800 font-semibold hover:underline dark:text-gray-100"
+        classes="mr-auto flex w-auto py-2.5 flex-row text-xl text-gray-800 font-semibold hover:underline dark:text-gray-100"
       >
         <>
           {icontitle(post.node.tags.nodes)}
@@ -42,7 +42,7 @@ export default function Posthome({ post, plain }) {
       <p className="leading-loose text-gray-600 dark:text-gray-300">
         {post.node.excerpt}
       </p>
-      <div className="pt-5">
+      <div className="pt-3">
         {plain ? (
           <p className="dark:text-gray-50">{post.node.author.node.firstName}</p>
         ) : null}
