@@ -6,7 +6,7 @@ const categories = (cat) => {
     <HappyLink
       href={`${categories.uri}`}
       key={categories.uri}
-      classes="mr-2.5 cursor-pointer text-sm  uppercase text-gray-600  hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+      classes="mr-2.5 cursor-pointer text-sm bg-gray-200 dark:bg-gray-700 dark:border-gray-700 px-2  rounded-full border uppercase text-gray-600  hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
     >
       {categories.name}
     </HappyLink>
