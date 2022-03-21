@@ -11,7 +11,7 @@ const Nav = () => {
   const links = [
     ['/blog', 'Blog'],
     ['/about', 'About'],
-    ['https://happynuxt.vercel.app/', 'NuxtJS'],
+    ['https://happynuxtjs.com/', 'NuxtJS'],
   ]
 
   return (
