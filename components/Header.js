@@ -9,7 +9,7 @@ export default function Header({ title, subtitle, posts }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searching, setSearching] = useState(false)
   const [searchList, setSearchList] = useState([])
-
+  // to change the search
   const filterItems = (arr, query) => {
     return arr.filter((el) => {
       return (
