@@ -13,7 +13,7 @@ export default function Header({ title, subtitle, posts }) {
   const filterItems = (arr, query) => {
     return arr.filter((el) => {
       return (
-        el.node.excerpt.toLowerCase().includes(query) ||
+        el.node.excerpt?.toLowerCase().includes(query) ||
         el.node.title.toLowerCase().includes(query)
       )
     })
