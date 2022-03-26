@@ -23,6 +23,9 @@
 .content ol {
   @apply pl-4;
 }
+.content figure img {
+  @apply w-full rounded-lg shadow-md;
+}
 
 .content ul {
   @apply list-disc;
@@ -97,10 +100,6 @@
   @apply flex-col items-center;
 }
 
-/* .content figure :not(img) {
-  @apply mx-auto w-3/4 sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/2;
-} */
-
 .content figure {
-  @apply w-full rounded-lg shadow-md;
+  @apply mx-auto w-3/4 sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/2;
 }
