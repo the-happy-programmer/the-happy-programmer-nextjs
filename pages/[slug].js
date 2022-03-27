@@ -95,11 +95,12 @@ export async function getStaticProps({ params }) {
   ]
 
   const post = await getPost(params.slug)
+  const pp = await highlighter(post.post.content)
   return {
     props: {
       post: post,
       socials: socials,
-      content: post.post.content,
+      content: pp,
       metalinks: post.post.seo,
     },
   }
