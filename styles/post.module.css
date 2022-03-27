@@ -93,14 +93,5 @@
   @apply not-italic;
 }
 
-.content .wp-block-video {
-  @apply flex-col items-center;
-}
-
 /* .content figure {
-  @apply mx-auto w-3/4 sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/2;
 } */
-
-.content figure {
-  @apply w-full rounded-lg shadow-md;
-}
