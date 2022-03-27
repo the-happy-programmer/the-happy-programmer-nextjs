@@ -61,7 +61,7 @@
 }
 
 .wp-block-image img {
-  @apply mt-2 max-w-full;
+  @apply mt-2 max-w-full rounded-md shadow-md;
 }
 .wp-block-image.aligncenter {
   @apply text-center;
