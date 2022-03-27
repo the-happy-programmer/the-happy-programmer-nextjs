@@ -20,19 +20,9 @@
   }
 }
 
-/* Write your own custom base styles here */
-
-/* Start purging... */
-@tailwind components;
-/* Stop purging. */
-
-/* Write you own custom component styles here */
-
-/* Start purging... */
-@tailwind utilities;
-/* Stop purging. */
-
-/* Your own custom utilities */
+.wp-block-video {
+  @apply mx-auto w-3/4 sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/2;
+}
 
 .has-text-align-left {
   @apply text-left;
@@ -117,8 +107,4 @@
 
 .wp-block-media-text {
   @apply grid grid-cols-2 gap-4;
-}
-
-.wp-block-video {
-  @apply mx-auto w-3/4 sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/2;
 }

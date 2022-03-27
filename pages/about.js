@@ -2,7 +2,6 @@ import Headerlayout from '../widget/Headerlayout'
 import DisplayInfo from '../widget/DisplayInfo'
 import DisplayCard from '../components/about/DisplayCard'
 import SvgtoReact from '../components/Svgtoreact'
-import DropDown from '../components/about/DropDown'
 import DropDownContainer from '../components/about/DropDownContainer'
 
 export default function About({ socials, projects, author, info }) {
