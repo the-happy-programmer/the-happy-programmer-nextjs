@@ -3,10 +3,12 @@ import DisplayInfo from '../widget/DisplayInfo'
 import DisplayCard from '../components/about/DisplayCard'
 import SvgtoReact from '../components/Svgtoreact'
 import DropDownContainer from '../components/about/DropDownContainer'
+import Meta from '../components/Meta'
 
-export default function About({ socials, projects, author, info }) {
+export default function About({ socials, projects, author, info, seo }) {
   return (
     <div className=" bg-gray-50 dark:bg-gray-900">
+      <Meta title={seo.title} description={seo.metaDesc} />
       <div className="dark:border-gray-700">
         <Headerlayout>
           <div className="container flex flex-col items-center justify-center pt-5 text-center sm:flex-row sm:pt-16 sm:text-left md:flex-row md:pt-16 md:text-left lg:flex-row lg:pt-16 lg:text-left xl:flex-row xl:pt-16 xl:text-left">
@@ -56,6 +58,12 @@ export default function About({ socials, projects, author, info }) {
 }
 
 export function getStaticProps() {
+  const seo = {
+    title: 'My Name Is Tony Hajdini',
+    metaDesc:
+      'I have developed numerous of iOS and Android apps. I have been participated in many open sourse projects. An experienced developer in web development, enterprise and mobile development. Enthusiastic with programming and technology.',
+  }
+
   const info = [
     [
       'My studies',
@@ -153,6 +161,7 @@ export function getStaticProps() {
       socials: socials,
       projects: projects,
       author: author,
+      seo: seo,
     },
   }
 }
