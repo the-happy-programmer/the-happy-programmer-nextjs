@@ -20,7 +20,7 @@ const Nav = () => {
         <div className="border-b dark:border-gray-700">
           <div className="container mx-auto flex items-center justify-between px-3 py-4 sm:p-4">
             <div>
-              <HappyLink href="/">
+              <HappyLink href="/" alt="The Happy Programmer">
                 <SvgtoReact
                   name="logo"
                   className="justify-self-center fill-current stroke-current text-gray-900 dark:text-gray-50"
