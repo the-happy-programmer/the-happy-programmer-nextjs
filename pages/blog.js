@@ -23,7 +23,7 @@ export default function Home({ posts, category, seo }) {
 
 export async function getStaticProps() {
   const seo = {
-    title: 'The Happy Programmer',
+    title: 'The Happy Programmer | Blog',
     desc: 'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
   }
   const posts = await getHomePosts(1000)

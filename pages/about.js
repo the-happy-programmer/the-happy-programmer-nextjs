@@ -59,7 +59,7 @@ export default function About({ socials, projects, author, info, seo }) {
 
 export function getStaticProps() {
   const seo = {
-    title: 'My Name Is Tony Hajdini',
+    title: 'My Name Is Tony',
     metaDesc:
       'I have developed numerous of iOS and Android apps. I have been participated in many open sourse projects. An experienced developer in web development, enterprise and mobile development. Enthusiastic with programming and technology.',
   }
