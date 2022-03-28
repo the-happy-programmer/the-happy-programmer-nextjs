@@ -18,10 +18,7 @@ export default function Technologies({ title, subtitle, icons }) {
         <div className="w-80">
           <p className="text-3xl font-bold dark:text-gray-50">{title}</p>
           <p className="py-8 dark:text-gray-300">{subtitle}</p>
-          <HappyLink
-            href={'/about'}
-            classes="dark:text-darkaccent text-accent bg-gray-300"
-          >
+          <HappyLink href={'/about'} classes="dark:text-darkaccent text-accent">
             <div className="flex flex-row items-center gap-x-3">
               Learn more about our courses
               <SvgtoReact
