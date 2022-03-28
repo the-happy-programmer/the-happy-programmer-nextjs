@@ -27,13 +27,7 @@ export default function Support({ title, subtitle, prices, benefits }) {
                   <div className="flex flex-row items-center gap-x-20">
                     <div>
                       <p className="pb-1 text-xl">{price}</p>
-                      <p
-                        className={`text-sm ${
-                          index === currentsupport
-                            ? 'text-gray-400 dark:text-gray-400'
-                            : 'text-gray-500 dark:text-gray-400'
-                        } `}
-                      >
+                      <p className="text-sm  text-gray-400 dark:text-gray-400">
                         per month (+VAT)
                       </p>
                     </div>
