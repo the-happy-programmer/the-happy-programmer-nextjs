@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function HappyLink({ children, href, classes, alt }) {
+export default function HappyLink({ children, href, classes, alt, ariaLabel }) {
   const router = useRouter()
   const current =
     router.asPath === href
@@ -9,8 +9,8 @@ export default function HappyLink({ children, href, classes, alt }) {
       : ''
 
   return (
-    <Link href={href} alt={alt}>
-      <a className={`${classes} ${current}`} alt={alt}>
+    <Link href={href} alt={alt} aria-label={ariaLabel}>
+      <a className={`${classes} ${current}`} alt={alt} aria-label={ariaLabel}>
         {children}
       </a>
     </Link>

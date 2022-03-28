@@ -1,5 +1,6 @@
 import Svgtoreact from './Svgtoreact'
 import Link from 'next/link'
+
 export default function Footer() {
   const socials = [
     ['https://twitter.com/happy_prog', 'twitter'],
@@ -20,8 +21,8 @@ export default function Footer() {
           </div>
           <div className="flex flex-row">
             {socials.map(([href, icon]) => (
-              <Link key={icon} href={href} alt={icon}>
-                <a className="ml-5" alt={icon}>
+              <Link key={icon} href={href} aria-label={icon}>
+                <a className="ml-5" aria-label={icon}>
                   <div className="cursor-pointer justify-self-auto fill-current p-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
                     <Svgtoreact name={icon} height={15} />
                   </div>
