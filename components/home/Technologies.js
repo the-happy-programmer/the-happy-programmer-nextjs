@@ -23,7 +23,7 @@ export default function Technologies({ title, subtitle, icons }) {
             classes="dark:text-darkaccent text-accent bg-gray-300"
           >
             <div className="flex flex-row items-center gap-x-3">
-              Learn More
+              Learn more about our courses
               <SvgtoReact
                 name="arrow"
                 height={15}
