@@ -3,7 +3,7 @@ import DisplayInfo from '../widget/DisplayInfo'
 import DisplayCard from '../components/about/DisplayCard'
 import SvgtoReact from '../components/Svgtoreact'
 import DropDownContainer from '../components/about/DropDownContainer'
-import Meta from '../components/Meta'
+import Meta from '../components/seo/Meta'
 
 export default function About({ socials, projects, author, info, seo }) {
   return (

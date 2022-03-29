@@ -3,7 +3,7 @@ import { getAllCategories, getHomePosts } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
 import Header from '../components/Header'
 import PostList from '../components/PostList'
-import Meta from '../components/Meta'
+import Meta from '../components/seo/Meta'
 
 export default function Home({ posts, category, seo }) {
   return (

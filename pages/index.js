@@ -3,7 +3,7 @@ import SubHero from '../components/home/SubHero'
 import Subscribe from '../components/home/Subscribe'
 import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
-import Meta from '../components/Meta'
+import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
 
 export default function Home({

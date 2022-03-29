@@ -5,7 +5,7 @@ import { getPost, getAllPostsWithSlug } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
 import Image from 'next/image'
 import highlighter from '../lib/highlighter'
-import Meta from '../components/Meta'
+import Meta from '../components/seo/Meta'
 import Link from 'next/link'
 
 export default function Post({ post, socials, content, metalinks }) {
