@@ -17,7 +17,7 @@ export default function About({ socials, projects, author, info, seo }) {
             </div>
 
             <div className="my-auto pl-8 text-gray-900 dark:text-gray-50">
-              <p className="text-4xl">{author.desc}</p>
+              <h1 className="text-4xl">{author.desc}</h1>
               <p className="py-1 pb-4 text-gray-700 dark:text-gray-400">
                 {author.job}
               </p>
