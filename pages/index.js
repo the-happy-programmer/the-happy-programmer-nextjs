@@ -45,8 +45,12 @@ export default function Home({
 export async function getStaticProps() {
   const info = [
     [
+      'Sponsored Posts',
+      'For any sponsored post, you can send us a message at our email address. We will get back to you as soon as possible. ',
+    ],
+    [
       'Advertise yourself',
-      'You can advertise your business in this website, all you have to do is send an email with your banner and the time you want the AD to last',
+      'You can advertise your business in this website, all you have to do is send an email with your banner and the time you want the AD to last. ',
     ],
     [
       'Ask questions',
