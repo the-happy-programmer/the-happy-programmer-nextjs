@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Script from 'next/script'
+// tobe done
+
 export default function Meta({ title, description, children }) {
   return (
     <Head>
