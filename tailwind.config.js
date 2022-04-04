@@ -17,6 +17,7 @@ module.exports = {
       success: '#669900',
       lightpurple: '#EC4899',
       darkpurple: '#F472B6',
+      // Colors
       gray: {
         50: '#fff',
         100: '#FAFAFA',
