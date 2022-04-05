@@ -12,11 +12,11 @@ export default function About({ socials, projects, author, info, seo }) {
       <div className="dark:border-gray-700">
         <Headerlayout>
           <div className="container flex flex-col items-center justify-center pt-5 text-center sm:flex-row sm:pt-16 sm:text-left md:flex-row md:pt-16 md:text-left lg:flex-row lg:pt-16 lg:text-left xl:flex-row xl:pt-16 xl:text-left">
-            <div className="h-36 w-36">
+            <div>
               <SvgtoReact height={150} name="face" />
             </div>
 
-            <div className="my-auto pl-8 text-gray-900 dark:text-gray-50">
+            <div className="my-auto text-gray-900 dark:text-gray-50 sm:pl-8 md:pl-8 lg:pl-8 xl:pl-8">
               <h1 className="text-4xl">{author.desc}</h1>
               <p className="py-1 pb-4 text-gray-700 dark:text-gray-400">
                 {author.job}
