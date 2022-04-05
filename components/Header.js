@@ -32,8 +32,10 @@ export default function Header({ title, subtitle, posts }) {
 
   return (
     <div className="container px-4 pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-20">
-      <h1 className="text-gray-500 dark:text-gray-300 ">{subtitle}</h1>
-      <h2 className="mt-1 text-4xl capitalize dark:text-gray-50">{title}</h2>
+      <h2 className="text-gray-500 dark:text-gray-300 ">{subtitle}</h2>
+      <h1 className="mt-1 text-4xl font-semibold capitalize dark:text-gray-50">
+        {title}
+      </h1>
       <div className="relative mt-10">
         <SvgtoReact
           height={12}
