@@ -5,14 +5,14 @@ import { getPost, getAllPostsWithSlug } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
 import Image from 'next/image'
 import highlighter from '../lib/highlighter'
-import Meta from '../components/seo/Meta'
+import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
 
 export default function Post({ post, socials, content, metalinks }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar } = author.node
+  const { uri } = post.post.featuredImage.node
   const dt = (date) => new Date(date).toDateString()
-
   const postIcon = (tag) =>
     tag.map((tag) => (
       <div key={tag.name} className="h-16">
@@ -27,7 +27,13 @@ export default function Post({ post, socials, content, metalinks }) {
 
   return (
     <>
-      <Meta title={metalinks.title} description={metalinks.metaDesc} />
+      <RichDataPost
+        title={metalinks.title}
+        description={metalinks.metaDesc}
+        date={date}
+        firstName={firstName}
+        image={uri}
+      />
       <Headerlayout>
         <div className="container flex flex-col items-center px-3 py-3">
           <Link href="/blog">
