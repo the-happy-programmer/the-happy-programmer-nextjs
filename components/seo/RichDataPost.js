@@ -2,7 +2,14 @@ import Head from 'next/head'
 import Script from 'next/script'
 // tobe done
 
-export default function Meta({ title, description, firstName, date, image }) {
+export default function Meta({
+  title,
+  description,
+  firstName,
+  date,
+  image,
+  slug,
+}) {
   return (
     <head>
       <title>{title}</title>
@@ -25,7 +32,8 @@ export default function Meta({ title, description, firstName, date, image }) {
           "datePublished": "${date}",
           "author": {
               "@type": "Person",
-              "name": "${firstName}"
+              "name": "${firstName}",
+              "url": "https://thehappyprogrammer.com/author/${slug}/"
             }
         }
     `,

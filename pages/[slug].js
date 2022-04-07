@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 export default function Post({ post, socials, content, metalinks }) {
   const { author, date, tags, title } = post.post
-  const { firstName, avatar } = author.node
+  const { firstName, avatar, slug } = author.node
   const { uri } = post.post.featuredImage.node
   const dt = (date) => new Date(date).toDateString()
   const postIcon = (tag) =>
@@ -33,6 +33,7 @@ export default function Post({ post, socials, content, metalinks }) {
         date={date}
         firstName={firstName}
         image={uri}
+        slug={slug}
       />
       <Headerlayout>
         <div className="container flex flex-col items-center px-3 py-3">
