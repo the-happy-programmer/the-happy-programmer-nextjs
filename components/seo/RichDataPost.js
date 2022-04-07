@@ -21,11 +21,7 @@ export default function Meta({ title, description, firstName, date, image }) {
           '@context': 'https://schema.org',
           '@type': 'NewsArticle',
           headline: '${title}',
-          image: [
-                  'https://thehappyprogrammercom.wpcomstaging.com/${image}',
-                  'https://thehappyprogrammercom.wpcomstaging.com/${image}',
-                  'https://thehappyprogrammercom.wpcomstaging.com/${image}'
-                ],
+          image:'https://thehappyprogrammercom.wpcomstaging.com${image}',
           datePublished: '${date}',
           author: {
               '@type': 'Person',
