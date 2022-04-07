@@ -1,13 +1,23 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
+import UkrainianBanner from './home/UkrainianBanner'
+import { useState } from 'react/cjs/react.development'
 
 const Nav = () => {
+  const [support, setsupport] = useState(true)
+
+  const ubanner = {
+    title: 'Was in Ukraine',
+    subtitle:
+      'Support Ukrainian children and families through the tough times they are going through on',
+    svgname: 'cancel',
+    link: 'UNICEF donate',
+  }
   const sublinks = [
     // ['/course/flutter', 'Flutter'],
     // ['/course/reactnative', 'React Native'],
   ]
-
   const links = [
     ['/blog', 'Blog'],
     ['/about', 'About'],
@@ -51,6 +61,15 @@ const Nav = () => {
         <div className="bg-gray-100 dark:bg-gray-800">
           <div className="container mx-auto ">
             <div className="flex items-center">
+              {support && (
+                <UkrainianBanner
+                  setsupp={ubanner.setsupport}
+                  title={ubanner.title}
+                  subtitle={ubanner.subtitle}
+                  link={ubanner.link}
+                  svgname={ubanner.svgname}
+                />
+              )}
               {sublinks?.map(([link, name]) => (
                 <div className="px-4 py-4" key={name}>
                   <HappyLink
