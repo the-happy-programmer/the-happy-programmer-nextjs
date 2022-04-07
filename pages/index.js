@@ -17,7 +17,21 @@ export default function Home({
 }) {
   return (
     <>
-      <Meta title={seo.title} description={seo.desc} />
+      <Meta title={seo.title} description={seo.desc}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "url": "http://thehappyprogrammer.com/",
+              "logo": "https://thehappyprogrammercom.wpcomstaging.com/wp-content/uploads/2022/04/logo-dark-mode.png"
+            }
+    `,
+          }}
+        />
+      </Meta>
       <div className="bg-gray-50 dark:bg-gray-900">
         <HeroCarousel hero={hero} />
         <SubHero subhero={subhero} />
