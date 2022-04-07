@@ -25,8 +25,8 @@ export default function Meta({ title, description, firstName, date, image }) {
           datePublished: '${date}',
           author: {
               '@type': 'Person',
-              name: '${firstName}',
-            },
+              name: '${firstName}'
+            }
         }
     `,
         }}
