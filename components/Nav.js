@@ -1,7 +1,7 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-import UkrainianBanner from './home/Ukrainianbanner'
+import UkrainianBanner from './home/UkrainianBanner'
 import { useState } from 'react'
 
 const Nav = () => {
