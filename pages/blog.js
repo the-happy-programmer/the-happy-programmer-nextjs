@@ -6,7 +6,6 @@ import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
 import Script from 'next/script'
 export default function Home({ posts, category, seo }) {
-  console.log(posts.edges.author)
   return (
     <div>
       <Meta title={seo.title} description={seo.desc} />
@@ -14,7 +13,7 @@ export default function Home({ posts, category, seo }) {
         <Header
           subtitle="Be an expert in programming"
           title="The Happy Programmer"
-          posts={posts.edges.author}
+          posts={posts.edges}
         />
       </Headerlayout>
       <PostList posts={posts.edges} categories={category.edges} />
