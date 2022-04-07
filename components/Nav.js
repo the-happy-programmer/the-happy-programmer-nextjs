@@ -8,7 +8,7 @@ const Nav = () => {
   const [support, setsupport] = useState(true)
 
   const ubanner = {
-    title: 'Was in Ukraine',
+    title: 'War in Ukraine',
     subtitle:
       'Support Ukrainian children and families through the tough times they are going through on',
     svgname: 'cancel',
