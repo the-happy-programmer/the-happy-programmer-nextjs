@@ -18,14 +18,14 @@ export default function Meta({ title, description, firstName, date, image }) {
         dangerouslySetInnerHTML={{
           __html: `
          {
-          '@context': 'https://schema.org',
-          '@type': 'NewsArticle',
-          headline: '${title}',
-          image:'https://thehappyprogrammercom.wpcomstaging.com${image}',
-          datePublished: '${date}',
-          author: {
-              '@type': 'Person',
-              name: '${firstName}'
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "headline": "${title}",
+          "image":"https://thehappyprogrammercom.wpcomstaging.com${image}",
+          "datePublished": "${date}",
+          "author": {
+              "@type": "Person",
+              "name": "${firstName}"
             }
         }
     `,
