@@ -1,12 +1,6 @@
 import SvgtoReact from '../Svgtoreact'
 
-export default function UkrainianBanner({
-  setsupp,
-  svgname,
-  title,
-  subtitle,
-  link,
-}) {
+const UkrainianBanner = ({ setsupp, svgname, title, subtitle, link }) => {
   return (
     <div className="spac flex w-full flex-row justify-between px-3 py-4">
       <SvgtoReact name="ukrainianflag" height={50} width={50} />
@@ -34,3 +28,5 @@ export default function UkrainianBanner({
     </div>
   )
 }
+
+export default UkrainianBanner

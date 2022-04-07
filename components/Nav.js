@@ -1,8 +1,8 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-import UkrainianBanner from './home/UkrainianBanner'
-import { useState } from 'react/cjs/react.development'
+import UkrainianBanner from './home/Ukrainianbanner'
+import { useState } from 'react'
 
 const Nav = () => {
   const [support, setsupport] = useState(true)
@@ -63,7 +63,7 @@ const Nav = () => {
             <div className="flex items-center">
               {support && (
                 <UkrainianBanner
-                  setsupp={ubanner.setsupport}
+                  setsupp={setsupport}
                   title={ubanner.title}
                   subtitle={ubanner.subtitle}
                   link={ubanner.link}
