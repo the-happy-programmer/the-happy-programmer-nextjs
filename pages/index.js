@@ -21,14 +21,12 @@ export default function Home({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: `
-            {
+            __html: `{
               "@context": "https://schema.org",
               "@type": "Organization",
               "url": "http://thehappyprogrammer.com/",
               "logo": "https://thehappyprogrammercom.wpcomstaging.com/wp-content/uploads/2022/04/logo-dark-mode.png"
-            }
-    `,
+            }`,
           }}
         />
       </Meta>
