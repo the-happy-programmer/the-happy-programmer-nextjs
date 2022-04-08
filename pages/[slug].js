@@ -65,7 +65,7 @@ export default function Post({ post, socials, content, metalinks }) {
             <div className="mt-0 flex flex-col pl-2">
               <HappyLink
                 href={`author/${slug}`}
-                classes="text-gray-900 dark:text-gray-50"
+                classes="text-gray-900 dark:text-gray-50 hover:underline"
               >
                 {firstName}
               </HappyLink>
