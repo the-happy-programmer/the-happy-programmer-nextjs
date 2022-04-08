@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SvgtoReact from './Svgtoreact'
 
 export default function CatTag({ categories, title, tags }) {
   return (
@@ -17,10 +18,15 @@ export default function CatTag({ categories, title, tags }) {
           </div>
         ))}
         {tags?.map((cat) => (
-          <div className="py-2.5" key={cat.node.uri}>
-            <Link href={`${cat.node.uri}`}>
-              <a className="cursor-pointer text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
-                {cat.node.name}
+          <div className="py-2.5" key={cat.uri}>
+            <Link href={`${cat.uri}`}>
+              <a className="flex cursor-pointer flex-row text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
+                <SvgtoReact
+                  className="pr-3"
+                  name={cat.name.toLowerCase()}
+                  height={20}
+                />
+                {cat.name}
               </a>
             </Link>
           </div>

@@ -1,7 +1,7 @@
 import Posthome from './Posthome'
 import CatTag from './CatTag'
 
-export default function PostList({ posts, categories }) {
+export default function PostList({ posts, categories, tags }) {
   return (
     <main className="border-t dark:border-gray-700">
       <div className="bg-gray-100 dark:bg-gray-800">
@@ -23,6 +23,7 @@ export default function PostList({ posts, categories }) {
           </div>
           <div className="sticky top-16 h-screen">
             <CatTag categories={categories} title="Categories" />
+            <CatTag tags={tags} title="Tags" />
           </div>
         </div>
       </div>

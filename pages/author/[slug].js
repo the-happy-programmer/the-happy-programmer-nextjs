@@ -3,12 +3,13 @@ import {
   getAllCategories,
   getHomePosts,
   getAllAuthors,
+  getAllTags,
 } from '../../lib/api'
 import Headerlayout from '../../widget/Headerlayout'
 import Header from '../../components/Header'
 import PostList from '../../components/PostList'
 
-export default function Author({ posts, categories, search }) {
+export default function Author({ posts, categories, search, tags }) {
   const { edges } = posts
   return (
     <div>
@@ -19,7 +20,11 @@ export default function Author({ posts, categories, search }) {
           posts={search.edges}
         />
       </Headerlayout>
-      <PostList posts={posts.edges} categories={categories.categories.edges} />
+      <PostList
+        posts={posts.edges}
+        tags={tags}
+        categories={categories.categories.edges}
+      />
     </div>
   )
 }
@@ -28,11 +33,14 @@ export async function getStaticProps({ params }) {
   const authorr = await author(params.slug)
   const search = await getHomePosts(1000)
   const categories = await getAllCategories()
+  const tags = await getAllTags()
+
   return {
     props: {
       posts: authorr.posts,
       categories: categories,
       search: search.posts,
+      tags: tags.tags.nodes,
     },
   }
 }

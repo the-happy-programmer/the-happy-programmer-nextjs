@@ -24,8 +24,8 @@ export default function Category({ categories, posts, search, tags }) {
       </Headerlayout>
       <PostList
         posts={posts.edges}
-        tags={tags}
         categories={categories.categories.edges}
+        tags={tags}
       />
     </div>
   )
@@ -33,9 +33,9 @@ export default function Category({ categories, posts, search, tags }) {
 
 export async function getStaticProps({ params }) {
   const categories = await getAllCategories()
+  const tags = await getAllTags()
   const posts = await category(params.slug)
   const search = await getHomePosts(1000)
-  const tags = await getAllTags()
 
   return {
     props: {
@@ -48,9 +48,9 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const cate = await getAllCategories()
+  const tags = await getAllTags()
   return {
-    paths: cate.categories.edges.map(({ node }) => `${node.uri}`) || [],
+    paths: tags.tags.nodes.map((node) => `${node.uri}`) || [],
     fallback: false,
   }
 }

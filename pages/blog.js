@@ -1,11 +1,10 @@
-import Head from 'next/head'
-import { getAllCategories, getHomePosts } from '../lib/api'
+import { getAllCategories, getHomePosts, getAllTags } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
 import Header from '../components/Header'
 import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
-import Script from 'next/script'
-export default function Home({ posts, category, seo }) {
+
+export default function Home({ posts, category, seo, tags }) {
   return (
     <div>
       <Meta title={seo.title} description={seo.desc} />
@@ -16,7 +15,7 @@ export default function Home({ posts, category, seo }) {
           posts={posts.edges}
         />
       </Headerlayout>
-      <PostList posts={posts.edges} categories={category.edges} />
+      <PostList posts={posts.edges} tags={tags} categories={category.edges} />
     </div>
   )
 }
@@ -28,7 +27,13 @@ export async function getStaticProps() {
   }
   const posts = await getHomePosts(1000)
   const category = await getAllCategories()
+  const tags = await getAllTags()
   return {
-    props: { posts: posts.posts, category: category.categories, seo: seo },
+    props: {
+      posts: posts.posts,
+      category: category.categories,
+      seo: seo,
+      tags: tags.tags.nodes,
+    },
   }
 }
