@@ -4,7 +4,6 @@ import {
   getHomePosts,
   getAllAuthors,
 } from '../../lib/api'
-import { useRouter } from 'next/router'
 import Headerlayout from '../../widget/Headerlayout'
 import Header from '../../components/Header'
 import PostList from '../../components/PostList'
