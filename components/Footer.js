@@ -9,7 +9,7 @@ export default function Footer() {
       'https://www.facebook.com/The-Happy-Programmer-106178104593013',
       'facebook',
     ],
-    ['https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA', 'youtube'],
+    ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
     ['https://www.github.com/MyNameIsBond', 'github'],
   ]
   return (

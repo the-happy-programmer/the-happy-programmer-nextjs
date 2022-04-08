@@ -98,7 +98,7 @@ export function getStaticProps() {
       'The Happy Programmer',
     ],
     [
-      'https://www.youtube.com/channel/UC6iG4M34lttUcEFUdSVsGVA',
+      'https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg',
       'youtube',
       'The Happy Programmer',
     ],
