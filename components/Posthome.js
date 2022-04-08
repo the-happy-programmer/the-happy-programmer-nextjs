@@ -44,7 +44,12 @@ export default function Posthome({ post, plain }) {
       </p>
       <div className="pt-3">
         {plain ? (
-          <p className="dark:text-gray-50">{post.node.author.node.firstName}</p>
+          <HappyLink
+            classes="hover:underline dark:text-gray-50"
+            href={post.node.author.node.uri}
+          >
+            {post.node.author.node.firstName}
+          </HappyLink>
         ) : null}
         <p className="text-gray-500 dark:text-gray-400">{dt(post.node.date)}</p>
       </div>
