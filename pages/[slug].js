@@ -63,7 +63,12 @@ export default function Post({ post, socials, content, metalinks }) {
               />
             </div>
             <div className="mt-0 flex flex-col pl-2">
-              <p className="text-gray-900 dark:text-gray-50">{firstName}</p>
+              <HappyLink
+                href={`author/${slug}`}
+                classes="text-gray-900 dark:text-gray-50"
+              >
+                {firstName}
+              </HappyLink>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 {dt(date)}
               </p>
