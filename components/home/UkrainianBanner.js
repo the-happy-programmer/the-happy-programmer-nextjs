@@ -18,15 +18,15 @@ const UkrainianBanner = ({ setsupp, svgname, title, subtitle, link }) => {
           </a>
         </p>
       </div>
-      <SvgtoReact
+      <button
         onClick={(e) => {
           setsupp(false)
         }}
         name={svgname}
-        className="cursor-pointer self-center fill-current hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-100"
-        height={20}
-        width={20}
-      />
+        className=" self-center fill-current text-accent hover:underline dark:text-darkaccent"
+      >
+        OK
+      </button>
     </div>
   )
 }
