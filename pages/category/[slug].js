@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Header from '../../components/Header'
+import MyHeader from '../../components/MyHeader'
 import PostList from '../../components/PostList'
 import {
   category,
@@ -20,7 +20,7 @@ export default function Category({ categories, posts, search, tags }) {
           title={`${slug} - The Happy Programmer`}
           description={`${slug} Category - every post which is related to ${slug}`}
         />
-        <Header
+        <MyHeader
           subtitle="The Happy Programmer"
           title={slug}
           posts={search.edges}
