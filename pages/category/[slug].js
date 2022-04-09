@@ -8,7 +8,7 @@ import {
   getAllTags,
 } from '../../lib/api'
 import Headerlayout from '../../widget/Headerlayout'
-
+import Meta from '../../components/seo/Meta'
 export default function Category({ categories, posts, search, tags }) {
   const router = useRouter()
   const { slug } = router.query
@@ -16,6 +16,10 @@ export default function Category({ categories, posts, search, tags }) {
   return (
     <div>
       <Headerlayout>
+        <Meta
+          title={`${slug} - The Happy Programmer`}
+          description={`${slug} Category - every post which is related to ${slug}`}
+        />
         <Header
           subtitle="The Happy Programmer"
           title={slug}

@@ -7,6 +7,7 @@ import {
   getHomePosts,
   getAllTags,
 } from '../../lib/api'
+import Meta from '../../components/seo/Meta'
 import Headerlayout from '../../widget/Headerlayout'
 
 export default function Category({ categories, posts, search, tags }) {
@@ -15,6 +16,10 @@ export default function Category({ categories, posts, search, tags }) {
 
   return (
     <div>
+      <Meta
+        title={`${slug} - The Happy Programmer`}
+        description={`${slug} Tag - every post which is related to ${slug}`}
+      />
       <Headerlayout>
         <Header
           subtitle="The Happy Programmer"

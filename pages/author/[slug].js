@@ -8,11 +8,16 @@ import {
 import Headerlayout from '../../widget/Headerlayout'
 import Header from '../../components/Header'
 import PostList from '../../components/PostList'
+import Meta from '../../components/seo/Meta'
 
 export default function Author({ posts, categories, search, tags }) {
   const { edges } = posts
   return (
     <div>
+      <Meta
+        title={`${edges[0].node.author.node.firstName} - The Happy Programmer`}
+        description={`${edges[0].node.author.node.firstName} Author - every post which is related to ${edges[0].node.author.node.firstName}`}
+      />
       <Headerlayout>
         <Header
           subtitle="The Happy Programmer"
