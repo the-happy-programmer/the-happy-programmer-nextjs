@@ -77,7 +77,10 @@ export default function MyHeader({ title, subtitle, posts }) {
               className="outline-none text-grat w-full bg-gray-800 p-3 px-16 text-gray-50"
             />
             <div
-              onClick={(e) => setSearching(false)}
+              onClick={(e) => {
+                document.body.style.overflow = 'auto'
+                setSearching(false)
+              }}
               className="absolute inset-y-0 right-0 mr-6 flex items-center"
             >
               <SvgtoReact
@@ -101,11 +104,18 @@ export default function MyHeader({ title, subtitle, posts }) {
               <div key={post.node.title} className="group">
                 <div className="cursor-pointer border-b border-gray-700 px-7 py-6 group-hover:bg-gray-700">
                   <div className="flex flex-row items-center justify-between">
-                    <Link href={`/${post.node.slug}`}>
-                      <p className=" text-gray-300 group-hover:text-gray-50">
-                        {post.node.title}
-                      </p>
-                    </Link>
+                    <div
+                      onClick={(e) => {
+                        console.log('clicked')
+                        document.body.style.overflow = 'auto'
+                      }}
+                    >
+                      <Link href={`/${post.node.slug}`}>
+                        <p className=" text-gray-300 group-hover:text-gray-50">
+                          {post.node.title}
+                        </p>
+                      </Link>
+                    </div>
                     <SvgtoReact
                       onClick={(e) => console.log('clicked')}
                       name="cancel"
