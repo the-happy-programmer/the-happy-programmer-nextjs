@@ -1,6 +1,6 @@
 import { getAllCategories, getHomePosts, getAllTags } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
-import Header from '../components/Header'
+import MyHeader from '../components/MyHeader'
 import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
 
@@ -9,7 +9,7 @@ export default function Home({ posts, category, seo, tags }) {
     <div>
       <Meta title={seo.title} description={seo.desc} />
       <Headerlayout>
-        <Header
+        <MyHeader
           subtitle="Be an expert in programming"
           title="The Happy Programmer"
           posts={posts.edges}

@@ -98,19 +98,22 @@ export default function MyHeader({ title, subtitle, posts }) {
               </div>
             )}
             {searchList.map((post) => (
-              <div key={post.node.title}>
-                <div className="border-b border-gray-700 px-4 py-6">
-                  <Link href={`/${post.node.slug}`}>
-                    <div className="flex flex-row justify-between">
-                      <p className="cursor-pointer">{post.node.title}</p>
-                      <SvgtoReact
-                        name="cancel"
-                        className="fill-current text-gray-600"
-                        height={18}
-                        width={18}
-                      />
-                    </div>
-                  </Link>
+              <div key={post.node.title} className="group">
+                <div className="cursor-pointer border-b border-gray-700 px-7 py-6 group-hover:bg-gray-700">
+                  <div className="flex flex-row items-center justify-between">
+                    <Link href={`/${post.node.slug}`}>
+                      <p className=" text-gray-300 group-hover:text-gray-50">
+                        {post.node.title}
+                      </p>
+                    </Link>
+                    <SvgtoReact
+                      onClick={(e) => console.log('clicked')}
+                      name="cancel"
+                      className="cursor-pointer fill-current dark:text-gray-500 dark:hover:text-gray-400"
+                      height={18}
+                      width={18}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
