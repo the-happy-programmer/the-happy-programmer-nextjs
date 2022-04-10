@@ -56,6 +56,11 @@ export default function MyHeader({ title, subtitle, posts }) {
         </button>
       </div>
       <div
+        onkeydown={(e) => {
+          if (e.key) {
+            console.log('Escape')
+          }
+        }}
         className={`fixed top-0 bottom-0 left-0 right-0 z-50
          h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800 ${
            searching ? 'block' : 'hidden'
@@ -76,7 +81,7 @@ export default function MyHeader({ title, subtitle, posts }) {
                 type="text"
                 onChange={changeInput}
                 placeholder="Search posts..."
-                className="outline-none text-grat w-full bg-gray-100 p-3  px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
+                className="outline-none text-grat rounder-t w-full rounded-t-3xl bg-gray-100 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
               />
               <div
                 onClick={(e) => {
@@ -94,7 +99,7 @@ export default function MyHeader({ title, subtitle, posts }) {
               </div>
             </div>
           </div>
-          <div className="mb-auto w-full  text-gray-200">
+          <div className="mb-auto h-full text-gray-200">
             {searchList.length > 0 && (
               <div className="flex flex-row items-center justify-between border-b border-gray-200 px-7 py-8 dark:border-gray-700">
                 <p className="font-bold text-gray-800 dark:text-gray-100">
@@ -106,7 +111,7 @@ export default function MyHeader({ title, subtitle, posts }) {
               </div>
             )}
             {searchList.map((post) => (
-              <div key={post.node.title} className="group">
+              <div key={post.node.title} className="group rounded-t-3xl">
                 <div className="cursor-pointer border-b border-gray-200 px-7 py-6 group-hover:bg-gray-200 dark:border-gray-700 dark:group-hover:bg-gray-700">
                   <div className="flex flex-row items-center justify-between">
                     <div
