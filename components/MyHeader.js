@@ -56,9 +56,10 @@ export default function MyHeader({ title, subtitle, posts }) {
         </button>
       </div>
       <div
-        className={`absolute top-0 left-0 bottom-0 right-0 z-50 flex h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800 ${
-          searching ? 'block' : 'hidden'
-        }`}
+        className={`fixed top-0 bottom-0 left-0 right-0 z-50
+         h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800 ${
+           searching ? 'block' : 'hidden'
+         }`}
       >
         <div className="mx-auto mt-10 h-2/4 w-3/4 overflow-y-scroll rounded-3xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800">
           <div className="sticky top-0">
