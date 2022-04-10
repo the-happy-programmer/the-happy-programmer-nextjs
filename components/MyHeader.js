@@ -47,13 +47,7 @@ export default function MyHeader({ title, subtitle, posts }) {
         >
           Search posts...
         </button>
-        {searching && (
-          <Search
-            posts={posts}
-            setSearching={setSearching}
-            searching={searching}
-          />
-        )}
+        {searching && <Search posts={posts} setSearching={setSearching} />}
       </div>
     </div>
   )

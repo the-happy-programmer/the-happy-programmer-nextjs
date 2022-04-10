@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import SvgtoReact from './Svgtoreact'
 import { useState } from 'react'
-export default function Search({ posts, setSearching, searching }) {
+export default function Search({ posts, setSearching }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchList, setSearchList] = useState([])
   const filterItems = (arr, query) => {
@@ -23,6 +23,14 @@ export default function Search({ posts, setSearching, searching }) {
     setSearchList(filterItems(posts, e.target.value.toLowerCase()))
     return
   }
+
+  const icontitle = (tag) =>
+    tag.map((tag) => (
+      <div className="w-12 pb-4" key={tag.slug}>
+        <SvgtoReact height={40} class="" name={tag.slug.toLowerCase()} />
+      </div>
+    ))
+
   return (
     <div
       tabIndex="0"
@@ -82,30 +90,39 @@ export default function Search({ posts, setSearching, searching }) {
                 </p>
               </div>
             )}
-            {searchList.map((post) => (
+            {searchList.map((post, index) => (
               <div key={post.node.title} className="h-full rounded-t-3xl">
                 <div className="">
                   <div className="cursor-pointer border-b border-gray-200 px-7 py-6 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div className="flex flex-row items-center justify-between">
-                      <div
-                        onClick={(e) => {
-                          console.log('clicked')
-                          document.body.style.overflow = 'auto'
-                        }}
-                      >
-                        <Link href={`/${post.node.slug}`}>
-                          <p className=" text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
-                            {post.node.title}
+                      <div className="flex flex-col">
+                        {icontitle(post.node.tags.nodes)}
+                        <div className="flex flex-col">
+                          <div
+                            onClick={(e) => {
+                              document.body.style.overflow = 'auto'
+                            }}
+                          >
+                            <Link href={`/${post.node.slug}`}>
+                              <p className=" text-md pb-1 font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50">
+                                {post.node.title}
+                              </p>
+                            </Link>
+                          </div>
+                          <p className="pr-10 dark:text-gray-300">
+                            {post.node.excerpt}
                           </p>
-                        </Link>
+                        </div>
                       </div>
-                      <SvgtoReact
-                        onClick={(e) => console.log('clicked')}
-                        name="cancel"
-                        className="cursor-pointer fill-current text-gray-300 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400"
-                        height={18}
-                        width={18}
-                      />
+                      <div>
+                        <SvgtoReact
+                          onClick={(e) => console.log('clicked')}
+                          name="cancel"
+                          className="cursor-pointer justify-self-end fill-current text-gray-300 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400"
+                          height={18}
+                          width={18}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
