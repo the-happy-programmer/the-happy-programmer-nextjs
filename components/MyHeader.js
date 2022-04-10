@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import SvgtoReact from './Svgtoreact'
@@ -29,6 +29,21 @@ export default function MyHeader({ title, subtitle, posts }) {
     return
   }
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        document.body.style.overflow = 'auto'
+        setSearching(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return function cleanup() {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
   return (
     <div className="container px-4 pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-20">
       <h2 className="text-gray-500 dark:text-gray-300 ">{subtitle}</h2>
@@ -57,17 +72,14 @@ export default function MyHeader({ title, subtitle, posts }) {
       </div>
       <div
         tabIndex="0"
-        onKeyDown={(e) => {
-          if (e.key) {
-            console.log('Escape')
-          }
-        }}
         className={`fixed top-0 bottom-0 left-0 right-0 z-50
          h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800 ${
            searching ? 'block' : 'hidden'
          }`}
       >
-        <div className="mx-auto mt-10 h-2/4 w-3/4 overflow-y-scroll rounded-3xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+        <div
+          className={`mx-auto mt-10 h-2/4 w-3/4 overflow-y-auto rounded-3xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800`}
+        >
           <div className="sticky top-0">
             <div className="relative flex h-16 w-full border-b border-gray-200 dark:border-gray-700">
               <div className="absolute inset-y-0 left-0 ml-6 flex items-center">
@@ -100,45 +112,56 @@ export default function MyHeader({ title, subtitle, posts }) {
               </div>
             </div>
           </div>
-          <div className="mb-auto h-full text-gray-200">
-            {searchList.length > 0 && (
-              <div className="flex flex-row items-center justify-between border-b border-gray-200 px-7 py-8 dark:border-gray-700">
-                <p className="font-bold text-gray-800 dark:text-gray-100">
-                  Posts
-                </p>
-                <p className="text-sm text-gray-400 dark:text-gray-400">
-                  {searchList.length} posts found
-                </p>
+          {searchQuery === '' ? (
+            <div className="flex h-full items-center justify-center">
+              <div className="my-auto text-gray-300 dark:text-gray-500">
+                Search for posts
               </div>
-            )}
-            {searchList.map((post) => (
-              <div key={post.node.title} className="group rounded-t-3xl">
-                <div className="cursor-pointer border-b border-gray-200 px-7 py-6 group-hover:bg-gray-200 dark:border-gray-700 dark:group-hover:bg-gray-700">
-                  <div className="flex flex-row items-center justify-between">
-                    <div
-                      onClick={(e) => {
-                        console.log('clicked')
-                        document.body.style.overflow = 'auto'
-                      }}
-                    >
-                      <Link href={`/${post.node.slug}`}>
-                        <p className=" text-gray-500 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-gray-50">
-                          {post.node.title}
-                        </p>
-                      </Link>
+            </div>
+          ) : (
+            <div className="mb-auto text-gray-200">
+              {searchList.length > 0 && (
+                <div className="flex flex-row items-center justify-between border-b border-gray-200 px-7 py-8 dark:border-gray-700">
+                  <p className="font-bold text-gray-800 dark:text-gray-100">
+                    Posts
+                  </p>
+                  <p className="text-sm text-gray-400 dark:text-gray-400">
+                    {searchList.length} posts found
+                  </p>
+                </div>
+              )}
+              {searchList.map((post) => (
+                <div
+                  key={post.node.title}
+                  className="group h-full rounded-t-3xl"
+                >
+                  <div className="cursor-pointer border-b border-gray-200 px-7 py-6 group-hover:bg-gray-200 dark:border-gray-700 dark:group-hover:bg-gray-700">
+                    <div className="flex flex-row items-center justify-between">
+                      <div
+                        onClick={(e) => {
+                          console.log('clicked')
+                          document.body.style.overflow = 'auto'
+                        }}
+                      >
+                        <Link href={`/${post.node.slug}`}>
+                          <p className=" text-gray-500 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-gray-50">
+                            {post.node.title}
+                          </p>
+                        </Link>
+                      </div>
+                      <SvgtoReact
+                        onClick={(e) => console.log('clicked')}
+                        name="cancel"
+                        className="cursor-pointer fill-current text-gray-300 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-500"
+                        height={18}
+                        width={18}
+                      />
                     </div>
-                    <SvgtoReact
-                      onClick={(e) => console.log('clicked')}
-                      name="cancel"
-                      className="cursor-pointer fill-current text-gray-300 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-500"
-                      height={18}
-                      width={18}
-                    />
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
