@@ -56,7 +56,8 @@ export default function MyHeader({ title, subtitle, posts }) {
         </button>
       </div>
       <div
-        onkeydown={(e) => {
+        tabIndex="0"
+        onKeyDown={(e) => {
           if (e.key) {
             console.log('Escape')
           }
