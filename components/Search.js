@@ -34,13 +34,13 @@ export default function Search({ posts, setSearching }) {
   return (
     <div
       tabIndex="0"
-      className="fixed top-0 bottom-0 left-0 right-0 z-50
-     h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800"
+      className="fixed top-0 bottom-0 left-0 right-0
+     z-50 h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800"
     >
       <div
-        className={`mx-auto mt-10 h-2/4 w-3/4 overflow-y-auto rounded-3xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800`}
+        className={`container mx-auto mt-10 h-2/4 w-3/4 overflow-y-auto rounded-3xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800`}
       >
-        <div className="sticky top-0">
+        <div className="sticky top-0 ">
           <div className="relative flex h-16 w-full border-b border-gray-200 dark:border-gray-700">
             <div className="absolute inset-y-0 left-0 ml-6 flex items-center">
               <SvgtoReact
