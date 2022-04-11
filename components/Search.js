@@ -104,12 +104,12 @@ export default function Search({ posts, setSearching }) {
                             }}
                           >
                             <Link href={`/${post.node.slug}`}>
-                              <p className=" text-md pb-1 font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50">
+                              <p className=" text-md pb-1 font-semibold text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50">
                                 {post.node.title}
                               </p>
                             </Link>
                           </div>
-                          <p className="pr-10 dark:text-gray-300">
+                          <p className="pr-10 text-gray-600 dark:text-gray-300">
                             {post.node.excerpt}
                           </p>
                         </div>
