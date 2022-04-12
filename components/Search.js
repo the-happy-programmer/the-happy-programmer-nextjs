@@ -42,10 +42,8 @@ export default function Search({ posts, setSearching }) {
       className="fixed top-0 bottom-0 left-0 right-0
      z-50 h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800"
     >
-      <div
-        className={`container mx-auto mt-10 h-2/4 w-3/4 overflow-y-auto rounded-3xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800`}
-      >
-        <div className="sticky top-0 ">
+      <div className="container m-auto mt-10 h-2/4 w-11/12 max-w-2xl overflow-y-auto rounded-2xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:mt-20 sm:w-full md:mt-32 lg:mt-32 xl:mt-32">
+        <div className="sticky top-0">
           <div className="relative flex h-16 w-full border-b border-gray-200 dark:border-gray-700">
             <div className="absolute inset-y-0 left-0 ml-6 flex items-center">
               <SvgtoReact
@@ -95,7 +93,7 @@ export default function Search({ posts, setSearching }) {
                 </p>
               </div>
             )}
-            {searchList.map((post, index) => (
+            {searchList.map((post) => (
               <div key={post.node.title} className="z-0 h-full rounded-t-3xl">
                 <Link href={`/${post.node.slug}`}>
                   <div
