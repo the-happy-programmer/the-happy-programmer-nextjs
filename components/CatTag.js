@@ -7,6 +7,7 @@ export default function CatTag({ categories, title, tags }) {
       <p className="py-2 text-lg font-semibold text-gray-800 dark:text-gray-100">
         {title}
       </p>
+
       <div className="divide-y dark:divide-gray-700">
         {categories?.map((cat) => (
           <div className="py-2.5" key={cat.node.uri}>
