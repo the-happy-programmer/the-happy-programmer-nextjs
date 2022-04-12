@@ -49,7 +49,7 @@ export default function Post({ post, socials, content, metalinks }) {
             </a>
           </Link>
           {postIcon(tags.nodes)}
-          <h1 className="p-3 text-3xl font-bold text-gray-900 dark:text-gray-50">
+          <h1 className="p-3 text-center text-3xl font-bold text-gray-900 dark:text-gray-50">
             {title}
           </h1>
           <div className="center flex flex-row">
