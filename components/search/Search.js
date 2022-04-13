@@ -78,18 +78,18 @@ export default function Search({ posts, setSearching }) {
               <div className=" text-gray-500 dark:text-gray-300">
                 no results for{' '}
                 <span className="text-gray-900 dark:text-gray-50">
-                  "{searchQuery}"
+                  &quot;{searchQuery}&quot;
                 </span>
                 <ul className="py-3 text-accent dark:text-darkaccent">
                   <li className="py-3">
-                    <Link href="/">
+                    <Link href="/" passHref>
                       <a className="cursor-pointer hover:underline">
                         The Hapy Programmer
                       </a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://happynuxtjs.com/">
+                    <Link href="https://happynuxtjs.com/" passHref>
                       <a className="cursor-pointer hover:underline">
                         Happy NuxtJS
                       </a>
