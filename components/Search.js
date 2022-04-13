@@ -66,12 +66,9 @@ export default function Search({ posts, setSearching }) {
               }}
               className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-100 dark:bg-gray-800"
             >
-              <SvgtoReact
-                name="cancel"
-                height={18}
-                width={18}
-                className="cursor-pointer fill-current text-gray-300 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-500"
-              />
+              <div className="cursor-pointer rounded-md border fill-current p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-500">
+                ESC
+              </div>
             </div>
           </div>
         </div>
@@ -109,7 +106,6 @@ export default function Search({ posts, setSearching }) {
                       </p>
                       <div>
                         <SvgtoReact
-                          onClick={(e) => console.log('clicked')}
                           name="arrow-right"
                           className="cursor-pointer justify-self-end fill-current text-gray-300 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400"
                           height={15}
