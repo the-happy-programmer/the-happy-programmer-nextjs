@@ -1,12 +1,8 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-import UkrainianBanner from './home/UkrainianBanner'
-import { useState } from 'react'
 
 const Nav = () => {
-  const [support, setsupport] = useState(true)
-
   const ubanner = {
     title: 'War in Ukraine',
     subtitle:
@@ -61,15 +57,6 @@ const Nav = () => {
         <div className="bg-gray-100 dark:bg-gray-800">
           <div className="container mx-auto ">
             <div className="flex items-center">
-              {support && (
-                <UkrainianBanner
-                  setsupp={setsupport}
-                  title={ubanner.title}
-                  subtitle={ubanner.subtitle}
-                  link={ubanner.link}
-                  svgname={ubanner.svgname}
-                />
-              )}
               {sublinks?.map(([link, name]) => (
                 <div className="px-4 py-4" key={name}>
                   <HappyLink

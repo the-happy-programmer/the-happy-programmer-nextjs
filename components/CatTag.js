@@ -1,13 +1,12 @@
 import Link from 'next/link'
 import SvgtoReact from './Svgtoreact'
-
-export default function CatTag({ categories, title, tags }) {
+import style from '../styles/CatTag.module.css'
+export default function CatTag({ categories, title, tags, banner }) {
   return (
     <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
       <p className="py-2 text-lg font-semibold text-gray-800 dark:text-gray-100">
         {title}
       </p>
-
       <div className="divide-y dark:divide-gray-700">
         {categories?.map((cat) => (
           <div className="py-2.5" key={cat.node.uri}>
@@ -36,6 +35,17 @@ export default function CatTag({ categories, title, tags }) {
           </div>
         ))}
       </div>
+      {banner?.map(([svg, subtitle, link]) => (
+        <div>
+          <p className="block text-sm leading-normal text-gray-600">
+            {subtitle}
+            <SvgtoReact name={svg} height={20} />
+          </p>
+          <p className="pt-3 text-sm text-accent dark:text-darkaccent">
+            {link}
+          </p>
+        </div>
+      ))}
     </div>
   )
 }

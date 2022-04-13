@@ -75,10 +75,12 @@ export default function Search({ posts, setSearching }) {
         <div>
           {searchList.length === 0 && searchQuery !== '' && (
             <div className="p-5">
-              <div className=" text-gray-500">
+              <div className=" text-gray-500 dark:text-gray-300">
                 no results for{' '}
-                <span className="text-gray-900">"{searchQuery}"</span>
-                <ul className="py-3 text-accent">
+                <span className="text-gray-900 dark:text-gray-50">
+                  "{searchQuery}"
+                </span>
+                <ul className="py-3 text-accent dark:text-darkaccent">
                   <li className="py-3">
                     <Link href="/">
                       <a className="cursor-pointer hover:underline">
@@ -144,9 +146,9 @@ export default function Search({ posts, setSearching }) {
               ))}
             </div>
           )}
-          <div className="sticky bottom-0 flex w-full justify-end border-t border-gray-200 bg-gray-100">
-            <div className="fill-current stroke-current p-4 text-gray-700 dark:text-gray-400">
-              <SvgtoReact name="fulllogo" height={30} width={100} />
+          <div className="sticky bottom-0 flex w-full justify-end rounded-b-2xl border-t border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+            <div className="fill-current stroke-current  p-4 text-gray-700 dark:text-gray-400">
+              <SvgtoReact name="fulllogo" height={30} width={75} />
             </div>
           </div>
         </div>

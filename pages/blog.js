@@ -4,7 +4,7 @@ import MyHeader from '../components/search/MyHeader'
 import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
 
-export default function Home({ posts, category, seo, tags }) {
+export default function Home({ posts, category, seo, tags, banner }) {
   return (
     <div>
       <Meta title={seo.title} description={seo.desc} />
@@ -15,7 +15,12 @@ export default function Home({ posts, category, seo, tags }) {
           posts={posts.edges}
         />
       </Headerlayout>
-      <PostList posts={posts.edges} tags={tags} categories={category.edges} />
+      <PostList
+        posts={posts.edges}
+        tags={tags}
+        categories={category.edges}
+        banner={banner}
+      />
     </div>
   )
 }
@@ -25,6 +30,15 @@ export async function getStaticProps() {
     title: 'The Happy Programmer | Blog',
     desc: 'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
   }
+
+  const banner = [
+    [
+      'ukrainianflag',
+      'Support Ukrainian children and families through the tough times they are going through',
+      'UNICEF Donate',
+    ],
+  ]
+
   const posts = await getHomePosts(1000)
   const category = await getAllCategories()
   const tags = await getAllTags()
@@ -34,6 +48,7 @@ export async function getStaticProps() {
       category: category.categories,
       seo: seo,
       tags: tags.tags.nodes,
+      banner: banner,
     },
   }
 }
