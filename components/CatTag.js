@@ -37,7 +37,7 @@ export default function CatTag({ categories, title, tags, banner }) {
       </div>
       {banner?.map(([svg, subtitle, link]) => (
         <div key={link}>
-          <p className="block text-sm leading-normal text-gray-600">
+          <p className="block text-sm leading-normal text-gray-600 dark:text-gray-400">
             {subtitle}
             <SvgtoReact name={svg} height={20} />
           </p>
