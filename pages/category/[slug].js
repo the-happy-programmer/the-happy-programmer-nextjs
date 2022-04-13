@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import MyHeader from '../../components/MyHeader'
+import MyHeader from '../../components/search/MyHeader'
 import PostList from '../../components/PostList'
 import {
   category,

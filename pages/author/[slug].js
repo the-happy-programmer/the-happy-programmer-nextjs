@@ -6,7 +6,7 @@ import {
   getAllTags,
 } from '../../lib/api'
 import Headerlayout from '../../widget/Headerlayout'
-import Header from '../../components/Header'
+import MyHeader from '../../components/search/MyHeader'
 import PostList from '../../components/PostList'
 import Meta from '../../components/seo/Meta'
 
@@ -19,7 +19,7 @@ export default function Author({ posts, categories, search, tags }) {
         description={`${edges[0].node.author.node.firstName} Author - every post which is related to ${edges[0].node.author.node.firstName}`}
       />
       <Headerlayout>
-        <Header
+        <MyHeader
           subtitle="The Happy Programmer"
           title={edges[0].node.author.node.firstName}
           posts={search.edges}

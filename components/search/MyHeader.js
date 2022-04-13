@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-import SvgtoReact from './Svgtoreact'
+import SvgtoReact from '../Svgtoreact'
 import Search from './Search'
 
 export default function MyHeader({ title, subtitle, posts }) {

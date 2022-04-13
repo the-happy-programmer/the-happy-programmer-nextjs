@@ -1,6 +1,6 @@
 import { getAllCategories, getHomePosts, getAllTags } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
-import MyHeader from '../components/MyHeader'
+import MyHeader from '../components/search/MyHeader'
 import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
 
