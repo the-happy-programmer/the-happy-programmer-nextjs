@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import SvgtoReact from './Svgtoreact'
-import style from '../styles/CatTag.module.css'
 export default function CatTag({ categories, title, tags, banner }) {
   return (
     <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
