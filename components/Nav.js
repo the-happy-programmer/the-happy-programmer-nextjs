@@ -3,9 +3,9 @@ import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
 import { useState } from 'react'
 import SideBar from './SideBar'
+
 const Nav = () => {
   const [sidebar, setsidebar] = useState(false)
-
   const sublinks = [
     // ['/course/flutter', 'Flutter'],
     // ['/course/reactnative', 'React Native'],
@@ -60,7 +60,7 @@ const Nav = () => {
                 height={15}
               />
             </button>
-            {sidebar && <SideBar />}
+            {sidebar && <SideBar links={links} />}
           </div>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800">
