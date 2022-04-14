@@ -15,6 +15,11 @@ export default function Search({ posts, setSearching }) {
     })
   }
 
+  const closeSearch = (e) => {
+    scroll('auto')
+    setSearching(false)
+  }
+
   const changeInput = (e) => {
     if (e.target.value === '') {
       setSearchList([])
@@ -62,10 +67,7 @@ export default function Search({ posts, setSearching }) {
               className="outline-none text-grat rounder-t w-full rounded-t-2xl bg-gray-100 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
             />
             <div
-              onClick={(e) => {
-                scroll('auto')
-                setSearching(false)
-              }}
+              onClick={(e) => closeSearch(e)}
               className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-100 dark:bg-gray-800"
             >
               <div className="cursor-pointer rounded-md border border-gray-200 fill-current p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:border-gray-600 dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-gray-400">
@@ -123,9 +125,7 @@ export default function Search({ posts, setSearching }) {
                 <div key={post.node.title} className="h-full rounded-t-3xl">
                   <Link href={`/${post.node.slug}`}>
                     <div
-                      onClick={(e) => {
-                        scroll('auto')
-                      }}
+                      onClick={(e) => closeSearch(e)}
                       className="cursor-pointer border-b border-gray-200 px-7 py-6 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700"
                     >
                       <div className="flex flex-row items-center justify-between">

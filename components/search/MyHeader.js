@@ -21,6 +21,11 @@ export default function MyHeader({ title, subtitle, posts }) {
     }
   }, [])
 
+  const openSearch = (e) => {
+    scroll('hidden')
+    setSearching(true)
+  }
+
   return (
     <div className="container px-4 pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-20">
       <h2 className="text-gray-500 dark:text-gray-300 ">{subtitle}</h2>
@@ -39,10 +44,7 @@ export default function MyHeader({ title, subtitle, posts }) {
         <button
           type="text"
           className="focus:outline-none rounded-md border border-gray-200 py-2 pl-9 pr-6 text-gray-300 focus:border-gray-700 group-hover:border-gray-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500"
-          onClick={(e) => {
-            scroll('hidden')
-            return setSearching(true)
-          }}
+          onClick={(e) => openSearch(e)}
         >
           Search posts...
         </button>
