@@ -52,9 +52,13 @@ const Nav = () => {
               onClick={(e) => {
                 setsidebar(!sidebar)
               }}
-              className="flex sm:hidden md:hidden lg:hidden xl:hidden"
+              className="flex text-gray-900 dark:text-gray-50 sm:hidden md:hidden lg:hidden xl:hidden"
             >
-              <SvgtoReact name="burger" height={15} />
+              <SvgtoReact
+                name="burger"
+                className="stroke-current text-gray-50"
+                height={15}
+              />
             </button>
             {sidebar && <SideBar />}
           </div>
