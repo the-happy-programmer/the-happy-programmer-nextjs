@@ -35,15 +35,14 @@ export default function CatTag({ categories, title, tags, banner }) {
           </div>
         ))}
       </div>
-      {banner?.map(([svg, subtitle, link]) => (
+      {banner?.map(([subtitle, link, href]) => (
         <div key={link}>
-          <p className="block text-sm leading-normal text-gray-600 dark:text-gray-400">
+          <p className="block py-1 text-sm leading-normal text-gray-600 dark:text-gray-400">
             {subtitle}
-            <SvgtoReact name={svg} height={20} />
           </p>
           <a
-            http="https://www.unicef.org.uk/donate/donate-now-to-protect-children-in-ukraine/?gclid=Cj0KCQjwl7qSBhD-ARIsACvV1X0lPlYwu0E2vfVCEX3x6N4B_IkPi5SvQLlLF65pZgNEnWBTIbX_27caArikEALw_wcB"
-            className="pt-3 text-sm text-accent dark:text-darkaccent"
+            href={href}
+            className="text-sm text-accent hover:underline dark:text-darkaccent"
           >
             {link}
           </a>

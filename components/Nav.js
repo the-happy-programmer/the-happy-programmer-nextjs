@@ -1,15 +1,11 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-
+import { useState } from 'react'
+import SideBar from './SideBar'
 const Nav = () => {
-  const ubanner = {
-    title: 'War in Ukraine',
-    subtitle:
-      'Support Ukrainian children and families through the tough times they are going through on',
-    svgname: 'cancel',
-    link: 'UNICEF donate',
-  }
+  const [sidebar, setsidebar] = useState(false)
+
   const sublinks = [
     // ['/course/flutter', 'Flutter'],
     // ['/course/reactnative', 'React Native'],
@@ -34,7 +30,7 @@ const Nav = () => {
                 />
               </HappyLink>
             </div>
-            <div className="flex items-center">
+            <div className="hidden items-center sm:flex md:flex lg:flex xl:flex">
               {links.map(([link, name]) => (
                 <div key={name} className="pr-5 sm:pr-6 md:pr-10">
                   <HappyLink
@@ -52,6 +48,15 @@ const Nav = () => {
                 SUPPORT ME
               </HappyButton>
             </div>
+            <button
+              onClick={(e) => {
+                setsidebar(!sidebar)
+              }}
+              className="flex sm:hidden md:hidden lg:hidden xl:hidden"
+            >
+              <SvgtoReact name="burger" height={15} />
+            </button>
+            {sidebar && <SideBar />}
           </div>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800">

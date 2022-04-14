@@ -33,9 +33,9 @@ export async function getStaticProps() {
 
   const banner = [
     [
-      'ukrainianflag',
       'Support Ukrainian children and families through the tough times they are going through',
       'UNICEF Donate',
+      'https://www.unicef.org.uk/donate/donate-now-to-protect-children-in-ukraine/?gclid=Cj0KCQjwl7qSBhD-ARIsACvV1X0lPlYwu0E2vfVCEX3x6N4B_IkPi5SvQLlLF65pZgNEnWBTIbX_27caArikEALw_wcB',
     ],
   ]
 
