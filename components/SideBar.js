@@ -27,13 +27,15 @@ export default function SideBar({ links, setsidebar }) {
             />
           </div>
         </div>
-        {links.map(([link, name]) => (
-          <div>
-            <Link href={link}>
-              <a onClick={(e) => setsidebar(false)}>{name}</a>
-            </Link>
-          </div>
-        ))}
+        <div className="px-4">
+          {links.map(([link, name]) => (
+            <div className="py-2">
+              <Link href={link}>
+                <a onClick={(e) => setsidebar(false)}>{name}</a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
