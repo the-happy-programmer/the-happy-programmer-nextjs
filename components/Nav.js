@@ -56,7 +56,7 @@ const Nav = () => {
             >
               <SvgtoReact
                 name="burger"
-                className="stroke-current text-gray-50"
+                className="stroke-current text-gray-900 dark:text-gray-50"
                 height={15}
               />
             </button>
