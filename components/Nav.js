@@ -3,6 +3,7 @@ import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
 import { useState } from 'react'
 import SideBar from './SideBar'
+import scroll from '../lib/scroll'
 
 const Nav = () => {
   const [sidebar, setsidebar] = useState(false)
@@ -50,6 +51,7 @@ const Nav = () => {
             </div>
             <button
               onClick={(e) => {
+                scroll('hidden')
                 setsidebar(!sidebar)
               }}
               className="flex text-gray-900 dark:text-gray-50 sm:hidden md:hidden lg:hidden xl:hidden"

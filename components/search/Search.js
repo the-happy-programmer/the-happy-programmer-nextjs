@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import SvgtoReact from '../Svgtoreact'
 import { useState } from 'react'
+import scroll from '../../lib/scroll'
+
 export default function Search({ posts, setSearching }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchList, setSearchList] = useState([])
@@ -61,7 +63,7 @@ export default function Search({ posts, setSearching }) {
             />
             <div
               onClick={(e) => {
-                document.body.style.overflow = 'auto'
+                scroll('auto')
                 setSearching(false)
               }}
               className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-100 dark:bg-gray-800"
@@ -122,7 +124,7 @@ export default function Search({ posts, setSearching }) {
                   <Link href={`/${post.node.slug}`}>
                     <div
                       onClick={(e) => {
-                        document.body.style.overflow = 'auto'
+                        scroll('auto')
                       }}
                       className="cursor-pointer border-b border-gray-200 px-7 py-6 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700"
                     >

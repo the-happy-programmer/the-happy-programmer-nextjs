@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-
 import SvgtoReact from '../Svgtoreact'
 import Search from './Search'
+import scroll from '../../lib/scroll'
 
 export default function MyHeader({ title, subtitle, posts }) {
   const [searching, setSearching] = useState(false)
@@ -10,7 +9,7 @@ export default function MyHeader({ title, subtitle, posts }) {
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.key === 'Escape') {
-        document.body.style.overflow = 'auto'
+        scroll('auto')
         setSearching(false)
       }
     }
@@ -41,7 +40,7 @@ export default function MyHeader({ title, subtitle, posts }) {
           type="text"
           className="focus:outline-none rounded-md border border-gray-200 py-2 pl-9 pr-6 text-gray-300 focus:border-gray-700 group-hover:border-gray-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500"
           onClick={(e) => {
-            document.body.style.overflow = 'hidden'
+            scroll('hidden')
             return setSearching(true)
           }}
         >

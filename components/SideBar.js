@@ -1,14 +1,21 @@
 import Link from 'next/link'
+import scroll from '../lib/scroll'
+import HappyButton from './Happybutton'
 import SvgtoReact from './Svgtoreact'
-
 export default function SideBar({ links, setsidebar }) {
+  const closeSidebar = () => {
+    setsidebar(false)
+    scroll('auto')
+    return
+  }
+
   return (
     <div className="absolute bottom-0 top-0 left-0 h-screen w-screen bg-gray-300 bg-opacity-95 dark:bg-gray-800">
       <div className="flex h-screen w-72 flex-col border-r border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
         <div className="flex flex-col items-center border-b px-3 py-4 dark:border-gray-700">
           <div
             className="cursor-pointer self-end"
-            onClick={(e) => setsidebar(false)}
+            onClick={(e) => closeSidebar(e)}
           >
             <SvgtoReact
               name="cancel"
@@ -21,14 +28,19 @@ export default function SideBar({ links, setsidebar }) {
           {links.map(([link, name]) => (
             <div className="py-3" key={name}>
               <Link href={link}>
-                <a onClick={(e) => setsidebar(false)}>{name}</a>
+                <a onClick={(e) => closeSidebar(e)}>{name}</a>
               </Link>
             </div>
           ))}
         </div>
+        <div className="px-4">
+          <HappyButton href="https://www.patreon.com/thehappyprogrammer">
+            SUPPORT ME
+          </HappyButton>
+        </div>
         <div
-          className="mt-auto w-full cursor-pointer self-start border-t p-4 dark:border-gray-700 dark:bg-gray-800"
-          onClick={(e) => setsidebar(false)}
+          className="mt-auto w-full cursor-pointer border-t p-4 dark:border-gray-700 dark:bg-gray-800"
+          onClick={(e) => closeSidebar(e)}
         >
           <Link href="/">
             <SvgtoReact
