@@ -18,7 +18,10 @@ export default function SideBar({ links, setsidebar }) {
               />
             </Link>
           </div>
-          <div className="cursor-pointer self-start ">
+          <div
+            className="cursor-pointer self-start"
+            onClick={(e) => setsidebar(false)}
+          >
             <SvgtoReact
               name="fulllogo"
               className="fill-current stroke-current text-gray-900 dark:text-gray-50"
