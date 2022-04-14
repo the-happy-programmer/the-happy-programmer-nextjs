@@ -10,24 +10,24 @@ export default function SideBar({ links, setsidebar }) {
             className="cursor-pointer self-end"
             onClick={(e) => setsidebar(false)}
           >
-            <Link href="/">
-              <SvgtoReact
-                name="cancel"
-                className=" fill-current hover:text-gray-100 dark:text-gray-300"
-                height={15}
-              />
-            </Link>
+            <SvgtoReact
+              name="cancel"
+              className=" fill-current hover:text-gray-100 dark:text-gray-300"
+              height={15}
+            />
           </div>
           <div
             className="cursor-pointer self-start"
             onClick={(e) => setsidebar(false)}
           >
-            <SvgtoReact
-              name="fulllogo"
-              className="fill-current stroke-current text-gray-900 dark:text-gray-50"
-              height={20}
-              width={75}
-            />
+            <Link href="/">
+              <SvgtoReact
+                name="fulllogo"
+                className="fill-current stroke-current text-gray-900 dark:text-gray-50"
+                height={20}
+                width={75}
+              />
+            </Link>
           </div>
         </div>
         <div className="px-4">
