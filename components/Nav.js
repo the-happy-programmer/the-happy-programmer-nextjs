@@ -60,7 +60,7 @@ const Nav = () => {
                 height={15}
               />
             </button>
-            {sidebar && <SideBar links={links} />}
+            {sidebar && <SideBar links={links} setsidebar={setsidebar} />}
           </div>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800">
