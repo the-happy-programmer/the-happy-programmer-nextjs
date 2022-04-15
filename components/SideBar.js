@@ -35,7 +35,7 @@ export default function SideBar({ links, setsidebar }) {
         </div>
         <div className="px-4">
           <HappyButton href="https://www.patreon.com/thehappyprogrammer">
-            SUPPORT ME
+            support me
           </HappyButton>
         </div>
         <div

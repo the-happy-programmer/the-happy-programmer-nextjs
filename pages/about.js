@@ -82,7 +82,7 @@ export function getStaticProps() {
   const author = {
     desc: 'My name is Tony',
     job: 'I am a Software Engineer',
-    mail: 'info@thehappyprogramer.com',
+    mail: 'info@thehappyprogrammer.com',
   }
 
   const socials = [
