@@ -46,7 +46,7 @@ const Nav = () => {
                 href="https://www.patreon.com/thehappyprogrammer"
                 className="box-border"
               >
-                SUPPORT ME
+                support me
               </HappyButton>
             </div>
             <button
