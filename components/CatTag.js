@@ -37,7 +37,7 @@ export default function CatTag({ categories, title, tags, banner }) {
       </div>
       {banner?.map(([subtitle, link, href]) => (
         <div key={link}>
-          <p className="block py-1 text-sm leading-normal text-gray-600 dark:text-gray-400">
+          <p className="block pb-2 text-sm leading-normal text-gray-600 dark:text-gray-400">
             {subtitle}
           </p>
           <a
