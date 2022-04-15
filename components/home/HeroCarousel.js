@@ -8,6 +8,7 @@ export default function HeroCarousel({ hero }) {
         <h1 className="text-4xl font-bold dark:text-gray-100  sm:text-4xl  md:text-5xl lg:text-5xl xl:text-5xl">
           {hero.title}
         </h1>
+
         <p className="py-10 px-2 text-lg text-gray-600 dark:text-gray-200 sm:px-0 md:px-0 lg:px-0 xl:px-0">
           {hero.subtitle}
         </p>
