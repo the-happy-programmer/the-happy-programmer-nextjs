@@ -31,6 +31,7 @@ export default function Category({ categories, posts, search, tags }) {
         posts={posts.edges}
         categories={categories.categories.edges}
         tags={tags}
+        banner={banner}
       />
     </div>
   )

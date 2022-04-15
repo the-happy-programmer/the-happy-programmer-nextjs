@@ -29,6 +29,7 @@ export default function Author({ posts, categories, search, tags }) {
         posts={posts.edges}
         tags={tags}
         categories={categories.categories.edges}
+        banner={banner}
       />
     </div>
   )
