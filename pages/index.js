@@ -5,7 +5,6 @@ import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
-import { getAllSlugs } from '../lib/courseslib/api'
 export default function Home({
   seo,
   hero,
