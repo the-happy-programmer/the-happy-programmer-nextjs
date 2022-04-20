@@ -86,4 +86,33 @@ struct BlurryViewApp: App {
         }
     }
 }
+struct Card: View {
+    var body: some View {
+        VStack(alignment:.leading, spacing: 0) {
+            HStack{
+                Image(systemName: "applelogo").font(.largeTitle)
+                Text("Apple Card")
+            }.padding(20).lineSpacing(2).padding(.bottom)
+            Text("5612 2536 1245 5698")
+                .fontWeight(.medium)
+                .tracking(4)
+                .padding([.top,.leading])
+            HStack {
+                Text("1234").font(.caption).fontWeight(.light)
+                Spacer()
+                VStack {
+                    Text("VALID").fontWeight(.thin).font(.system(size: 8))
+                    Text("THRU").fontWeight(.thin).font(.system(size: 8))
+                }
+                Text("12/21")
+                Spacer()
+            }.padding(.leading).padding([.top, .bottom], 10)
+            Text("Mr Tony").tracking(0.5).padding(.leading).padding(.bottom, 25)
+        }
+        .background(BlurView(style: .regular))
+        .cornerRadius(20)
+        .shadow(radius: 5)
+        .padding()
+    }
+}
 ```

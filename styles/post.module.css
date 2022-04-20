@@ -61,20 +61,16 @@
 }
 
 .content pre {
-  @apply my-6 overflow-x-auto whitespace-pre rounded-xl border border-gray-200 bg-gray-50  p-5 text-sm leading-tight dark:border-gray-700 dark:bg-gray-900;
-  @apply font-semibold text-gray-900 dark:text-gray-50;
-}
-
-.content code {
-  @apply text-sm dark:text-gray-100;
+  @apply my-6 overflow-x-auto whitespace-pre rounded-xl border border-gray-200 bg-gray-100  p-5 text-sm leading-tight dark:border-gray-700 dark:bg-gray-800;
+  @apply font-semibold;
 }
 
 .content p code {
-  @apply p-1 font-bold text-lightpurple dark:text-darkpurple;
+  @apply p-1 text-sm font-bold text-lightpurple dark:text-darkpurple;
 }
 
 .content ul code {
-  @apply p-1 font-bold text-lightpurple dark:text-darkpurple;
+  @apply p-1 text-sm font-bold text-lightpurple dark:text-darkpurple;
 }
 
 .content figcaption {
