@@ -7,7 +7,6 @@ import Image from 'next/image'
 import highlighter from '../lib/highlighter'
 import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
-import htmlmarkdown from '../lib/courseslib/htmlmarkdown'
 
 export default function Post({ post, socials, content, metalinks }) {
   const { author, date, tags, title } = post.post
@@ -108,7 +107,7 @@ export async function getStaticProps({ params }) {
   ]
 
   const post = await getPost(params.slug)
-  const pp = await htmlmarkdown(post.post.content)
+  const pp = await highlighter(post.post.content)
   return {
     props: {
       post: post,

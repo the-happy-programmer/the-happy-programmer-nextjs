@@ -93,7 +93,6 @@
 .wp-block-image .aligncenter > figcaption,
 .wp-block-image.is-resized > figcaption {
   @apply table-caption;
-
   caption-side: bottom;
 }
 

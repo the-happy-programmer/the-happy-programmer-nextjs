@@ -1,6 +1,6 @@
 import Content from '../../components/course/Content'
 import { getDocBySlug } from '../../lib/courseslib/api'
-import markdownToHtml from '../../lib/courseslib/htmlmarkdown'
+import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
 
 export default function Pag({ content }) {
   return (
