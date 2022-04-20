@@ -1,6 +1,7 @@
 import Content from '../../components/course/Content'
 import { getDocBySlug } from '../../lib/courseslib/api'
 import markdownToHtml from '../../lib/courseslib/htmlmarkdown'
+
 export default function Pag({ content }) {
   return (
     <>
@@ -11,8 +12,7 @@ export default function Pag({ content }) {
 
 export async function getStaticProps({ params }) {
   const { next } = params
-  console.log('SLUG', next)
-  const doc = getDocBySlug(next, '/course/swift')
+  const doc = await getDocBySlug(next, '/course/swift')
   const content = await markdownToHtml(doc.content || '')
   return { props: { content } }
 }
