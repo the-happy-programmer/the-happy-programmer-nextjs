@@ -18,6 +18,6 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = ['/course/swift']
+  const paths = ['/course/swift', '/course/swiftui']
   return { paths, fallback: false }
 }
