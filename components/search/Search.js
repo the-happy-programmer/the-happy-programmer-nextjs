@@ -49,7 +49,7 @@ export default function Search({ posts, setSearching }) {
       className="fixed top-0 bottom-0 left-0 right-0
      z-50 h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800"
     >
-      <div className="container m-auto mt-10 h-2/4 w-11/12 max-w-2xl overflow-y-auto rounded-2xl border border-gray-200 bg-gray-100 shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:mt-20 sm:w-full md:mt-32 lg:mt-32 xl:mt-32">
+      <div className="container m-auto mt-10 h-2/4 w-11/12 max-w-2xl overflow-y-auto rounded-2xl border border-gray-200 bg-gray-50 shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:mt-20 sm:w-full md:mt-32 lg:mt-32 xl:mt-32">
         <div className="sticky top-0">
           <div className="relative flex h-16 w-full border-b border-gray-200 dark:border-gray-700">
             <div className="absolute inset-y-0 left-0 ml-6 flex items-center">
@@ -64,11 +64,11 @@ export default function Search({ posts, setSearching }) {
               type="text"
               onChange={changeInput}
               placeholder="Search posts..."
-              className="outline-none text-grat rounder-t w-full rounded-t-2xl bg-gray-100 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
+              className="outline-none text-grat rounder-t w-full rounded-t-2xl bg-gray-50 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
             />
             <div
               onClick={(e) => closeSearch(e)}
-              className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-100 dark:bg-gray-800"
+              className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-50 dark:bg-gray-800"
             >
               <div className="cursor-pointer rounded-md border border-gray-200 fill-current p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:border-gray-600 dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-gray-400">
                 ESC
@@ -148,7 +148,7 @@ export default function Search({ posts, setSearching }) {
               ))}
             </div>
           )}
-          <div className="sticky bottom-0 flex w-full justify-end rounded-b-2xl border-t border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+          <div className="sticky bottom-0 flex w-full justify-end rounded-b-2xl border-t border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
             <div className="fill-current stroke-current  p-4 text-gray-700 dark:text-gray-400">
               <SvgtoReact name="fulllogo" height={30} width={75} />
             </div>
