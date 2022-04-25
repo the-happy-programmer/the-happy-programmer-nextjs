@@ -16,7 +16,6 @@ export default function Search({ posts, setSearching }) {
   }
 
   const closeSearch = (e) => {
-    // close search
     scroll('auto')
     setSearching(false)
   }
