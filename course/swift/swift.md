@@ -13,6 +13,10 @@ Next.js uses `getStaticPaths`/`getStaticProps` to generate [static pages](https:
 
 We can retrieve that file's contents using `getDocBySlug('my-post')`.
 
+```bash
+npm run dev
+```
+
 ```js
 // lib/docs.js
 

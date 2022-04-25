@@ -12,9 +12,10 @@ export default function Pag({ content }) {
 
 export async function getStaticProps({ params }) {
   const { next } = params
-  const doc = await getDocBySlug(next, '/course/swift')
-  const content = await markdownToHtml(doc.content || '')
-  return { props: { content } }
+  const { meta, slug, content } = await getDocBySlug(next, '/course/swift')
+
+  const con = await markdownToHtml(content || '')
+  return { props: { content: con } }
 }
 
 export async function getStaticPaths() {
