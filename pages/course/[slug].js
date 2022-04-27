@@ -11,11 +11,11 @@ export default function Pag({ content, meta, slug }) {
 }
 
 export async function getStaticProps({ params }) {
-  const { next } = params
-  const { meta, slug, content } = await getDocBySlug(next, '/course/swift')
+  const { slug } = params
+  const { meta, link, content } = await getDocBySlug(slug, '/course/swift')
 
   const con = await markdownToHtml(content || '')
-  return { props: { content: con, meta, slug } }
+  return { props: { content: con, meta, link } }
 }
 
 export async function getStaticPaths() {
