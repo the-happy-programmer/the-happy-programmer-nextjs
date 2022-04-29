@@ -1,5 +1,5 @@
 import Content from '../../components/course/Content'
-import { getDocBySlug } from '../../lib/courseslib/api'
+import { getDirectories, getDocBySlug } from '../../lib/courseslib/api'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
 
 export default function Pag({ content, meta, slug }) {
@@ -24,11 +24,9 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const getDirectories = (source) =>
-    readdirSync(source, { withFileTypes: true })
-      .filter((dirent) => dirent.isDirectory())
-      .map((dirent) => dirent.name)
-  console.log(getDirectories(`${process.cwd()}/course`))
+  const e = getDirectories(`${process.cwd()}/course`)
+  console.log('getDirectories', e)
+
   const paths = ['/course/swift/swift', '/course/swiftui/swift']
   return { paths, fallback: false }
 }
