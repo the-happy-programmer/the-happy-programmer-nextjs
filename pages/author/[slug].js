@@ -39,7 +39,6 @@ export async function getStaticProps({ params }) {
   const search = await getHomePosts(1000)
   const categories = await getAllCategories()
   const tags = await getAllTags()
-
   return {
     props: {
       posts: authorr.posts,
@@ -52,9 +51,9 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors()
-  const { nodes } = authors
+  const { edges } = authors
   return {
-    paths: nodes.map(({ author }) => `${author.node.uri}`) || [],
+    paths: edges.map(({ node }) => `${node.author.node.uri}`) || [],
     fallback: false,
   }
 }
