@@ -24,9 +24,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const e = getDirectories(`${process.cwd()}/course`)
-  console.log('getDirectories', e)
+  const paths = getDirectories(`${process.cwd()}/course`)
 
-  const paths = ['/course/swift/swift', '/course/swiftui/swift']
   return { paths, fallback: false }
 }
