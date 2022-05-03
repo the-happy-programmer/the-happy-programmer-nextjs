@@ -41,21 +41,21 @@ export async function getStaticProps({ params }) {
   const tags = await getAllTags()
   const posts = await category(params.slug)
   const search = await getHomePosts(1000)
-
   return {
     props: {
       categories: categories,
       posts: posts.posts,
       search: search.posts,
-      tags: tags.tags.nodes,
+      tags: tags.nodes,
     },
   }
 }
 
 export async function getStaticPaths() {
   const tags = await getAllTags()
+
   return {
-    paths: tags.tags.nodes.map((node) => `${node.uri}`) || [],
+    paths: tags.nodes.map((node) => `${node.uri}`) || [],
     fallback: false,
   }
 }

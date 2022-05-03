@@ -47,7 +47,7 @@ export async function getStaticProps() {
       posts: posts.posts,
       category: category.categories,
       seo: seo,
-      tags: tags.tags.nodes,
+      tags: tags.nodes,
       banner: banner,
     },
   }
