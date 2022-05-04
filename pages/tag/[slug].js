@@ -54,7 +54,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const tags = await getAllTags()
   return {
-    paths: tags.nodes.map((node) => node.uri) || [],
+    paths: tags.nodes.map(({ uri }) => uri) || [],
     fallback: false,
   }
 }
