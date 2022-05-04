@@ -1,5 +1,5 @@
 import Content from '../../components/course/Content'
-import { getDirectories, getDocBySlug } from '../../lib/courseslib/api'
+import { getDirectories, getDocBySlug } from '../../lib/courseslib/courseapi'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
 
 export default function Pag({ content, meta, slug }) {

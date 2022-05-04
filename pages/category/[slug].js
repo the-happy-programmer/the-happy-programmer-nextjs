@@ -54,7 +54,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const cate = await getAllCategories()
   return {
-    paths: cate.categories.edges.map(({ node }) => `${node.uri}`) || [],
+    paths: cate.categories.edges.map(({ node }) => node.uri) || [],
     fallback: false,
   }
 }
