@@ -16,7 +16,7 @@ const Nav = () => {
     ['/about', 'About'],
     ['https://happynuxtjs.com/', 'NuxtJS'],
   ]
-
+  // let's see this! or this, it's very sad
   return (
     <div className="sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
       <nav className="text-gray-500 dark:text-gray-300">
