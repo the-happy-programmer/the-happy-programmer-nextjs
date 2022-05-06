@@ -8,8 +8,6 @@ import highlighter from '../lib/highlighter'
 import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
 
-// test
-
 export default function Post({ post, socials, content, metalinks }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar, slug } = author.node

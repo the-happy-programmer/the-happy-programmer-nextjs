@@ -11,6 +11,7 @@ const Nav = () => {
     // ['/course/flutter', 'Flutter'],
     // ['/course/reactnative', 'React Native'],
   ]
+
   const links = [
     ['/blog', 'Blog'],
     ['/about', 'About'],
