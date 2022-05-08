@@ -5,7 +5,7 @@ import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
-// having issues with the dropdown container
+
 export default function Home({
   seo,
   hero,
