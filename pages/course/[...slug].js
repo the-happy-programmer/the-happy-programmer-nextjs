@@ -1,12 +1,17 @@
 import Content from '../../components/course/Content'
-import Meta from '../../components/seo/Meta'
 import { getDirectories, getDocBySlug } from '../../lib/courseslib/courseapi'
+import SideMenu from '../../components/course/SideMenu'
+import CourseHeader from '../../components/course/CourseHeader'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
+
 export default function Pag({ content, meta, slug }) {
   return (
     <>
-      <Meta title={meta.title} description={meta.description} />
-      <Content content={content} />
+      <CourseHeader meta={meta} />
+      <div className="bg-gray-100 dark:bg-gray-800">
+        <SideMenu slug={slug} />
+        <Content content={content} />
+      </div>
     </>
   )
 }
@@ -19,7 +24,7 @@ export async function getStaticProps({ params }) {
   )
 
   const con = await markdownToHtml(content || '')
-  return { props: { content: con, meta, link } }
+  return { props: { content: con, meta, slug } }
 }
 
 export async function getStaticPaths() {
