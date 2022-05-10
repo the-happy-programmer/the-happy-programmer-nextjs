@@ -9,8 +9,10 @@ export default function Pag({ content, meta, slug }) {
     <>
       <CourseHeader meta={meta} />
       <div className="bg-gray-100 dark:bg-gray-800">
-        <SideMenu slug={slug} />
-        <Content content={content} />
+        <div className="container flex flex-row">
+          <SideMenu slug={slug} />
+          <Content content={content} />
+        </div>
       </div>
     </>
   )
