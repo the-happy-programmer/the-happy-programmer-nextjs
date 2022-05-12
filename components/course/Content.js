@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../../styles/post.module.css'
+import styles from '../../styles/course.module.css'
 
 export default function Content({ content }) {
   return (

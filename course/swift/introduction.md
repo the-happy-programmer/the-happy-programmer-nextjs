@@ -5,12 +5,26 @@ title: 'Introduction'
 description: 'Example using Prism / Markdown with Next.js including switching syntax highlighting themes.'
 ---
 
-# Alpha
+## Bravo
 
-## Table of contents
+this is random text, and will be cool to write as more as possible.
+
+```javascript
+import dolores from 'italy'
+
+const e = ({ dol }) => {
+  console.log(dol)
+}
+```
 
 ## Bravo
 
-### Charlie
+this is random text, and will be cool to write as more as possible.
 
-## Delta
+```javascript
+import dolores from 'italy'
+
+const e = ({ dol }) => {
+  console.log(dol)
+}
+```
