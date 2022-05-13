@@ -1,7 +1,6 @@
 import Meta from '../seo/Meta'
 import SvgToReact from '../Svgtoreact'
 import SubInput from '../home/SubInput'
-// this is a test!!
 
 export default function CourseHeader({ meta }) {
   return (

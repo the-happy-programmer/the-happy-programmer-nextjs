@@ -64,7 +64,7 @@ export default function Search({ posts, setSearching }) {
               type="text"
               onChange={changeInput}
               placeholder="Search posts..."
-              className="outline-none text-grat rounder-t w-full rounded-t-2xl bg-gray-50 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
+              className="outline-none rounder-t w-full rounded-t-2xl bg-gray-50 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
             />
             <div
               onClick={(e) => closeSearch(e)}
