@@ -26,7 +26,7 @@ export default function CourseSearch({ placeholder, allslugs, setCourses }) {
           />
         </div>
         <input
-          maxlength="30"
+          maxLength="30"
           onChange={searchfun}
           placeholder="search"
           className="outline-none dark:group-focusfocus:border-gray-50 rounded border border-gray-200 bg-gray-100 p-1 pl-8 text-sm placeholder-gray-300 hover:border-gray-900 focus:border-gray-900 group-focus:border-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:focus:border-gray-50"
