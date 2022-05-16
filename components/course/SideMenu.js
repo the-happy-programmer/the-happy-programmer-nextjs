@@ -12,7 +12,7 @@ export default function SideMenu({ courseslugs }) {
       />
       <ul>
         {courses.map((slug) => (
-          <li>
+          <li key={slug.name}>
             <Link href={slug.link}>{slug.name}</Link>
           </li>
         ))}

@@ -1,20 +1,18 @@
 import SvgToReact from '../Svgtoreact'
 import { useState } from 'react'
 export default function CourseSearch({ placeholder, allslugs, setCourses }) {
-  const [placeholer, setPlaceholder] = useState('')
   const [sluglist, setSluglist] = useState(allslugs)
 
   const searchfun = (e) => {
-    setPlaceholder(e.target.value)
-    if (placeholer !== '') {
-      setCourses(searchSlugs())
+    if (e.target.value !== '') {
+      setCourses(searchSlugs(e.target.value))
     } else {
       setCourses(allslugs)
     }
   }
 
-  const searchSlugs = () =>
-    allslugs.filter((slug) => slug.name.includes(placeholer))
+  const searchSlugs = (value) =>
+    allslugs.filter((slug) => slug.name.includes(value))
 
   return (
     <div>
@@ -30,7 +28,7 @@ export default function CourseSearch({ placeholder, allslugs, setCourses }) {
         <input
           onChange={searchfun}
           placeholder="search"
-          className="outline-none dark:group-focusfocus:border-gray-50 rounded border border-gray-200 bg-gray-100 p-1 pl-8 text-sm placeholder-gray-300 hover:border-gray-900 focus:border-gray-900 group-focus:border-gray-900 dark:focus:border-gray-50"
+          className="outline-none dark:group-focusfocus:border-gray-50 rounded border border-gray-200 bg-gray-100 p-1 pl-8 text-sm placeholder-gray-300 hover:border-gray-900 focus:border-gray-900 group-focus:border-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:focus:border-gray-50"
         />
       </div>
     </div>
