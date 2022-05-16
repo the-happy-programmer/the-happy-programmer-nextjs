@@ -1,16 +1,20 @@
 import Content from '../../components/course/Content'
-import { getDirectories, getDocBySlug } from '../../lib/courseslib/courseapi'
+import {
+  getDirectories,
+  getDocBySlug,
+  getAllinks,
+} from '../../lib/courseslib/courseapi'
 import SideMenu from '../../components/course/SideMenu'
 import CourseHeader from '../../components/course/CourseHeader'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
 
-export default function Pag({ content, meta, slug }) {
+export default function Pag({ content, meta, courseslugs }) {
   return (
     <>
       <CourseHeader meta={meta} />
       <div className="bg-gray-100 dark:bg-gray-800">
         <div className="container flex flex-row">
-          <SideMenu slug={slug} />
+          <SideMenu courseslugs={courseslugs} />
           <Content content={content} />
         </div>
       </div>
@@ -25,8 +29,10 @@ export async function getStaticProps({ params }) {
     `course/${slug[0]}`
   )
 
+  const courseslugs = await getAllinks(`course/${slug[0]}`)
+
   const con = await markdownToHtml(content || '')
-  return { props: { content: con, meta, slug } }
+  return { props: { content: con, meta, courseslugs } }
 }
 
 export async function getStaticPaths() {

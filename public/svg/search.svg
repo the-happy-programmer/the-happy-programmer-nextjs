@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.688 11.688">
     <g transform="translate(-4 -4)">
         <path d="M13.816,9.158A4.658,4.658,0,1,1,9.158,4.5a4.658,4.658,0,0,1,4.658,4.658Z"
-            fill="none"  
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
             stroke-width="1"
         />
-        <path d="M27.508,27.508l-2.533-2.533" 
-            transform="translate(-12.527 -12.527)" 
-            fill="none" 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
+        <path d="M27.508,27.508l-2.533-2.533"
+            transform="translate(-12.527 -12.527)"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
             stroke-width="1"
         />
     </g>

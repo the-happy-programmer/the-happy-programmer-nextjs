@@ -7,12 +7,11 @@ export default function Search({ posts, setSearching }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchList, setSearchList] = useState([])
   const filterItems = (arr, query) => {
-    return arr.filter((el) => {
-      return (
+    return arr.filter(
+      (el) =>
         el.node.excerpt?.toLowerCase().includes(query) ||
-        el.node.title.toLowerCase().includes(query)
-      )
-    })
+        el.node.title?.toLowerCase().includes(query)
+    )
   }
 
   const closeSearch = (e) => {
