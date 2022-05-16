@@ -3,7 +3,7 @@ import { useState } from 'react'
 export default function CourseSearch({ placeholder, allslugs, setCourses }) {
   const [sluglist, setSluglist] = useState(allslugs)
 
-  const searchfun = (e) => {
+  const search = (e) => {
     if (e.target.value !== '') {
       setCourses(searchSlugs(e.target.value))
     } else {
@@ -27,7 +27,7 @@ export default function CourseSearch({ placeholder, allslugs, setCourses }) {
         </div>
         <input
           maxLength="30"
-          onChange={searchfun}
+          onChange={search}
           placeholder="search"
           className="outline-none dark:group-focusfocus:border-gray-50 rounded border border-gray-200 bg-gray-100 p-1 pl-8 text-sm placeholder-gray-300 hover:border-gray-900 focus:border-gray-900 group-focus:border-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:focus:border-gray-50"
         />
