@@ -16,6 +16,7 @@ export default function SideMenu({ courseslugs }) {
             <Link href={slug.link}>{slug.name}</Link>
           </li>
         ))}
+        {courses.length === 0 && <li>no results</li>}
       </ul>
     </div>
   )
