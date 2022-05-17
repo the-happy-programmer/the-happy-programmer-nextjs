@@ -13,7 +13,7 @@ export default function SideMenu({ courseslugs }) {
   }
 
   return (
-    <div className="mr-2 pt-14">
+    <div className="mr-10 pt-14">
       <CourseSearch
         placeholder={''}
         allslugs={courseslugs}
