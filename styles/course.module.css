@@ -1,5 +1,5 @@
 .content {
-  @apply container max-w-2xl px-3 pt-4 text-lg tracking-wide text-gray-700 dark:text-gray-200;
+  @apply container px-3 text-lg tracking-wide text-gray-700 dark:text-gray-200;
 }
 
 .content p,
