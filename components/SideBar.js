@@ -2,6 +2,7 @@ import Link from 'next/link'
 import scroll from '../lib/scroll'
 import HappyButton from './Happybutton'
 import SvgtoReact from './Svgtoreact'
+
 export default function SideBar({ links, setsidebar }) {
   const closeSidebar = () => {
     setsidebar(false)
