@@ -23,9 +23,9 @@ export default function SideMenu({ courseslugs }) {
             className={`
               ${
                 currentPath(slug.link)
-                  ? 'border-l-4 border-gray-900 text-gray-900 dark:text-gray-50'
-                  : 'border-l-4 border-gray-100 text-gray-400 dark:text-gray-400'
-              } py-1.5 px-4`}
+                  ? 'border-l-4 border-gray-900 text-gray-900 dark:border-gray-50 dark:text-gray-50'
+                  : 'border-l-4 border-gray-100 text-gray-400 dark:border-gray-800 dark:text-gray-400'
+              } py-1.5 pl-7`}
           >
             <Link href={slug.link}>{slug.name}</Link>
           </li>
