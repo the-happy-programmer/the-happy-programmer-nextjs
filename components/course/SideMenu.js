@@ -7,11 +7,7 @@ export default function SideMenu({ courseslugs }) {
   const [courses, setCourses] = useState(courseslugs)
   const router = useRouter()
 
-  const currentPath = (path) => {
-    console.log(router.asPath === path)
-
-    return router.asPath === path
-  }
+  const currentPath = (path) => router.asPath === path
 
   return (
     <div className="mr-10 pt-14">
@@ -27,9 +23,9 @@ export default function SideMenu({ courseslugs }) {
             className={`
               ${
                 currentPath(slug.link)
-                  ? 'text-gray-900 dark:text-gray-50'
-                  : 'text-gray-400 dark:text-gray-400'
-              } py-2`}
+                  ? 'border-l-4 border-gray-900 text-gray-900 dark:border-gray-50 dark:text-gray-50'
+                  : 'border-l-4 border-gray-100 text-gray-400 dark:border-gray-800 dark:text-gray-400'
+              } py-1.5 pl-7`}
           >
             <Link href={slug.link}>{slug.name}</Link>
           </li>
