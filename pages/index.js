@@ -112,7 +112,7 @@ export async function getStaticProps() {
       'Create',
       'Learn by coding in modern technologies on every device.',
     ],
-    ['grow', 'Grow', 'be an expert and See yourself grow to a professional.'],
+    ['grow', 'Grow', 'be an expert and see yourself grow to a professional.'],
   ]
   const support = {
     title: 'Support',
