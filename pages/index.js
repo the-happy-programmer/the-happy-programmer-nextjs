@@ -6,8 +6,6 @@ import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
 
-// I h m l
-
 export default function Home({
   seo,
   hero,
