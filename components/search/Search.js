@@ -3,8 +3,6 @@ import SvgtoReact from '../Svgtoreact'
 import { useState } from 'react'
 import scroll from '../../lib/scroll'
 
-// test
-
 export default function Search({ posts, setSearching }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchList, setSearchList] = useState([])
