@@ -2,6 +2,7 @@ import Link from 'next/link'
 import SvgtoReact from '../Svgtoreact'
 import { useState } from 'react'
 import scroll from '../../lib/scroll'
+//
 
 export default function Search({ posts, setSearching }) {
   const [searchQuery, setSearchQuery] = useState('')
