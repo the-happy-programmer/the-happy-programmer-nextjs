@@ -1,6 +1,7 @@
 import HappyLink from '../components/HappyLink'
 import Postbody from '../components/PostBody'
 import SvgtoReact from '../components/Svgtoreact'
+import Subscribe from '../components/home/Subscribe'
 import { getPost, getAllPostsWithSlug } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
 import Image from 'next/image'
@@ -8,7 +9,7 @@ import highlighter from '../lib/highlighter'
 import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
 
-export default function Post({ post, socials, content, metalinks }) {
+export default function Post({ post, socials, content, metalinks, subscribe }) {
   const { author, date, tags, title } = post.post
   const { firstName, avatar, slug } = author.node
   const { uri } = post.post.featuredImage.node
@@ -91,11 +92,19 @@ export default function Post({ post, socials, content, metalinks }) {
         </div>
       </Headerlayout>
       <Postbody content={content} />
+      <div className="bg-gray-100  dark:bg-gray-800">
+        <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
+      </div>
     </>
   )
 }
 
 export async function getStaticProps({ params }) {
+  const subscribe = {
+    title: 'Subscribe',
+    subtitle:
+      'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
+  }
   const socials = [
     ['https://twitter.com/happy_prog', 'twitter'],
     ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
@@ -114,6 +123,7 @@ export async function getStaticProps({ params }) {
       socials: socials,
       content: pp,
       metalinks: post.post.seo,
+      subscribe,
     },
   }
 }
