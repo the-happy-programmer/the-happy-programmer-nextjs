@@ -30,7 +30,9 @@ export default function SideMenu({ courseslugs }) {
             <Link href={slug.link}>{slug.name}</Link>
           </li>
         ))}
-        {courses.length === 0 && <li>no results</li>}
+        {courses.length === 0 && (
+          <li className="text-gray-800 dark:text-gray-100">no results</li>
+        )}
       </ul>
     </div>
   )
