@@ -9,7 +9,7 @@ export default function ({ courses, header }) {
           <h1 className="text-4xl font-semibold dark:text-gray-50">
             {header.title}
           </h1>
-          <h2 className="pt-2  pb-5 text-gray-600">{header.subtitle}</h2>
+          <h2 className="pt-2 pb-5 text-gray-600">{header.subtitle}</h2>
           <div className="bg-gray-100 py-1 px-7">
             <SearchCourses courses={courses} />
           </div>
