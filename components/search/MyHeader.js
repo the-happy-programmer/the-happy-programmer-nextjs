@@ -30,13 +30,13 @@ export default function MyHeader({ title, subtitle, posts }) {
       <h1 className="mt-1 text-4xl font-semibold capitalize dark:text-gray-50">
         {title}
       </h1>
-      <div className="group w- relative float-left mt-10">
+      <div className="w- group relative float-left mt-10">
         <div className="absolute inset-y-0 left-0 ml-3.5 flex items-center">
           <SvgtoReact
             height={12}
             width={12}
             name="search"
-            className="stroke-current text-gray-200 group-hover:text-gray-600 dark:text-gray-500"
+            className="fill-current text-gray-200 group-hover:text-gray-600 dark:text-gray-500"
           />
         </div>
         <button

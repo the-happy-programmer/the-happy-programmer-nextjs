@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function ({ courses }) {
   return courses.map((course) => (
     <div className="flex flex-col rounded-md bg-gray-50 py-10 px-8 shadow-md dark:bg-gray-900">
-      <h3 className="cursor-pointer text-base font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent">
+      <h3 className="cursor-pointer text-lg font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent">
         {course.title}
       </h3>
       <p className="pt-2 text-sm leading-normal text-gray-600 line-clamp-4 dark:text-gray-300">
