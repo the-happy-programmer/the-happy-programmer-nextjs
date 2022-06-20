@@ -12,6 +12,15 @@ export default function Footer() {
     ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
     ['https://www.github.com/MyNameIsBond', 'github'],
   ]
+  const pages = { title: 'Pages', pages: ['Blog', 'Courses', 'About', 'Home'] }
+  const tags = {
+    title: 'Categories',
+    tags: ['Swift', 'SwiftUI', 'Announcements', 'NuxtJS'],
+  }
+  const categories = {
+    title: 'Categories',
+    categories: ['iOS', 'Xcode', 'Uncategorized', 'SwiftUI'],
+  }
   return (
     <div className="border-t border-gray-200 dark:border-gray-700">
       <div className="bg-white dark:bg-black container">
