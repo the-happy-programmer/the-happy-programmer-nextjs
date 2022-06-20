@@ -9,7 +9,7 @@ export default function ({ courses, header }) {
           <h1 className="text-3xl font-semibold dark:text-gray-50">
             {header.title}
           </h1>
-          <h2 className="pt-2 pb-5 text-gray-500">{header.subtitle}</h2>
+          <h2 className="pt-2 pb-5 text-gray-600">{header.subtitle}</h2>
           <div className="bg-gray-100 py-1 px-7 dark:bg-gray-800">
             <SearchCourses courses={courses} />
           </div>
@@ -26,46 +26,71 @@ export async function getStaticProps() {
   const header = { title: 'Courses', subtitle: 'Be an expert in programming' }
   const courses = [
     {
+      link: '/courses/introduction',
       tags: ['Markdown', 'NuxJS 2.0', 'tailwind'],
-      title: 'Full Markdown NuxtJS Website',
+      title: 'Full Markdown Documentation or Blog NuxtJS Website',
       description:
-        'learn how to create a markdown blog usung tailwind and nuxtJS learn how to create a markdown blog usung tailwind and nuxtJS',
+        'learn how to create a markdown blog or Documentation like website using tailwind and nuxtJS',
       image: '',
       author: 'Tony',
       experty: 'Software Engineer',
     },
     {
+      link: '/courses/introduction',
       tags: ['Markdown', 'NuxJS 2.0', 'tailwind'],
-      title: 'Markdown NuxtJS Website',
+      title: 'Full Markdown Documentation or Blog NuxtJS Website',
       description:
-        'learn how to create a markdown blog usung tailwind and nuxtJS',
+        'learn how to create a markdown blog or Documentation like website using tailwind and nuxtJS',
       image: '',
       author: 'Tony',
       experty: 'Software Engineer',
     },
     {
+      link: '/courses/introduction',
       tags: ['Markdown', 'NuxJS 2.0', 'tailwind'],
-      title: 'Markdown NuxtJS Website',
+      title: 'Full Markdown Documentation or Blog NuxtJS Website',
       description:
-        'learn how to create a markdown blog usung tailwind and nuxtJS',
+        'learn how to create a markdown blog or Documentation like website using tailwind and nuxtJS',
       image: '',
       author: 'Tony',
       experty: 'Software Engineer',
     },
     {
+      link: '/courses/introduction',
       tags: ['Markdown', 'NuxJS 2.0', 'tailwind'],
-      title: 'Markdown NuxtJS Website',
+      title: 'Full Markdown Documentation or Blog NuxtJS Website',
       description:
-        'learn how to create a markdown blog usung tailwind and nuxtJS',
+        'learn how to create a markdown blog or Documentation like website using tailwind and nuxtJS',
       image: '',
       author: 'Tony',
       experty: 'Software Engineer',
     },
     {
+      link: '/courses/introduction',
       tags: ['Markdown', 'NuxJS 2.0', 'tailwind'],
-      title: 'Markdown NuxtJS Website',
+      title: 'Full Markdown Documentation or Blog NuxtJS Website',
       description:
-        'learn how to create a markdown blog usung tailwind and nuxtJS',
+        'learn how to create a markdown blog or Documentation like website using tailwind and nuxtJS',
+      image: '',
+      author: 'Tony',
+      experty: 'Software Engineer',
+    },
+    {
+      link: '/courses/introduction',
+      tags: ['Markdown', 'NuxJS 2.0', 'tailwind'],
+      title: 'Full Markdown Documentation or Blog NuxtJS Website',
+      description:
+        'learn how to create a markdown blog or Documentation like website using tailwind and nuxtJS',
+      image: '',
+      author: 'Tony',
+      experty: 'Software Engineer',
+    },
+    {
+      link: '/courses/introduction',
+      tags: ['Markdown', 'NuxJS 2.0', 'tailwind'],
+      title: 'Full Markdown Documentation or Blog NuxtJS Website',
+      description:
+        'learn how to create a markdown blog or Documentation like website using tailwind and nuxtJS',
       image: '',
       author: 'Tony',
       experty: 'Software Engineer',
