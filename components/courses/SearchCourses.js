@@ -11,7 +11,7 @@ export default function SearchCourse({ courses }) {
       <input
         type="text"
         placeholder="Search..."
-        className="outline-none w-20  bg-gray-100 pl-2"
+        className="outline-none w-20 bg-gray-100 pl-2 dark:bg-gray-800 dark:text-gray-50"
       />
     </div>
   )
