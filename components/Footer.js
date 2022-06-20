@@ -12,10 +12,27 @@ export default function Footer() {
     ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
     ['https://www.github.com/MyNameIsBond', 'github'],
   ]
-  const pages = { title: 'Pages', pages: ['Blog', 'Courses', 'About', 'Home'] }
+  const followus = {
+    title: 'Follow us',
+    copyrights: 'Copyright © 2022 Inc. All rights reserved.',
+  }
+  const pages = {
+    title: 'Pages',
+    pages: [
+      ['Blog', '/blog'],
+      ['Courses', '/courses'],
+      ['About', '/about'],
+      ['Home', '/'],
+    ],
+  }
   const tags = {
     title: 'Categories',
-    tags: ['Swift', 'SwiftUI', 'Announcements', 'NuxtJS'],
+    tags: [
+      ['Swift', '/tag/swift'],
+      ['SwiftUI', '/tag/swiftui'],
+      ['Announcements', '/tag/announcements'],
+      ['NuxtJS', '/tag/nuxtjs'],
+    ],
   }
   const categories = {
     title: 'Categories',
