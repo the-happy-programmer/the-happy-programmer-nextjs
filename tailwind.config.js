@@ -53,5 +53,5 @@ module.exports = {
       textOpacity: ['dark'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
