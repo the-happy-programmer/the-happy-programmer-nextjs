@@ -1,8 +1,10 @@
 import Image from 'next/image'
+import TagCourse from './TagCourse'
 
 export default function ({ courses }) {
   return courses.map((course) => (
-    <div className="flex flex-col rounded-md bg-gray-50 py-10 px-8 shadow-md dark:bg-gray-900">
+    <div className="flex flex-col rounded-md bg-gray-50 py-12 px-8 shadow-md dark:bg-gray-900">
+      <TagCourse tags={course.tags} />
       <h3 className="cursor-pointer text-lg font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent">
         {course.title}
       </h3>
@@ -17,8 +19,6 @@ export default function ({ courses }) {
             className="rounded-full"
             src="/tony.jpg"
             alt="author picture"
-            height={30}
-            width={30}
           />
         </div>
         <div className="flex flex-col pl-2">
