@@ -1,8 +1,13 @@
 import Svgtoreact from './Svgtoreact'
 import Link from 'next/link'
 import SvgtoReact from './Svgtoreact'
+import { useRef, useState } from 'react'
 
 export default function Footer() {
+  const inputEl = useRef(null)
+  const [message, setMessage] = useState(null)
+  const [error, setError] = useState(null)
+  const currentYear = new Date().getFullYear()
   const socials = [
     ['https://twitter.com/happy_prog', 'twitter'],
     ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
@@ -47,13 +52,13 @@ export default function Footer() {
   }
 
   const courses = [
-    'vue',
-    'react',
-    'swift',
-    'nuxtjs',
-    'flutter',
-    'tailwind',
-    'frontity',
+    'courses/vue',
+    'courses/reactjs',
+    'courses/swift',
+    'courses/nuxtjs',
+    'courses/flutter',
+    'courses/tailwind',
+    'courses/frontity',
   ]
 
   const allLiks = (links) => {
@@ -70,9 +75,33 @@ export default function Footer() {
     )
   }
 
+  const sub = async (e) => {
+    e.preventDefault()
+    const res = await fetch('/api/subscribe', {
+      body: JSON.stringify({
+        email: inputEl.current.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+
+    const { error } = await res.json()
+
+    if (error) {
+      setError('Something went wrong! please, try a valid email.')
+      setMessage(null)
+      return
+    }
+    inputEl.current.value = ''
+    setMessage('You are now subscribed')
+    setError(null)
+  }
+
   return (
-    <div className="border-t border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
-      <div className="container mx-auto flex flex-row justify-around py-20 text-gray-400 dark:text-gray-500">
+    <div className="border-t border-gray-200 bg-gray-100 py-14  dark:border-gray-700 dark:bg-gray-800">
+      <div className="container mx-auto flex flex-row justify-around text-gray-400 dark:text-gray-500">
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-50">Pages</p>
           {allLiks(pages.pages)}
@@ -104,11 +133,13 @@ export default function Footer() {
               ))}
             </div>
             <p className="pt-8 pb-4">{followus.sub}</p>
-            <div className="relative flex">
+            <form className="relative flex flex-col" onSubmit={sub}>
               <input
-                type="text"
+                type="email"
+                name="email"
                 placeholder="subscribe"
-                className="rounded-md bg-gray-700 py-4 pl-5 pr-10 text-gray-50 shadow-sm"
+                ref={inputEl}
+                className=" rounded-md bg-gray-700 py-4 pl-5 pr-10 text-gray-50 shadow-sm"
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-5">
                 <SvgtoReact
@@ -118,9 +149,39 @@ export default function Footer() {
                   className="fill-current text-gray-400"
                 />
               </div>
+            </form>
+            <div className="w-48 pt-5">
+              {!message && error && (
+                <>
+                  <p className="text-xs text-danger">{error}</p>
+                </>
+              )}
+              {!error && message && (
+                <>
+                  <p className="text-success">{message}</p>
+                </>
+              )}
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex flex-col items-center gap-y-7 pt-10">
+        <div className="flex flex-row gap-x-5">
+          {courses.map((icon) => (
+            <Svgtoreact
+              className="fill-current text-gray-500"
+              name={icon}
+              height={30}
+              width={30}
+            />
+          ))}
+        </div>
+        <div className="justify-self-auto fill-current stroke-current text-gray-500 dark:text-gray-400">
+          <Svgtoreact name="fulllogo" height={20} width={100} />
+        </div>
+        <p className="text-sm text-gray-500 dark:text-gray-500">
+          Copyright © {currentYear} Inc. All rights reserved.
+        </p>
       </div>
     </div>
   )
