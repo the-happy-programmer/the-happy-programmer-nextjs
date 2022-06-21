@@ -1,5 +1,6 @@
 import Svgtoreact from './Svgtoreact'
 import Link from 'next/link'
+import SvgtoReact from './Svgtoreact'
 
 export default function Footer() {
   const socials = [
@@ -15,18 +16,19 @@ export default function Footer() {
   const followus = {
     title: 'Follow us',
     copyrights: 'Copyright © 2022 Inc. All rights reserved.',
+    sub: 'subscribe to our newsletter',
   }
   const pages = {
     title: 'Pages',
     pages: [
-      ['Blog', '/blog'],
-      ['Courses', '/courses'],
-      ['About', '/about'],
       ['Home', '/'],
+      ['Courses', '/courses'],
+      ['Blog', '/blog'],
+      ['About', '/about'],
     ],
   }
   const tags = {
-    title: 'Categories',
+    title: 'Tags',
     tags: [
       ['Swift', '/tag/swift'],
       ['SwiftUI', '/tag/swiftui'],
@@ -36,27 +38,89 @@ export default function Footer() {
   }
   const categories = {
     title: 'Categories',
-    categories: ['iOS', 'Xcode', 'Uncategorized', 'SwiftUI'],
+    categories: [
+      ['iOS', '/category/ios'],
+      ['Xcode', '/category/xcode'],
+      ['Design', '/category/design'],
+      ['SwiftUI', '/category/swiftui'],
+    ],
   }
+
+  const courses = [
+    'vue',
+    'react',
+    'swift',
+    'nuxtjs',
+    'flutter',
+    'tailwind',
+    'frontity',
+  ]
+
+  const allLiks = (links) => {
+    return (
+      <div className="flex flex-col gap-y-2 pt-2">
+        {links.map(([link, href]) => (
+          <Link href={href}>
+            <p className="cursor-pointer hover:text-gray-900 dark:hover:text-gray-50">
+              {link}
+            </p>
+          </Link>
+        ))}
+      </div>
+    )
+  }
+
   return (
-    <div className="border-t border-gray-200 dark:border-gray-700">
-      <div className="bg-white dark:bg-black container">
-        <footer className="container mx-auto flex flex-row justify-between p-4">
-          <div className="justify-self-auto fill-current stroke-current text-gray-700 dark:text-gray-400">
-            <Svgtoreact name="fulllogo" height={30} width={100} />
+    <div className="border-t border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+      <div className="container mx-auto flex flex-row justify-around py-20 text-gray-400 dark:text-gray-500">
+        <div>
+          <p className="font-semibold text-gray-900 dark:text-gray-50">Pages</p>
+          {allLiks(pages.pages)}
+        </div>
+        <div>
+          <p className="font-semibold text-gray-900 dark:text-gray-50">Tags</p>
+          {allLiks(tags.tags)}
+        </div>
+        <div>
+          <p className="font-semibold text-gray-900 dark:text-gray-50">
+            Categories
+          </p>
+          {allLiks(categories.categories)}
+        </div>
+        <div>
+          <p className="font-semibold text-gray-900 dark:text-gray-50">
+            {followus.title}
+          </p>
+          <div>
+            <div className="flex flex-row space-x-5 pt-3">
+              {socials.map(([link, icon]) => (
+                <Link href={link}>
+                  <SvgtoReact
+                    name={icon}
+                    height={15}
+                    className="cursor-pointer fill-current text-gray-500 hover:text-gray-900 dark:hover:text-gray-50"
+                  />
+                </Link>
+              ))}
+            </div>
+            <p className="pt-8 pb-4">{followus.sub}</p>
+            <div className="relative flex">
+              <input
+                type="text"
+                placeholder="subscribe"
+                className="rounded-md bg-gray-700 py-4 pl-5 pr-10 text-gray-50 shadow-sm"
+              />
+              <div className="absolute inset-y-0 right-0 flex items-center pr-5">
+                <SvgtoReact
+                  name="email"
+                  height={15}
+                  width={15}
+                  className="fill-current text-gray-400"
+                />
+              </div>
+            </div>
           </div>
-          <div className="flex flex-row">
-            {socials.map(([href, icon]) => (
-              <Link key={icon} href={href} aria-label={icon}>
-                <a className="ml-5" aria-label={icon}>
-                  <div className="cursor-pointer justify-self-auto fill-current p-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
-                    <Svgtoreact name={icon} height={15} />
-                  </div>
-                </a>
-              </Link>
-            ))}
-          </div>
-        </footer>
+        </div>
       </div>
     </div>
   )
