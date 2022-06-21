@@ -101,7 +101,7 @@ export default function Footer() {
 
   return (
     <div className="border-t border-gray-200 bg-gray-100 py-14  dark:border-gray-700 dark:bg-gray-800">
-      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-gray-400 dark:text-gray-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:text-left lg:flex-row lg:text-left xl:flex-row xl:text-left">
+      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-gray-400 dark:text-gray-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:text-left lg:w-full lg:flex-row lg:text-left xl:w-full xl:flex-row xl:text-left">
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-50">Pages</p>
           {allLiks(pages.pages)}
@@ -121,7 +121,7 @@ export default function Footer() {
             {followus.title}
           </p>
           <div>
-            <div className="flex flex-row justify-center space-x-5 pt-3 sm:justify-center md:justify-end">
+            <div className="flex flex-row justify-center space-x-5 pt-3 sm:justify-center md:justify-start lg:justify-start">
               {socials.map(([link, icon]) => (
                 <Link href={link}>
                   <SvgtoReact
