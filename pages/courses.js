@@ -1,7 +1,7 @@
 import CoursesCard from '../components/courses/CoursesCard'
 import SearchCourses from '../components/courses/SearchCourses'
 
-export default function ({ courses, header }) {
+export default function Courses({ courses, header }) {
   return (
     <div className="bg-gray-100 py-12 dark:bg-gray-800">
       <div className="container pt-12">
@@ -31,6 +31,7 @@ export async function getStaticProps() {
   }
   const courses = [
     {
+      id: 1,
       link: '/courses/introduction',
       tags: ['NuxtJS', 'tailwind', 'vue'],
       title: 'Markdown NuxtJS Website',
@@ -41,6 +42,7 @@ export async function getStaticProps() {
       experty: 'Software Engineer',
     },
     {
+      id: 2,
       link: '/courses/introduction',
       tags: ['reactjs', 'tailwind'],
       title: 'Full Markdown Documentation or Blog NuxtJS Website',
@@ -51,6 +53,7 @@ export async function getStaticProps() {
       experty: 'Software Engineer',
     },
     {
+      id: 3,
       link: '/courses/introduction',
       tags: ['NuxtJS', 'tailwind'],
       title: 'Full Markdown Documentation or Blog NuxtJS Website',
@@ -61,6 +64,7 @@ export async function getStaticProps() {
       experty: 'Software Engineer',
     },
     {
+      id: 4,
       link: '/courses/introduction',
       tags: ['NuxtJS', 'tailwind'],
       title: 'Full Markdown Documentation or Blog NuxtJS Website',
@@ -71,6 +75,7 @@ export async function getStaticProps() {
       experty: 'Software Engineer',
     },
     {
+      id: 5,
       link: '/courses/introduction',
       tags: ['NuxtJS', 'tailwind'],
       title: 'Full Markdown Documentation or Blog NuxtJS Website',
@@ -81,6 +86,7 @@ export async function getStaticProps() {
       experty: 'Software Engineer',
     },
     {
+      id: 6,
       link: '/courses/introduction',
       tags: ['NuxtJS', 'tailwind'],
       title: 'Full Markdown Documentation or Blog NuxtJS Website',
@@ -91,6 +97,7 @@ export async function getStaticProps() {
       experty: 'Software Engineer',
     },
     {
+      id: 7,
       link: '/courses/introduction',
       tags: ['NuxtJS', 'tailwind'],
       title: 'Full Markdown Documentation or Blog NuxtJS Website',

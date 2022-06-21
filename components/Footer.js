@@ -65,7 +65,7 @@ export default function Footer() {
     return (
       <div className="flex flex-col gap-y-2 pt-2">
         {links.map(([link, href]) => (
-          <Link href={href}>
+          <Link href={href} key={link}>
             <p className="cursor-pointer hover:text-gray-900 dark:hover:text-gray-50">
               {link}
             </p>
@@ -101,7 +101,7 @@ export default function Footer() {
 
   return (
     <div className="border-t border-gray-200 bg-gray-100 py-14  dark:border-gray-700 dark:bg-gray-800">
-      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-gray-400 dark:text-gray-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:text-left lg:w-full lg:flex-row lg:text-left xl:w-full xl:flex-row xl:text-left">
+      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-gray-400 dark:text-gray-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:items-baseline md:text-left lg:w-full lg:flex-row lg:items-baseline lg:text-left xl:w-full xl:flex-row xl:items-baseline xl:text-left">
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-50">Pages</p>
           {allLiks(pages.pages)}
@@ -121,9 +121,9 @@ export default function Footer() {
             {followus.title}
           </p>
           <div>
-            <div className="flex flex-row justify-center space-x-5 pt-3 sm:justify-center md:justify-start lg:justify-start">
+            <div className="flex flex-row justify-center space-x-5 pt-3 sm:justify-center md:justify-start lg:justify-start xl:justify-start">
               {socials.map(([link, icon]) => (
-                <Link href={link}>
+                <Link href={link} key={link}>
                   <SvgtoReact
                     name={icon}
                     height={15}
@@ -169,6 +169,7 @@ export default function Footer() {
         <div className="flex flex-row gap-x-5">
           {courses.map((icon) => (
             <Svgtoreact
+              key={icon}
               className="fill-current text-gray-500"
               name={icon}
               height={30}

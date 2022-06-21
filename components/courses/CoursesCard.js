@@ -3,7 +3,10 @@ import TagCourse from './TagCourse'
 
 export default function ({ courses }) {
   return courses.map((course) => (
-    <div className="flex flex-col rounded-md bg-gray-50 py-12 px-8 shadow-md dark:bg-gray-900">
+    <div
+      key={course.id}
+      className="flex flex-col rounded-md bg-gray-50 py-12 px-8 shadow-md dark:bg-gray-900"
+    >
       <TagCourse tags={course.tags} />
       <h3 className="cursor-pointer text-lg font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent">
         {course.title}
