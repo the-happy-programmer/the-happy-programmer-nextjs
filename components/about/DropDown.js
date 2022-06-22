@@ -9,7 +9,7 @@ export default function DropDown({ title, subtitle }) {
         className="flex cursor-pointer flex-row justify-between"
         onClick={(e) => (open ? setOpen(false) : setOpen(true))}
       >
-        <p className="cursor-pointer py-3 text-2xl text-gray-900 dark:text-gray-50">
+        <p className="cursor-pointer py-3 text-lg font-bold text-gray-900 dark:text-gray-50">
           {title}
         </p>
         <SvgtoReact
