@@ -5,16 +5,16 @@ export default function DisplayCard({ svg, desc, link, socials }) {
   return (
     <div
       key={svg}
-      className="flex flex-col rounded-xl border bg-gray-50 p-5 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:hover:border-gray-500"
+      className="flex flex-col rounded-md border bg-gray-50 p-5 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:hover:border-gray-500"
     >
-      <div className={`pt-5 pb-2 ${socials ? 'h-16' : 'h-20'}`}>
+      <div className={`pt-5 pb-2 ${socials ? 'h-16' : 'h-16'}`}>
         <SvgtoReact
           className="fill-current dark:text-gray-50"
           name={svg.toLowerCase()}
-          height={socials ? 30 : 45}
+          height={socials ? 25 : 30}
         />
       </div>
-      <p className="text-2xl capitalize dark:text-gray-50">{svg}</p>
+      <p className="text-lg font-bold capitalize dark:text-gray-50">{svg}</p>
       <p className="py-2 leading-loose text-gray-600 dark:text-gray-300">
         {desc}
       </p>
