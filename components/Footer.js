@@ -66,7 +66,7 @@ export default function Footer() {
       <div className="flex flex-col gap-y-2 pt-2">
         {links.map(([link, href]) => (
           <Link href={href} key={link}>
-            <p className="cursor-pointer hover:text-gray-900 dark:hover:text-gray-50">
+            <p className="cursor-pointer text-sm hover:text-gray-900 dark:hover:text-gray-50">
               {link}
             </p>
           </Link>
@@ -180,7 +180,7 @@ export default function Footer() {
         <div className="justify-self-auto fill-current stroke-current text-gray-500 dark:text-gray-400">
           <Svgtoreact name="fulllogo" height={20} width={100} />
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-500">
+        <p className="text-sm text-gray-400 dark:text-gray-500">
           Copyright © {currentYear} Inc. All rights reserved.
         </p>
       </div>

@@ -32,7 +32,7 @@ const Nav = () => {
                 />
               </HappyLink>
             </div>
-            <div className="hidden items-center sm:flex md:flex lg:flex xl:flex">
+            <div className="hidden items-center text-sm sm:flex md:flex lg:flex xl:flex">
               {links.map(([link, name]) => (
                 <div key={name} className="pr-5 sm:pr-6 md:pr-10">
                   <HappyLink
