@@ -1,5 +1,5 @@
 import DropDown from './DropDown'
-export default function DropDownContainer({ title, subtitle, children, info }) {
+export default function DropDownContainer({ title, subtitle, info }) {
   return (
     <div className="mx-auto bg-gray-100 py-20 dark:bg-gray-800">
       <p className="container py-6 text-center text-3xl font-bold text-gray-800 dark:text-gray-50">
