@@ -15,11 +15,11 @@ export default function DisplayCard({ svg, desc, link, socials }) {
         />
       </div>
       <p className="text-lg font-bold capitalize dark:text-gray-50">{svg}</p>
-      <p className="py-2 leading-loose text-gray-600 dark:text-gray-300">
+      <p className="py-2 text-sm leading-loose text-gray-600 dark:text-gray-300">
         {desc}
       </p>
       <HappyLink
-        classes="group dark:hover:text-darkaccent hover:text-accent dark:text-gray-50 font-bold justify-between mt-auto flex items-center"
+        classes="group dark:hover:text-darkaccent hover:text-accent dark:text-gray-50 font-semibold justify-between mt-auto flex items-center"
         href={link}
       >
         {socials ? 'Follow' : 'Projects'}{' '}
