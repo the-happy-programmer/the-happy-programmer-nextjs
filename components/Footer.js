@@ -101,7 +101,7 @@ export default function Footer() {
 
   return (
     <div className="border-t border-gray-200 bg-gray-100 py-14  dark:border-gray-700 dark:bg-gray-800">
-      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-gray-400 dark:text-gray-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:items-baseline md:text-left lg:w-full lg:flex-row lg:items-baseline lg:text-left xl:w-full xl:flex-row xl:items-baseline xl:text-left">
+      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-gray-600 dark:text-gray-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:items-baseline md:text-left lg:w-full lg:flex-row lg:items-baseline lg:text-left xl:w-full xl:flex-row xl:items-baseline xl:text-left">
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-50">Pages</p>
           {allLiks(pages.pages)}
