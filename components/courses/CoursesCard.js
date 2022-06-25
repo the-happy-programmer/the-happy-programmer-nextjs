@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import TagCourse from './TagCourse'
 
 export default function ({ courses }) {
@@ -8,9 +9,11 @@ export default function ({ courses }) {
       className="flex flex-col rounded-md bg-gray-50 py-12 px-8 shadow-md dark:bg-gray-900"
     >
       <TagCourse tags={course.tags} />
-      <h3 className="cursor-pointer text-lg font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent">
-        {course.title}
-      </h3>
+      <Link href={course.link}>
+        <h3 className="cursor-pointer text-lg font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent">
+          {course.title}
+        </h3>
+      </Link>
       <p className="pt-2 text-sm leading-normal text-gray-600 line-clamp-4 dark:text-gray-300">
         {course.description}
       </p>

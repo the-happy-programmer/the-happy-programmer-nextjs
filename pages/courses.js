@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import CoursesCard from '../components/courses/CoursesCard'
 import SearchCourses from '../components/courses/SearchCourses'
 
 export default function Courses({ courses, header }) {
+  const [mycourses, setmycourses] = useState(courses)
   return (
     <div className="bg-gray-100 py-12 dark:bg-gray-800">
       <div className="container pt-12">
@@ -32,7 +34,7 @@ export async function getStaticProps() {
   const courses = [
     {
       id: 1,
-      link: '/courses/introduction',
+      link: '/course/nuxtjs/introduction',
       tags: ['NuxtJS', 'tailwind', 'vue'],
       title: 'Markdown NuxtJS Website',
       description:
