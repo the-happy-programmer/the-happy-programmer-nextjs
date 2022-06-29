@@ -7,10 +7,6 @@ description: 'Example using Prism / Markdown with Next.js including switching sy
 
 ## Overview
 
-## Overview
-
-## Overview
-
 In this course we will creare a nuxtjs project which can read markdwon files and turn them in pages. In this case we will do it in a way where it will be something like a blog.
 
 This course aims to create a full website, which means we will take into account eveything that makes a professional website. From SEO to performance, this course will add in your arsenal how to deal with `.md` files.
