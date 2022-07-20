@@ -36,7 +36,7 @@ export default function MyHeader({ title, subtitle, posts }) {
             height={12}
             width={12}
             name="search"
-            className="fill-current text-gray-200 group-hover:text-gray-600 dark:text-gray-500"
+            className="stroke-current text-gray-200 group-hover:text-gray-600 dark:text-gray-500"
           />
         </div>
         <button

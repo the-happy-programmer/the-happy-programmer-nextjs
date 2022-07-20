@@ -1,6 +1,6 @@
 ---
 icon: 'nuxtjs'
-coursetitle: 'Full Swift Course'
+coursetitle: 'Markdown NuxtJS Website'
 title: 'Introduction'
 description: 'Example using Prism / Markdown with Next.js including switching syntax highlighting themes.'
 ---

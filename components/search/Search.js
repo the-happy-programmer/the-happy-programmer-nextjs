@@ -56,7 +56,7 @@ export default function Search({ posts, setSearching }) {
                 height={20}
                 width={20}
                 name="search"
-                className="fill-current text-gray-300 dark:text-gray-200"
+                className="stroke-current text-gray-300 dark:text-gray-200"
               />
             </div>
             <input

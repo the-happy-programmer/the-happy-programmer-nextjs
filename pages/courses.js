@@ -15,7 +15,7 @@ export default function Courses({ courses, header }) {
             {header.subtitle}
           </h2>
           <div className="bg-gray-100 py-1 px-7 dark:bg-gray-800">
-            <SearchCourses courses={courses} />
+            <SearchCourses courses={mycourses} />
           </div>
         </div>
         <div className="container grid grid-cols-1 gap-5 px-2 pt-14 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
