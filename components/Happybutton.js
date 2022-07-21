@@ -1,6 +1,7 @@
-export default function HappyButton({ children, href, xl }) {
+export default function HappyButton({ children, href, xl, onClick }) {
   return (
     <a
+      onClick={onClick}
       href={href}
       className={`font-semibold capitalize leading-loose tracking-wide hover:bg-opacity-80
       ${xl ? 'text-base' : 'text-xs'}
