@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth'
 import FacebookProvider from 'next-auth/providers/facebook'
 import GithubProvider from 'next-auth/providers/facebook'
-console.log('APP SECRET', process.env.FB_APP_SECRET)
 export default NextAuth({
   providers: [
     FacebookProvider({
@@ -19,4 +18,3 @@ export default NextAuth({
     },
   },
 })
-//# sourceMappingURL=auth.js.map
