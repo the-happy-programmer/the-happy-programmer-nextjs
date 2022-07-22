@@ -8,7 +8,7 @@ import AuthBtn from '../components/auth/AuthBtn'
 export default function Home({ posts, category, seo, tags, banner }) {
   return (
     <div>
-      <AuthBtn />
+      {/* <AuthBtn /> */}
       <Meta title={seo.title} description={seo.desc} />
       <Headerlayout>
         <MyHeader
