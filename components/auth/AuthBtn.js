@@ -7,16 +7,14 @@ export default function AuthBtn() {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        <HappyButton onClick={(e) => signOut()}>Sign out</HappyButton>
       </>
     )
   }
   return (
     <>
       Not signed in <br />
-      <HappyButton className="" onClick={(e) => signIn()}>
-        Sign in
-      </HappyButton>
+      <HappyButton onClick={(e) => signIn()}>Sign in</HappyButton>
     </>
   )
 }
