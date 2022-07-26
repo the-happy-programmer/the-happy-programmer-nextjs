@@ -4,13 +4,13 @@ import HappyLink from './HappyLink'
 import { useState } from 'react'
 import SideBar from './SideBar'
 import scroll from '../lib/scroll'
+import { useSession } from 'next-auth/react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Nav = () => {
+  const { data: session } = useSession()
   const [sidebar, setsidebar] = useState(false)
-  const sublinks = [
-    // ['/course/flutter', 'Flutter'],
-    // ['/course/reactnative', 'React Native'],
-  ]
 
   const links = [
     ['/blog', 'Blog'],
@@ -43,12 +43,23 @@ const Nav = () => {
                   </HappyLink>
                 </div>
               ))}
-              <HappyButton
-                href="https://www.patreon.com/thehappyprogrammer"
-                className="box-border"
-              >
-                support me
-              </HappyButton>
+              {session ? (
+                <Link href="/profile">
+                  <Image
+                    src={session.user.image}
+                    height={30}
+                    width={30}
+                    className="rounded-full"
+                  />
+                </Link>
+              ) : (
+                <HappyButton
+                  href="https://www.patreon.com/thehappyprogrammer"
+                  className="box-border"
+                >
+                  support me
+                </HappyButton>
+              )}
             </div>
             <button
               onClick={(e) => {
@@ -64,22 +75,6 @@ const Nav = () => {
               />
             </button>
             {sidebar && <SideBar links={links} setsidebar={setsidebar} />}
-          </div>
-        </div>
-        <div className="bg-gray-100 dark:bg-gray-800">
-          <div className="container mx-auto ">
-            <div className="flex items-center">
-              {sublinks?.map(([link, name]) => (
-                <div className="px-4 py-4" key={name}>
-                  <HappyLink
-                    classes="px-0 sm:px-4 md:px-4 lg:px-4 xl:px-4 pb-4 hover:text-gray-900 dark:hover:text-gray-50 active:text-gray-200"
-                    href={link}
-                  >
-                    {name}
-                  </HappyLink>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </nav>
