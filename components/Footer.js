@@ -127,7 +127,7 @@ export default function Footer() {
                   <SvgtoReact
                     name={icon}
                     height={15}
-                    className="cursor-pointer fill-current text-gray-500 hover:text-gray-900 dark:hover:text-gray-50"
+                    className="hover:fill-gray-900 fill-gray-500 dark:hover:fill-gray-50 cursor-pointer fill-current"
                   />
                 </Link>
               ))}
@@ -146,7 +146,7 @@ export default function Footer() {
                   name="email"
                   height={15}
                   width={15}
-                  className="fill-current text-gray-400"
+                  className="fill-gray-400"
                 />
               </div>
             </form>
@@ -170,14 +170,14 @@ export default function Footer() {
           {courses.map((icon) => (
             <Svgtoreact
               key={icon}
-              className="fill-current text-gray-500"
+              className="fill-gray-500"
               name={icon}
               height={30}
               width={30}
             />
           ))}
         </div>
-        <div className="justify-self-auto fill-current stroke-current text-gray-500 dark:text-gray-400">
+        <div className="fill-gray-500 stroke-gray-500 justify-self-auto fill-current stroke-current">
           <Svgtoreact name="fulllogo" height={20} width={100} />
         </div>
         <p className="text-sm text-gray-400 dark:text-gray-500">

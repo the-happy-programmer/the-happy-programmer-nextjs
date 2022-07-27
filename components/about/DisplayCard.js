@@ -9,7 +9,7 @@ export default function DisplayCard({ svg, desc, link, socials }) {
     >
       <div className={`pt-5 pb-2 ${socials ? 'h-16' : 'h-16'}`}>
         <SvgtoReact
-          className="fill-current dark:text-gray-50"
+          className=" dark:fill-gray-50"
           name={svg.toLowerCase()}
           height={socials ? 25 : 30}
         />

@@ -9,7 +9,7 @@ export default function TagCourse({ tags }) {
             name={'courses/' + tag.toLowerCase()}
             height={30}
             width={30}
-            className="cursor-pointer fill-current text-gray-300  hover:text-gray-900 dark:text-gray-600 dark:hover:text-gray-50"
+            className="fill-gray-300 hover:fill-gray-900  dark:fill-gray-600 dark:hover:fill-gray-50 cursor-pointer"
           />
         </div>
       ))}

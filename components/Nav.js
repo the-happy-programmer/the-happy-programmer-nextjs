@@ -27,7 +27,7 @@ const Nav = () => {
               <HappyLink href="/" ariaLabel="The Happy Programmer">
                 <SvgtoReact
                   name="logo"
-                  className="justify-self-center fill-current stroke-current text-gray-900 dark:text-gray-50"
+                  className="stroke-gray-900 fill-gray-900 dark:stroke-gray-50 dark:fill-gray-50 justify-self-center "
                   height={30}
                 />
               </HappyLink>
