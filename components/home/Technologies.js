@@ -10,7 +10,7 @@ export default function Technologies({ title, subtitle, icons }) {
             <SvgtoReact
               key={icon}
               name={icon}
-              className="fill-current text-gray-900 dark:text-gray-50"
+              className=" fill-gray-900 dark:fill-gray-50"
               height={45}
             />
           ))}
@@ -26,7 +26,7 @@ export default function Technologies({ title, subtitle, icons }) {
               <SvgtoReact
                 name="arrow"
                 height={15}
-                className="-rotate-90 transform fill-current text-accent dark:text-darkaccent"
+                className="fill-accent dark:fill-darkaccent -rotate-90 transform"
               />
             </div>
           </HappyLink>

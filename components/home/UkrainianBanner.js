@@ -23,7 +23,7 @@ const Banner = ({ setsupp, svgname, title, subtitle, link, httpLink, svg }) => {
           setsupp(false)
         }}
         name={svgname}
-        className=" self-center fill-current text-accent hover:underline dark:text-darkaccent"
+        className=" fill-accent dark:fill-darkaccent self-center hover:underline"
       >
         OK
       </button>

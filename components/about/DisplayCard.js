@@ -25,7 +25,7 @@ export default function DisplayCard({ svg, desc, link, socials }) {
         {socials ? 'Follow' : 'Projects'}{' '}
         <SvgtoReact
           name="arrow"
-          className="-rotate-90 transform fill-current group-hover:text-accent dark:text-gray-50 dark:group-hover:text-darkaccent"
+          className="group-hover:fill-accent dark:fill-gray-50 dark:group-hover:fill-darkaccent -rotate-90 transform"
           height={15}
         />
       </HappyLink>

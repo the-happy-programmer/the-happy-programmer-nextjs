@@ -46,7 +46,7 @@ export default function Search({ posts, setSearching }) {
     <div
       tabIndex="0"
       className="fixed top-0 bottom-0 left-0 right-0
-     z-50 h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800"
+     z-50 h-screen w-screen bg-gray-200/95 dark:bg-gray-800/95"
     >
       <div className="container m-auto mt-10 h-2/4 w-11/12 max-w-2xl overflow-y-auto rounded-2xl border border-gray-200 bg-gray-50 shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:mt-20 sm:w-full md:mt-32 lg:mt-32 xl:mt-32">
         <div className="sticky top-0">
@@ -56,7 +56,7 @@ export default function Search({ posts, setSearching }) {
                 height={20}
                 width={20}
                 name="search"
-                className="stroke-current text-gray-300 dark:text-gray-200"
+                className="stroke-gray-300 dark:stroke-gray-200"
               />
             </div>
             <input
@@ -69,7 +69,7 @@ export default function Search({ posts, setSearching }) {
               onClick={(e) => closeSearch(e)}
               className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-50 dark:bg-gray-800"
             >
-              <div className="cursor-pointer rounded-md border border-gray-200 fill-current p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:border-gray-600 dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-gray-400">
+              <div className="cursor-pointer rounded-md border border-gray-200 p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:border-gray-600 dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-gray-400">
                 ESC
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function Search({ posts, setSearching }) {
             </div>
           )}
           <div className="sticky bottom-0 flex w-full justify-end rounded-b-2xl border-t border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
-            <div className="fill-current stroke-current  p-4 text-gray-700 dark:text-gray-400">
+            <div className="fill-gray-700 stroke-gray-700 dark:stroke-gray-400 dark:fill-gray-400 p-4">
               <SvgtoReact name="fulllogo" height={30} width={75} />
             </div>
           </div>

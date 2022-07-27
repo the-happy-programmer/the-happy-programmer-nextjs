@@ -8,13 +8,13 @@ export default function SubHero({ subhero }) {
           <div className="flex flex-col items-center py-20" key={icon}>
             <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gray-200 p-4 dark:bg-gray-700">
               <SvgtoReact
-                class="fill-current stroke-current dark:text-gray-100"
+                class="dark:fill-gray-100 dark:stroke-gray-100"
                 height={35}
                 name={icon}
               />
             </div>
             <div className="py-8 text-3xl font-bold dark:text-gray-100">
-              {title}
+              {title} dolores
             </div>
             <div className="mx-10 text-center text-lg text-gray-600 dark:text-gray-300">
               {subtitle}

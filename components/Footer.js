@@ -127,7 +127,7 @@ export default function Footer() {
                   <SvgtoReact
                     name={icon}
                     height={15}
-                    className="hover:fill-gray-900 fill-gray-500 dark:hover:fill-gray-50 cursor-pointer fill-current"
+                    className="hover:fill-gray-900 fill-gray-500 dark:hover:fill-gray-50 cursor-pointer"
                   />
                 </Link>
               ))}
@@ -177,7 +177,7 @@ export default function Footer() {
             />
           ))}
         </div>
-        <div className="fill-gray-500 stroke-gray-500 justify-self-auto fill-current stroke-current">
+        <div className="fill-gray-500 stroke-gray-500 justify-self-auto">
           <Svgtoreact name="fulllogo" height={20} width={100} />
         </div>
         <p className="text-sm text-gray-400 dark:text-gray-500">

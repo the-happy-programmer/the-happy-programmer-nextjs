@@ -48,10 +48,7 @@ export default function SubInput() {
       <div className="flex flex-row items-center justify-center gap-x-2 pt-4">
         {!message && error && (
           <>
-            <SvgtoReact
-              name={error && 'cancel'}
-              className="h-5 fill-current text-danger"
-            />
+            <SvgtoReact name={error && 'cancel'} className="h-5fill-danger" />
             <p className="text-danger">{error}</p>
           </>
         )}
@@ -59,7 +56,7 @@ export default function SubInput() {
           <>
             <SvgtoReact
               name={message && 'tick'}
-              className="h-5 fill-current text-success dark:text-success"
+              className="fill-success dark:fill-success h-5"
             />
             <p className="text-success">{message}</p>
           </>

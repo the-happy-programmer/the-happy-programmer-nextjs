@@ -17,7 +17,7 @@ export default function DropDown({ title, subtitle }) {
           height={15}
           className={`${
             open ? '-rotate-180' : 'rotate-0'
-          } transform self-center fill-current text-gray-700 dark:text-gray-100`}
+          } fill-gray-700 dark:fill-gray-100 transform self-center`}
         />
       </div>
       {open ? (

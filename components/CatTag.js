@@ -29,7 +29,7 @@ export default function CatTag({ categories, title, tags, banner }) {
                   />
                 </div>
 
-                <p className="overflow-hidden overflow-ellipsis">{cat.name}</p>
+                <p className="overflow-hidden text-ellipsis">{cat.name}</p>
               </a>
             </Link>
           </div>

@@ -22,7 +22,7 @@ export default function CourseSearch({ palceholder, allslugs, setCourses }) {
         <div className="absolute inset-y-0 left-0 ml-3 flex items-center">
           <SvgToReact
             name="search"
-            className="stroke-current text-gray-900 dark:text-gray-50"
+            className="stroke-gray-900 dark:stroke-gray-50"
             height={12}
             width={12}
           />

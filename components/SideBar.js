@@ -10,7 +10,7 @@ export default function SideBar({ links, setsidebar }) {
     return
   }
   return (
-    <div className="absolute bottom-0 top-0 left-0 h-screen w-screen bg-gray-300 bg-opacity-95 dark:bg-gray-800">
+    <div className="absolute bottom-0 top-0 left-0 h-screen w-screen bg-gray-300/95 dark:bg-gray-800/95">
       <div className="flex h-screen w-72 flex-col border-r border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
         <div className="flex flex-col items-center border-b px-3 py-4 dark:border-gray-700">
           <div
@@ -19,7 +19,7 @@ export default function SideBar({ links, setsidebar }) {
           >
             <SvgtoReact
               name="cancel"
-              className=" fill-current text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-100 "
+              className="fill-gray-600 hover:fill-gray-800 dark:fill-gray-300 dark:hover:fill-gray-100 "
               height={15}
             />
           </div>
@@ -45,7 +45,7 @@ export default function SideBar({ links, setsidebar }) {
           <Link href="/">
             <SvgtoReact
               name="fulllogo"
-              className="fill-current stroke-current text-gray-900 dark:text-gray-50"
+              className="fill-gray-900 dark:fill-gray-50 stroke-gray-900 dark:stroke-gray-50"
               height={20}
               width={75}
             />

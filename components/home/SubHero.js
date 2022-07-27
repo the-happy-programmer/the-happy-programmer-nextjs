@@ -8,7 +8,7 @@ export default function SubHero({ subhero }) {
           <div className="flex w-60 flex-col items-center py-20" key={icon}>
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700">
               <SvgtoReact
-                class="fill-current stroke-current text-gray-800  dark:text-gray-100"
+                class="stroke-gray-800 dark:stroke-gray-100 fill-gray-800 dark:fill-gray-100"
                 height={25}
                 name={icon}
               />

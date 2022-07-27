@@ -44,8 +44,8 @@ export default function Support({ title, subtitle, prices, benefits }) {
                       name="tick"
                       className={
                         index === currentsupport
-                          ? 'fill-current text-gray-50 dark:text-gray-700'
-                          : 'fill-current text-gray-700 dark:text-gray-50'
+                          ? 'fill-gray-50 dark:fill-gray-700'
+                          : 'fill-gray-700 dark:fill-gray-50'
                       }
                     />
                   </div>
@@ -56,7 +56,7 @@ export default function Support({ title, subtitle, prices, benefits }) {
               {benefits[currentsupport].map((e) => (
                 <div key={e} className="m-5 flex flex-row gap-x-5">
                   <SvgtoReact
-                    className="fill-current text-gray-700 dark:text-gray-200"
+                    className="fill-gray-700 dark:fill-gray-200"
                     name="tick"
                     height={26}
                   />
