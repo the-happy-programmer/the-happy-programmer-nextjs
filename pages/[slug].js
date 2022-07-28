@@ -4,7 +4,7 @@ import SvgtoReact from '../components/Svgtoreact'
 import Subscribe from '../components/home/Subscribe'
 import { getPost, getAllPostsWithSlug } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import highlighter from '../lib/highlighter'
 import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
@@ -41,7 +41,7 @@ export default function Post({ post, socials, content, metalinks, subscribe }) {
           <Link href="/blog">
             <a className="flex flex-row place-self-start pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
               <SvgtoReact
-                className="mr-3 rotate-90 transform self-center "
+                className="mr-3 rotate-90 transform self-center"
                 name="arrow"
                 height="15"
                 width="15"

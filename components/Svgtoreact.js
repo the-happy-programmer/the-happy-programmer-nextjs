@@ -26,7 +26,7 @@ function useDynamicSVGImport(name, options = {}) {
       }
     }
     importIcon()
-  }, [name, onCompleted, onError])
+  }, [onCompleted, onError])
 
   return { error, loading, SvgIcon: ImportedIconRef.current }
 }
@@ -40,7 +40,7 @@ const SvgtoReact = ({ name, onCompleted, onError, ...rest }) => {
     return error.message
   }
   if (loading) {
-    return ''
+    return 'Loading'
   }
   if (SvgIcon) {
     return <SvgIcon {...rest} />

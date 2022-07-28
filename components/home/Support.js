@@ -67,7 +67,7 @@ export default function Support({ title, subtitle, prices, benefits }) {
                 href="https://www.patreon.com/thehappyprogrammer"
                 target="_blank"
                 rel="noreferrer"
-                className="-mx-5 mt-auto rounded-b-lg bg-gray-900 py-4 text-center font-semibold text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 hover:dark:bg-gray-200 dark:hover:bg-gray-200"
+                className="-mx-5 mt-auto rounded-b-lg bg-gray-900 py-4 text-center font-semibold text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 hover:dark:bg-gray-200"
               >
                 Support
               </a>
