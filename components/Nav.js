@@ -7,6 +7,7 @@ import scroll from '../lib/scroll'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 
 const Nav = () => {
   const { data: session } = useSession()
@@ -53,11 +54,8 @@ const Nav = () => {
                   />
                 </Link>
               ) : (
-                <HappyButton
-                  href="https://www.patreon.com/thehappyprogrammer"
-                  className="box-border"
-                >
-                  support me
+                <HappyButton className="box-border" onClick={(e) => signIn()}>
+                  Sign In
                 </HappyButton>
               )}
             </div>

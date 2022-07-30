@@ -3,11 +3,9 @@ import Headerlayout from '../widget/Headerlayout'
 import MyHeader from '../components/search/MyHeader'
 import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
-import AuthBtn from '../components/auth/AuthBtn'
 export default function Home({ posts, category, seo, tags, banner }) {
   return (
     <div>
-      {/* <AuthBtn /> */}
       <Meta title={seo.title} description={seo.desc} />
       <Headerlayout>
         <MyHeader
