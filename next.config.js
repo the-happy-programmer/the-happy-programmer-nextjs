@@ -6,6 +6,7 @@ module.exports = {
       'i2.wp.com',
       'https://i2.wp.com/thehappyprogrammer.com',
       'lh3.googleusercontent.com',
+      "avatars.githubusercontent.com"
     ],
   },
   swcMinify: true,
