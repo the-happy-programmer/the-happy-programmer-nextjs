@@ -4,6 +4,7 @@ import { signOut, useSession } from 'next-auth/react'
 
 export default function Profile({}) {
   const { data: session } = useSession()
+
   return (
     <div className="container">
       <div className="mx-auto max-w-sm py-20 text-gray-900 dark:text-gray-50">
