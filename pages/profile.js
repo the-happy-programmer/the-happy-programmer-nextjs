@@ -1,9 +1,9 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
 import { signOut, useSession } from 'next-auth/react'
-import { useSession } from 'next-auth/react'
 
-export default function Profile({ session }) {
+export default function Profile({}) {
+  const { data: session } = useSession()
   return (
     <div className="container">
       <div className="mx-auto max-w-sm py-20 text-gray-900 dark:text-gray-50">
@@ -27,8 +27,7 @@ export default function Profile({ session }) {
 }
 
 export async function getServerSideProps() {
-  const { data: session } = useSession()
   return {
-    props: { session },
+    props: {},
   }
 }
