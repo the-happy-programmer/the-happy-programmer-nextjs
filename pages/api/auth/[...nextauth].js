@@ -29,12 +29,19 @@ export default NextAuth({
     signIn: '/auth/signin',
   },
   callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith('/')) return url
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url
+      return url
+    },
     async jwt({ token, account }) {
       // Persist the OAuth access_token to the token right after signin
       if (account) {
         token.accessToken = account.access_token
       }
       return token
-    }
+    },
   },
 })
