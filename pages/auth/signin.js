@@ -5,9 +5,11 @@ import SvgtoReact from '../../components/Svgtoreact'
 export default function SignIn({ providers }) {
   return (
     <>
-      <div className="space container flex flex-row items-center justify-between py-36">
+      <div className="container flex flex-col-reverse items-center justify-between gap-y-16 px-4 py-10 sm:flex-col-reverse sm:py-20 md:flex-row md:py-52 lg:flex-row lg:py-52 xl:flex-row xl:py-52">
         <div>
-          <h1 className="pb-5 text-3xl font-bold dark:text-gray-50">Sign In</h1>
+          <h1 className="hidden pb-5 text-3xl font-bold dark:text-gray-50 sm:hidden md:block lg:block xl:block">
+            Sign In
+          </h1>
           <div className="flex max-w-xs flex-col gap-y-4">
             {Object.values(providers).map((provider) => (
               <AuthBtn
@@ -19,7 +21,7 @@ export default function SignIn({ providers }) {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center text-gray-900 dark:text-gray-50">
+        <div className="z-50  flex flex-col items-center text-gray-900 dark:text-gray-50">
           <div className="pb-14">
             <SvgtoReact
               name="signinlogo"
