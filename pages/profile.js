@@ -6,6 +6,7 @@ import { authOptions } from './api/auth/[...nextauth]'
 import { unstable_getServerSession } from 'next-auth/next'
 
 export default function Profile({ session }) {
+  console.log(session)
   if (session.status === 'loading') {
     return <FullPageSpinner />
   }
@@ -45,14 +46,14 @@ export async function getServerSideProps(context) {
     authOptions
   )
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    }
-  }
+  // if (!session) {
+  //   return {
+  //     redirect: {
+  //       destination: '/',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
 
   return {
     props: {
