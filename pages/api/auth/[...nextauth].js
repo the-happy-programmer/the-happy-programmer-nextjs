@@ -3,7 +3,7 @@ import FacebookProvider from 'next-auth/providers/facebook'
 import GoogleProvider from 'next-auth/providers/google'
 import GitHubProvider from 'next-auth/providers/github'
 
-export default NextAuth({
+export const authOptions = {
   providers: [
     FacebookProvider({
       clientId: process.env.FB_CLIENT_ID,
@@ -44,4 +44,6 @@ export default NextAuth({
       return token
     },
   },
-})
+}
+
+export default NextAuth(authOptions)

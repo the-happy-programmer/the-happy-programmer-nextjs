@@ -1,16 +1,16 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
-import { signOut, useSession } from 'next-auth/react'
+import { signOut } from 'next-auth/react'
 import FullPageSpinner from '../components/spinners/FullPageSpinner'
+import { authOptions } from './api/auth/[...nextauth]'
+import { unstable_getServerSession } from 'next-auth/next'
 
-export default function Profile({}) {
-  const { data: session, status } = useSession()
-
-  if (status === 'loading') {
+export default function Profile() {
+  if (session.status === 'loading') {
     return <FullPageSpinner />
   }
 
-  if (status === 'unauthenticated') {
+  if (session.status === 'unauthenticated') {
     return <p>Access Denied</p>
   }
 
@@ -38,8 +38,25 @@ export default function Profile({}) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const session = await unstable_getServerSession(
+    context.req,
+    context.res,
+    authOptions
+  )
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
+
   return {
-    props: {},
+    props: {
+      session,
+    },
   }
 }
