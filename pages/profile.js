@@ -1,12 +1,13 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
 import { signOut, useSession } from 'next-auth/react'
+import FullPageSpinner from '../components/spinners/FullPageSpinner'
 
 export default function Profile({}) {
   const { data: session, status } = useSession()
 
   if (status === 'loading') {
-    return <p>Loading...</p>
+    return <FullPageSpinner />
   }
 
   if (status === 'unauthenticated') {
