@@ -3,7 +3,16 @@ import Happybutton from '../components/Happybutton'
 import { signOut, useSession } from 'next-auth/react'
 
 export default function Profile({}) {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+
+  if (status === 'loading') {
+    return <p>Loading...</p>
+  }
+
+  if (status === 'unauthenticated') {
+    return <p>Access Denied</p>
+  }
+
   return (
     <div className="container">
       <div className="mx-auto max-w-sm py-20 text-gray-900 dark:text-gray-50">
