@@ -5,7 +5,7 @@ import FullPageSpinner from '../components/spinners/FullPageSpinner'
 import { authOptions } from './api/auth/[...nextauth]'
 import { unstable_getServerSession } from 'next-auth/next'
 
-export default function Profile() {
+export default function Profile({ session }) {
   if (session.status === 'loading') {
     return <FullPageSpinner />
   }
