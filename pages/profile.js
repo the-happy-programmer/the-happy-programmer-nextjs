@@ -4,7 +4,6 @@ import { signOut, useSession } from 'next-auth/react'
 
 export default function Profile({}) {
   const { data: session } = useSession()
-  console.log(session)
   return (
     <div className="container">
       <div className="mx-auto max-w-sm py-20 text-gray-900 dark:text-gray-50">
@@ -12,7 +11,9 @@ export default function Profile({}) {
         <div className="flex flex-col gap-y-8 py-5">
           <Table title="Account Details">
             <div className="flex flex-row items-center justify-between py-3">
-              <p className="font-medium">{session.user.email}</p>
+              <p className="font-medium">
+                {session.user.email || session.user.name}
+              </p>
               <Happybutton onClick={() => signOut({ callbackUrl: '/' })}>
                 Sign Out
               </Happybutton>
