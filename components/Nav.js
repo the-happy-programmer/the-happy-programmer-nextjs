@@ -48,10 +48,10 @@ const Nav = () => {
   }
 
   return (
-    <div className="sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
-      <nav className="text-gray-500 dark:text-gray-300">
-        <div className="border-b dark:border-gray-700">
-          <div className="container mx-auto flex flex-row-reverse items-center justify-between px-3 py-4 sm:flex-row sm:p-4 md:flex-row lg:flex-row xl:flex-row">
+    <div className="sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900 h-17">
+      <nav className="text-gray-500 dark:text-gray-300 h-17">
+        <div className="border-b dark:border-gray-700 h-17">
+          <div className="container mx-auto flex flex-row-reverse items-center justify-between px-3 py-4 sm:flex-row sm:p-4 md:flex-row lg:flex-row xl:flex-row h-17">
             <div>
               <HappyLink href="/" ariaLabel="The Happy Programmer">
                 <SvgtoReact
