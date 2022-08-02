@@ -28,7 +28,7 @@ export default function Profile({}) {
               </Happybutton>
             </div>
           </Table>
-          <button className="hover:bg-blue-700 rounded border border-gray-200 py-2 px-4 font-medium text-danger hover:border-opacity-80 hover:text-opacity-80 dark:border-gray-700">
+          <button className="hover:bg-blue-700 rounded border border-gray-200 py-2.5 px-4 font-medium text-danger hover:border-opacity-80 hover:text-opacity-80 dark:border-gray-700">
             Delete Account
           </button>
         </div>

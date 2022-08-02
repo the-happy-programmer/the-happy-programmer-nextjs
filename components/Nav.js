@@ -31,7 +31,7 @@ const Nav = () => {
             src={session.user.image}
             height={30}
             width={30}
-            className="rounded-full"
+            className="cursor-pointer rounded-full"
           />
         </Link>
       )
