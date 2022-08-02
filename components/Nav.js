@@ -8,9 +8,9 @@ import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
-
+import Spinner from './spinners/Spinner'
 const Nav = () => {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const [sidebar, setsidebar] = useState(false)
 
   const links = [
@@ -18,6 +18,34 @@ const Nav = () => {
     ['/about', 'About'],
     ['https://happynuxtjs.com/', 'NuxtJS'],
   ]
+
+  const userNav = () => {
+    if (status === 'loading') {
+      return <Spinner />
+    }
+
+    if (session) {
+      return (
+        <Link href="/profile">
+          <Image
+            src={session.user.image}
+            height={30}
+            width={30}
+            className="rounded-full"
+          />
+        </Link>
+      )
+    } else {
+      return (
+        <HappyButton
+          className="box-border"
+          onClick={(e) => signIn({ callbackUrl: '/' })}
+        >
+          Sign In
+        </HappyButton>
+      )
+    }
+  }
 
   return (
     <div className="sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
@@ -44,23 +72,7 @@ const Nav = () => {
                   </HappyLink>
                 </div>
               ))}
-              {session ? (
-                <Link href="/profile">
-                  <Image
-                    src={session.user.image}
-                    height={30}
-                    width={30}
-                    className="rounded-full"
-                  />
-                </Link>
-              ) : (
-                <HappyButton
-                  className="box-border"
-                  onClick={(e) => signIn({ callbackUrl: '/' })}
-                >
-                  Sign In
-                </HappyButton>
-              )}
+              {userNav()}
             </div>
             <button
               onClick={(e) => {
