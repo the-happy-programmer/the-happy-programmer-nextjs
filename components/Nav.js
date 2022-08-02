@@ -54,7 +54,10 @@ const Nav = () => {
                   />
                 </Link>
               ) : (
-                <HappyButton className="box-border" onClick={(e) => signIn()}>
+                <HappyButton
+                  className="box-border"
+                  onClick={(e) => signIn({ callbackUrl: '/' })}
+                >
                   Sign In
                 </HappyButton>
               )}
