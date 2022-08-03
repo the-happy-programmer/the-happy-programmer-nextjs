@@ -1,8 +1,11 @@
 import { getProviders, signIn } from 'next-auth/react'
 import AuthBtn from '../../components/auth/AuthBtn'
 import SvgtoReact from '../../components/Svgtoreact'
+import { useSession } from 'next-auth/react'
 
 export default function SignIn({ providers }) {
+  const { data: session, status } = useSession()
+
   return (
     <>
       <div className="container flex flex-col-reverse items-center justify-between gap-y-16 px-4 py-10 sm:flex-col-reverse sm:py-20 md:flex-row md:py-52 lg:flex-row lg:py-52 xl:flex-row xl:py-52">
@@ -46,6 +49,7 @@ export default function SignIn({ providers }) {
 
 export async function getServerSideProps(context) {
   const providers = await getProviders()
+
   return {
     props: { providers },
   }
