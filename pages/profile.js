@@ -4,7 +4,7 @@ import { signOut } from 'next-auth/react'
 import FullPageSpinner from '../components/spinners/FullPageSpinner'
 import { useSession } from 'next-auth/react'
 import { authOptions } from './api/auth/[...nextauth]'
-
+import { unstable_getServerSession } from 'next-auth/next'
 export default function Profile({ session }) {
   console.log('SESSION:', session)
   if (session.status === 'loading') {
