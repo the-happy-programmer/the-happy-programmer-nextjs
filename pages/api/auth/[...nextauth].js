@@ -30,14 +30,9 @@ export const authOptions = {
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
-      // Allows relative callback URLs
-      if (url.startsWith('/')) return baseUrl
-      // Allows callback URLs on the same origin
-      else if (new URL(url).origin === baseUrl) return url
-      return url
+      return baseUrl
     },
     async jwt({ token, account }) {
-      // Persist the OAuth access_token to the token right after signin
       if (account) {
         token.accessToken = account.access_token
       }
