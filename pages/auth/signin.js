@@ -9,7 +9,7 @@ export default function SignIn({ providers }) {
   const router = useRouter()
 
   if (session) {
-    router.push('/courses')
+    return router.push('/courses')
   }
 
   return (
