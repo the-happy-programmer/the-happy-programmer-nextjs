@@ -30,7 +30,7 @@ export const authOptions = {
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
-      return baseUrl
+      return url
     },
     async jwt({ token, account }) {
       if (account) {
