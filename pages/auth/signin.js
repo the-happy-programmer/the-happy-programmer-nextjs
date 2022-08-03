@@ -2,14 +2,12 @@ import { getProviders, signIn } from 'next-auth/react'
 import AuthBtn from '../../components/auth/AuthBtn'
 import SvgtoReact from '../../components/Svgtoreact'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 export default function SignIn({ providers }) {
   const { data: session, status } = useSession()
   const router = useRouter()
 
-  if (session) {
-    router.push('/profile')
-  }
   return (
     <>
       <div className="container flex flex-col-reverse items-center justify-between gap-y-16 px-4 py-10 sm:flex-col-reverse sm:py-20 md:flex-row md:py-52 lg:flex-row lg:py-52 xl:flex-row xl:py-52">
