@@ -1,20 +1,10 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
 import { signOut } from 'next-auth/react'
-import FullPageSpinner from '../components/spinners/FullPageSpinner'
-import { useSession } from 'next-auth/react'
 import { authOptions } from './api/auth/[...nextauth]'
 import { unstable_getServerSession } from 'next-auth/next'
-export default function Profile({ session }) {
-  console.log('SESSION:', session)
-  // if (session.status === 'loading') {
-  //   return <FullPageSpinner />
-  // }
 
-  // if (session.status === 'unauthenticated') {
-  //   return <p>Access Denied</p>
-  // }
-
+export default function Profile({ user }) {
   return (
     <div className="container">
       <div className="mx-auto max-w-sm py-20 text-gray-900 dark:text-gray-50">
@@ -22,9 +12,7 @@ export default function Profile({ session }) {
         <div className="flex flex-col gap-y-8 py-5">
           <Table title="Account Details">
             <div className="flex flex-row items-center justify-between py-3">
-              <p className="font-medium">
-                {session.user.email || session.user.name}
-              </p>
+              <p className="font-medium">{user?.email || user?.name}</p>
               <Happybutton onClick={() => signOut({ callbackUrl: '/' })}>
                 Sign Out
               </Happybutton>
@@ -57,7 +45,10 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      session,
+      user: {
+        name: session.user.name || session.user.email || '',
+        image: session.user.image,
+      },
     },
   }
 }

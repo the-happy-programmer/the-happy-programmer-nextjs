@@ -12,7 +12,6 @@ import Spinner from './spinners/Spinner'
 const Nav = () => {
   const { data: session, status } = useSession()
   const [sidebar, setsidebar] = useState(false)
-
   const links = [
     ['/blog', 'Blog'],
     ['/about', 'About'],
@@ -48,10 +47,10 @@ const Nav = () => {
   }
 
   return (
-    <div className="sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900 h-17">
-      <nav className="text-gray-500 dark:text-gray-300 h-17">
-        <div className="border-b dark:border-gray-700 h-17">
-          <div className="container mx-auto flex flex-row-reverse items-center justify-between px-3 py-4 sm:flex-row sm:p-4 md:flex-row lg:flex-row xl:flex-row h-17">
+    <div className="h-17 sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
+      <nav className="h-17 text-gray-500 dark:text-gray-300">
+        <div className="h-17 border-b dark:border-gray-700">
+          <div className="h-17 container mx-auto flex flex-row-reverse items-center justify-between px-3 py-4 sm:flex-row sm:p-4 md:flex-row lg:flex-row xl:flex-row">
             <div>
               <HappyLink href="/" ariaLabel="The Happy Programmer">
                 <SvgtoReact

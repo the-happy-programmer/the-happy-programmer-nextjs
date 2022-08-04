@@ -20,14 +20,15 @@ export default function SignIn({ providers }) {
             Sign In
           </h1>
           <div className="flex max-w-xs flex-col gap-y-4">
-            {Object.values(providers).map((provider) => (
-              <AuthBtn
-                key={provider.name}
-                onClick={() => signIn(provider.id)}
-                title={provider.name}
-                icon={provider.id}
-              />
-            ))}
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <AuthBtn
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                  title={provider.name}
+                  icon={provider.id}
+                />
+              ))}
           </div>
         </div>
         <div className="z-50  flex flex-col items-center text-gray-900 dark:text-gray-50">
