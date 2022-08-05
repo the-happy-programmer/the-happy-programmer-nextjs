@@ -4,6 +4,11 @@ export interface TitleSubtitle {
   desc?: string
 }
 
+export interface SupportType extends TitleSubtitle {
+  prices: string[]
+  benefits: string[][]
+}
+
 export interface TitleSubIcons extends TitleSubtitle {
   icons: string[]
 }

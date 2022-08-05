@@ -12,6 +12,7 @@ import type {
   SubHeroProps,
   TitleSubtitle,
   TitleSubIcons,
+  SupportType,
 } from '../lib/types/home'
 
 export default function Home({
@@ -63,7 +64,7 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const info = [
+  const info: string[][] = [
     [
       'Sponsored Posts',
       'For any sponsored post, you can send us a message at our email address. We will get back to you as soon as possible. ',
@@ -129,7 +130,7 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   ]
 
-  const support = {
+  const support: SupportType = {
     title: 'Support',
     subtitle: 'Please consider supporting this website monthly.',
     prices: ['£2,5', '£4', '£8'],

@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import SvgtoReact from '../Svgtoreact'
+import type { SupportType } from '../../lib/types/home'
 
-// test
-
-export default function Support({ title, subtitle, prices, benefits }) {
-  const [currentsupport, setcurrentsupport] = useState(0)
+export default function Support({
+  title,
+  subtitle,
+  prices,
+  benefits,
+}: SupportType) {
+  const [currentsupport, setcurrentsupport] = useState<number>(0)
 
   return (
     <div className="border-b text-gray-900 dark:border-gray-700 dark:text-gray-300">

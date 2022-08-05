@@ -1,5 +1,7 @@
 import SubInput from './SubInput'
-export default function Subscribe({ title, subtitle }) {
+import type { TitleSubtitle } from '../../lib/types/home'
+
+export default function Subscribe({ title, subtitle }: TitleSubtitle) {
   return (
     <div className="container py-20 text-center">
       <p className="text-3xl font-bold dark:text-gray-50">{title}</p>
