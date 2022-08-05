@@ -1,4 +1,4 @@
-import SvgtoReact from './Svgtoreact'
+import SvgtoReact from './Svgtoreact.tsx'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
 import { useState } from 'react'

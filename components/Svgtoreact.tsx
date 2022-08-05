@@ -1,9 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 
-function useDynamicSVGImport(name, options = {}) {
-  const ImportedIconRef = useRef()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState()
+interface UseDynamicSVGImportOptions {
+  onCompleted?: (
+    name: string,
+    SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined
+  ) => void
+  onError?: (err: Error) => void
+}
+
+function useDynamicSVGImport(
+  name: string,
+  options: UseDynamicSVGImportOptions = {}
+) {
+  const ImportedIconRef = useRef<React.FC<React.SVGProps<SVGSVGElement>>>()
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<Error>()
 
   const { onCompleted, onError } = options
   useEffect(() => {

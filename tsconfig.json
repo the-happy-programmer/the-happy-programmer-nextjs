@@ -20,7 +20,7 @@
     "**/*.ts",
     "**/*.tsx",
     "components/about/DisplayCard.js",
-    "components/Svgtoreact.js"
+    "components/Svgtoreact.tsx"
   ],
   "exclude": ["node_modules"]
 }
