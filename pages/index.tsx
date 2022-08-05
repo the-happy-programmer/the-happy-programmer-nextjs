@@ -1,12 +1,18 @@
 import { GetStaticProps } from 'next'
 import HeroCarousel from '../components/home/HeroCarousel'
 import SubHero from '../components/home/SubHero'
-import type { SubHeroProps } from '../components/home/SubHero'
 import Subscribe from '../components/home/Subscribe'
 import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
+
+// Types
+import type {
+  SubHeroProps,
+  TitleSubtitle,
+  TitleSubIcons,
+} from '../lib/types/home'
 
 export default function Home({
   seo,
@@ -75,7 +81,7 @@ export const getStaticProps: GetStaticProps = async () => {
       'The happy programmer provides source code to all members you can see the code by yourself.',
     ],
   ]
-  const moderntechnologies = {
+  const moderntechnologies: TitleSubIcons = {
     icons: [
       'react',
       'tailwind',
@@ -94,15 +100,17 @@ export const getStaticProps: GetStaticProps = async () => {
     subtitle: 'The most modern technologies available stay tuned for more',
   }
 
-  const seo = {
+  const seo: TitleSubtitle = {
     title: 'The Happy Programmer',
     desc: 'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
   }
-  const hero: { title: string; subtitle: string } = {
+
+  const hero: TitleSubtitle = {
     title: 'Courses in every technology.',
     subtitle:
       'Courses in every technology required to make you an expert on programming.',
   }
+
   const subhero: SubHeroProps['subhero'] = [
     {
       icon: 'understand',
@@ -120,6 +128,7 @@ export const getStaticProps: GetStaticProps = async () => {
       subtitle: 'be an expert and see yourself grow to a professional.',
     },
   ]
+
   const support = {
     title: 'Support',
     subtitle: 'Please consider supporting this website monthly.',
@@ -141,7 +150,7 @@ export const getStaticProps: GetStaticProps = async () => {
       ],
     ],
   }
-  const subscribe = {
+  const subscribe: TitleSubtitle = {
     title: 'Subscribe',
     subtitle:
       'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',

@@ -1,14 +1,6 @@
 import SvgtoReact from '../Svgtoreact'
 
-export interface SubHeroProps {
-  subhero: Array<HeroProps>
-}
-
-export interface HeroProps {
-  icon: string
-  title: string
-  subtitle: string
-}
+import { SubHeroProps } from '../../lib/types/home'
 
 export default function SubHero({ subhero }: SubHeroProps): JSX.Element {
   return (
