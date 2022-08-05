@@ -103,7 +103,7 @@ export const getStaticProps: GetStaticProps = async () => {
     subtitle:
       'Courses in every technology required to make you an expert on programming.',
   }
-  const subhero: Array<{ icon: string; title: string; subtitle: string }> = [
+  const subhero: SubHeroProps['subhero'] = [
     {
       icon: 'understand',
       title: 'Understand',

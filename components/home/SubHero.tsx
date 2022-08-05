@@ -4,7 +4,7 @@ export interface SubHeroProps {
   subhero: Array<HeroProps>
 }
 
-export interface HeroProps extends SubHeroProps {
+export interface HeroProps {
   icon: string
   title: string
   subtitle: string
