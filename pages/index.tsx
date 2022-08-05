@@ -1,5 +1,7 @@
+import { GetStaticProps } from 'next'
 import HeroCarousel from '../components/home/HeroCarousel'
 import SubHero from '../components/home/SubHero'
+import type { SubHeroProps } from '../components/home/SubHero'
 import Subscribe from '../components/home/Subscribe'
 import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
@@ -54,7 +56,7 @@ export default function Home({
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const info = [
     [
       'Sponsored Posts',
@@ -96,23 +98,27 @@ export async function getStaticProps() {
     title: 'The Happy Programmer',
     desc: 'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
   }
-  const hero = {
+  const hero: { title: string; subtitle: string } = {
     title: 'Courses in every technology.',
     subtitle:
       'Courses in every technology required to make you an expert on programming.',
   }
-  const subhero = [
-    [
-      'understand',
-      'Understand',
-      'hard programming concepts explained in the simplest way.',
-    ],
-    [
-      'create',
-      'Create',
-      'Learn by coding in modern technologies on every device.',
-    ],
-    ['grow', 'Grow', 'be an expert and see yourself grow to a professional.'],
+  const subhero: Array<{ icon: string; title: string; subtitle: string }> = [
+    {
+      icon: 'understand',
+      title: 'Understand',
+      subtitle: 'hard programming concepts explained in the simplest way.',
+    },
+    {
+      icon: 'create',
+      title: 'Create',
+      subtitle: 'Learn by coding in modern technologies on every device.',
+    },
+    {
+      icon: 'grow',
+      title: 'Grow',
+      subtitle: 'be an expert and see yourself grow to a professional.',
+    },
   ]
   const support = {
     title: 'Support',

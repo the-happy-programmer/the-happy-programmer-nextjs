@@ -2,7 +2,7 @@ import Headerlayout from '../widget/Headerlayout'
 import DisplayInfo from '../widget/DisplayInfo'
 import DisplayCard from '../components/about/DisplayCard'
 import SvgtoReact from '../components/Svgtoreact'
-import DropDownContainer from '../components/about/DropDownContainer'
+import DropDownContainer from '../components/about/DropDownContainer.tsx'
 import Meta from '../components/seo/Meta'
 
 export default function About({ socials, projects, author, info, seo }) {

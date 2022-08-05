@@ -1,4 +1,4 @@
-export default function BtnSpinner({ title }) {
+export default function BtnSpinner({ title }: { title: string }) {
   return (
     <button
       type="button"
