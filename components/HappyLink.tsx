@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import type { LinkProps } from 'next/link'
 import { useRouter } from 'next/router'
+import { HTMLAttributes } from 'react'
 
-interface HappyLinkProps extends React.HTMLAttributes<LinkProps> {
+interface HappyLinkProps extends HTMLAttributes<LinkProps> {
   href: URL | string
   children: React.ReactNode
   ariaLabel?: string

@@ -1,7 +1,19 @@
-export default function HappyButton({ children, href, xl, onClick }) {
+interface BtnProps {
+  children: string
+  href: string
+  xl?: boolean
+  onClick?: React.MouseEvent<HTMLDivElement, MouseEvent>
+}
+
+export default function HappyButton({
+  children,
+  href,
+  xl,
+  onClick,
+}: BtnProps): JSX.Element {
   return (
     <a
-      onClick={onClick}
+      onClick={(e) => onClick}
       href={href}
       className={`capitalize tracking-wide hover:bg-opacity-80
       ${xl ? 'text-base' : 'text-xs'}  
