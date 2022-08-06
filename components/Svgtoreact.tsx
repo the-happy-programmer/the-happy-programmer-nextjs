@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 
 interface UseDynamicSVGImportOptions {
   onCompleted?: (
     name: string,
-    SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined | JSX.Element
-  ) => void
+    SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined
+  ) => VoidFunction
   onError?: (err: Error) => void
 }
 
@@ -54,7 +54,7 @@ const SvgtoReact = ({
   onCompleted,
   onError,
   ...rest
-}: SvgtoReactProps) => {
+}: SvgtoReactProps): ReactElement<string> => {
   const { error, loading, SvgIcon } = useDynamicSVGImport(name, {
     onCompleted,
     onError,
