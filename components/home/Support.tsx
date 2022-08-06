@@ -7,7 +7,7 @@ export default function Support({
   subtitle,
   prices,
   benefits,
-}: SupportType): JSX.Element {
+}: SupportType) {
   const [currentsupport, setcurrentsupport] = useState<number>(0)
 
   return (
@@ -73,7 +73,7 @@ export default function Support({
                 rel="noreferrer"
                 className="-mx-5 mt-auto rounded-b-lg bg-gray-900 py-4 text-center font-semibold text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 hover:dark:bg-gray-200 dark:hover:bg-gray-200"
               >
-                Support
+                {title}
               </a>
             </div>
           </div>
