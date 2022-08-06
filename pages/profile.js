@@ -13,7 +13,7 @@ export default function Profile({ user }) {
           <Table title="Account Details">
             <div className="flex flex-row items-center justify-between py-3">
               <p className="font-medium">{user?.email || user?.name}</p>
-              <Happybutton onClick={() => signOut({ callbackUrl: '/' })}>
+              <Happybutton onClick={(e) => signOut({ callbackUrl: '/' })}>
                 Sign Out
               </Happybutton>
             </div>

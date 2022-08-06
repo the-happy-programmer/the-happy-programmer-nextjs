@@ -1,10 +1,10 @@
-import { ReactNode, MouseEvent } from 'react'
+import { ReactNode, MouseEventHandler } from 'react'
 
 interface BtnProps {
   children: ReactNode
   href: string
   xl?: boolean
-  onClick?: MouseEvent<HTMLDivElement, MouseEvent>
+  onClick: MouseEventHandler<HTMLAnchorElement>
 }
 
 export default function HappyButton({
@@ -15,7 +15,7 @@ export default function HappyButton({
 }: BtnProps): JSX.Element {
   return (
     <a
-      onClick={(e) => onClick}
+      onClick={onClick}
       href={href}
       className={`capitalize tracking-wide hover:bg-opacity-80
       ${xl ? 'text-base' : 'text-xs'}  
