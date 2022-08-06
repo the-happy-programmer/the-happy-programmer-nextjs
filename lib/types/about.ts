@@ -1,7 +1,9 @@
 import type { SEOProps } from './seo'
+
 export interface AboutInfo {
   info: string[][]
 }
+
 export interface AboutAuthor {
   desc: string
   job: string
