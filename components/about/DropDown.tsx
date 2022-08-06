@@ -2,7 +2,7 @@ import { useState } from 'react'
 import SvgtoReact from '../Svgtoreact'
 
 export default function DropDown({ title, subtitle }) {
-  const [open, setOpen] = useState()
+  const [open, setOpen] = useState<boolean>(false)
   return (
     <div className="w-full p-3">
       <div

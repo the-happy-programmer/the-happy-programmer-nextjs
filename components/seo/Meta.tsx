@@ -1,6 +1,10 @@
 import Head from 'next/head'
-
-export default function Meta({ title, description, children }) {
+import type { SEOProps } from '../../lib/types/seo'
+export default function Meta({
+  title,
+  description,
+  children,
+}: SEOProps): JSX.Element {
   return (
     <Head>
       <title>{title}</title>

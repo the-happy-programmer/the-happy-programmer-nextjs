@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Script from 'next/script'
-// tobe done
-
+//TODO: see if you can add script tags to the head
+import type { RichSEOProps } from '../../lib/types/seo'
 export default function Meta({
   title,
   description,
@@ -9,7 +9,7 @@ export default function Meta({
   date,
   image,
   slug,
-}) {
+}: RichSEOProps): JSX.Element {
   return (
     <head>
       <title>{title}</title>
