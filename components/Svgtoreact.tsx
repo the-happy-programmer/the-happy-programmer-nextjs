@@ -54,17 +54,17 @@ const SvgtoReact = ({
   onCompleted,
   onError,
   ...rest
-}: SvgtoReactProps): ReactElement<string> => {
+}: SvgtoReactProps): JSX.Element => {
   const { error, loading, SvgIcon } = useDynamicSVGImport(name, {
     onCompleted,
     onError,
   })
-  if (error) {
-    return error.message
-  }
-  if (loading) {
-    return ''
-  }
+  // if (error) {
+  //   return error.message
+  // }
+  // if (loading) {
+  //   return ''
+  // }
   if (SvgIcon) {
     return <SvgIcon {...rest} />
   }
