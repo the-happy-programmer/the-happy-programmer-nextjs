@@ -6,7 +6,7 @@ export default function DropDownContainer({
 }: {
   title: string
   subtitle?: string
-  info: [string, string][]
+  info: string[][]
 }): JSX.Element {
   return (
     <div className="mx-auto bg-gray-100 py-20 dark:bg-gray-800">
