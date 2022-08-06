@@ -4,7 +4,7 @@ interface BtnProps {
   children: ReactNode
   href: string
   xl?: boolean
-  onClick: MouseEventHandler<HTMLAnchorElement>
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
 export default function HappyButton({
