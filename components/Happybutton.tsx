@@ -1,5 +1,5 @@
 interface BtnProps {
-  children: string
+  children: React.ReactNode
   href: string
   xl?: boolean
   onClick?: React.MouseEvent<HTMLDivElement, MouseEvent>

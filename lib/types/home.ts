@@ -23,3 +23,13 @@ export interface HeroProps {
   title: string
   subtitle: string
 }
+
+export interface HomeProps {
+  seo: TitleSubtitle
+  hero: TitleSubIcons
+  subhero: SubHeroProps['subhero']
+  subscribe: TitleSubtitle
+  support: SupportType
+  moderntechnologies: TitleSubIcons
+  info: string[][]
+}

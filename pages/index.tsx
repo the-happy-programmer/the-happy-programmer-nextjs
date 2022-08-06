@@ -12,6 +12,7 @@ import type {
   TitleSubtitle,
   TitleSubIcons,
   SupportType,
+  HomeProps,
 } from '../lib/types/home'
 
 export default function Home({
@@ -22,15 +23,7 @@ export default function Home({
   support,
   moderntechnologies,
   info,
-}: {
-  seo: TitleSubtitle
-  hero: TitleSubIcons
-  subhero: SubHeroProps['subhero']
-  subscribe: TitleSubtitle
-  support: SupportType
-  moderntechnologies: TitleSubIcons
-  info: string[][]
-}): JSX.Element {
+}: HomeProps): JSX.Element {
   return (
     <>
       <Meta title={seo.title} description={seo.desc}>
