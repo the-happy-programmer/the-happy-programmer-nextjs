@@ -1,9 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import SvgtoReact from '../Svgtoreact'
 
-export default function Carousel() {
-  const heroicons = ['heromobile', 'heroweb', 'herowatch', 'heroserver']
-  const [svghero, setsvghero] = useState(0)
+export default function Carousel(): JSX.Element {
+  const heroicons: string[] = [
+    'heromobile',
+    'heroweb',
+    'herowatch',
+    'heroserver',
+  ]
+  const [svghero, setsvghero] = useState<number>(0)
 
   const setSvg = (svgcounter) => {
     setsvghero(svgcounter)

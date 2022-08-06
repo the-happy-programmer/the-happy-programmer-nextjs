@@ -2,9 +2,9 @@ import { useState, useRef } from 'react'
 import SvgtoReact from '../Svgtoreact'
 
 export default function SubInput() {
-  const inputEl = useRef(null)
-  const [message, setMessage] = useState(null)
-  const [error, setError] = useState(null)
+  const inputEl = useRef<HTMLInputElement>(null)
+  const [message, setMessage] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const sub = async (e) => {
     e.preventDefault()
     const res = await fetch('/api/subscribe', {

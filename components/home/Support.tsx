@@ -7,7 +7,7 @@ export default function Support({
   subtitle,
   prices,
   benefits,
-}: SupportType) {
+}: SupportType): JSX.Element {
   const [currentsupport, setcurrentsupport] = useState<number>(0)
 
   return (

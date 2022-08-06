@@ -1,7 +1,12 @@
 import HappyLink from '../HappyLink'
 import SvgtoReact from '../Svgtoreact'
+import type { TitleSubIcons } from '../../lib/types/home'
 
-export default function Technologies({ title, subtitle, icons }) {
+export default function Technologies({
+  title,
+  subtitle,
+  icons,
+}: TitleSubIcons) {
   return (
     <div className="border-b border-gray-200 py-20  dark:border-gray-700">
       <div className="container flex flex-col place-content-center items-center justify-between gap-14 px-3 sm:flex-col md:flex-row lg:flex-row xl:flex-row">

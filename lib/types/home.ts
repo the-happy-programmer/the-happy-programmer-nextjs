@@ -2,6 +2,7 @@ export interface TitleSubtitle {
   title: string
   subtitle?: string
   desc?: string
+  icon?: string
 }
 
 export interface SupportType extends TitleSubtitle {

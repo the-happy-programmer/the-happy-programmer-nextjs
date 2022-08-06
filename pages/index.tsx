@@ -40,7 +40,11 @@ export default function Home({
         />
       </Meta>
       <div className="bg-gray-50 dark:bg-gray-900">
-        <HeroCarousel hero={hero} />
+        <HeroCarousel
+          title={hero.title}
+          subtitle={hero.subtitle}
+          icon={hero.icon}
+        />
         <SubHero subhero={subhero} />
         <Technologies
           title={moderntechnologies.title}
@@ -110,6 +114,7 @@ export const getStaticProps: GetStaticProps = async () => {
     title: 'Courses in every technology.',
     subtitle:
       'Courses in every technology required to make you an expert on programming.',
+    icon: 'herocode',
   }
 
   const subhero: SubHeroProps['subhero'] = [
