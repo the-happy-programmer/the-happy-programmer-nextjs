@@ -1,4 +1,4 @@
-export default function BtnSpinner({ title }: { title: string }) {
+export default function BtnSpinner({ title }: { title: string }): JSX.Element {
   return (
     <button
       type="button"

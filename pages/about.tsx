@@ -1,14 +1,26 @@
+import { GetStaticProps } from 'next'
+
 import Headerlayout from '../widget/Headerlayout'
 import DisplayInfo from '../widget/DisplayInfo'
 import DisplayCard from '../components/about/DisplayCard'
 import SvgtoReact from '../components/Svgtoreact'
-import DropDownContainer from '../components/about/DropDownContainer.tsx'
+import DropDownContainer from '../components/about/DropDownContainer'
 import Meta from '../components/seo/Meta'
 
-export default function About({ socials, projects, author, info, seo }) {
+//types
+import type { SEOProps } from '../lib/types/seo'
+import type { AboutAuthor, AboutInfo } from '../lib/types/about'
+
+export default function About({
+  socials,
+  projects,
+  author,
+  info,
+  seo,
+}): JSX.Element {
   return (
     <div className=" bg-gray-50 dark:bg-gray-900">
-      <Meta title={seo.title} description={seo.metaDesc} />
+      <Meta title={seo.title} description={seo.description} />
       <div className="dark:border-gray-700">
         <Headerlayout>
           <div className="container flex flex-col items-center justify-center pt-5 text-center sm:flex-row sm:pt-16 sm:text-left md:flex-row md:pt-16 md:text-left lg:flex-row lg:pt-16 lg:text-left xl:flex-row xl:pt-16 xl:text-left">
@@ -57,14 +69,14 @@ export default function About({ socials, projects, author, info, seo }) {
   )
 }
 
-export function getStaticProps() {
-  const seo = {
+export const getStaticProps: GetStaticProps = async () => {
+  const seo: SEOProps = {
     title: 'My Name Is Tony',
-    metaDesc:
+    description:
       'I have developed numerous of iOS and Android apps. I have been participated in many open sourse projects. An experienced developer in web development, enterprise and mobile development. Enthusiastic with programming and technology.',
   }
 
-  const info = [
+  const info: AboutInfo['info'] = [
     [
       'My studies',
       'I studied at the University of Coventry in the UK where I graduated with a first-class degree on Computer Science during my studies, I was awarded second best website among 2-3 thousand students',
@@ -79,13 +91,13 @@ export function getStaticProps() {
     ],
   ]
 
-  const author = {
+  const author: AboutAuthor = {
     desc: 'My name is Tony',
     job: 'I am a Software Engineer',
     mail: 'info@thehappyprogrammer.com',
   }
 
-  const socials = [
+  const socials: AboutInfo['info'] = [
     ['https://twitter.com/happy_prog', 'twitter', '@happy_prog'],
     [
       'https://www.patreon.com/thehappyprogrammer',
@@ -103,7 +115,7 @@ export function getStaticProps() {
       'The Happy Programmer',
     ],
   ]
-  const projects = [
+  const projects: AboutInfo['info'] = [
     [
       'NuxtJS',
       'in NuxtJS you will see replicates of numerous websites including this one.',

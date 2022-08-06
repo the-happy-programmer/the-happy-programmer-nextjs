@@ -1,8 +1,10 @@
+import { ReactNode, MouseEvent } from 'react'
+
 interface BtnProps {
-  children: React.ReactNode
+  children: ReactNode
   href: string
   xl?: boolean
-  onClick?: React.MouseEvent<HTMLDivElement, MouseEvent>
+  onClick?: MouseEvent<HTMLDivElement, MouseEvent>
 }
 
 export default function HappyButton({

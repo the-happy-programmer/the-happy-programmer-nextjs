@@ -14,6 +14,7 @@ import type {
   SupportType,
   HomeProps,
 } from '../lib/types/home'
+import { SEOProps } from '../lib/types/seo'
 
 export default function Home({
   seo,
@@ -26,7 +27,7 @@ export default function Home({
 }: HomeProps): JSX.Element {
   return (
     <>
-      <Meta title={seo.title} description={seo.desc}>
+      <Meta title={seo.title} description={seo.description}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -105,9 +106,10 @@ export const getStaticProps: GetStaticProps = async () => {
     subtitle: 'The most modern technologies available stay tuned for more',
   }
 
-  const seo: TitleSubtitle = {
+  const seo: SEOProps = {
     title: 'The Happy Programmer',
-    desc: 'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
+    description:
+      'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
   }
 
   const hero: TitleSubtitle = {

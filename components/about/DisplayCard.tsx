@@ -1,7 +1,12 @@
 import SvgtoReact from '../Svgtoreact'
 import HappyLink from '../HappyLink'
-
-export default function DisplayCard({ svg, desc, link, socials }) {
+import type { DisplayCardProps } from '../../lib/types/about'
+export default function DisplayCard({
+  svg,
+  desc,
+  link,
+  socials,
+}: DisplayCardProps): JSX.Element {
   return (
     <div
       key={svg}

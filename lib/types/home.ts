@@ -1,3 +1,4 @@
+import type { SEOProps } from './seo'
 export interface TitleSubtitle {
   title: string
   subtitle?: string
@@ -25,7 +26,7 @@ export interface HeroProps {
 }
 
 export interface HomeProps {
-  seo: TitleSubtitle
+  seo: SEOProps
   hero: TitleSubIcons
   subhero: SubHeroProps['subhero']
   subscribe: TitleSubtitle
