@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 interface UseDynamicSVGImportOptions {
   onCompleted?: (
     name: string,
-    SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined
+    SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined | JSX.Element
   ) => void
   onError?: (err: Error) => void
 }
@@ -42,7 +42,19 @@ function useDynamicSVGImport(
   return { error, loading, SvgIcon: ImportedIconRef.current }
 }
 
-const SvgtoReact = ({ name, onCompleted, onError, ...rest }) => {
+interface SvgtoReactProps extends UseDynamicSVGImportOptions {
+  name: string
+  className?: string
+  height?: number
+  width?: number
+}
+
+const SvgtoReact = ({
+  name,
+  onCompleted,
+  onError,
+  ...rest
+}: SvgtoReactProps) => {
   const { error, loading, SvgIcon } = useDynamicSVGImport(name, {
     onCompleted,
     onError,
