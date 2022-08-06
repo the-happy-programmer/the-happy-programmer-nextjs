@@ -2,7 +2,7 @@ import { ReactNode, MouseEventHandler } from 'react'
 
 interface BtnProps {
   children: ReactNode
-  href: string
+  href?: string
   xl?: boolean
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }

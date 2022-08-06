@@ -1,4 +1,4 @@
-import SvgtoReact from './Svgtoreact.tsx'
+import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
 import { useState } from 'react'
@@ -11,8 +11,8 @@ import { signIn } from 'next-auth/react'
 import Spinner from './spinners/Spinner'
 const Nav = () => {
   const { data: session, status } = useSession()
-  const [sidebar, setsidebar] = useState(false)
-  const links = [
+  const [sidebar, setsidebar] = useState<boolean>(false)
+  const links: string[][] = [
     ['/blog', 'Blog'],
     ['/about', 'About'],
     ['https://happynuxtjs.com/', 'NuxtJS'],
@@ -35,14 +35,7 @@ const Nav = () => {
         </Link>
       )
     } else {
-      return (
-        <HappyButton
-          className="box-border"
-          onClick={(e) => signIn({ callbackUrl: '/' })}
-        >
-          Sign In
-        </HappyButton>
-      )
+      return <HappyButton onClick={(e) => signIn()}>Sign In</HappyButton>
     }
   }
 

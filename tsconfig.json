@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "components/about/DisplayCard.tsx",
-    "components/Svgtoreact.tsx"
+    "components/Svgtoreact.tsx",
+    "components/spinners/Spinner.tsx"
   ],
   "exclude": ["node_modules"]
 }

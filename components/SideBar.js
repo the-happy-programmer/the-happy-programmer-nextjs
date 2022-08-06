@@ -9,6 +9,7 @@ export default function SideBar({ links, setsidebar }) {
     scroll('auto')
     return
   }
+
   return (
     <div className="absolute bottom-0 top-0 left-0 h-screen w-screen bg-gray-300 bg-opacity-95 dark:bg-gray-800">
       <div className="flex h-screen w-72 flex-col border-r border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
