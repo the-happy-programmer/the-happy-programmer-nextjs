@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import SvgtoReact from '../Svgtoreact'
 
-export default function SubInput() {
+export default function SubInput(): JSX.Element {
   const inputEl = useRef<HTMLInputElement>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)

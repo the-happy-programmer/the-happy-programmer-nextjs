@@ -3,12 +3,19 @@ import Link from 'next/link'
 import SvgtoReact from './Svgtoreact'
 import { useRef, useState } from 'react'
 
-export default function Footer() {
-  const inputEl = useRef(null)
-  const [message, setMessage] = useState(null)
-  const [error, setError] = useState(null)
-  const currentYear = new Date().getFullYear()
-  const socials = [
+interface FooterProps {
+  title: string
+  pages: string[][]
+}
+
+export default function Footer(): JSX.Element {
+  const inputEl = useRef<HTMLInputElement>(null)
+  const [message, setMessage] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const currentYear: number = new Date().getFullYear()
+
+  const socials: string[][] = [
     ['https://twitter.com/happy_prog', 'twitter'],
     ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
     [
@@ -18,12 +25,14 @@ export default function Footer() {
     ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
     ['https://www.github.com/MyNameIsBond', 'github'],
   ]
-  const followus = {
+
+  const followus: { title: string; copyrights: string; sub: string } = {
     title: 'Follow us',
     copyrights: 'Copyright © 2022 Inc. All rights reserved.',
     sub: 'subscribe to our newsletter',
   }
-  const pages = {
+
+  const pages: FooterProps = {
     title: 'Pages',
     pages: [
       ['Home', '/'],
@@ -32,18 +41,20 @@ export default function Footer() {
       ['About', '/about'],
     ],
   }
-  const tags = {
+
+  const tags: FooterProps = {
     title: 'Tags',
-    tags: [
+    pages: [
       ['Swift', '/tag/swift'],
       ['SwiftUI', '/tag/swiftui'],
       ['Announcements', '/tag/announcements'],
       ['NuxtJS', '/tag/nuxtjs'],
     ],
   }
-  const categories = {
+
+  const categories: FooterProps = {
     title: 'Categories',
-    categories: [
+    pages: [
       ['iOS', '/category/ios'],
       ['Xcode', '/category/xcode'],
       ['Design', '/category/design'],
@@ -51,7 +62,7 @@ export default function Footer() {
     ],
   }
 
-  const courses = [
+  const courses: string[] = [
     'courses/vue',
     'courses/reactjs',
     'courses/swift',
@@ -61,7 +72,7 @@ export default function Footer() {
     'courses/frontity',
   ]
 
-  const allLiks = (links) => {
+  const allLiks = (links): JSX.Element => {
     return (
       <div className="flex flex-col gap-y-2 pt-2">
         {links.map(([link, href]) => (
@@ -108,13 +119,13 @@ export default function Footer() {
         </div>
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-50">Tags</p>
-          {allLiks(tags.tags)}
+          {allLiks(tags.pages)}
         </div>
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-50">
             Categories
           </p>
-          {allLiks(categories.categories)}
+          {allLiks(categories.pages)}
         </div>
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-50">
