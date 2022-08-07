@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import TagCourse from './TagCourse'
 
-export default function ({ courses }) {
+export default function ({ courses }): JSX.Element {
   return courses.map((course) => (
     <div
       key={course.id}

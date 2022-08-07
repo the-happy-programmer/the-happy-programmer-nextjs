@@ -1,6 +1,10 @@
+import { GetStaticProps } from 'next'
 import { useState } from 'react'
 import CoursesCard from '../components/courses/CoursesCard'
 import SearchCourses from '../components/courses/SearchCourses'
+
+//types
+import type { CourseProps } from '../lib/types/courses'
 
 export default function Courses({ courses, header }) {
   const [mycourses, setmycourses] = useState(courses)
@@ -26,12 +30,12 @@ export default function Courses({ courses, header }) {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const header = {
     title: 'Courses',
     subtitle: 'Full programming courses on real word projects',
   }
-  const courses = [
+  const courses: CourseProps[] = [
     {
       id: 1,
       link: '/course/nuxtjs/introduction',
