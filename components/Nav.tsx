@@ -55,7 +55,7 @@ const Nav = () => {
             </div>
             <div className="hidden items-center text-sm sm:flex md:flex lg:flex xl:flex">
               {links.map(([link, name]) => (
-                <div key={name} className="pr-5 sm:pr-6 md:pr-10">
+                <div key={name} className="pr-5 sm:pr-6 md:pr-10 ">
                   <HappyLink
                     classes="px-0 pb-6 sm:pb-6 sm:px-5 md:px-5 lg:px-5 xl:px-5  hover:text-gray-900 dark:hover:text-gray-50 active:text-gray-50"
                     href={link}
@@ -64,7 +64,9 @@ const Nav = () => {
                   </HappyLink>
                 </div>
               ))}
-              {userNav()}
+              <div className="flex h-10 items-center place-self-end">
+                {userNav()}
+              </div>
             </div>
             <button
               onClick={(e) => {
