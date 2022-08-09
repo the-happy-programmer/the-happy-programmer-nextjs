@@ -64,7 +64,7 @@ const Nav = () => {
                   </HappyLink>
                 </div>
               ))}
-              <div className="flex h-10 items-center place-self-end">
+              <div className="flex h-10 items-center justify-items-end">
                 {userNav()}
               </div>
             </div>
