@@ -10,7 +10,7 @@ export default function DisplayCard({
   return (
     <div
       key={svg}
-      className="flex flex-col rounded-md border bg-gray-50 p-5 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:hover:border-gray-500"
+      className="flex transform cursor-pointer flex-col rounded-md border bg-gray-50 p-5 ease-in hover:border-gray-50 hover:shadow-lg dark:border-gray-50 dark:border-opacity-20 dark:bg-gray-900 dark:hover:border-gray-900"
     >
       <div className={`pt-5 pb-2 ${socials ? 'h-16' : 'h-16'}`}>
         <SvgtoReact
