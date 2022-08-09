@@ -16,7 +16,7 @@ export default function SideBar({ links, setsidebar }) {
         <div className="flex flex-col items-center border-b px-3 py-4 dark:border-gray-700">
           <div
             className="cursor-pointer self-end"
-            onClick={(e) => closeSidebar(e)}
+            onClick={(e) => closeSidebar()}
           >
             <SvgtoReact
               name="cancel"
@@ -29,7 +29,7 @@ export default function SideBar({ links, setsidebar }) {
           {links.map(([link, name]) => (
             <div className="py-3" key={name}>
               <Link href={link}>
-                <a onClick={(e) => closeSidebar(e)}>{name}</a>
+                <a onClick={(e) => closeSidebar()}>{name}</a>
               </Link>
             </div>
           ))}
@@ -41,7 +41,7 @@ export default function SideBar({ links, setsidebar }) {
         </div>
         <div
           className="mt-auto w-full cursor-pointer border-t p-4 dark:border-gray-700 dark:bg-gray-800"
-          onClick={(e) => closeSidebar(e)}
+          onClick={(e) => closeSidebar()}
         >
           <Link href="/">
             <SvgtoReact
