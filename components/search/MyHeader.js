@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import SvgtoReact from '../Svgtoreact'
 import Search from './Search'
 import scroll from '../../lib/scroll'
+
 //
 export default function MyHeader({ title, subtitle, posts }) {
   const [searching, setSearching] = useState(false)
