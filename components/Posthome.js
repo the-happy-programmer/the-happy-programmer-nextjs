@@ -16,7 +16,7 @@ export default function Posthome({ post, plain }) {
   const dt = (date) => new Date(date).toDateString()
 
   return (
-    <div className="flex flex-col border-b border-gray-200 py-8 dark:border-gray-700">
+    <div className="flex flex-col border-b border-gray-900 border-opacity-5 py-8 dark:border-gray-50">
       {plain ? (
         <div className="flex flex-row items-center pb-3">
           {categories(post.node.categories.nodes)}
