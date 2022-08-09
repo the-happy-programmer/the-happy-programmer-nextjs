@@ -4,7 +4,7 @@ import SvgtoReact from './Svgtoreact'
 export default function CatTag({ categories, title, tags, banner }) {
   return (
     <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
-      <p className="py-2 text-lg font-semibold text-gray-800 dark:text-gray-100">
+      <p className="py-2 text-xs font-bold uppercase text-gray-800 dark:text-gray-100">
         {title}
       </p>
       <div className="divide-y dark:divide-gray-700">
