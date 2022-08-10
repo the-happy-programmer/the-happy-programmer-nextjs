@@ -15,6 +15,7 @@ import type {
   HomeProps,
 } from '../lib/types/home'
 import { SEOProps } from '../lib/types/seo'
+import NewSupport from '../components/home/NewSupport'
 
 export default function Home({
   seo,
