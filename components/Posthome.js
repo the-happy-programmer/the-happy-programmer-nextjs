@@ -5,7 +5,7 @@ const categories = (cat) => {
     <HappyLink
       href={`${categories.uri}`}
       key={categories.uri}
-      classes="mr-2.5 cursor-pointer text-xs py-0.5 font-semibold text-gray-900 text-opacity-50 uppercase hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50"
+      classes="mr-2.5 cursor-pointer text-xs py-0.5 font-semibold text-gray-900 text-opacity-60 uppercase hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50"
     >
       {categories.name}
     </HappyLink>
@@ -28,7 +28,7 @@ export default function Posthome({ post, plain }) {
       >
         <>{post.node.title}</>
       </HappyLink>
-      <p className="leading-loose text-gray-900 text-opacity-60 dark:text-gray-50">
+      <p className="leading-loose text-gray-900 text-opacity-70 dark:text-gray-50">
         {post.node.excerpt}
       </p>
       <div className="pt-3">
