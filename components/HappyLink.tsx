@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { LinkProps } from 'next/link'
 import { useRouter } from 'next/router'
 import { HTMLAttributes, ReactNode } from 'react'
+
 interface HappyLinkProps extends HTMLAttributes<LinkProps> {
   href: URL | string
   children: ReactNode
