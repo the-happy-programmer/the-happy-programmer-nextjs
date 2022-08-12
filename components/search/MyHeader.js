@@ -39,12 +39,12 @@ export default function MyHeader({ title, subtitle, posts }) {
             height={16}
             width={16}
             name="search"
-            className="stroke-current text-gray-500 group-hover:text-gray-600 dark:text-gray-500"
+            className="stroke-current text-gray-500 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-50"
           />
         </div>
         <button
           type="text"
-          className="focus:outline-none rounded-md border border-gray-900 border-opacity-10 py-2 pl-10 pr-6 text-sm text-gray-900 text-opacity-30 focus:border-gray-700 group-hover:border-gray-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500"
+          className="focus:outline-none rounded-md border border-gray-900 border-opacity-10 py-2 pl-10 pr-6 text-sm text-gray-900 text-opacity-30 focus:border-gray-700 group-hover:border-gray-600  dark:border-gray-50 dark:bg-gray-900 dark:text-gray-500 dark:group-hover:border-gray-50 "
           onClick={(e) => openSearch(e)}
         >
           Search posts...
