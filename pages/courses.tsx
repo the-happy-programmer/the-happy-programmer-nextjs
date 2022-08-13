@@ -5,9 +5,16 @@ import SearchCourses from '../components/courses/SearchCourses'
 
 //types
 import type { CourseProps } from '../lib/types/courses'
+import type { TitleSub } from '../lib/types/general'
 
-export default function Courses({ courses, header }) {
-  const [mycourses, setmycourses] = useState(courses)
+export default function Courses({
+  courses,
+  header,
+}: {
+  courses: CourseProps[]
+  header: TitleSub
+}): JSX.Element {
+  const [mycourses, setmycourses] = useState<CourseProps[]>(courses)
   return (
     <div className="bg-gray-100 py-12 dark:bg-gray-800">
       <div className="container pt-12">

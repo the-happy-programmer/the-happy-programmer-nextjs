@@ -1,6 +1,6 @@
 import SvgtoReact from '../Svgtoreact'
-
-export default function TagCourse({ tags }: { tags: string[] }) {
+import type { Tags } from '../../lib/types/courses'
+export default function TagCourse({ tags }: { tags: Tags[] }) {
   return (
     <div className="flex flex-row space-x-4 pb-8">
       {tags.map((tag) => (

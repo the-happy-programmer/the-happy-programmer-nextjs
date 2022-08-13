@@ -1,5 +1,6 @@
 import type { SEOProps } from './seo'
-export interface TitleSubtitle {
+import type { TitleSub } from './general'
+export interface TitleSubtitle extends TitleSub {
   title: string
   subtitle?: string
   desc?: string

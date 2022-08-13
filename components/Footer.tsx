@@ -72,7 +72,7 @@ export default function Footer(): JSX.Element {
     'courses/frontity',
   ]
 
-  const allLiks = (links): JSX.Element => {
+  const allLiks = (links: string[][]): JSX.Element => {
     return (
       <div className="flex flex-col gap-y-2 pt-2">
         {links.map(([link, href]) => (
@@ -86,28 +86,27 @@ export default function Footer(): JSX.Element {
     )
   }
 
-  const sub = async (e) => {
+  const sub = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
-        email: inputEl.current.value,
+        email: inputEl.current && inputEl.current.value,
       }),
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
     })
+    inputEl.current && (inputEl.current.value = '')
+    setMessage('You are now subscribed')
+    setError(null)
 
     const { error } = await res.json()
-
     if (error) {
       setError('Something went wrong! please, try a valid email.')
       setMessage(null)
       return
     }
-    inputEl.current.value = ''
-    setMessage('You are now subscribed')
-    setError(null)
   }
 
   return (

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import SvgtoReact from '../Svgtoreact'
 
 export default function Carousel(): JSX.Element {
@@ -10,7 +10,7 @@ export default function Carousel(): JSX.Element {
   ]
   const [svghero, setsvghero] = useState<number>(0)
 
-  const setSvg = (svgcounter) => {
+  const setSvg = (svgcounter: SetStateAction<number>) => {
     setsvghero(svgcounter)
   }
 
