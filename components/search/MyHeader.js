@@ -14,6 +14,7 @@ export default function MyHeader({ title, subtitle, posts }) {
         setSearching(false)
       }
     }
+
     document.addEventListener('keydown', handleKeyDown)
     return function cleanup() {
       document.removeEventListener('keydown', handleKeyDown)
