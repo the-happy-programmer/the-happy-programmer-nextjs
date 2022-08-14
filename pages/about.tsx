@@ -17,6 +17,12 @@ export default function About({
   author,
   info,
   seo,
+}: {
+  socials: AboutInfo['info']
+  projects: AboutInfo['info']
+  author: AboutAuthor
+  info: AboutInfo['info']
+  seo: SEOProps
 }): JSX.Element {
   return (
     <div className=" bg-gray-50 dark:bg-gray-900">

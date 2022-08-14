@@ -23,11 +23,11 @@ const Nav = () => {
       return <Spinner />
     }
 
-    if (session) {
+    if (session?.user) {
       return (
         <Link href="/profile">
           <Image
-            src={session.user.image}
+            src={session?.user?.image || '/public/svg/avatar.svg'}
             height={30}
             width={30}
             className="cursor-pointer rounded-full"

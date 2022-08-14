@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 module.exports = {
   purge: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -11,6 +12,7 @@ module.exports = {
       body: ['Inter', 'system-ui', 'sans-serif'],
     },
     colors: {
+      blue: colors.blue,
       accent: '#0041d6',
       darkaccent: '#4198ff',
       danger: '#DD4A68',

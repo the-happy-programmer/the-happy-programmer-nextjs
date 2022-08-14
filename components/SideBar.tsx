@@ -3,7 +3,13 @@ import scroll from '../lib/scroll'
 import HappyButton from './Happybutton'
 import SvgtoReact from './Svgtoreact'
 
-export default function SideBar({ links, setsidebar }) {
+export default function SideBar({
+  links,
+  setsidebar,
+}: {
+  links: string[][]
+  setsidebar: (sidebar: boolean) => void
+}) {
   const closeSidebar = () => {
     setsidebar(false)
     scroll('auto')

@@ -5,11 +5,11 @@ export default function SubInput(): JSX.Element {
   const inputEl = useRef<HTMLInputElement>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const sub = async (e) => {
+  const sub = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
-        email: inputEl.current.value,
+        email: inputEl.current && inputEl.current.value,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export default function SubInput(): JSX.Element {
       setMessage(null)
       return
     }
-    inputEl.current.value = ''
+    inputEl.current && (inputEl.current.value = '')
     setMessage('You are now subscribed')
     setError(null)
   }

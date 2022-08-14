@@ -1,15 +1,15 @@
-import { ReactElement, useEffect, useRef, useState } from 'react'
-
+import { useEffect, useRef, useState } from 'react'
+import Spinner from './spinners/Spinner'
 interface UseDynamicSVGImportOptions {
   onCompleted?: (
-    name: string,
+    name: string | undefined,
     SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined
   ) => VoidFunction
   onError?: (err: Error) => void
 }
 
 function useDynamicSVGImport(
-  name: string,
+  name: string | undefined,
   options: UseDynamicSVGImportOptions = {}
 ) {
   const ImportedIconRef = useRef<React.FC<React.SVGProps<SVGSVGElement>>>()
@@ -29,9 +29,9 @@ function useDynamicSVGImport(
         }
       } catch (err) {
         if (onError) {
-          onError(err)
+          onError(err as Error)
         }
-        setError(err)
+        setError(err as Error)
       } finally {
         setLoading(false)
       }
@@ -43,8 +43,8 @@ function useDynamicSVGImport(
 }
 
 interface SvgtoReactProps extends UseDynamicSVGImportOptions {
-  name: string
-  className?: string
+  name: string | undefined
+  className?: string | undefined
   height?: number
   width?: number
 }
@@ -54,17 +54,21 @@ const SvgtoReact = ({
   onCompleted,
   onError,
   ...rest
-}: SvgtoReactProps): JSX.Element => {
+}: SvgtoReactProps): JSX.Element | null => {
   const { error, loading, SvgIcon } = useDynamicSVGImport(name, {
     onCompleted,
     onError,
   })
-  // if (error) {
-  //   return error.message
-  // }
-  // if (loading) {
-  //   return ''
-  // }
+  if (error) {
+    return <div>{error.message}</div>
+  }
+  if (loading) {
+    return (
+      <div className="flex h-full w-full place-items-center justify-center">
+        <Spinner />
+      </div>
+    )
+  }
   if (SvgIcon) {
     return <SvgIcon {...rest} />
   }
