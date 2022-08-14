@@ -36,7 +36,7 @@ export default function SubInput(): JSX.Element {
         name="email"
         ref={inputEl}
         placeholder="example@email.com"
-        className="focus:outline-none mr-4 rounded-md border py-3 px-4 text-gray-900 hover:border-gray-900 focus:border-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-50 dark:hover:border-gray-50 dark:focus:border-gray-50"
+        className="mr-4 rounded-md border py-3 px-4 text-gray-900 hover:border-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-50 dark:hover:border-gray-50 dark:focus:border-gray-50"
       />
       <button
         id="subscribe"

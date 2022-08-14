@@ -7,12 +7,12 @@ import type { NextAuthOptions } from 'next-auth'
 export const authOptions: NextAuthOptions = {
   providers: [
     FacebookProvider({
-      clientId: process.env.FB_CLIENT_ID ? process.env.FB_CLIENT_ID : '',
-      clientSecret: process.env.FB_APP_SECRET ? process.env.FB_APP_SECRET : '',
+      clientId: process.env.FB_CLIENT_ID as string,
+      clientSecret: process.env.FB_APP_SECRET as string,
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID ? process.env.GOOGLE_ID : '',
-      clientSecret: process.env.GOOGLE_SECRET ? process.env.GOOGLE_SECRET : '',
+      clientId: process.env.GOOGLE_ID as string,
+      clientSecret: process.env.GOOGLE_SECRET as string,
       authorization: {
         params: {
           prompt: 'consent',
@@ -22,8 +22,8 @@ export const authOptions: NextAuthOptions = {
       },
     }),
     GitHubProvider({
-      clientId: process.env.GITHUB_ID ? process.env.GITHUB_ID : '',
-      clientSecret: process.env.GITHUB_SECRET ? process.env.GITHUB_SECRET : '',
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
   pages: {
