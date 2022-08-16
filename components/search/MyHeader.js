@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import SvgtoReact from '../Svgtoreact'
 import Search from './Search'
 import scroll from '../../lib/scroll'
-
+import { titlestyle, subtitlestyle } from '../../styles/styles'
 export default function MyHeader({ title, subtitle, posts }) {
   const [searching, setSearching] = useState(false)
 
@@ -26,13 +26,9 @@ export default function MyHeader({ title, subtitle, posts }) {
   }
 
   return (
-    <div className="container px-4 pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-20">
-      <h2 className="text-xs font-semibold uppercase text-gray-900 opacity-60 dark:text-gray-300">
-        {subtitle}
-      </h2>
-      <h1 className="mt-1 text-4xl font-semibold capitalize dark:text-gray-50">
-        {title}
-      </h1>
+    <div className="container px-4 pt-10 sm:pt-12 md:pt-16  lg:pt-20 xl:pt-20">
+      <h2 className={subtitlestyle(true, false)}>{subtitle}</h2>
+      <h1 className={titlestyle}>{title}</h1>
       <div className="w- group relative float-left mt-10">
         <div className="absolute inset-y-0 left-0 ml-3.5 flex items-center">
           <SvgtoReact

@@ -1,4 +1,5 @@
 import { ReactNode, MouseEventHandler } from 'react'
+import { button } from '../styles/styles'
 
 interface BtnProps {
   children: ReactNode
@@ -14,15 +15,7 @@ export default function HappyButton({
   onClick,
 }: BtnProps): JSX.Element {
   return (
-    <a
-      onClick={onClick}
-      href={href}
-      className={`capitalize tracking-wide hover:bg-opacity-80
-      ${xl ? 'text-base' : 'text-xs'}  
-      ${xl ? 'py-2 px-6' : 'py-2 px-4'}
-      ${xl ? 'border-2' : 'border'}
-        focus:outline-none inline-block cursor-pointer rounded-md border-gray-900 bg-gray-900  font-medium leading-6 text-gray-50 shadow-lg hover:border-opacity-10 dark:border-gray-50 dark:bg-gray-50 dark:text-gray-900`}
-    >
+    <a onClick={onClick} href={href} className={button(xl as boolean)}>
       {children}
     </a>
   )

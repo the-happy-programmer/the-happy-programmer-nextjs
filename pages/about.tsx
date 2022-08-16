@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next'
-
 import Headerlayout from '../widget/Headerlayout'
 import DisplayInfo from '../widget/DisplayInfo'
 import DisplayCard from '../components/about/DisplayCard'
@@ -7,9 +6,9 @@ import SvgtoReact from '../components/Svgtoreact'
 import DropDownContainer from '../components/about/DropDownContainer'
 import Meta from '../components/seo/Meta'
 
-//types
 import type { SEOProps } from '../lib/types/seo'
 import type { AboutAuthor, AboutInfo } from '../lib/types/about'
+import { subtitlestyle, titlestyle } from '../styles/styles'
 
 export default function About({
   socials,
@@ -35,10 +34,8 @@ export default function About({
             </div>
 
             <div className="my-auto text-gray-900 dark:text-gray-50 sm:pl-8 md:pl-8 lg:pl-8 xl:pl-8">
-              <h1 className="text-4xl font-semibold">{author.desc}</h1>
-              <p className="py-1 pb-4 text-gray-700 dark:text-gray-400">
-                {author.job}
-              </p>
+              <h1 className={titlestyle}>{author.desc}</h1>
+              <p className={subtitlestyle(false, false)}>{author.job}</p>
               <a
                 className="text-accent hover:underline dark:text-darkaccent"
                 href={`mailto:${author.mail}`}

@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import TagCourse from './TagCourse'
 import type { CourseProps } from '../../lib/types/courses'
-import { ReactNode } from 'react'
 
 export default function CoursesCard({
   courses,
@@ -14,7 +13,7 @@ export default function CoursesCard({
       {courses.map((course: CourseProps) => (
         <div
           key={course.id}
-          className="flex cursor-pointer flex-col rounded-md border border-gray-900 border-opacity-5 bg-gray-50 py-12 px-8 hover:border-gray-50 hover:shadow-lg dark:border-gray-50 dark:border-opacity-20 dark:bg-gray-900 dark:hover:border-gray-900"
+          className="flex cursor-pointer flex-col rounded-md border border-gray-900 border-opacity-5 bg-gray-50 py-12 px-8 hover:border-gray-50 hover:shadow-lg dark:border-gray-50 dark:border-opacity-20 dark:bg-gray-900 dark:hover:border-gray-900 "
         >
           <TagCourse tags={course.tags} />
           <Link href={course.link}>
