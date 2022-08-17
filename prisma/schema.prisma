@@ -54,6 +54,29 @@ model Products {
 }
 
 
+
+model Prices {
+  id         String @id @default(uuid())
+  pricing_type PricingType
+  pricing_plan_interval  PricingPlanInterval
+  product_id Products @relation(fields: [product_id], references: [id])
+  active Boolean
+  description String
+  currency String
+}
+
+enum PricingType {
+  open_time
+  recuring
+}
+
+enum PricingPlanInterval {
+  day
+  week
+  month
+  year
+}
+
 /**
 * PRICES
 * Note: prices are created and managed in Stripe and synced to our DB via Stripe webhooks.

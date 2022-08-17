@@ -7,6 +7,9 @@ type SubscriptionStatus =
   | 'past_due'
   | 'unpaid'
 
+export type PricingType = 'one_time' | 'recurring'
+export type PricingPlanInterval = 'day' | 'week' | 'month' | 'year'
+
 export interface User {
   id: string
   email: string

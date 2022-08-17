@@ -3,7 +3,7 @@ import HappyLink from './HappyLink'
 const categories = (cat) => {
   return cat.map((categories) => (
     <HappyLink
-      href={`${categories.uri}`}
+      href={categories.uri}
       key={categories.uri}
       classes="mr-2.5 cursor-pointer text-xs py-0.5 font-semibold text-gray-900 text-opacity-60 uppercase hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50"
     >
