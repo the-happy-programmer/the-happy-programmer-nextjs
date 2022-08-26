@@ -7,14 +7,21 @@ export default function Meta({
 }: SEOProps): JSX.Element {
   return (
     <Head>
-      <title>{title}</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <meta property="og:title" content={title} />
-      <meta name="twitter:title" content={title} />
+      {/* Primary Meta Tags */}
+      <title>{title}</title>
       <meta name="description" content={description} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
+
+      {/* Twitter */}
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="robots" content="follow, index" />
+
+      {/* more meta data */}
       {children}
     </Head>
   )
