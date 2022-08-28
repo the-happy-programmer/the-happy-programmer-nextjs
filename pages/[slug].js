@@ -11,31 +11,24 @@ import Link from 'next/link'
 import { getDocBySlug } from '../lib/courseslib/courseapi'
 
 export default function Post({ meta, socials, content, metalinks, subscribe }) {
-  const { author, pubDate, tags, title } = meta
-  const { firstName, avatar, slug } = author.node
-  const { uri } = post.post.featuredImage.node
-  const dt = (date) => new Date(date).toDateString()
-  const postIcon = (tag) =>
-    tag.map((tag) => (
-      <div key={tag.name} className="h-16">
-        <SvgtoReact
-          height={60}
-          width={60}
-          class="mr-4"
-          name={tag.name.toLowerCase()}
-        />
+  const { author, pubDate, tags, categories, title, avatar, description } = meta
+  // const { uri } = post.post.featuredImage.node
+  const postIcon = (categories) =>
+    categories.map((categories) => (
+      <div key={categories} className="h-16">
+        <SvgtoReact height={60} width={60} class="mr-4" name={categories} />
       </div>
     ))
 
   return (
     <>
       <RichDataPost
-        title={metalinks.title}
-        description={metalinks.metaDesc}
+        title={title}
+        description={description}
         date={pubDate}
-        firstName={firstName}
-        image={uri}
-        slug={slug}
+        firstName={author}
+        image={'/me.webp'}
+        slug={`/${author.toLowerCase()}`}
       />
       <Headerlayout>
         <div className="container flex flex-col items-center px-3 py-3">
@@ -50,14 +43,14 @@ export default function Post({ meta, socials, content, metalinks, subscribe }) {
               Back to posts
             </a>
           </Link>
-          {postIcon(tags.nodes)}
+          {postIcon(categories)}
           <h1 className="p-3 text-center text-3xl font-bold text-gray-900 dark:text-gray-50">
             {title}
           </h1>
           <div className="center flex flex-row">
             <div className="mt-1 place-self-end">
               <Image
-                src={avatar.url}
+                src={avatar}
                 height={35}
                 width={35}
                 alt="Picture of the author"
@@ -66,13 +59,13 @@ export default function Post({ meta, socials, content, metalinks, subscribe }) {
             </div>
             <div className="mt-0 flex flex-col pl-2">
               <HappyLink
-                href={`author/${slug}`}
+                href={`author/${author.toLowerCase()}`}
                 classes="text-gray-900 dark:text-gray-50 hover:underline"
               >
-                {firstName}
+                {author}
               </HappyLink>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                {dt(date)}
+                {pubDate}
               </p>
             </div>
           </div>
