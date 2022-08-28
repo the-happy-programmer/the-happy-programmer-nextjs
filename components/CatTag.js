@@ -8,28 +8,28 @@ export default function CatTag({ categories, title, tags, banner }) {
         {title}
       </p>
       <div className="divide-y dark:divide-gray-700">
-        {categories?.map((cat) => (
-          <div className="py-2.5" key={cat.node.uri}>
-            <Link href={`${cat.node.uri}`}>
+        {tags?.map((cat) => (
+          <div className="py-2.5" key={cat}>
+            <Link href={`/tag/${cat}`}>
               <a className="cursor-pointer text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
-                {cat.node.name}
+                {cat}
               </a>
             </Link>
           </div>
         ))}
-        {tags?.map((cat) => (
+        {categories?.map((cat) => (
           <div className="py-2.5" key={cat.uri}>
-            <Link href={`${cat.uri}`}>
+            <Link href={`/category/${cat}`}>
               <a className="flex cursor-pointer flex-row  text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
                 <div>
                   <SvgtoReact
                     className="pr-2"
-                    name={cat.name.toLowerCase()}
+                    name={cat.toLowerCase()}
                     height={20}
                   />
                 </div>
 
-                <p className="overflow-hidden overflow-ellipsis">{cat.name}</p>
+                <p className="overflow-hidden overflow-ellipsis">{cat}</p>
               </a>
             </Link>
           </div>

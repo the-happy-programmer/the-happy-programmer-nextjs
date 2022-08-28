@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
     slug[1],
     `course/${slug[0]}`
   )
-
+  
   const courseslugs = await getAllinks(`course/${slug[0]}`)
 
   const con = await markdownToHtml(content || '')

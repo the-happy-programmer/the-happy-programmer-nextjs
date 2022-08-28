@@ -1,0 +1,40 @@
+---
+layout: '../../layouts/BlogPost.astro'
+description: 'The Happy Programmer is Channing dramatically, new full Swift course, streaming on twitch, 100% on everything according to google'
+heroImage: '/placeholder-hero.jpg'
+tags: ['announcements']
+categories: ['announcements']
+title: 'The Happy Programmer is changing'
+pubDate: '2022-04-07'
+author: 'Tony'
+---
+
+This is a very proud moment for me as I have a couple of announcements to make, which are going to give shape on this very website called The Happy Programmer. Live Streaming is around the corner and the complete redesign of [THP](https://thehappyprogrammer.com/) (The Happy Programmer) is done.
+
+## Redesign / Rebranding
+
+The very first announcement is what you already can see, the website has changed completely. A complete redesigned took place a couple of weeks ago. The implementation of new programming techniques using Static Site Generator called NextJS. Applying the best programming practises gave this amazing website flesh and bones. The latest metrics using google's [lighthouse](https://developers.google.com/web/tools/lighthouse) and [pagespeed](https://pagespeed.web.dev/) shows 100% on everything even on mobile. This is something I have been working on for a couple of months. The main principle in THP is to give the best possible outcome to the users. I could not settle for less. There you have it 100% in everything in mobile which is the hardest to get.
+
+![The Happy Programmer's Metrics](/images/Screenshot-2022-03-28-at-16.01.18-1-1024x563.png)
+
+The Happy Programmer's Metrics
+
+## New Courses Coming
+
+THP is moving towards its goals, which are Programming courses, and will make you a professional programmer. As you can already tell, a NuxtJS course is on the go, you can check it out here [HappynuxtJS](https://happynuxtjs.com/). This is a long term promise, as together will follow the evolution of NuxtJS 3.0 and dig as deep as we can so you understand everything about NuxtJS. The same we are going to do with every course. The following course which I want to make it as inclusive as possible, is the Swift/SwiftUI course. This is on the making.
+
+![The Happy Programmer iOS Course](/images/ios-course-1024x627.png)
+
+The Happy Programmer iOS Course
+
+## Live Streams on Twitch
+
+The whole build up of the happy programmer will be streamed. The decisions, the programming, everything will be transparent to the public to see live behind the curtain and watch the rise of The Happy Programmer. Streams will come everyday from 4-6 hours. You can find everything on Happy Programmer's [twitch channel](https://www.twitch.tv/thehappyprogrammer).
+
+![The Happy Programmer Live Streaming](/images/twtch-live-1024x627.png)
+
+The Happy Programmer Live Streaming
+
+### Yet more to come
+
+We have redesign completely the website, we have started live streamings. THP hits 100% in every metric, but we cannot stop here. Many functionalities will be added in the future, stay tuned and watch our live streams to see how we are going to do everything. THP is here to stay and get bigger and bigger with your help.
