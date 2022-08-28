@@ -10,8 +10,8 @@ import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
 import { getDocBySlug } from '../lib/courseslib/courseapi'
 
-export default function Post({ meta, socials, content, metalinks, subscribe }) {
-  const { author, pubDate, tags, categories, title, avatar, description } = meta
+export default function Post({ meta, socials, content, subscribe }) {
+  const { author, pubDate, categories, title, avatar, description } = meta
   // const { uri } = post.post.featuredImage.node
   const postIcon = (categories) =>
     categories.map((categories) => (
