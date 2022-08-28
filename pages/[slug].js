@@ -5,12 +5,13 @@ import Subscribe from '../components/home/Subscribe'
 import { getPost, getAllPostsWithSlug } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
 import Image from 'next/image'
-import highlighter from '../lib/highlighter'
+import { markdownToHtml } from '../lib/courseslib/htmlmarkdown'
 import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
+import { getDocBySlug } from '../lib/courseslib/courseapi'
 
-export default function Post({ post, socials, content, metalinks, subscribe }) {
-  const { author, date, tags, title } = post.post
+export default function Post({ meta, socials, content, metalinks, subscribe }) {
+  const { author, pubDate, tags, title } = meta
   const { firstName, avatar, slug } = author.node
   const { uri } = post.post.featuredImage.node
   const dt = (date) => new Date(date).toDateString()
@@ -31,7 +32,7 @@ export default function Post({ post, socials, content, metalinks, subscribe }) {
       <RichDataPost
         title={metalinks.title}
         description={metalinks.metaDesc}
-        date={date}
+        date={pubDate}
         firstName={firstName}
         image={uri}
         slug={slug}
@@ -105,6 +106,7 @@ export async function getStaticProps({ params }) {
     subtitle:
       'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
   }
+
   const socials = [
     ['https://twitter.com/happy_prog', 'twitter'],
     ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
@@ -116,13 +118,13 @@ export async function getStaticProps({ params }) {
   ]
 
   const post = await getPost(params.slug)
-  const pp = await highlighter(post.post.content)
+  const e = await getDocBySlug(params.slug, 'course/blog')
+  const pp = await markdownToHtml(e.content)
   return {
     props: {
-      post: post,
+      meta: e.meta,
       socials: socials,
       content: pp,
-      metalinks: post.post.seo,
       subscribe,
     },
   }
