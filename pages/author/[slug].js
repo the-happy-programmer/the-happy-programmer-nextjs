@@ -2,58 +2,53 @@ import {
   author,
   getAllCategories,
   getHomePosts,
-  getAllAuthors,
   getAllTags,
 } from '../../lib/api'
 import Headerlayout from '../../widget/Headerlayout'
 import MyHeader from '../../components/search/MyHeader'
 import PostList from '../../components/PostList'
 import Meta from '../../components/seo/Meta'
-
-export default function Author({ posts, categories, search, tags }) {
-  const { edges } = posts
+import { getAllDocs } from '../../lib/courseslib/courseapi'
+import { getAllAuthors } from '../../lib/getAllAuthors'
+import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
+export default function Author({ posts, categories, tags }) {
   return (
     <div>
       <Meta
-        title={`${edges[0].node.author.node.firstName} - The Happy Programmer`}
-        description={`${edges[0].node.author.node.firstName} Author - every post which is related to ${edges[0].node.author.node.firstName}`}
+        title={`${posts[0].meta.author} - The Happy Programmer`}
+        description={`${posts[0].meta.author} Author - every post which is related to ${posts[0].meta.author}`}
       />
       <Headerlayout>
         <MyHeader
           subtitle="The Happy Programmer"
-          title={edges[0].node.author.node.firstName}
-          posts={search.edges}
+          title={posts[0].meta.author}
+          posts={posts}
         />
       </Headerlayout>
-      <PostList
-        posts={posts.edges}
-        tags={tags}
-        categories={categories.categories.edges}
-      />
+      <PostList posts={posts} tags={tags} categories={categories} />
     </div>
   )
 }
 
 export async function getStaticProps({ params }) {
-  const authorr = await author(params.slug)
-  const search = await getHomePosts(1000)
-  const categories = await getAllCategories()
-  const tags = await getAllTags()
+  const allDocs = getAllDocs('course/blog')
+  const cattag = uniqueArrayItems()
+  const posts = allDocs
+    .map((a) => ({ link: a.link, meta: a.meta }))
+    .filter((a) => a.meta.author === params.slug)
   return {
     props: {
-      posts: authorr.posts,
-      categories: categories,
-      search: search.posts,
-      tags: tags.nodes,
+      posts: posts,
+      categories: cattag.categories,
+      tags: cattag.tags,
     },
   }
 }
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors()
-  const { edges } = authors
   return {
-    paths: edges.map(({ node }) => `${node.author.node.uri}`) || [],
+    paths: authors.map((author) => `/author/${author.toLowerCase()}`) || [],
     fallback: false,
   }
 }

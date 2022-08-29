@@ -38,14 +38,12 @@ export async function getStaticProps() {
       'https://www.unicef.org.uk/donate/donate-now-to-protect-children-in-ukraine/?gclid=Cj0KCQjwl7qSBhD-ARIsACvV1X0lPlYwu0E2vfVCEX3x6N4B_IkPi5SvQLlLF65pZgNEnWBTIbX_27caArikEALw_wcB',
     ],
   ]
-  const allDocs = getAllDocs('course/blog')
-  const posts = allDocs
-    .map((a) => ({ link: a.link, meta: a.meta }))
-    .sort(
-      (a, b) =>
-        new Date(b.meta.pubDate).valueOf() - new Date(a.meta.pubDate).valueOf()
-    )
-  const cattag = uniqueArrayItems(posts)
+  const allDocs = await getAllDocs('course/blog')
+  const posts = allDocs.sort(
+    (a, b) =>
+      new Date(b.meta.pubDate).valueOf() - new Date(a.meta.pubDate).valueOf()
+  )
+  const cattag = uniqueArrayItems()
   return {
     props: {
       posts: posts,

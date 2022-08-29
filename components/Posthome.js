@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import HappyLink from './HappyLink'
 
 const tagsitter = (tag) => {
@@ -30,12 +31,11 @@ export default function Posthome({ post, plain }) {
       </p>
       <div className="pt-3">
         {plain ? (
-          <HappyLink
-            href={`/author/${author.toLowerCase()}`}
-            classes="hover:underline dark:text-gray-50"
-          >
-            {author}
-          </HappyLink>
+          <Link href={`/author/${author.toLowerCase()}`}>
+            <a className="capitalize hover:underline dark:text-gray-50">
+              {author}
+            </a>
+          </Link>
         ) : null}
         <p className="text-gray-500 dark:text-gray-400">{pubDate}</p>
       </div>
