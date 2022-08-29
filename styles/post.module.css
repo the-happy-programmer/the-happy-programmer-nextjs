@@ -28,6 +28,10 @@
   @apply list-disc;
 }
 
+.content img {
+  @apply mx-auto max-h-96;
+}
+
 .content ol {
   @apply list-decimal;
 }
