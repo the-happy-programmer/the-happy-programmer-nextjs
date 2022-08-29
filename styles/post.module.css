@@ -32,6 +32,10 @@
   @apply list-decimal;
 }
 
+.content img {
+  @apply mx-auto max-h-96;
+}
+
 .content ul > li > ul,
 .content ol > li > ol {
   @apply my-0 ml-4;
