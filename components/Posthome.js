@@ -1,15 +1,12 @@
 import Link from 'next/link'
-import HappyLink from './HappyLink'
 
 const tagsitter = (tag) => {
   return tag.map((tag) => (
-    <HappyLink
-      href={`/tag/${tag}`}
-      key={tag}
-      classes="mr-2.5 cursor-pointer text-xs py-0.5 font-semibold text-gray-900 text-opacity-60 uppercase hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50"
-    >
-      {tag}
-    </HappyLink>
+    <Link href={`/tag/${tag}`} key={tag}>
+      <a className="mr-2.5 cursor-pointer py-0.5 text-xs font-semibold uppercase text-gray-900 text-opacity-60 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50">
+        {tag}
+      </a>
+    </Link>
   ))
 }
 
@@ -20,12 +17,11 @@ export default function Posthome({ post, plain }) {
       {plain ? (
         <div className="flex flex-row items-center pb-3">{tagsitter(tags)}</div>
       ) : null}
-      <HappyLink
-        href={`/${post.link}`}
-        classes="mr-auto flex w-auto flex-row text-xl text-gray-800 font-semibold hover:underline dark:text-gray-50"
-      >
-        <>{title}</>
-      </HappyLink>
+      <Link href={`/${post.link}`}>
+        <a className="mr-auto flex w-auto flex-row text-xl font-semibold text-gray-800 hover:underline dark:text-gray-50">
+          {title}
+        </a>
+      </Link>
       <p className="leading-loose text-gray-900 text-opacity-70 dark:text-gray-50">
         {description}
       </p>

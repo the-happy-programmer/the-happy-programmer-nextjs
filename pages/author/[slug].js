@@ -28,6 +28,7 @@ export default function Author({ posts, categories, tags }) {
 export async function getStaticProps({ params }) {
   const allDocs = getAllDocs('course/blog')
   const { categories, tags } = uniqueArrayItems()
+
   const posts = allDocs
     .map((a) => ({ link: a.link, meta: a.meta }))
     .filter((a) => a.meta.author.toLowerCase() === params.slug)
