@@ -31,7 +31,6 @@ export async function getStaticProps({ params }) {
   const posts = allDocs
     .map((a) => ({ link: a.link, meta: a.meta }))
     .filter((a) => a.meta.tags.map((e) => e === params.slug))
-  console.log('POSTS', posts)
 
   return {
     props: {

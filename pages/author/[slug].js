@@ -6,7 +6,6 @@ import { getAllDocs } from '../../lib/courseslib/courseapi'
 import { getAllAuthors } from '../../lib/getAllAuthors'
 import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
 export default function Author({ posts, categories, tags }) {
-  console.log('AUTHOR:', posts)
   return (
     <div>
       <Meta
