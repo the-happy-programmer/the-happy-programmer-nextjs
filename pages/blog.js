@@ -4,7 +4,7 @@ import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
 import { getAllDocs } from '../lib/courseslib/courseapi'
 import { uniqueArrayItems } from '../lib/uniqueArrayItems'
-export default function Home({ posts, category, seo, tags, banner }) {
+export default function Home({ posts, categories, seo, tags, banner }) {
   return (
     <div>
       <Meta title={seo.title} description={seo.desc} />
@@ -18,7 +18,7 @@ export default function Home({ posts, category, seo, tags, banner }) {
       <PostList
         posts={posts}
         tags={tags}
-        categories={category}
+        categories={categories}
         banner={banner}
       />
     </div>
@@ -38,18 +38,15 @@ export async function getStaticProps() {
       'https://www.unicef.org.uk/donate/donate-now-to-protect-children-in-ukraine/?gclid=Cj0KCQjwl7qSBhD-ARIsACvV1X0lPlYwu0E2vfVCEX3x6N4B_IkPi5SvQLlLF65pZgNEnWBTIbX_27caArikEALw_wcB',
     ],
   ]
-  const allDocs = await getAllDocs('course/blog')
-  const posts = allDocs.sort(
-    (a, b) =>
-      new Date(b.meta.pubDate).valueOf() - new Date(a.meta.pubDate).valueOf()
-  )
-  const cattag = uniqueArrayItems()
+  const posts = await getAllDocs('course/blog')
+  const { categories, tags } = uniqueArrayItems()
+
   return {
     props: {
-      posts: posts,
-      category: cattag.categories,
-      seo: seo,
-      tags: cattag.tags,
+      posts,
+      categories,
+      seo,
+      tags,
       banner: banner,
     },
   }
