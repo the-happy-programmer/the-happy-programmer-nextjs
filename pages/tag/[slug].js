@@ -1,16 +1,12 @@
 import { useRouter } from 'next/router'
 import MyHeader from '../../components/search/MyHeader'
 import PostList from '../../components/PostList'
-import {
-  category,
-  getAllCategories,
-  getHomePosts,
-  getAllTags,
-} from '../../lib/api'
 import Meta from '../../components/seo/Meta'
 import Headerlayout from '../../widget/Headerlayout'
+import { getAllDocs } from '../../lib/courseslib/courseapi'
+import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
 
-export default function Category({ categories, posts, search, tags }) {
+export default function Tags({ categories, posts, tags }) {
   const router = useRouter()
   const { slug } = router.query
 
@@ -21,40 +17,34 @@ export default function Category({ categories, posts, search, tags }) {
         description={`${slug} Tag - every post which is related to ${slug}`}
       />
       <Headerlayout>
-        <MyHeader
-          subtitle="The Happy Programmer"
-          title={slug}
-          posts={search.edges}
-        />
+        <MyHeader subtitle="The Happy Programmer" title={slug} posts={posts} />
       </Headerlayout>
-      <PostList
-        posts={posts.edges}
-        categories={categories.categories.edges}
-        tags={tags}
-      />
+      <PostList posts={posts} categories={categories} tags={tags} />
     </div>
   )
 }
 
 export async function getStaticProps({ params }) {
-  const categories = await getAllCategories()
-  const tags = await getAllTags()
-  const posts = await category(params.slug)
-  const search = await getHomePosts(1000)
+  const allDocs = getAllDocs('course/blog')
+  const { categories, tags } = uniqueArrayItems()
+
+  const posts = allDocs
+    .map((a) => ({ link: a.link, meta: a.meta }))
+    .filter((a) => a.meta.tags.map((e) => e === params.slug))
+
   return {
     props: {
-      categories: categories,
-      posts: posts.posts,
-      search: search.posts,
-      tags: tags.nodes,
+      posts,
+      categories,
+      tags,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const tags = await getAllTags()
+  const { tags } = uniqueArrayItems()
   return {
-    paths: tags.nodes.map(({ uri }) => uri) || [],
+    paths: tags.map((tags) => `/tag/${tags.toLowerCase()}`) || [],
     fallback: false,
   }
 }

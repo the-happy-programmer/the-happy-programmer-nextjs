@@ -1,46 +1,39 @@
-import HappyLink from './HappyLink'
+import Link from 'next/link'
 
-const categories = (cat) => {
-  return cat.map((categories) => (
-    <HappyLink
-      href={categories.uri}
-      key={categories.uri}
-      classes="mr-2.5 cursor-pointer text-xs py-0.5 font-semibold text-gray-900 text-opacity-60 uppercase hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50"
-    >
-      {categories.name}
-    </HappyLink>
+const tagsitter = (tag) => {
+  return tag.map((tag) => (
+    <Link href={`/tag/${tag}`} key={tag}>
+      <a className="mr-2.5 cursor-pointer py-0.5 text-xs font-semibold uppercase text-gray-900 text-opacity-60 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50">
+        {tag}
+      </a>
+    </Link>
   ))
 }
 
 export default function Posthome({ post, plain }) {
-  const dt = (date) => new Date(date).toDateString()
-
+  const { title, pubDate, author, tags, description } = post.meta
   return (
     <div className="flex flex-col border-b border-gray-900 border-opacity-5 py-8 dark:border-gray-50">
       {plain ? (
-        <div className="flex flex-row items-center pb-3">
-          {categories(post.node.categories.nodes)}
-        </div>
+        <div className="flex flex-row items-center pb-3">{tagsitter(tags)}</div>
       ) : null}
-      <HappyLink
-        href={`/${post.node.slug}`}
-        classes="mr-auto flex w-auto flex-row text-xl text-gray-800 font-semibold hover:underline dark:text-gray-50"
-      >
-        <>{post.node.title}</>
-      </HappyLink>
+      <Link href={`/${post.link}`}>
+        <a className="mr-auto flex w-auto flex-row text-xl font-semibold text-gray-800 hover:underline dark:text-gray-50">
+          {title}
+        </a>
+      </Link>
       <p className="leading-loose text-gray-900 text-opacity-70 dark:text-gray-50">
-        {post.node.excerpt}
+        {description}
       </p>
       <div className="pt-3">
         {plain ? (
-          <HappyLink
-            classes="hover:underline dark:text-gray-50"
-            href={post.node.author.node.uri}
-          >
-            {post.node.author.node.firstName}
-          </HappyLink>
+          <Link href={`/author/${author.toLowerCase()}`}>
+            <a className="capitalize hover:underline dark:text-gray-50">
+              {author}
+            </a>
+          </Link>
         ) : null}
-        <p className="text-gray-500 dark:text-gray-400">{dt(post.node.date)}</p>
+        <p className="text-gray-500 dark:text-gray-400">{pubDate}</p>
       </div>
     </div>
   )

@@ -1,0 +1,252 @@
+---
+heroImage: '/placeholder-hero.jpg'
+description: 'This is a detailed post on how to detect the current theme in SwiftUI. It is being explained by giving a complete neumorphic UI as an example.'
+tags: ['ios', 'swiftui', 'xcode']
+categories: ['swiftui']
+title: 'Detect the current theme in SwiftUI'
+pubDate: '2020-12-07'
+author: 'Tony'
+avatar: '/me.webp'
+---
+
+The following post is a walk-through on how to detect the current theme in SwiftUI. using `colorScheme` as an `@Environment`. Given that, I will try to apply that knowledge to build a custom neumorphic design strictly following the programming principle DRY (Do not Repeat Yourself). In addition to that I will be trying to teach you how to write clean and readable code.
+
+## Detecting the .light or .dark theme
+
+firstly, let's figure out how you can detect the ongoing theme.
+
+```swift
+@Environment(\.colorScheme) var colorScheme
+```
+
+This is enum will return either `.light` or `.dark` which represents the theme at the time.
+
+```swift
+Text(colorScheme == .light ? "light theme" : "Dark Theme")
+```
+
+The above code is the backbone on how to detect the theme in Swiftui.
+
+## Let's create
+
+By just showing how you can detect whether the theme is `.light` or `.dark` you only see the tip of the iceberg. I will be exploring more how you can play with `colorScheme`. As I promised on the introduction I will be making a neumophic UI in both light and dark theme.
+
+## Data
+
+First of we need data to iterate and make our code simple and neat.
+
+```swift
+struct Card: Identifiable {
+    let id = UUID()
+    let title: String
+    let subTitle: String
+    let icon: String
+}
+var cards = [
+    Card(title: "Notifications", subTitle: "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but", icon: "bell.fill"),
+    Card(title: "Favourites", subTitle: "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but", icon: "heart.fill"),
+    Card(title: "Dashboard", subTitle: "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but", icon: "square.grid.2x2.fill"),
+    Card(title: "User", subTitle: "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but", icon: "person.fill"),
+    Card(title: "Messages", subTitle: "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but", icon: "message.fill"),
+    Card(title: "Economy", subTitle: "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but", icon: "leaf.fill")
+]
+```
+
+## Custom colors
+
+Next, I will be creating my own colors as I have shown on [Custom Color in SwiftUI](https://thehappyprogrammer.com/custom-color-in-swiftui/).
+
+```swift
+extension Color {
+    //light theme
+    static let lightBackground = Color(red: 224/255, green: 229/255, blue: 236/255)
+    static let lightShadow = Color(red: 255/255, green: 255/255, blue: 255/255) // opacity 0.5
+    static let darkShadow = Color(red: 163/255, green: 177/255, blue: 198/255)
+    static let textColor = Color(red: 78/255, green: 78/255, blue: 80/255)
+
+    //dark theme
+    static let darkBackground = Color(red: 78/255, green: 78/255, blue: 80/255)
+    static let darkTextColour = Color(red: 217/255, green: 217/255, blue: 217/255)
+
+    // Accent Colour
+    static let AccentColour = Color(red: 49/255, green: 163/255, blue: 159/255)
+}
+```
+
+The above colors are going to be used in dark and light theme respectively.
+
+## Create custom identifiers
+
+#### Neumorphic Look
+
+the first identifier I will be making is the identifier that gives that neumophic look. As you might know, the fundamental of giving that neumorphic design is the double layer of white and dark shadow we need to create to give that neumophic illusion.
+
+```swift
+struct NeumorphicLook: ViewModifier {
+
+    @Environment(\.colorScheme) var colorScheme
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .foregroundColor(.textColor)
+            .background(colorScheme == .light ? Color.lightBackground : Color.textColor)
+            .cornerRadius(25)
+            .shadow(color: colorScheme == .light ? Color.lightShadow :  Color.lightShadow.opacity(0.3), radius: 12, x: -7, y: -7)
+            .shadow(color: colorScheme == .light ? Color.darkShadow : Color.black.opacity(0.5), radius: 12, x: 7, y: 7)
+    }
+}
+```
+
+You can add more variables to make it even more adjustable, `cornerRadius` for example.
+
+#### Neumorphic Accent color condition
+
+The next custom identifier is the condition where it will turn the icons dark when it's a `.light` theme and off green when it goes `.dark`.
+
+```swift
+struct NeumorphicAccent: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme
+    func body(content: Content) -> some View {
+            content
+                .foregroundColor(colorScheme == .light ? Color.textColor : Color.AccentColour)
+    }
+}
+```
+
+Lastly, the condition that is being used though out the code is text of course, and how to respond to the specific theme.
+
+#### Neumorphic text color condition
+
+```swift
+struct NeumorphicText: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme
+    func body(content: Content) -> some View {
+            content
+                .foregroundColor(colorScheme == .light ? Color.textColor : Color.darkTextColour)
+    }
+}
+```
+
+## Add modifiers as View extensions
+
+As you might have noticed to use the above identifiers you need to wrap them in `.modifier()` view. Apple does not suggest this practise, instead they are support the idea to include every custom modifier in a view extension, [read the relevant post](https://developer.apple.com/documentation/swiftui/viewmodifier). Apparently, if you try to use more than one `.modifier()` it will throw you an error. The final step to make theme custom modifiers reusable is to include them in a view extension.
+
+```swift
+extension View {
+
+    func neumorphicLook() -> some View {
+        modifier(NeumorphicLook())
+    }
+
+    func neumorphicText() -> some View {
+        modifier(NeumorphicText())
+    }
+
+    func neumorphicAccent() -> some View {
+        modifier(NeumorphicAccent())
+    }
+}
+```
+
+## Neumorphic custom TextField
+
+On the previews snippets of code I included the modifier `neumorphicLook()` I am going to use that modifier to create my next view.
+
+```swift
+//Neumorphic TextField
+struct NeumorphicStyleTextField: View {
+    var textField: TextField<Text>
+    var imageName: String
+
+    var body: some View {
+        HStack {
+            Image(systemName: imageName)
+                .neumorphicText()
+            textField
+                .neumorphicText()
+            }
+        .neumorphicLook()
+        }
+}
+```
+
+As result of the created modifiers you can see how elegant our code looks. we are using two custom modifiers to crate our custom `TextField`.
+
+## Neumorphic style Card
+
+The next step is to create the card which is going to host the main content of our app.
+
+```swift
+//Neumorphic  Card
+struct CardView: View {
+    var title: String
+    var subtitle: String
+    var image: String
+    var body: some View {
+        VStack(spacing: 10) {
+            HStack {
+                Image(systemName: image)
+                    .neumorphicAccent()
+                    .font(.title2)
+                Text(title).font(.title)
+                    .neumorphicText()
+                Spacer()
+            }
+            Text(subtitle).font(.subheadline)
+                .neumorphicText()
+        }.neumorphicLook()
+    }
+}
+```
+
+## Combine Everything together
+
+Finally in the `ContentView` I will combine everything together to make following outcome.
+
+```swift
+struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @State var search = ""
+
+    var body: some View {
+        ZStack {
+
+            colorScheme == .light ? Color.lightBackground.ignoresSafeArea() : Color.textColor.ignoresSafeArea()
+            ScrollView {
+                HStack {
+                    Button(action: {
+                        print(colorScheme)
+                    }){
+                        Image(systemName: "line.horizontal.3.decrease").neumorphicAccent().neumorphicLook()
+                    }
+                    Spacer()
+                    Image(colorScheme == .light ? "logoDark" : "logoLight")
+                        .resizable()
+                        .frame(width: 150, height: 40)
+                        .aspectRatio(contentMode: .fit)
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "slider.horizontal.3").neumorphicAccent().neumorphicLook()
+                    }
+                }.padding(.horizontal)
+                HStack {
+                    NeumorphicStyleTextField(textField: TextField("Search...", text: $search), imageName: "magnifyingglass")
+                }.padding()
+                VStack {
+                    ForEach(cards) { c in
+                        CardView(title: c.title, subtitle: c.subTitle, image: c.icon)
+                    }.padding()
+                }
+            }
+        }
+    }
+}
+```
+
+## Result
+
+https://videopress.com/v/NjdUKooH?resizeToParent=true&cover=true&preloadContent=metadata
+
+Neumorphic UI a tutorial on how to detect the current theme
+
+#### You can Find the code on my [GitHub](https://github.com/MyNameIsBond/detectTheme).

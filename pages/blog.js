@@ -1,9 +1,10 @@
-import { getAllCategories, getHomePosts, getAllTags } from '../lib/api'
 import Headerlayout from '../widget/Headerlayout'
 import MyHeader from '../components/search/MyHeader'
 import PostList from '../components/PostList'
 import Meta from '../components/seo/Meta'
-export default function Home({ posts, category, seo, tags, banner }) {
+import { getAllDocs } from '../lib/courseslib/courseapi'
+import { uniqueArrayItems } from '../lib/uniqueArrayItems'
+export default function Home({ posts, categories, seo, tags, banner }) {
   return (
     <div>
       <Meta title={seo.title} description={seo.desc} />
@@ -11,13 +12,13 @@ export default function Home({ posts, category, seo, tags, banner }) {
         <MyHeader
           subtitle="Be an expert in programming"
           title="The Happy Programmer"
-          posts={posts.edges}
+          posts={posts}
         />
       </Headerlayout>
       <PostList
-        posts={posts.edges}
+        posts={posts}
         tags={tags}
-        categories={category.edges}
+        categories={categories}
         banner={banner}
       />
     </div>
@@ -37,16 +38,15 @@ export async function getStaticProps() {
       'https://www.unicef.org.uk/donate/donate-now-to-protect-children-in-ukraine/?gclid=Cj0KCQjwl7qSBhD-ARIsACvV1X0lPlYwu0E2vfVCEX3x6N4B_IkPi5SvQLlLF65pZgNEnWBTIbX_27caArikEALw_wcB',
     ],
   ]
+  const posts = await getAllDocs('course/blog')
+  const { categories, tags } = uniqueArrayItems()
 
-  const posts = await getHomePosts(1000)
-  const category = await getAllCategories()
-  const tags = await getAllTags()
   return {
     props: {
-      posts: posts.posts,
-      category: category.categories,
-      seo: seo,
-      tags: tags.nodes,
+      posts,
+      categories,
+      seo,
+      tags,
       banner: banner,
     },
   }

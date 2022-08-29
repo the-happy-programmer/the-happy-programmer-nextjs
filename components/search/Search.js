@@ -4,13 +4,14 @@ import { useState } from 'react'
 import scroll from '../../lib/scroll'
 
 export default function Search({ posts, setSearching }) {
+  console.log('POSTS:', posts)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchList, setSearchList] = useState([])
   const filterItems = (arr, query) => {
     return arr.filter(
       (el) =>
-        el.node.excerpt?.toLowerCase().includes(query) ||
-        el.node.title?.toLowerCase().includes(query)
+        el.meta.description?.toLowerCase().includes(query) ||
+        el.meta.title?.toLowerCase().includes(query)
     )
   }
 
@@ -32,13 +33,8 @@ export default function Search({ posts, setSearching }) {
 
   const icontitle = (tag) =>
     tag.map((tag) => (
-      <div className="" key={tag.slug}>
-        <SvgtoReact
-          height={20}
-          width={20}
-          class=""
-          name={tag.slug.toLowerCase()}
-        />
+      <div key={tag}>
+        <SvgtoReact height={20} width={20} name={tag.toLowerCase()} />
       </div>
     ))
 
@@ -121,16 +117,16 @@ export default function Search({ posts, setSearching }) {
                 </div>
               )}
               {searchList.map((post) => (
-                <div key={post.node.title} className="h-full rounded-t-3xl">
-                  <Link href={`/${post.node.slug}`}>
+                <div key={post.meta.title} className="h-full rounded-t-3xl">
+                  <Link href={`/${post.link}`}>
                     <div
                       onClick={(e) => closeSearch(e)}
                       className="cursor-pointer border-b border-gray-200 px-7 py-6 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700"
                     >
                       <div className="flex flex-row items-center justify-between">
-                        {icontitle(post.node.tags.nodes)}
+                        {icontitle(post.meta.categories)}
                         <p className=" text-md mr-auto pl-4 font-semibold text-gray-800 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
-                          {post.node.title}
+                          {post.meta.title}
                         </p>
                         <div>
                           <SvgtoReact

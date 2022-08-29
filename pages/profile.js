@@ -18,7 +18,7 @@ export default function Profile({ user }) {
               </Happybutton>
             </div>
           </Table>
-          <button className="hover:bg-blue-700 rounded border border-gray-200 py-2.5 px-4 font-medium text-danger hover:border-opacity-80 hover:text-opacity-80 dark:border-gray-700">
+          <button className="rounded border border-gray-200 py-2.5 px-4 font-medium text-danger hover:border-opacity-80 hover:bg-blue-700 hover:text-opacity-80 dark:border-gray-700">
             Delete Account
           </button>
         </div>
@@ -33,8 +33,6 @@ export async function getServerSideProps(context) {
     context.res,
     authOptions
   )
-
-  console.log(session)
 
   if (!session) {
     return {

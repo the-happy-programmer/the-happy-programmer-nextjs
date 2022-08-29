@@ -8,7 +8,6 @@ export default function Meta({
   children,
 }: SEOProps): JSX.Element {
   const router = useRouter()
-  console.log('ROUTER:', router)
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
