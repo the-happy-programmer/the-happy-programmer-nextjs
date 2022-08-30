@@ -1,6 +1,5 @@
 import { ReactNode, MouseEventHandler } from 'react'
-import { button } from '../styles/styles'
-
+import styles from '../styles/buttons.module.css'
 interface BtnProps {
   children: ReactNode
   href?: string
@@ -15,7 +14,7 @@ export default function HappyButton({
   onClick,
 }: BtnProps): JSX.Element {
   return (
-    <a onClick={onClick} href={href} className={button(xl as boolean)}>
+    <a onClick={onClick} href={href} className={xl ? styles.lbtn : styles.sbtn}>
       {children}
     </a>
   )
