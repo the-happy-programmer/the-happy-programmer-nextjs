@@ -2,21 +2,33 @@ import HappyLink from '../components/HappyLink'
 import Postbody from '../components/PostBody'
 import SvgtoReact from '../components/Svgtoreact'
 import Subscribe from '../components/home/Subscribe'
-import { getPost, getAllPostsWithSlug } from '../lib/api'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Headerlayout from '../widget/Headerlayout'
 import Image from 'next/image'
 import { markdownToHtml } from '../lib/courseslib/htmlmarkdown'
 import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
-import { getDocBySlug } from '../lib/courseslib/courseapi'
+import { getDocBySlug, getAllinks } from '../lib/courseslib/courseapi'
+import { PostProps } from '../lib/types/blog'
+import { TitleSub } from '../lib/types/general'
+import { ReactNode } from 'react'
 
-export default function Post({ meta, socials, content, subscribe }) {
+interface PageProps extends PostProps {
+  socials: string[][]
+  subscribe: TitleSub
+}
+
+export default function Post({
+  meta,
+  socials,
+  content,
+  subscribe,
+}: PageProps): JSX.Element {
   const { author, pubDate, categories, title, avatar, description } = meta
-  // const { uri } = post.post.featuredImage.node
-  const postIcon = (categories) =>
-    categories.map((categories) => (
-      <div key={categories} className="h-16">
-        <SvgtoReact height={60} width={60} class="mr-4" name={categories} />
+  const postIcon = (categories: string[]): ReactNode =>
+    categories.map((category) => (
+      <div key={category} className="h-16">
+        <SvgtoReact height={60} width={60} className="mr-4" name={category} />
       </div>
     ))
 
@@ -37,8 +49,8 @@ export default function Post({ meta, socials, content, subscribe }) {
               <SvgtoReact
                 className="mr-3 rotate-90 transform self-center "
                 name="arrow"
-                height="15"
-                width="15"
+                height={15}
+                width={15}
               />
               Back to posts
             </a>
@@ -93,14 +105,14 @@ export default function Post({ meta, socials, content, subscribe }) {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const subscribe = {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params!
+  const subscribe: TitleSub = {
     title: 'Subscribe',
     subtitle:
       'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
   }
-
-  const socials = [
+  const socials: string[][] = [
     ['https://twitter.com/happy_prog', 'twitter'],
     ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
     [
@@ -110,12 +122,11 @@ export async function getStaticProps({ params }) {
     ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
   ]
 
-  const post = await getPost(params.slug)
-  const e = await getDocBySlug(params.slug, 'course/blog')
-  const pp = await markdownToHtml(e.content)
+  const post = getDocBySlug(slug, 'course/blog')
+  const pp = await markdownToHtml(post.content)
   return {
     props: {
-      meta: e.meta,
+      meta: post.meta,
       socials: socials,
       content: pp,
       subscribe,
@@ -123,10 +134,11 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allSlugs: string[] = getAllinks('course/blog')
+
   return {
-    paths: allPosts.edges.map(({ node }) => `/${node.slug}`) || [],
+    paths: allSlugs.map((lo) => `/${lo}`) || [],
     fallback: false,
   }
 }

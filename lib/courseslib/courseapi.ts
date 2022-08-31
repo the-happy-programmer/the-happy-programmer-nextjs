@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 import { join } from 'path'
 import matter from 'gray-matter'
 
-export const getAllDocs = (directory) => {
+export const getAllDocs = ({ directory }: string) => {
   const dir = join(process.cwd(), directory)
   const slugs = fs.readdirSync(dir)
   const docs = slugs.map((slug) => getDocBySlug(slug, directory))
@@ -22,6 +22,7 @@ export const getDocBySlug = (slug, directory) => {
 }
 
 export const getDirectories = (source) => {
+  console.log('SOURCE:', source)
   const allslugs = []
   fs.readdirSync(source, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
