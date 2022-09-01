@@ -122,7 +122,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
   ]
 
-  const post = getDocBySlug(slug, 'course/blog')
+  const post = getDocBySlug(slug as string, 'course/blog')
   const pp = await markdownToHtml(post.content)
   return {
     props: {
@@ -135,10 +135,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allSlugs: string[] = getAllinks('course/blog')
+  const allSlugs = getAllinks('course/blog')
 
   return {
-    paths: allSlugs.map((lo) => `/${lo}`) || [],
+    paths: allSlugs.map(({ name }) => `/${name}`) || [],
     fallback: false,
   }
 }

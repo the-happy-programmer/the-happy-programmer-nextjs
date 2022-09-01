@@ -1,7 +1,13 @@
 import Link from 'next/link'
+import { CatTagProps } from '../lib/types/blog'
 import SvgtoReact from './Svgtoreact'
 
-export default function CatTag({ categories, title, tags, banner }) {
+export default function CatTag({
+  categories,
+  title,
+  tags,
+  banner,
+}: CatTagProps): JSX.Element {
   return (
     <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
       <p className="py-2 text-xs font-bold uppercase text-gray-800 dark:text-gray-100">
@@ -18,7 +24,7 @@ export default function CatTag({ categories, title, tags, banner }) {
           </div>
         ))}
         {categories?.map((cat) => (
-          <div className="py-2.5" key={cat.uri}>
+          <div className="py-2.5" key={cat}>
             <Link href={`/category/${cat}`}>
               <a className="flex cursor-pointer flex-row  text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
                 <div>

@@ -21,7 +21,8 @@
     "**/*.tsx",
     "components/about/DisplayCard.tsx",
     "components/Svgtoreact.tsx",
-    "components/spinners/Spinner.tsx"
+    "components/spinners/Spinner.tsx",
+    "lib/courseslib/htmlmarkdown.ts"
   ],
   "exclude": ["node_modules"]
 }

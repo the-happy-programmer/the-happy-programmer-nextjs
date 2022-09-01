@@ -5,8 +5,18 @@ import Meta from '../../components/seo/Meta'
 import Headerlayout from '../../widget/Headerlayout'
 import { getAllDocs } from '../../lib/courseslib/courseapi'
 import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { PostProps } from '../../lib/types/blog'
 
-export default function Tags({ categories, posts, tags }) {
+export default function Tags({
+  categories,
+  posts,
+  tags,
+}: {
+  categories: string[]
+  posts: PostProps[]
+  tags: string[]
+}): JSX.Element {
   const router = useRouter()
   const { slug } = router.query
 
@@ -19,18 +29,24 @@ export default function Tags({ categories, posts, tags }) {
       <Headerlayout>
         <MyHeader subtitle="The Happy Programmer" title={slug} posts={posts} />
       </Headerlayout>
-      <PostList posts={posts} categories={categories} tags={tags} />
+      <PostList
+        posts={posts}
+        categories={categories}
+        tags={tags}
+        banner={undefined}
+      />
     </div>
   )
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params!
   const allDocs = getAllDocs('course/blog')
   const { categories, tags } = uniqueArrayItems()
 
-  const posts = allDocs
-    .map((a) => ({ link: a.link, meta: a.meta }))
-    .filter((a) => a.meta.tags.map((e) => e === params.slug))
+  const posts: PostProps = allDocs
+    .map((a: PostProps) => ({ link: a.link, meta: a.meta }))
+    .filter((a: PostProps) => a.meta.tags.map((e) => e === slug))
 
   return {
     props: {
@@ -41,7 +57,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { tags } = uniqueArrayItems()
   return {
     paths: tags.map((tags) => `/tag/${tags.toLowerCase()}`) || [],

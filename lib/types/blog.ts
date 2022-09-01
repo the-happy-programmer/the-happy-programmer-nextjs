@@ -1,6 +1,10 @@
+import { SEOProps } from './seo'
+
 export interface PostProps {
+  length?: number | undefined
+  slice(arg0: number, arg1?: number): any
   link: string
-  meta: PostMeta
+  meta?: PostMeta
   content?: string
 }
 
@@ -13,4 +17,19 @@ export interface PostMeta {
   pubDate: string
   author: string
   avatar: string
+}
+
+export interface BlogPageProps {
+  posts: PostProps[]
+  categories: string[]
+  tags: string[]
+  seo: SEOProps
+  banner?: string[][]
+}
+
+export interface CatTagProps {
+  categories?: string[]
+  title: string
+  tags?: string[]
+  banner?: string[][]
 }

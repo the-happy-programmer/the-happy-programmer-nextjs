@@ -4,7 +4,6 @@ import { useState } from 'react'
 import scroll from '../../lib/scroll'
 
 export default function Search({ posts, setSearching }) {
-  console.log('POSTS:', posts)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchList, setSearchList] = useState([])
   const filterItems = (arr, query) => {

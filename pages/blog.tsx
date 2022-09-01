@@ -6,17 +6,15 @@ import { GetStaticProps } from 'next'
 import { getAllDocs } from '../lib/courseslib/courseapi'
 import { uniqueArrayItems } from '../lib/uniqueArrayItems'
 import { SEOProps } from '../lib/types/seo'
-import { PostProps } from '../lib/types/blog'
+import { BlogPageProps, PostProps } from '../lib/types/blog'
 
-interface Props {
-  posts: PostProps[]
-  categories: string[]
-  tags: string[]
-  banner: string[][]
-  seo: SEOProps
-}
-
-export default function Home({ posts, categories, seo, tags, banner }: Props) {
+export default function Home({
+  posts,
+  categories,
+  seo,
+  tags,
+  banner,
+}: BlogPageProps) {
   return (
     <div>
       <Meta title={seo.title} description={seo.description} />

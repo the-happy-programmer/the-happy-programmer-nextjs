@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import { PostProps } from '../lib/types/blog'
 
-const tagsitter = (tag) => {
+const tagsitter = (tag: string[]) => {
   return tag.map((tag) => (
     <Link href={`/tag/${tag}`} key={tag}>
       <a className="mr-2.5 cursor-pointer py-0.5 text-xs font-semibold uppercase text-gray-900 text-opacity-60 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50">
@@ -10,7 +11,13 @@ const tagsitter = (tag) => {
   ))
 }
 
-export default function Posthome({ post, plain }) {
+export default function Posthome({
+  post,
+  plain,
+}: {
+  post: PostProps
+  plain: boolean
+}): JSX.Element {
   const { title, pubDate, author, tags, description } = post.meta
   return (
     <div className="flex flex-col border-b border-gray-900 border-opacity-5 py-8 dark:border-gray-50">
