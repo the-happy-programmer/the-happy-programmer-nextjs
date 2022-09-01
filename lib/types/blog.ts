@@ -1,11 +1,11 @@
 import { SEOProps } from './seo'
 
 export interface PostProps {
+  link: string
+  meta: PostMeta
+  content?: string
   length?: number | undefined
   slice(arg0: number, arg1?: number): any
-  link: string
-  meta?: PostMeta
-  content?: string
 }
 
 export interface PostMeta {

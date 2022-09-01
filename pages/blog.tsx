@@ -15,6 +15,7 @@ export default function Home({
   tags,
   banner,
 }: BlogPageProps) {
+  console.log('post blog:', posts)
   return (
     <div>
       <Meta title={seo.title} description={seo.description} />
@@ -49,13 +50,13 @@ export const getStaticProps: GetStaticProps = async () => {
       'https://www.unicef.org.uk/donate/donate-now-to-protect-children-in-ukraine/?gclid=Cj0KCQjwl7qSBhD-ARIsACvV1X0lPlYwu0E2vfVCEX3x6N4B_IkPi5SvQLlLF65pZgNEnWBTIbX_27caArikEALw_wcB',
     ],
   ]
-  const posts: PostProps = await getAllDocs('course/blog')
+  const { link, meta }: PostProps = await getAllDocs('course/blog')
   const { categories, tags }: { categories: string[]; tags: string[] } =
     uniqueArrayItems()
 
   return {
     props: {
-      posts,
+      posts: { link, meta },
       categories,
       seo,
       tags,
