@@ -1,5 +1,5 @@
-export type CourseProps = {
-  id: 1
+export interface CourseProps {
+  id: number
   link: string
   tags: Tags[]
   title: string
@@ -10,3 +10,8 @@ export type CourseProps = {
 }
 
 export type Tags = 'NuxtJS' | 'tailwind' | 'vue' | 'NextJS'
+
+export interface CoursesSlugs {
+  name: string
+  link: string
+}

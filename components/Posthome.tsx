@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PostProps } from '../lib/types/blog'
+import type { PostProps } from '../lib/types/blog'
 
 const tagsitter = (tag: string[]) => {
   return tag.map((tag) => (

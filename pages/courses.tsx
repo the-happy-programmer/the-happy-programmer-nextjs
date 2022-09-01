@@ -3,7 +3,6 @@ import { useState } from 'react'
 import CoursesCard from '../components/courses/CoursesCard'
 import SearchCourses from '../components/courses/SearchCourses'
 
-//types
 import type { CourseProps } from '../lib/types/courses'
 import type { TitleSub } from '../lib/types/general'
 

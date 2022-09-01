@@ -5,8 +5,8 @@ import Meta from '../components/seo/Meta'
 import { GetStaticProps } from 'next'
 import { getAllDocs } from '../lib/courseslib/courseapi'
 import { uniqueArrayItems } from '../lib/uniqueArrayItems'
-import { SEOProps } from '../lib/types/seo'
-import { BlogPageProps, PostProps } from '../lib/types/blog'
+import type { SEOProps } from '../lib/types/seo'
+import type { BlogPageProps, PostProps } from '../lib/types/blog'
 
 export default function Home({
   posts,

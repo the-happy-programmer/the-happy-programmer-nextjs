@@ -1,6 +1,6 @@
 import Posthome from './Posthome'
 import CatTag from './CatTag'
-import { PostProps } from '../lib/types/blog'
+import type { PostProps } from '../lib/types/blog'
 
 export default function PostList({
   posts,

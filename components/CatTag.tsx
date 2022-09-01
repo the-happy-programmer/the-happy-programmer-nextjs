@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CatTagProps } from '../lib/types/blog'
+import type { CatTagProps } from '../lib/types/blog'
 import SvgtoReact from './Svgtoreact'
 
 export default function CatTag({

@@ -4,8 +4,6 @@ export interface PostProps {
   link: string
   meta: PostMeta
   content?: string
-  length?: number | undefined
-  slice(arg0: number, arg1?: number): any
 }
 
 export interface PostMeta {

@@ -9,8 +9,8 @@ import { markdownToHtml } from '../lib/courseslib/htmlmarkdown'
 import RichDataPost from '../components/seo/RichDataPost'
 import Link from 'next/link'
 import { getDocBySlug, getAllinks } from '../lib/courseslib/courseapi'
-import { PostProps } from '../lib/types/blog'
-import { TitleSub } from '../lib/types/general'
+import type { PostProps } from '../lib/types/blog'
+import type { TitleSub } from '../lib/types/general'
 import { ReactNode } from 'react'
 
 interface PageProps extends PostProps {
@@ -97,7 +97,7 @@ export default function Post({
           </div>
         </div>
       </Headerlayout>
-      <Postbody content={content} />
+      <Postbody content={content as string} />
       <div className="bg-gray-100  dark:bg-gray-800">
         <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
       </div>
