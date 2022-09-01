@@ -9,7 +9,6 @@ export default function SideMenu({
 }: {
   courseslugs: CoursesSlugs[]
 }) {
-  console.log('courseslugs', courseslugs)
   const [courses, setCourses] = useState(courseslugs)
   const router = useRouter()
 
