@@ -2,14 +2,14 @@ import CourseSearch from './CourseSearch'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { CoursesSlugs } from '../../lib/types/courses'
+import type { CoursesSlugs } from '../../lib/types/courses'
 
 export default function SideMenu({
   courseslugs,
 }: {
   courseslugs: CoursesSlugs[]
-}) {
-  const [courses, setCourses] = useState(courseslugs)
+}): JSX.Element {
+  const [courses, setCourses] = useState<CoursesSlugs[]>(courseslugs)
   const router = useRouter()
 
   const currentPath = (path: string) => router.asPath === path

@@ -1,8 +1,10 @@
 import SvgToReact from '../Svgtoreact'
 import { useState } from 'react'
 
-// test
 export default function CourseSearch({ palceholder, allslugs, setCourses }) {
+  console.log('placeholder', palceholder)
+  console.log('ALL SLUGS', allslugs)
+  console.log('setCourses', setCourses)
   const [sluglist, setSluglist] = useState(allslugs)
 
   const search = (e) => {
