@@ -8,7 +8,7 @@ import SideMenu from '../../components/course/SideMenu'
 import CourseHeader from '../../components/course/CourseHeader'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
 import { CoursesHeader, CoursesSlugs } from '../../lib/types/courses'
-import { GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 export default function Pag({
   content,
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { content: con, meta, courseslugs } }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getDirectories(`${process.cwd()}/course`)
   return { paths, fallback: false }
 }

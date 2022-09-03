@@ -6,7 +6,7 @@ import { getAllDocs } from '../../lib/courseslib/courseapi'
 import { getAllAuthors } from '../../lib/getAllAuthors'
 import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
 import type { PostProps } from '../../lib/types/blog'
-import { GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 export default function Author({
   posts,
@@ -53,8 +53,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export async function getStaticPaths() {
-  const authors = await getAllAuthors()
+export const getStaticPaths: GetStaticPaths = async () => {
+  const authors = getAllAuthors()
   return {
     paths: authors.map((author) => `/author/${author.toLowerCase()}`) || [],
     fallback: false,

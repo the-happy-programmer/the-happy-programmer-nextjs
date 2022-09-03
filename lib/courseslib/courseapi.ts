@@ -3,6 +3,11 @@ import { join } from 'path'
 import matter from 'gray-matter'
 import { PostProps } from '../types/blog'
 
+/**
+ * @description Returns an array of all posts in a directory sorted by date
+ * @param {string} directory
+ * @returns {PostProps[]}
+ */
 export const getAllDocs = (directory: string) => {
   const dir = join(process.cwd(), directory)
   const slugs = fs.readdirSync(dir)
@@ -13,6 +18,13 @@ export const getAllDocs = (directory: string) => {
   )
 }
 
+/**
+ * @description Returns a single post by slug
+ * @param {string} slug
+ * @param {string} directory
+ * @returns {PostProps}
+ */
+
 export const getDocBySlug = (slug: string, directory: string) => {
   const dir = join(process.cwd(), directory)
   const realSlug = slug.replace(/\.mdx$/, '')
@@ -22,6 +34,11 @@ export const getDocBySlug = (slug: string, directory: string) => {
   return { link: realSlug, meta: data, content }
 }
 
+/**
+ * @description Returns an array of all slugs in a directory
+ * @param {string} source
+ * @returns {string[]}
+ */
 export const getDirectories = (source: string): string[] => {
   const allslugs: string[] = []
   fs.readdirSync(source, { withFileTypes: true })
@@ -38,6 +55,12 @@ export const getDirectories = (source: string): string[] => {
     })
   return allslugs
 }
+
+/**
+ * @description Return an with all slugs in a directory
+ * @param {string} source
+ * @returns { string, string }
+ */
 
 export const getAllinks = (
   coursename: string

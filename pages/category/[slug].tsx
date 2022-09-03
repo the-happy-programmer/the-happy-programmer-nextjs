@@ -5,7 +5,7 @@ import Headerlayout from '../../widget/Headerlayout'
 import Meta from '../../components/seo/Meta'
 import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
 import { getAllDocs } from '../../lib/courseslib/courseapi'
-import { GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import type { PostProps } from '../../lib/types/blog'
 
 export default function Category({
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { categories } = uniqueArrayItems()
   return {
     paths:

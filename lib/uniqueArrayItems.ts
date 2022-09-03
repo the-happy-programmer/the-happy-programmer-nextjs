@@ -5,6 +5,11 @@ interface UniqueArrayItems {
   categories: string[]
   tags: string[]
 }
+//@ts-ignore
+/**
+ * @returns {UniqueArrayItems}
+ * @description Returns an object with unique categories and tags
+ */
 
 export const uniqueArrayItems = (): UniqueArrayItems => {
   const posts = getAllDocs('course/blog')
@@ -12,7 +17,7 @@ export const uniqueArrayItems = (): UniqueArrayItems => {
   const tag = posts.map((doc: PostProps) => doc.meta.tags)
 
   return {
-    categories: [...new Set(cat.concat.apply([], cat))],
-    tags: [...new Set(tag.concat.apply([], tag))],
+    categories: [...new Set(cat.concat.apply([], cat))] as string[],
+    tags: [...new Set(tag.concat.apply([], tag))] as string[],
   }
 }
