@@ -19,7 +19,6 @@ export default function Pag({
   meta: CoursesHeader
   courseslugs: CoursesSlugs[]
 }): JSX.Element {
-  console.log('META', meta)
   return (
     <>
       <CourseHeader meta={meta} />

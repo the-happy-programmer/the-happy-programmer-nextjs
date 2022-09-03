@@ -12,12 +12,14 @@ export default async function subscribe(
 ) {
   const { email } = req.body
   try {
-    await mailchimp.lists.addListMember(process.env.AUDIENCE_ID, {
+    await mailchimp.lists.addListMember(process.env.AUDIENCE_ID as string, {
       email_address: email,
       status: 'subscribed',
     })
     return res.status(201).json({ error: '' })
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() })
+    return res
+      .status(500)
+      .json({ error: (error as Error).message || (error as Error).toString() })
   }
 }

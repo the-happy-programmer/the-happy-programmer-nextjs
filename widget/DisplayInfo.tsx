@@ -1,4 +1,14 @@
-export default function DisplayInfo({ title, subtitle, children }) {
+import { ReactNode } from 'react'
+
+export default function DisplayInfo({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string
+  subtitle: string
+  children: ReactNode
+}): JSX.Element {
   return (
     <div className=" bg-gray-100 pb-5 dark:bg-gray-800">
       <p className="container px-3 py-6 text-2xl text-gray-800 dark:text-gray-50">

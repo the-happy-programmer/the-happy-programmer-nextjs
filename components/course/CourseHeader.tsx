@@ -8,7 +8,6 @@ export default function CourseHeader({
 }: {
   meta: CoursesHeader
 }): JSX.Element {
-  console.log('MERA:', meta)
   return (
     <>
       <Meta title={meta.title} description={meta.description} />
