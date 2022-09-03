@@ -27,7 +27,11 @@ export default function Category({
           title={`${slug} - The Happy Programmer`}
           description={`${slug} Category - every post which is related to ${slug}`}
         />
-        <MyHeader subtitle="The Happy Programmer" title={slug} posts={posts} />
+        <MyHeader
+          subtitle="The Happy Programmer"
+          title={slug as string}
+          posts={posts as PostProps[]}
+        />
       </Headerlayout>
       <PostList posts={posts} tags={tags} categories={categories} />
     </div>

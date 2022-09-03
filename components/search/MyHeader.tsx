@@ -3,11 +3,20 @@ import SvgtoReact from '../Svgtoreact'
 import Search from './Search'
 import scroll from '../../lib/scroll'
 import { titlestyle, subtitlestyle } from '../../styles/styles'
-export default function MyHeader({ title, subtitle, posts }) {
-  const [searching, setSearching] = useState(false)
+import { PostProps } from '../../lib/types/blog'
+export default function MyHeader({
+  title,
+  subtitle,
+  posts,
+}: {
+  title: string
+  subtitle: string
+  posts: PostProps
+}) {
+  const [searching, setSearching] = useState<boolean>(false)
 
   useEffect(() => {
-    function handleKeyDown(e) {
+    function handleKeyDown(e: { key: string }) {
       if (e.key === 'Escape') {
         scroll('auto')
         setSearching(false)
@@ -20,7 +29,7 @@ export default function MyHeader({ title, subtitle, posts }) {
     }
   }, [])
 
-  const openSearch = (e) => {
+  const openSearch = () => {
     scroll('hidden')
     setSearching(true)
   }
@@ -39,13 +48,14 @@ export default function MyHeader({ title, subtitle, posts }) {
           />
         </div>
         <button
-          type="text"
           className="focus:outline-none rounded-md border border-gray-900 border-opacity-10 py-2 pl-10 pr-6 text-sm text-gray-900 text-opacity-30 focus:border-gray-700 group-hover:border-gray-600  dark:border-gray-50 dark:bg-gray-900 dark:text-gray-500 dark:group-hover:border-gray-50 "
-          onClick={(e) => openSearch(e)}
+          onClick={() => openSearch()}
         >
           Search posts...
         </button>
-        {searching && <Search posts={posts} setSearching={setSearching} />}
+        {searching && (
+          <Search posts={posts as PostProps[]} setSearching={setSearching} />
+        )}
       </div>
     </div>
   )

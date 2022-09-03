@@ -2,11 +2,18 @@ import Link from 'next/link'
 import SvgtoReact from '../Svgtoreact'
 import { useState } from 'react'
 import scroll from '../../lib/scroll'
+import type { PostProps } from '../../lib/types/blog'
 
-export default function Search({ posts, setSearching }) {
+export default function Search({
+  posts,
+  setSearching,
+}: {
+  posts: PostProps[]
+  setSearching: Function
+}) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchList, setSearchList] = useState([])
-  const filterItems = (arr, query) => {
+  const [searchList, setSearchList] = useState<PostProps[]>([])
+  const filterItems = (arr: PostProps[], query: any) => {
     return arr.filter(
       (el) =>
         el.meta.description?.toLowerCase().includes(query) ||
@@ -14,12 +21,12 @@ export default function Search({ posts, setSearching }) {
     )
   }
 
-  const closeSearch = (e) => {
+  const closeSearch = () => {
     scroll('auto')
     setSearching(false)
   }
 
-  const changeInput = (e) => {
+  const changeInput = (e: { target: { value: string } }) => {
     if (e.target.value === '') {
       setSearchList([])
       setSearchQuery(e.target.value)
@@ -30,7 +37,7 @@ export default function Search({ posts, setSearching }) {
     return
   }
 
-  const icontitle = (tag) =>
+  const icontitle = (tag: string[]) =>
     tag.map((tag) => (
       <div key={tag}>
         <SvgtoReact height={20} width={20} name={tag.toLowerCase()} />
@@ -39,7 +46,7 @@ export default function Search({ posts, setSearching }) {
 
   return (
     <div
-      tabIndex="0"
+      tabIndex={0}
       className="fixed top-0 bottom-0 left-0 right-0
      z-50 h-screen w-screen bg-gray-200 bg-opacity-95 dark:bg-gray-800"
     >
@@ -61,7 +68,7 @@ export default function Search({ posts, setSearching }) {
               className="outline-none rounder-t w-full rounded-t-2xl bg-gray-50 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
             />
             <div
-              onClick={(e) => closeSearch(e)}
+              onClick={() => closeSearch()}
               className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-50 dark:bg-gray-800"
             >
               <div className="cursor-pointer rounded-md border border-gray-200 fill-current p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:border-gray-600 dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-gray-400">
@@ -115,11 +122,11 @@ export default function Search({ posts, setSearching }) {
                   </p>
                 </div>
               )}
-              {searchList.map((post) => (
+              {searchList.map((post: PostProps) => (
                 <div key={post.meta.title} className="h-full rounded-t-3xl">
                   <Link href={`/${post.link}`}>
                     <div
-                      onClick={(e) => closeSearch(e)}
+                      onClick={() => closeSearch()}
                       className="cursor-pointer border-b border-gray-200 px-7 py-6 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700"
                     >
                       <div className="flex flex-row items-center justify-between">
