@@ -11,7 +11,7 @@ export default function MyHeader({
 }: {
   title: string
   subtitle: string
-  posts: PostProps
+  posts: PostProps[]
 }) {
   const [searching, setSearching] = useState<boolean>(false)
 
@@ -53,9 +53,7 @@ export default function MyHeader({
         >
           Search posts...
         </button>
-        {searching && (
-          <Search posts={posts as PostProps[]} setSearching={setSearching} />
-        )}
+        {searching && <Search posts={posts} setSearching={setSearching} />}
       </div>
     </div>
   )

@@ -27,7 +27,11 @@ export default function Tags({
         description={`${slug} Tag - every post which is related to ${slug}`}
       />
       <Headerlayout>
-        <MyHeader subtitle="The Happy Programmer" title={slug} posts={posts} />
+        <MyHeader
+          subtitle="The Happy Programmer"
+          title={slug as string}
+          posts={posts}
+        />
       </Headerlayout>
       <PostList
         posts={posts}
