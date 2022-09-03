@@ -106,7 +106,7 @@ export default function Post({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params!
+  const { slug } = context.params as { slug: string }
   const subscribe: TitleSub = {
     title: 'Subscribe',
     subtitle:

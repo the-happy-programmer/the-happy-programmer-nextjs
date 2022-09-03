@@ -15,3 +15,10 @@ export interface CoursesSlugs {
   name: string
   link: string
 }
+
+export interface CoursesHeader {
+  coursetitle: string
+  description: string
+  icon: string
+  title: string
+}

@@ -1,8 +1,14 @@
 import Meta from '../seo/Meta'
 import SvgToReact from '../Svgtoreact'
 import SubInput from '../home/SubInput'
+import type { CoursesHeader } from '../../lib/types/courses'
 
-export default function CourseHeader({ meta }) {
+export default function CourseHeader({
+  meta,
+}: {
+  meta: CoursesHeader
+}): JSX.Element {
+  console.log('MERA:', meta)
   return (
     <>
       <Meta title={meta.title} description={meta.description} />

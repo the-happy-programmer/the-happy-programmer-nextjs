@@ -5,7 +5,18 @@ import Meta from '../../components/seo/Meta'
 import { getAllDocs } from '../../lib/courseslib/courseapi'
 import { getAllAuthors } from '../../lib/getAllAuthors'
 import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
-export default function Author({ posts, categories, tags }) {
+import type { PostProps } from '../../lib/types/blog'
+import { GetStaticProps } from 'next'
+
+export default function Author({
+  posts,
+  categories,
+  tags,
+}: {
+  posts: PostProps[]
+  categories: string[]
+  tags: string[]
+}): JSX.Element {
   return (
     <div>
       <Meta
@@ -24,13 +35,14 @@ export default function Author({ posts, categories, tags }) {
   )
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as { slug: string }
   const allDocs = getAllDocs('course/blog')
   const { categories, tags } = uniqueArrayItems()
 
-  const posts = allDocs
-    .map((a) => ({ link: a.link, meta: a.meta }))
-    .filter((a) => a.meta.author.toLowerCase() === params.slug)
+  const posts: PostProps = allDocs
+    .map((a: PostProps) => ({ link: a.link, meta: a.meta }))
+    .filter((a: PostProps) => a.meta.author.toLowerCase() === slug)
 
   return {
     props: {

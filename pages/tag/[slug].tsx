@@ -40,7 +40,7 @@ export default function Tags({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params!
+  const { slug } = context.params as { slug: string }
   const allDocs = getAllDocs('course/blog')
   const { categories, tags } = uniqueArrayItems()
 

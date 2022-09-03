@@ -5,8 +5,18 @@ import Headerlayout from '../../widget/Headerlayout'
 import Meta from '../../components/seo/Meta'
 import { uniqueArrayItems } from '../../lib/uniqueArrayItems'
 import { getAllDocs } from '../../lib/courseslib/courseapi'
+import { GetStaticProps } from 'next'
+import type { PostProps } from '../../lib/types/blog'
 
-export default function Category({ categories, posts, tags }) {
+export default function Category({
+  categories,
+  posts,
+  tags,
+}: {
+  categories: string[]
+  tags: string[]
+  posts: PostProps[]
+}): JSX.Element {
   const router = useRouter()
   const { slug } = router.query
 
@@ -24,13 +34,14 @@ export default function Category({ categories, posts, tags }) {
   )
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as { slug: string }
   const allDocs = getAllDocs('course/blog')
   const { categories, tags } = uniqueArrayItems()
 
-  const posts = allDocs
-    .map((a) => ({ link: a.link, meta: a.meta }))
-    .filter((a) => a.meta.categories.map((e) => e === params.slug))
+  const posts: PostProps = allDocs
+    .map((a: PostProps) => ({ link: a.link, meta: a.meta }))
+    .filter((a: PostProps) => a.meta.categories.map((e) => e === slug))
 
   return {
     props: {

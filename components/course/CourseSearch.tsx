@@ -1,13 +1,19 @@
 import SvgToReact from '../Svgtoreact'
 import { useState } from 'react'
+import { CoursesSlugs } from '../../lib/types/courses'
+import { ChangeEvent } from 'react'
+export default function CourseSearch({
+  palceholder,
+  allslugs,
+  setCourses,
+}: {
+  palceholder: string
+  allslugs: CoursesSlugs[]
+  setCourses: (courses: CoursesSlugs[]) => void
+}) {
+  const [sluglist, setSluglist] = useState<CoursesSlugs[]>(allslugs)
 
-export default function CourseSearch({ palceholder, allslugs, setCourses }) {
-  console.log('placeholder', palceholder)
-  console.log('ALL SLUGS', allslugs)
-  console.log('setCourses', setCourses)
-  const [sluglist, setSluglist] = useState(allslugs)
-
-  const search = (e) => {
+  const search = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value !== '') {
       setCourses(searchSlugs(e.target.value))
     } else {
@@ -15,7 +21,7 @@ export default function CourseSearch({ palceholder, allslugs, setCourses }) {
     }
   }
 
-  const searchSlugs = (value) =>
+  const searchSlugs = (value: string) =>
     allslugs.filter((slug) => slug.name.includes(value))
 
   return (
@@ -30,7 +36,7 @@ export default function CourseSearch({ palceholder, allslugs, setCourses }) {
           />
         </div>
         <input
-          maxLength="30"
+          maxLength={30}
           onChange={search}
           placeholder="search"
           className="outline-none dark:group-focusfocus:border-gray-50 rounded border border-gray-200 bg-gray-100 p-1 pl-8 text-sm text-gray-900 placeholder-gray-300 hover:border-gray-900 focus:border-gray-900 group-focus:border-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-50 dark:hover:border-gray-100 dark:focus:border-gray-100"

@@ -7,8 +7,19 @@ import {
 import SideMenu from '../../components/course/SideMenu'
 import CourseHeader from '../../components/course/CourseHeader'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
+import { CoursesHeader, CoursesSlugs } from '../../lib/types/courses'
+import { GetStaticProps } from 'next'
 
-export default function Pag({ content, meta, courseslugs }) {
+export default function Pag({
+  content,
+  meta,
+  courseslugs,
+}: {
+  content: string
+  meta: CoursesHeader
+  courseslugs: CoursesSlugs[]
+}): JSX.Element {
+  console.log('META', meta)
   return (
     <>
       <CourseHeader meta={meta} />
@@ -22,14 +33,11 @@ export default function Pag({ content, meta, courseslugs }) {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const { slug } = params
-  const { meta, link, content } = await getDocBySlug(
-    slug[1],
-    `course/${slug[0]}`
-  )
-  
-  const courseslugs = await getAllinks(`course/${slug[0]}`)
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as { slug: string[] }
+  const { meta, content } = getDocBySlug(slug[1], `course/${slug[0]}`)
+
+  const courseslugs = getAllinks(`course/${slug[0]}`)
 
   const con = await markdownToHtml(content || '')
   return { props: { content: con, meta, courseslugs } }
