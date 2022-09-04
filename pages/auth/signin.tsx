@@ -3,8 +3,13 @@ import AuthBtn from '../../components/auth/AuthBtn'
 import SvgtoReact from '../../components/Svgtoreact'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import { GetServerSideProps } from 'next'
 
-export default function SignIn({ providers }) {
+export default function SignIn({
+  providers,
+}: {
+  providers: any
+}): JSX.Element | Promise<boolean> {
   const { data: session, status } = useSession()
   const router = useRouter()
 
@@ -23,10 +28,10 @@ export default function SignIn({ providers }) {
             {providers &&
               Object.values(providers).map((provider) => (
                 <AuthBtn
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  title={provider.name}
-                  icon={provider.id}
+                  key={provider?.name}
+                  onClick={() => signIn(provider?.id)}
+                  title={provider?.name}
+                  icon={provider?.id}
                 />
               ))}
           </div>
@@ -54,7 +59,7 @@ export default function SignIn({ providers }) {
   )
 }
 
-export async function getServerSideProps(context) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const providers = await getProviders()
 
   return {
