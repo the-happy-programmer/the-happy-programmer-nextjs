@@ -55,9 +55,7 @@ export default function Footer(): JSX.Element {
   const categories: FooterProps = {
     title: 'Categories',
     pages: [
-      ['iOS', '/category/ios'],
-      ['Xcode', '/category/xcode'],
-      ['Design', '/category/design'],
+      ['Announcements', '/category/announcements'],
       ['SwiftUI', '/category/swiftui'],
     ],
   }
