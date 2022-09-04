@@ -2,13 +2,17 @@ import SvgtoReact from '../Svgtoreact'
 import { MouseEventHandler } from 'react'
 import { MouseEvent } from 'react'
 
-interface BtnProps extends MouseEvent<HTMLButtonElement> {
+interface BtnProps {
   icon: string
   title: string
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-export default function AuthBtn({ icon, title, onClick }: BtnProps) {
+export default function AuthBtn({
+  icon,
+  title,
+  onClick,
+}: BtnProps): JSX.Element {
   return (
     <button
       onClick={onClick}

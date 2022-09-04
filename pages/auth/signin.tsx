@@ -1,4 +1,4 @@
-import { getProviders, signIn } from 'next-auth/react'
+import { getProviders, signIn, SignInResponse } from 'next-auth/react'
 import AuthBtn from '../../components/auth/AuthBtn'
 import SvgtoReact from '../../components/Svgtoreact'
 import { useSession } from 'next-auth/react'
@@ -8,7 +8,7 @@ import { GetServerSideProps } from 'next'
 export default function SignIn({
   providers,
 }: {
-  providers: any
+  providers: any[]
 }): JSX.Element | Promise<boolean> {
   const { data: session, status } = useSession()
   const router = useRouter()
