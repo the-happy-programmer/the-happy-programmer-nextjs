@@ -64,7 +64,7 @@ const SvgtoReact = ({
   }
   if (loading) {
     return (
-      <div className="flex h-full w-full place-items-center justify-center">
+      <div className="ml-4 flex h-full w-full place-items-center justify-center">
         <Spinner />
       </div>
     )
