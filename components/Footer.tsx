@@ -147,7 +147,7 @@ export default function Footer(): JSX.Element {
                 name="email"
                 placeholder="subscribe"
                 ref={inputEl}
-                className=" rounded-md bg-gray-700 py-4 pl-5 pr-10 text-gray-50 shadow-sm"
+                className="rounded-md bg-gray-700 py-4 pl-5 pr-10 text-gray-50 shadow-sm"
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-5">
                 <SvgtoReact

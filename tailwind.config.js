@@ -19,6 +19,9 @@ module.exports = {
       success: '#669900',
       lightpurple: '#EC4899',
       darkpurple: '#F472B6',
+      gradient1: '#2b5876',
+      gradient2: '#4e4376',
+      gradient3: '#243b55',
       gray: {
         50: '#fff',
         100: '#FAFAFA',
