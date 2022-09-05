@@ -14,92 +14,138 @@ datasource db {
 // USERS
 //Note: This table contains user data. Users should only be able to view and update their own data.
 
-model User {
-  id         String @id @default(uuid())
-  email      String @unique
-  avatar_url String
-  billing_address Json[]
-  payment_method Json[]
-}
+// model User {
+//   id         String @id @default(uuid())
+//   email      String @unique
+//   avatar_url String
+//   billing_address Json[]
+//   payment_method Json[]
+// }
 
-model Post {
-  id         String @id @default(uuid())
-  createdAt  DateTime @createdAt
-  updatedAt  DateTime @updatedAt
-  title       String
-  content    String
-  tags      String[]
-  categories String[]
-}
+// model Post {
+//   id         String @id @default(uuid())
+//   createdAt  DateTime @createdAt
+//   updatedAt  DateTime @updatedAt
+//   title       String
+//   content    String
+//   tags      String[]
+//   categories String[]
+// }
 
 
-model Customer {
-  id         String @id @default(uuid()) // comes from Users table
-  createdAt  DateTime @createdAt
-  updatedAt  DateTime @updatedAt
-  payment_method Json[]
-  stripe_customer_id String
-}
+// model Customer {
+//   id         String @id @default(uuid()) // comes from Users table
+//   createdAt  DateTime @createdAt
+//   updatedAt  DateTime @updatedAt
+//   payment_method Json[]
+//   stripe_customer_id String
+// }
 
-model Products {
-  id         String @id @default(uuid())
-  name       String
-  description String
-  active    Boolean
-  price      Int
-  image      String
-  tags      String[]
-  categories String[]
-  metadata  Json[]
-}
+// model Products {
+//   id         String @id @default(uuid())
+//   name       String
+//   description String
+//   active    Boolean
+//   price      Int
+//   image      String
+//   tags      String[]
+//   categories String[]
+//   metadata  Json[]
+// }
 
 
 // PRICES
 // Note: prices are created and managed in Stripe and synced to our DB via Stripe webhooks.
 
-model Prices {
-  id         String @id @default(uuid())
-  pricing_type PricingType
-  pricing_plan_interval  PricingPlanInterval
-  product_id Products @relation(fields: [product_id], references: [id])
-  active Boolean
-  description String
-  currency String
-  trial_from_plan Boolean
-  interval_count Int
-  metadata  Json[]
-  trial_period_days Int
-}
+// model Prices {
+//   id         String @id @default(uuid())
+//   pricing_type PricingType
+//   pricing_plan_interval  PricingPlanInterval
+//   product_id Products @relation(fields: [product_id], references: [id])
+//   active Boolean
+//   description String
+//   currency String
+//   trial_from_plan Boolean
+//   interval_count Int
+//   metadata  Json[]
+//   trial_period_days Int
+// }
 
-enum PricingType {
-  open_time
-  recuring
-}
+// enum PricingType {
+//   open_time
+//   recuring
+// }
 
-enum PricingPlanInterval {
-  day
-  week
-  month
-  year
-}
+// enum PricingPlanInterval {
+//   day
+//   week
+//   month
+//   year
+// }
 
 
 // SUBSCRIPTIONS
 // Note: subscriptions are created and managed in Stripe and synced to our DB via Stripe webhooks.
 
-model Subscriptions {
-  id        String @id @default(uuid())
-  user_id   String @relation(fields: [user_id], references: [id])
-  metadata Json[]
-  price_id String @relation(fields: [price_id], references: [id])
-  quantity Int
-  cancel_at_period_end Boolean
-  created DateTime @createdAt
-  current_period_start DateTime
-  current_period_end DateTime
-  ended_at DateTime
-  cancel_at DateTime
-  canceled_at DateTime
-  trial_start DateTime
-  trial_end DateTime
+// model Subscriptions {
+//   id        String @id @default(uuid())
+//   user_id   String @relation(fields: [user_id], references: [id])
+//   metadata Json[]
+//   price_id String @relation(fields: [price_id], references: [id])
+//   quantity Int
+//   cancel_at_period_end Boolean
+//   created DateTime @createdAt
+//   current_period_start DateTime
+//   current_period_end DateTime
+//   ended_at DateTime
+//   cancel_at DateTime
+//   canceled_at DateTime
+//   trial_start DateTime
+//   trial_end DateTime
+// }
+
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
