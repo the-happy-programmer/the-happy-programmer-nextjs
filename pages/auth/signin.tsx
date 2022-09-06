@@ -4,7 +4,6 @@ import SvgtoReact from '../../components/Svgtoreact'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { GetServerSideProps } from 'next'
-
 export default function SignIn({
   providers,
 }: {
@@ -18,7 +17,7 @@ export default function SignIn({
   }
 
   return (
-    <div className="h-full w-full bg-gradient-to-r from-gradient1 via-gradient2 to-gradient3">
+    <div className="h-full w-full bg-gray-800">
       <div className="flex justify-center pt-10 md:pt-20 lg:pt-20 xl:pt-20">
         <SvgtoReact
           name="signinlogo"
