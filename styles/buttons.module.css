@@ -5,3 +5,23 @@
 .sbtn {
   @apply focus:outline-none inline-block cursor-pointer rounded-md border border-gray-900  bg-gray-900 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-50 shadow-lg hover:border-opacity-10 hover:bg-opacity-80 dark:border-gray-50 dark:bg-gray-50 dark:text-gray-900;
 }
+
+.signin {
+  @apply mx-auto mt-10 max-w-sm rounded-md border border-gray-50 border-opacity-10 bg-gray-900 bg-opacity-10 px-6 py-10 backdrop-blur-lg backdrop-filter;
+  animation: movingshadow 8s infinite;
+}
+
+@keyframes movingshadow {
+  0% {
+    box-shadow: -40px 3px 100px -70px #f0f, 40px -3px 100px -70px #0ff;
+  }
+  50% {
+    box-shadow: -40px 40px 120px -70px #f0f, 40px -40px 120px -70px #0ff;
+  }
+
+  100% {
+    box-shadow: -40px 3px 100px -70px #f0f, 40px -3px 100px -70px #0ff;
+  }
+}
+
+/* Box - shadow  {right / left} {up / down} {blur} {in / out} */
