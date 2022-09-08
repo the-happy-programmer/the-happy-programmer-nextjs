@@ -4,13 +4,10 @@ import HappyLink from './HappyLink'
 import { useState } from 'react'
 import SideBar from './SideBar'
 import scroll from '../lib/scroll'
-import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { signIn } from 'next-auth/react'
 import Spinner from './spinners/Spinner'
 const Nav = () => {
-  const { data: session, status } = useSession()
   const [sidebar, setsidebar] = useState<boolean>(false)
   const links: string[][] = [
     ['/blog', 'Blog'],
@@ -65,7 +62,7 @@ const Nav = () => {
                 </div>
               ))}
               <div className="flex h-10 items-center justify-items-end">
-                {userNav()}
+                on progress
               </div>
             </div>
             <button
