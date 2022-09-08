@@ -13,14 +13,14 @@
 
 @keyframes movingshadow {
   0% {
-    box-shadow: -40px 3px 100px -70px #f0f, 40px -3px 100px -70px #0ff;
+    box-shadow: -40px 3px 100px -100px #f0f, 40px -3px 100px -100px #0ff;
   }
   50% {
-    box-shadow: -40px 40px 120px -70px #f0f, 40px -40px 120px -70px #0ff;
+    box-shadow: -40px 40px 120px -100px #f0f, 40px -40px 120px -100px #0ff;
   }
 
   100% {
-    box-shadow: -40px 3px 100px -70px #f0f, 40px -3px 100px -70px #0ff;
+    box-shadow: -40px 3px 100px -100px #f0f, 40px -3px 100px -100px #0ff;
   }
 }
 
