@@ -15,26 +15,26 @@ const Nav = () => {
     ['https://happynuxtjs.com/', 'NuxtJS'],
   ]
 
-  const userNav = () => {
-    if (status === 'loading') {
-      return <Spinner />
-    }
+  // const userNav = () => {
+  //   if (status === 'loading') {
+  //     return <Spinner />
+  //   }
 
-    if (session?.user) {
-      return (
-        <Link href="/profile">
-          <Image
-            src={session?.user?.image as string}
-            height={30}
-            width={30}
-            className="cursor-pointer rounded-full"
-          />
-        </Link>
-      )
-    } else {
-      return <HappyButton onClick={(e) => signIn()}>Sign In</HappyButton>
-    }
-  }
+  //   if (session?.user) {
+  //     return (
+  //       <Link href="/profile">
+  //         <Image
+  //           src={session?.user?.image as string}
+  //           height={30}
+  //           width={30}
+  //           className="cursor-pointer rounded-full"
+  //         />
+  //       </Link>
+  //     )
+  //   } else {
+  //     return <HappyButton onClick={(e) => signIn()}>Sign In</HappyButton>
+  //   }
+  // }
 
   return (
     <div className="h-17 sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
