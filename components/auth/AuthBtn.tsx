@@ -19,7 +19,7 @@ export default function AuthBtn({ icon, title }: BtnProps): JSX.Element {
 
   return (
     <button
-      onClick={() => handleProviderSignIn(title)}
+      onClick={() => handleProviderSignIn(title as Provider)}
       className="flex w-full flex-row content-center justify-center gap-x-3 rounded-md bg-gray-50 py-2"
     >
       <SvgtoReact
