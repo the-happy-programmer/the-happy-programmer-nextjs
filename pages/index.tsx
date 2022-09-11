@@ -6,6 +6,7 @@ import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
+import { useUser } from '@supabase/supabase-auth-helpers/react'
 
 import type {
   SubHeroProps,
@@ -26,6 +27,8 @@ export default function Home({
   moderntechnologies,
   info,
 }: HomeProps): JSX.Element {
+  const { user } = useUser()
+  console.log('USER:', user)
   return (
     <>
       <Meta title={seo.title} description={seo.description}>

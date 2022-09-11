@@ -1,10 +1,7 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
-import { useSession, signOut } from 'next-auth/react'
 
 export default function Profile(): JSX.Element {
-  const { data: session } = useSession()
-  console.log('user', session)
   return (
     <div className="container">
       <div className="mx-auto max-w-sm py-20 text-gray-900 dark:text-gray-50">

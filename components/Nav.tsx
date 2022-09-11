@@ -1,13 +1,20 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SideBar from './SideBar'
 import scroll from '../lib/scroll'
 import Image from 'next/image'
 import Link from 'next/link'
 import Spinner from './spinners/Spinner'
+import { useUser } from '@supabase/supabase-auth-helpers/react'
+
 const Nav = () => {
+  const { isLoading, user } = useUser()
+  useEffect(() => {
+    console.log('PALE ORC:', user)
+  }, [user])
+
   const [sidebar, setsidebar] = useState<boolean>(false)
   const links: string[][] = [
     ['/blog', 'Blog'],
@@ -15,26 +22,27 @@ const Nav = () => {
     ['https://happynuxtjs.com/', 'NuxtJS'],
   ]
 
-  // const userNav = () => {
-  //   if (status === 'loading') {
-  //     return <Spinner />
-  //   }
+  console.log('NAV:', user)
 
-  //   if (session?.user) {
-  //     return (
-  //       <Link href="/profile">
-  //         <Image
-  //           src={session?.user?.image as string}
-  //           height={30}
-  //           width={30}
-  //           className="cursor-pointer rounded-full"
-  //         />
-  //       </Link>
-  //     )
-  //   } else {
-  //     return <HappyButton onClick={(e) => signIn()}>Sign In</HappyButton>
-  //   }
-  // }
+  const userNav = () => {
+    if (isLoading) {
+      return <Spinner />
+    }
+    if (user) {
+      return (
+        <Link href="/profile">
+          <SvgtoReact
+            name="user-icon"
+            height={26}
+            width={26}
+            className="cursor-pointer stroke-current hover:text-gray-900 active:text-gray-50 dark:hover:text-gray-50"
+          />
+        </Link>
+      )
+    } else {
+      return <HappyButton href="/signin">Sign In</HappyButton>
+    }
+  }
 
   return (
     <div className="h-17 sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
@@ -62,7 +70,7 @@ const Nav = () => {
                 </div>
               ))}
               <div className="flex h-10 items-center justify-items-end">
-                on progress
+                {userNav()}
               </div>
             </div>
             <button

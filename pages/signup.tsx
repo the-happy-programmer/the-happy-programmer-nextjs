@@ -8,11 +8,7 @@ import { useUser } from '@supabase/supabase-auth-helpers/react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-export default function SignIn({
-  providers,
-}: {
-  providers: any[]
-}): JSX.Element | Promise<boolean> {
+export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
   const router = useRouter()
   const { user } = useUser()
 
@@ -23,9 +19,9 @@ export default function SignIn({
 
   const signup = async () => {
     setLoading(true)
-    const { error, user: createdUser } = await supabaseClient.auth.signIn({
-      email: email,
-      password: password,
+    const { error, user: createdUser } = await supabaseClient.auth.signUp({
+      email: email as string,
+      password: password as string,
     })
     setEmail('')
     setEmail('')
@@ -42,7 +38,8 @@ export default function SignIn({
 
   useEffect(() => {
     if (user) {
-      router.replace('/profile')
+      console.log('USER:', user)
+      router.replace('/account')
     }
   }, [user])
   return (
@@ -56,7 +53,7 @@ export default function SignIn({
       </div>
       <div className={style.signin}>
         <h1 className="pb-5 text-xl font-bold text-gray-50">
-          Sign in with your email
+          Sign up with your email
         </h1>
         <div className="relative mb-8 flex flex-col">
           <div className="absolute inset-y-0 left-0 flex items-center pl-5">
@@ -98,24 +95,16 @@ export default function SignIn({
           onClick={() => signup()}
           className="focus:outline-none inline-block w-full cursor-pointer rounded-md border border-gray-50  bg-gray-50 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-900 shadow-lg hover:border-opacity-10 hover:bg-opacity-80"
         >
-          Sign in
+          Sign Up
         </button>
-        <div className="my-6 flex items-center">
-          <div className="mr-3 flex-grow border-t border-gray-600"></div>
-          <div className="text-gray-400">Or</div>
-          <div className="ml-3 flex-grow border-t border-gray-600"></div>
-        </div>
-        <div className="flex flex-row justify-around">
-          <AuthBtn title="github" icon="github" />
-        </div>
       </div>
       <div className="mx-auto  flex max-w-md flex-row justify-center gap-x-1 pt-5 pb-28">
         <p className="text-xs text-gray-50 text-opacity-40">
-          you don't have an account?
+          already have an account?
         </p>
-        <Link href="/signup">
+        <Link href="/signin">
           <a className="text-xs font-semibold hover:underline dark:text-gray-50">
-            Sign Up
+            Sign In
           </a>
         </Link>
       </div>
