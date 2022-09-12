@@ -240,3 +240,7 @@ pre[class*='language-'] {
 .token.inserted {
   color: var(--code-colour-11);
 }
+
+button:disabled {
+  @apply cursor-not-allowed border-gray-700 bg-gray-700 text-gray-50 hover:bg-gray-700;
+}

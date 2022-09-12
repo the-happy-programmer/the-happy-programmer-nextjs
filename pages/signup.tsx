@@ -24,7 +24,7 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
       password: password as string,
     })
     setEmail('')
-    setEmail('')
+    setPassword('')
     if (error) {
       console.log('error', error.message)
       setError(error.message)
@@ -52,9 +52,10 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
         />
       </div>
       <div className={style.signin}>
-        <h1 className="pb-5 text-xl font-bold text-gray-50">
-          Sign up with your email
-        </h1>
+        <h1 className="pb-4 text-xl font-bold text-gray-50">Sign up</h1>
+        <div className="h-10">
+          {error && <p className="pb-4 text-danger">{error}</p>}
+        </div>
         <div className="relative mb-8 flex flex-col">
           <div className="absolute inset-y-0 left-0 flex items-center pl-5">
             <SvgtoReact
@@ -66,7 +67,7 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
           </div>
           <input
             type="email"
-            name=""
+            name="email"
             className="w-full rounded-md border border-opacity-10 bg-gray-50 bg-opacity-5 py-3 pr-5 pl-12 text-gray-50 shadow-sm"
             placeholder="Email Adress"
             onChange={(e) => setEmail(e.target.value)}
@@ -92,7 +93,9 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
         </div>
 
         <button
+          type="button"
           onClick={() => signup()}
+          disabled={!email?.length || !password?.length}
           className="focus:outline-none inline-block w-full cursor-pointer rounded-md border border-gray-50  bg-gray-50 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-900 shadow-lg hover:border-opacity-10 hover:bg-opacity-80"
         >
           Sign Up

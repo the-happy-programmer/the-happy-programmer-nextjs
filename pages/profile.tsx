@@ -1,18 +1,27 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
-
+import { useUser } from '@supabase/supabase-auth-helpers/react'
+import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { withAuthRequired, User } from '@supabase/supabase-auth-helpers/nextjs'
+import { useRouter } from 'next/router'
 export default function Profile(): JSX.Element {
+  const router = useRouter()
+  const { isLoading, user } = useUser()
+  console.log('USER:', user)
   return (
     <div className="container">
-      <div className="mx-auto max-w-sm py-20 text-gray-900 dark:text-gray-50">
+      <div className="mx-auto max-w-md py-20 text-gray-900 dark:text-gray-50">
         <h1 className="text-3xl font-bold ">Profile</h1>
         <div className="flex flex-col gap-y-8 py-5">
           <Table title="Account Details">
             <div className="flex flex-row items-center justify-between py-3">
-              <p className="font-medium">
-                {session?.user?.email || session?.user?.name}
-              </p>
-              <Happybutton onClick={(e) => signOut({ callbackUrl: '/' })}>
+              <p className="max-w-xs font-medium">{user?.email || ''}</p>
+              <Happybutton
+                onClick={() => {
+                  supabaseClient.auth.signOut()
+                  router.replace('/signin')
+                }}
+              >
                 Sign Out
               </Happybutton>
             </div>
@@ -25,3 +34,5 @@ export default function Profile(): JSX.Element {
     </div>
   )
 }
+
+export const getServerSideProps = withAuthRequired({ redirectTo: '/signin' })

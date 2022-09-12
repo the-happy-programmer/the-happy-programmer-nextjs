@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Spinner from './spinners/Spinner'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
+import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 
 const Nav = () => {
   const { isLoading, user } = useUser()

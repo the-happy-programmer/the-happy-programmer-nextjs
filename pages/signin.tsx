@@ -20,15 +20,17 @@ export default function SignIn({
   const [error, setError] = useState<string | null>(null)
   const [email, setEmail] = useState<string | null>(null)
   const [password, setPassword] = useState<string | null>(null)
+  const [remember, setRemember] = useState<boolean>(false)
 
   const signup = async () => {
     setLoading(true)
     const { error, user: createdUser } = await supabaseClient.auth.signIn({
-      email: email,
-      password: password,
+      email,
+      password,
     })
+
     setEmail('')
-    setEmail('')
+    setPassword('')
     if (error) {
       console.log('error', error.message)
       setError(error.message)
@@ -92,6 +94,25 @@ export default function SignIn({
             id="password"
             onChange={(e) => setPassword(e.target.value)}
           />
+        </div>
+        <div className="-mt-2 flex flex-row justify-between pb-6">
+          <label className="flex items-center space-x-3 text-opacity-50 ">
+            <input
+              type="checkbox"
+              name="remember"
+              className="focus:outline-none h-4 w-4"
+              checked={remember}
+              onChange={(e) => setRemember(!remember)}
+            />
+            <span className="text-sm font-medium text-gray-900 text-opacity-80 checked:text-opacity-20 dark:text-gray-50">
+              Remember me
+            </span>
+          </label>
+          <Link href="/forgotpassword">
+            <a className="text-sm font-medium underline dark:text-darkaccent">
+              forgot passowrd?
+            </a>
+          </Link>
         </div>
 
         <button
