@@ -6,7 +6,7 @@ export function SignWithLink({
   handleSignIn: () => void
   email: string
   setEmail: (email: string) => void
-}) {
+}): JSX.Element {
   return (
     <form onSubmit={handleSignIn}>
       <input
