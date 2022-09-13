@@ -3,11 +3,12 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import AuthBtn from './AuthBtn'
 import AuthInput from './AuthInput'
-import style from '/styles/buttons.module.css'
+import FormSceleton from './FormSceleton'
 
 export default function SignInForm({
   setForgotPassword,
   setSigninWithEmailPassword,
+  setSigninWithLink,
 }): JSX.Element {
   const [error, setError] = useState<string | null>(null)
   const [email, setEmail] = useState<string | undefined>(undefined)
@@ -36,16 +37,13 @@ export default function SignInForm({
   }
   return (
     <>
-      <div className={style.signin}>
-        <h1 className="pb-5 text-xl font-bold text-gray-50">
-          Sign in with your email
-        </h1>
+      <FormSceleton title="Sign in with your email">
         <AuthInput
           icon="email"
           value={email}
           setValue={setEmail}
           name="email"
-          iconclass="fill-current text-gray-400 "
+          iconclass="fill-current text-gray-400"
         />
         <AuthInput
           icon="key"
@@ -72,7 +70,7 @@ export default function SignInForm({
               setForgotPassword(true)
               setSigninWithEmailPassword(false)
             }}
-            className="text-sm font-medium underline dark:text-darkaccent"
+            className="cursor-pointer text-sm font-medium text-accent hover:underline dark:text-darkaccent"
           >
             forgot passowrd?
           </a>
@@ -85,14 +83,24 @@ export default function SignInForm({
           Sign in
         </button>
         <div className="my-8 flex items-center">
-          <div className="mr-3 flex-grow border-t border-gray-600"></div>
-          <div className="text-gray-400">Or</div>
-          <div className="ml-3 flex-grow border-t border-gray-600"></div>
+          <div className="mr-3 flex-grow border-t border-gray-50 border-opacity-25"></div>
+          <div className="text-gray-50 text-opacity-25">Or</div>
+          <div className="ml-3 flex-grow border-t border-gray-50 border-opacity-25"></div>
         </div>
-        <div className="flex flex-row justify-around">
+        <div className="flex flex-col justify-around space-y-4">
           <AuthBtn title="github" icon="github" />
+          <a
+            onClick={(e) => {
+              setForgotPassword(false)
+              setSigninWithEmailPassword(false)
+              setSigninWithLink(true)
+            }}
+            className="cursor-pointer text-center text-sm font-medium capitalize text-accent hover:underline dark:text-darkaccent"
+          >
+            Sign in with Magic Link
+          </a>
         </div>
-      </div>
+      </FormSceleton>
     </>
   )
 }

@@ -39,6 +39,7 @@ export default function SignIn({
         <SignInForm
           setForgotPassword={setForgotPassword}
           setSigninWithEmailPassword={setSigninWithEmailPassword}
+          setSigninWithLink={setSigninWithLink}
         />
       )}
       {signinwithlink && <SignWithLink />}
