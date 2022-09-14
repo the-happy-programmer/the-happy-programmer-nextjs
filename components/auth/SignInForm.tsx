@@ -9,6 +9,10 @@ export default function SignInForm({
   setForgotPassword,
   setSigninWithEmailPassword,
   setSigninWithLink,
+}: {
+  setForgotPassword: (password: boolean) => void
+  setSigninWithEmailPassword: (password: boolean) => void
+  setSigninWithLink: (link: boolean) => void
 }): JSX.Element {
   const [error, setError] = useState<string | null>(null)
   const [email, setEmail] = useState<string | undefined>(undefined)
@@ -78,7 +82,7 @@ export default function SignInForm({
 
         <button
           onClick={() => signup()}
-          className="focus:outline-none inline-block w-full cursor-pointer rounded-md border border-gray-50  bg-gray-50 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-900 shadow-lg hover:border-opacity-10 hover:bg-opacity-80"
+          className="focus:outline-none flex w-full cursor-pointer flex-row justify-center  rounded-md border border-gray-50 bg-gray-50 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-900 shadow-lg hover:border-opacity-10 hover:bg-opacity-80"
         >
           Sign in
         </button>
