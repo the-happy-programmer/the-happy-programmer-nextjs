@@ -22,7 +22,7 @@ export default function AuthInput({
         type={name}
         name={name}
         value={value as string}
-        className="w-full rounded-md border border-opacity-10 bg-gray-50 bg-opacity-5 py-3 pr-5 pl-12 text-gray-50 shadow-sm"
+        className="w-full rounded-md border border-gray-900 border-opacity-10 bg-gray-50 bg-opacity-5 py-3 pr-5 pl-12 text-gray-900 dark:border-gray-50 dark:text-gray-50"
         placeholder={name}
         onChange={(e) => setValue(e.target.value)}
       />

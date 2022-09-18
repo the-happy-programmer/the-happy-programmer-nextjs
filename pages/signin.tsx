@@ -7,6 +7,7 @@ import Link from 'next/link'
 import SignInForm from '../components/auth/SignInForm'
 import { SignWithLink } from '../components/auth/SignWithLink'
 import ForgotPassword from '../components/auth/ForgotPassword'
+import BottomLink from '../components/auth/BottomLink'
 
 export default function SignIn({
   providers,
@@ -27,7 +28,7 @@ export default function SignIn({
     }
   }, [user])
   return (
-    <div className="h-full w-full bg-gray-800">
+    <div className="h-full w-full bg-gray-50 dark:bg-gray-800">
       <div className="flex justify-center pt-10 md:pt-20 lg:pt-20 xl:pt-20">
         <SvgtoReact
           name="signinlogo"
@@ -44,16 +45,11 @@ export default function SignIn({
       )}
       {signinwithlink && <SignWithLink />}
       {forgotpassword && <ForgotPassword />}
-      <div className="mx-auto  flex max-w-md flex-row justify-center gap-x-1 pt-5 pb-28">
-        <p className="text-xs text-gray-50 text-opacity-40">
-          you don't have an account?
-        </p>
-        <Link href="/signup">
-          <a className="text-xs font-semibold hover:underline dark:text-gray-50">
-            Sign Up
-          </a>
-        </Link>
-      </div>
+      <BottomLink
+        title="you don't have an account?"
+        link="Sign Up"
+        url="/signup"
+      />
     </div>
   )
 }
