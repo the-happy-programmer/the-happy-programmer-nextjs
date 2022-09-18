@@ -1,12 +1,9 @@
-import AuthBtn from '../components/auth/AuthBtn'
 import SvgtoReact from '../components/Svgtoreact'
 import { useRouter } from 'next/router'
 import { GetServerSideProps } from 'next'
-import style from '/styles/buttons.module.css'
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import FormSceleton from '../components/auth/FormSceleton'
 import AuthInput from '../components/auth/AuthInput'
 import BtnSpinner from '../components/spinners/BtnSpinner'
@@ -35,7 +32,7 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
       setError(error.message)
     }
     if (createdUser) {
-      console.log(createdUser)
+      console.log('CREATED USER:', createdUser)
       router.replace('/')
     }
     setLoading(false)
@@ -44,7 +41,7 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
   useEffect(() => {
     if (user) {
       console.log('USER:', user)
-      router.replace('/account')
+      router.replace('/profile')
     }
   }, [user])
   return (
@@ -82,8 +79,10 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
           title="Sign Up"
           loading={loading}
           full={true}
+          onClick={signup}
           disabled={!email?.length || !password?.length || !username?.length}
         />
+        <div className="pt-8 text-danger">{error}</div>
       </FormSceleton>
       <BottomLink
         title="Already have an account?"

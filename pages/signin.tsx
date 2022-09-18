@@ -9,11 +9,7 @@ import { SignWithLink } from '../components/auth/SignWithLink'
 import ForgotPassword from '../components/auth/ForgotPassword'
 import BottomLink from '../components/auth/BottomLink'
 
-export default function SignIn({
-  providers,
-}: {
-  providers: any[]
-}): JSX.Element | Promise<boolean> {
+export default function SignIn({}: {}): JSX.Element | Promise<boolean> {
   const router = useRouter()
   const { user } = useUser()
 
