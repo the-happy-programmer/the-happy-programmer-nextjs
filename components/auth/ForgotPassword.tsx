@@ -17,7 +17,7 @@ export default function ForgotPassword({}: {}) {
       setError(resetError.message)
     }
     if (data) {
-      console.log('DATA:', data)
+      setError('we send you an email with a link to reset your password')
     }
   }
 

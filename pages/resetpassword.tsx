@@ -19,24 +19,25 @@ export default function ForgotPassword({}: {}) {
   }, [user])
 
   const handleResetPassword = async () => {
-    const { data, error: resetError } =
-      await supabaseClient.auth.api.resetPasswordForEmail(password as string)
+    const { data, error: resetError } = await supabaseClient.auth.update({
+      password: password,
+    })
 
     if (resetError) {
       setError(resetError.message)
     }
     if (data) {
-      console.log('DATA:', data)
+      setError('Password updated successfully')
     }
   }
 
   return (
-    <FormSceleton title="Forgot Password">
+    <FormSceleton title="Reset Password">
       <AuthInput
         icon="key"
         value={password}
         setValue={setPassword}
-        name="email"
+        name="password"
         iconclass="fill-current dark:text-gray-50 text-opacity-50 text-gray-900"
       />
       <BtnSpinner
@@ -44,7 +45,7 @@ export default function ForgotPassword({}: {}) {
         title="Send reset link"
         loading={loading}
         full={true}
-        disabled={!email?.length}
+        disabled={!password?.length}
       />
       <div className="text-danger">{error}</div>
     </FormSceleton>
