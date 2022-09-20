@@ -6,24 +6,26 @@ export function SignWithLink({
   email,
   setEmail,
   handleSignIn,
+  loading,
 }: {
-  handleSignIn: () => void
   email: string
   setEmail: (email: string) => void
+  loading: boolean
+  handleSignIn: () => void
 }): JSX.Element {
   return (
     <FormSceleton title="Sign in with magic link">
       <AuthInput
         icon="email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        setValue={setEmail}
         name="email"
-        iconclass="fill-current text-gray-50 text-opacity-50"
+        iconclass="fill-current dark:text-gray-50 text-gray-900 text-opacity-50"
       />
       <BtnSpinner
         title="Send magic link"
         onClick={handleSignIn}
-        loading={false}
+        loading={loading}
         full={true}
         disabled={!email?.length}
       />

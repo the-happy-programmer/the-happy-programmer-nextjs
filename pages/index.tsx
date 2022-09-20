@@ -6,7 +6,10 @@ import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
-import { useUser } from '@supabase/supabase-auth-helpers/react'
+import type { SEOProps } from '../lib/types/seo'
+import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { useEffect } from 'react'
+import NewSupport from '../components/home/NewSupport'
 
 import type {
   SubHeroProps,
@@ -15,8 +18,7 @@ import type {
   SupportType,
   HomeProps,
 } from '../lib/types/home'
-import type { SEOProps } from '../lib/types/seo'
-import NewSupport from '../components/home/NewSupport'
+import { useRouter } from 'next/router'
 
 export default function Home({
   seo,
@@ -27,8 +29,15 @@ export default function Home({
   moderntechnologies,
   info,
 }: HomeProps): JSX.Element {
-  const { user } = useUser()
-  console.log('USER:', user)
+  const router = useRouter()
+  useEffect(() => {
+    supabaseClient.auth.onAuthStateChange(async (event, session) => {
+      if (event == 'PASSWORD_RECOVERY') {
+        router.replace('/resetpassword')
+      }
+    })
+  }, [])
+
   return (
     <>
       <Meta title={seo.title} description={seo.description}>

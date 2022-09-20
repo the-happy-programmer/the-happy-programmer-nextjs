@@ -4,17 +4,13 @@ import HappyLink from './HappyLink'
 import { useState, useEffect } from 'react'
 import SideBar from './SideBar'
 import scroll from '../lib/scroll'
-import Image from 'next/image'
 import Link from 'next/link'
 import Spinner from './spinners/Spinner'
-import { useUser } from '@supabase/supabase-auth-helpers/react'
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { useUser } from '@supabase/supabase-auth-helpers/react'
 
 const Nav = () => {
   const { isLoading, user } = useUser()
-  useEffect(() => {
-    console.log('PALE ORC:', user)
-  }, [user])
 
   const [sidebar, setsidebar] = useState<boolean>(false)
   const links: string[][] = [
@@ -22,8 +18,6 @@ const Nav = () => {
     ['/about', 'About'],
     ['https://happynuxtjs.com/', 'NuxtJS'],
   ]
-
-  console.log('NAV:', user)
 
   const userNav = () => {
     if (isLoading) {

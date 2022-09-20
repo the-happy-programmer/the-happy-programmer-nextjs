@@ -1,6 +1,3 @@
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 import BtnSpinner from '../spinners/BtnSpinner'
 import AuthBtn from './AuthBtn'
 import AuthInput from './AuthInput'
@@ -10,36 +7,29 @@ export default function SignInForm({
   setForgotPassword,
   setSigninWithEmailPassword,
   setSigninWithLink,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  remember,
+  setRemember,
+  error,
+  loading,
+  signin,
 }: {
   setForgotPassword: (password: boolean) => void
   setSigninWithEmailPassword: (password: boolean) => void
   setSigninWithLink: (link: boolean) => void
+  email: string
+  password: string
+  setPassword: (password: string) => void
+  setEmail: (email: string) => void
+  error: string
+  remember: boolean
+  setRemember: (remember: boolean) => void
+  loading: boolean
+  signin: () => void
 }): JSX.Element {
-  const [error, setError] = useState<string | null>(null)
-  const [email, setEmail] = useState<string | undefined>(undefined)
-  const [password, setPassword] = useState<string | undefined>(undefined)
-  const [remember, setRemember] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(false)
-  const router = useRouter()
-  const signup = async () => {
-    setLoading(true)
-    const { error, user: createdUser } = await supabaseClient.auth.signIn({
-      email,
-      password,
-    })
-
-    setEmail('')
-    setPassword('')
-    if (error) {
-      console.log('error', error.message)
-      setError(error.message)
-    }
-    if (createdUser) {
-      console.log(createdUser)
-      router.replace('/')
-    }
-    setLoading(false)
-  }
   return (
     <>
       <FormSceleton title="Sign in with your email">
@@ -81,7 +71,7 @@ export default function SignInForm({
           </a>
         </div>
         <BtnSpinner
-          onClick={() => signup()}
+          onClick={signin}
           title="Sign in"
           loading={loading}
           full={true}
