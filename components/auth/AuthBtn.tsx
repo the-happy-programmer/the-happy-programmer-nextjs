@@ -13,7 +13,7 @@ export default function AuthBtn({ icon, title }: BtnProps): JSX.Element {
   const handleProviderSignIn = async (provider: Provider) => {
     const { error } = await supabaseClient.auth.signIn({ provider })
     if (error) {
-      // setMessage({ type: 'error', content: error.message })
+      setMessage({ type: 'error', content: error.message })
     }
   }
 

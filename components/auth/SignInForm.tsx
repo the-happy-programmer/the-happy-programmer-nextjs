@@ -77,6 +77,7 @@ export default function SignInForm({
           full={true}
           disabled={!email?.length || !password?.length}
         />
+        <p className="pt-3 text-danger">{error}</p>
         <div className="my-8 flex items-center">
           <div className="mr-3 flex-grow border-t border-gray-900 border-opacity-5 dark:border-gray-50"></div>
           <div className="text-gray-900 text-opacity-25 dark:text-gray-50">
