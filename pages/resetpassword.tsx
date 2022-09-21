@@ -52,7 +52,7 @@ export default function ForgotPassword({}: {}) {
         />
         <BtnSpinner
           onClick={handleResetPassword}
-          title="Send reset link"
+          title="Reset password"
           loading={loading}
           full={true}
           disabled={!password?.length || loading}
