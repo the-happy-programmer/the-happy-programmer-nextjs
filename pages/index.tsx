@@ -30,10 +30,11 @@ export default function Home({
   info,
 }: HomeProps): JSX.Element {
   const router = useRouter()
+
   useEffect(() => {
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
       if (event == 'PASSWORD_RECOVERY') {
-        router.replace('/resetpassword')
+        router.push('/resetpassword')
       }
     })
   }, [])
