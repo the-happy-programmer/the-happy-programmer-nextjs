@@ -5,20 +5,28 @@ import AuthInput from './AuthInput'
 import FormSceleton from './FormSceleton'
 
 export default function ForgotPassword({}: {}) {
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<{
+    error: string | undefined
+    success: string | undefined
+  } | null>(null)
   const [email, setEmail] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState<boolean>(false)
 
   const handleResetPassword = async () => {
+    setLoading(true)
     const { data, error: resetError } =
       await supabaseClient.auth.api.resetPasswordForEmail(email as string)
 
     if (resetError) {
-      setError(resetError.message)
+      setError({ error: resetError.message, success: undefined })
     }
     if (data) {
-      setError('we send you an email with a link to reset your password')
+      setError({
+        error: undefined,
+        success: 'we send you an email with a link to reset your password',
+      })
     }
+    setLoading(false)
   }
 
   return (
@@ -37,7 +45,13 @@ export default function ForgotPassword({}: {}) {
         full={true}
         disabled={!email?.length}
       />
-      <div className="text-danger">{error}</div>
+      <div
+        className={
+          error?.success ? 'text-accent dark:text-darkaccent' : 'text-danger'
+        }
+      >
+        <p className="pt-6">{error?.success || error?.error}</p>
+      </div>
     </FormSceleton>
   )
 }

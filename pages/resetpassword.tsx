@@ -5,6 +5,8 @@ import FormSceleton from '../components/auth/FormSceleton'
 import BtnSpinner from '../components/spinners/BtnSpinner'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
 import router from 'next/router'
+import SvgtoReact from '../components/Svgtoreact'
+import BottomLink from '../components/auth/BottomLink'
 
 export default function ForgotPassword({}: {}) {
   const { isLoading, user } = useUser()
@@ -32,22 +34,32 @@ export default function ForgotPassword({}: {}) {
   }
 
   return (
-    <FormSceleton title="Reset Password">
-      <AuthInput
-        icon="key"
-        value={password}
-        setValue={setPassword}
-        name="password"
-        iconclass="fill-current dark:text-gray-50 text-opacity-50 text-gray-900"
-      />
-      <BtnSpinner
-        onClick={handleResetPassword}
-        title="Send reset link"
-        loading={loading}
-        full={true}
-        disabled={!password?.length}
-      />
-      <div className="text-danger">{error}</div>
-    </FormSceleton>
+    <div className="h-full w-full bg-gray-50 dark:bg-gray-800">
+      <div className="flex justify-center pt-10 md:pt-20 lg:pt-20 xl:pt-20">
+        <SvgtoReact
+          name="signinlogo"
+          height={40}
+          className="stroke-current text-gray-900 dark:text-gray-900"
+        />
+      </div>
+      <FormSceleton title="Reset Password">
+        <AuthInput
+          icon="key"
+          value={password}
+          setValue={setPassword}
+          name="password"
+          iconclass="fill-current dark:text-gray-50 text-opacity-50 text-gray-900"
+        />
+        <BtnSpinner
+          onClick={handleResetPassword}
+          title="Send reset link"
+          loading={loading}
+          full={true}
+          disabled={!password?.length}
+        />
+        <div className="text-danger">{error}</div>
+      </FormSceleton>
+      <BottomLink title="Back to" link="profile" url="/profile" />
+    </div>
   )
 }
