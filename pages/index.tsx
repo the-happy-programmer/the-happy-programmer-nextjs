@@ -34,6 +34,7 @@ export default function Home({
   useEffect(() => {
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
       if (event == 'PASSWORD_RECOVERY') {
+        console.log('PASSWORD_RECOVERY')
         router.push('/resetpassword')
       }
     })
