@@ -1,7 +1,7 @@
 import SvgtoReact from '../Svgtoreact'
 import { MouseEventHandler } from 'react'
 import { Provider } from '@supabase/supabase-js'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs/utils/initSupabase'
 
 interface BtnProps {
   icon: string
