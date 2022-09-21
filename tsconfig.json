@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/search/MyHeader.js"
+    "components/search/MyHeader.js",
+    "middleware.js"
   ],
   "exclude": ["node_modules"]
 }
