@@ -1,6 +1,6 @@
 import SvgtoReact from '../Svgtoreact'
 import { MouseEventHandler } from 'react'
-import { Provider } from '@supabase/supabase-js'
+import type { Provider } from '@supabase/supabase-js'
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs/utils/initSupabase'
 
 interface BtnProps {
@@ -16,8 +16,7 @@ export default function AuthBtn({
   setError,
 }: BtnProps): JSX.Element {
   const handleProviderSignIn = async (provider: Provider) => {
-    console.log('provider', provider)
-    const { error } = await supabaseClient.auth.signIn({ provider: provider })
+    const { error } = await supabaseClient.auth.signIn({ provider })
     if (error) {
       setError(error?.message as string)
     }
