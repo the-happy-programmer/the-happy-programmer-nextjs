@@ -11,13 +11,15 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.73",
+    "@supabase/supabase-auth-helpers": "^1.4.2",
+    "@types/react-transition-group": "^4.4.5",
     "classnames": "^2.3.1",
     "html-to-react": "^1.4.7",
     "next": "^12.0.3",
-    "next-auth": "^4.10.1",
     "preact": "^10.10.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-transition-group": "^4.4.5",
     "sharp": "^0.30.7"
   },
   "devDependencies": {
@@ -38,7 +40,6 @@
     "postcss": "^8.3.11",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.7",
-    "prisma": "^4.2.1",
     "remark": "^14.0.1",
     "remark-html": "^15.0.0",
     "remark-mdx": "^2.1.3",

@@ -7,20 +7,23 @@
 }
 
 .signin {
-  @apply mx-auto mt-10 max-w-sm rounded-md border border-gray-50 border-opacity-10 bg-gray-900 bg-opacity-10 px-6 py-10 backdrop-blur-lg backdrop-filter;
+  @apply mx-auto mt-10 max-w-md rounded-md border border-gray-900 border-opacity-5 bg-gray-100 px-8 py-10 dark:border-gray-50 dark:border-opacity-10 dark:bg-gray-800;
   animation: movingshadow 8s infinite;
 }
 
 @keyframes movingshadow {
   0% {
-    box-shadow: -40px 3px 100px -70px #f0f, 40px -3px 100px -70px #0ff;
+    box-shadow: -40px 3px 100px -100px var(--accentShadow),
+      40px -3px 100px -100px var(--accentShadow2);
   }
   50% {
-    box-shadow: -40px 40px 120px -70px #f0f, 40px -40px 120px -70px #0ff;
+    box-shadow: -40px 40px 120px -100px var(--accentShadow),
+      40px -40px 120px -100px var(--accentShadow2);
   }
 
   100% {
-    box-shadow: -40px 3px 100px -70px #f0f, 40px -3px 100px -70px #0ff;
+    box-shadow: -40px 3px 100px -100px var(--accentShadow),
+      40px -3px 100px -100px var(--accentShadow2);
   }
 }
 

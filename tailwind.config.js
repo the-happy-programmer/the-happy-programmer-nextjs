@@ -32,7 +32,9 @@ module.exports = {
         900: '#000',
       },
     },
-    extend: {},
+    extend: {
+      opacity: ['disabled'],
+    },
     screens: {
       sm: { min: '640px', max: '767px' },
       md: { min: '768px', max: '1023px' },
@@ -53,6 +55,8 @@ module.exports = {
   variants: {
     extend: {
       textOpacity: ['dark'],
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
     },
   },
   plugins: [require('@tailwindcss/line-clamp')],

@@ -1,5 +1,7 @@
 import SvgtoReact from '../Svgtoreact'
 import { MouseEventHandler } from 'react'
+import { Provider } from '@supabase/supabase-js'
+import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 
 interface BtnProps {
   icon: string
@@ -7,21 +9,28 @@ interface BtnProps {
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-export default function AuthBtn({
-  icon,
-  title,
-  onClick,
-}: BtnProps): JSX.Element {
+export default function AuthBtn({ icon, title }: BtnProps): JSX.Element {
+  const handleProviderSignIn = async (provider: Provider) => {
+    const { error } = await supabaseClient.auth.signIn({ provider })
+    if (error) {
+      // setMessage({ type: 'error', content: error.message })
+    }
+  }
+
   return (
-    <button onClick={onClick} className="px-1">
-      <div className="rounded-full bg-gray-50 p-0.5">
-        <SvgtoReact
-          name={icon}
-          className="m-3 fill-current text-gray-900 dark:text-gray-900"
-          height={15}
-          width={15}
-        />
-      </div>
+    <button
+      onClick={() => handleProviderSignIn(title as Provider)}
+      className="flex w-full flex-row content-center justify-center gap-x-3 rounded-md border border-gray-50 border-opacity-10 bg-gray-900 bg-opacity-5 py-3 hover:bg-opacity-20 dark:bg-gray-50"
+    >
+      <SvgtoReact
+        name={icon}
+        className="fill-current text-gray-900 dark:text-gray-50"
+        height={20}
+        width={20}
+      />
+      <p className="my-auto text-xs font-medium capitalize text-gray-900 dark:text-gray-50">
+        sign in with {title}
+      </p>
     </button>
   )
 }

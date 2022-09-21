@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  --accentShadow: rgb(173, 8, 173);
+  --accentShadow2: rgb(14, 151, 151);
   --my-gray-50: #fff;
   --my-gray-100: #fafafa;
   --my-gray-200: #eaeaea;
@@ -23,6 +25,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --accentShadow: #f0f;
+    --accentShadow2: #0ff;
+
     --my-gray-50: #111;
     --my-gray-100: #111;
     --my-gray-200: #333;
@@ -239,4 +244,8 @@ pre[class*='language-'] {
 
 .token.inserted {
   color: var(--code-colour-11);
+}
+
+button:disabled {
+  @apply cursor-not-allowed border-gray-400 bg-gray-400 text-gray-50 hover:bg-gray-400 dark:border-gray-700 dark:bg-gray-700 dark:hover:bg-gray-700;
 }

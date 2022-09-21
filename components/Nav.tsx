@@ -1,16 +1,17 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SideBar from './SideBar'
 import scroll from '../lib/scroll'
-import { useSession } from 'next-auth/react'
-import Image from 'next/image'
 import Link from 'next/link'
-import { signIn } from 'next-auth/react'
 import Spinner from './spinners/Spinner'
+import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { useUser } from '@supabase/supabase-auth-helpers/react'
+
 const Nav = () => {
-  const { data: session, status } = useSession()
+  const { isLoading, user } = useUser()
+
   const [sidebar, setsidebar] = useState<boolean>(false)
   const links: string[][] = [
     ['/blog', 'Blog'],
@@ -19,23 +20,22 @@ const Nav = () => {
   ]
 
   const userNav = () => {
-    if (status === 'loading') {
+    if (isLoading) {
       return <Spinner />
     }
-
-    if (session?.user) {
+    if (user) {
       return (
         <Link href="/profile">
-          <Image
-            src={session?.user?.image as string}
-            height={30}
-            width={30}
-            className="cursor-pointer rounded-full"
+          <SvgtoReact
+            name="user-icon"
+            height={26}
+            width={26}
+            className="cursor-pointer stroke-current hover:text-gray-900 active:text-gray-50 dark:hover:text-gray-50"
           />
         </Link>
       )
     } else {
-      return <HappyButton onClick={(e) => signIn()}>Sign In</HappyButton>
+      return <HappyButton href="/signin">Sign In</HappyButton>
     }
   }
 
