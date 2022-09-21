@@ -55,7 +55,7 @@ export default function ForgotPassword({}: {}) {
           title="Send reset link"
           loading={loading}
           full={true}
-          disabled={!password?.length}
+          disabled={!password?.length || loading}
         />
         <div className="text-danger">{error}</div>
       </FormSceleton>

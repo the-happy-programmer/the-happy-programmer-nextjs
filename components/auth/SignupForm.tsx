@@ -75,7 +75,9 @@ export default function SignupForm({}): JSX.Element {
           loading={loading}
           full={true}
           onClick={signup}
-          disabled={!email?.length || !password?.length || !username?.length}
+          disabled={
+            !email?.length || !password?.length || !username?.length || loading
+          }
         />
         <div className="pt-8 text-danger">{error}</div>
       </FormSceleton>

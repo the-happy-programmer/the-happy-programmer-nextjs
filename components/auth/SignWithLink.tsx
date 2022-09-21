@@ -7,11 +7,13 @@ export function SignWithLink({
   setEmail,
   handleSignIn,
   loading,
+  error,
 }: {
   email: string
   setEmail: (email: string) => void
   loading: boolean
   handleSignIn: () => void
+  error: string
 }): JSX.Element {
   return (
     <FormSceleton title="Sign in with magic link">
@@ -27,7 +29,7 @@ export function SignWithLink({
         onClick={handleSignIn}
         loading={loading}
         full={true}
-        disabled={!email?.length}
+        disabled={!email?.length || loading}
       />
     </FormSceleton>
   )

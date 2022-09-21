@@ -75,7 +75,7 @@ export default function SignInForm({
           title="Sign in"
           loading={loading}
           full={true}
-          disabled={!email?.length || !password?.length}
+          disabled={!email?.length || !password?.length || loading}
         />
         <p className="pt-3 text-danger">{error}</p>
         <div className="my-8 flex items-center">
