@@ -31,6 +31,7 @@ export function SignWithLink({
         full={true}
         disabled={!email?.length || loading}
       />
+      <p className="pt-3 text-danger">{error}</p>
     </FormSceleton>
   )
 }
