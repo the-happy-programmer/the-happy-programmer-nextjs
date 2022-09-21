@@ -48,7 +48,7 @@ export default function ForgotPassword({}: {}) {
           value={password}
           setValue={setPassword}
           name="password"
-          iconclass="fill-current dark:text-gray-50 text-opacity-50 text-gray-900"
+          iconclass="stroke-current dark:text-gray-50 text-opacity-50 text-gray-900"
         />
         <BtnSpinner
           onClick={handleResetPassword}
