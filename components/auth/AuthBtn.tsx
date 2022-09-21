@@ -16,7 +16,8 @@ export default function AuthBtn({
   setError,
 }: BtnProps): JSX.Element {
   const handleProviderSignIn = async (provider: Provider) => {
-    const { error } = await supabaseClient.auth.signIn({ provider })
+    console.log('provider', provider)
+    const { error } = await supabaseClient.auth.signIn({ provider: provider })
     if (error) {
       setError(error?.message as string)
     }
