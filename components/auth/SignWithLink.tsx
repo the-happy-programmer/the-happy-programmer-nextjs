@@ -1,6 +1,7 @@
 import BtnSpinner from '../spinners/BtnSpinner'
 import AuthInput from './AuthInput'
 import FormSceleton from './FormSceleton'
+
 export function SignWithLink({
   email,
   setEmail,
