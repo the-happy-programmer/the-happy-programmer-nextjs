@@ -16,6 +16,7 @@ export default function SignInForm({
   error,
   loading,
   signin,
+  setError,
 }: {
   setForgotPassword: (password: boolean) => void
   setSigninWithEmailPassword: (password: boolean) => void
@@ -29,6 +30,7 @@ export default function SignInForm({
   setRemember: (remember: boolean) => void
   loading: boolean
   signin: () => void
+  setError: (error: string) => void
 }): JSX.Element {
   return (
     <>
@@ -86,7 +88,7 @@ export default function SignInForm({
           <div className="ml-3 flex-grow border-t border-gray-900 border-opacity-5 dark:border-gray-50"></div>
         </div>
         <div className="flex flex-col justify-around space-y-4">
-          <AuthBtn title="github" icon="github" />
+          <AuthBtn title="github" icon="github" setError={setError} />
           <a
             onClick={(e) => {
               setForgotPassword(false)

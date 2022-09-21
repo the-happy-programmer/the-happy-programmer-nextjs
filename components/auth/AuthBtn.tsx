@@ -7,13 +7,18 @@ interface BtnProps {
   icon: string
   title: string
   onClick?: MouseEventHandler<HTMLButtonElement>
+  setError: (error: string) => void
 }
 
-export default function AuthBtn({ icon, title }: BtnProps): JSX.Element {
+export default function AuthBtn({
+  icon,
+  title,
+  setError,
+}: BtnProps): JSX.Element {
   const handleProviderSignIn = async (provider: Provider) => {
     const { error } = await supabaseClient.auth.signIn({ provider })
     if (error) {
-      setMessage({ type: 'error', content: error.message })
+      setError(error?.message as string)
     }
   }
 

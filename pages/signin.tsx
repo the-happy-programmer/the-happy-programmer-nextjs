@@ -59,6 +59,7 @@ export default function SignIn({}: {}): JSX.Element {
       </div>
       {signinwithemailpassword && (
         <SignInForm
+          setError={setError}
           setSigninWithEmailPassword={setSigninWithEmailPassword}
           setForgotPassword={setForgotPassword}
           setSigninWithLink={setSigninWithLink}
@@ -79,6 +80,7 @@ export default function SignIn({}: {}): JSX.Element {
           setEmail={setEmail}
           loading={loading}
           handleSignIn={signin}
+          error={error as string}
         />
       )}
       {forgotpassword && <ForgotPassword />}
