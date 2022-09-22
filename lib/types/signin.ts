@@ -28,3 +28,22 @@ export interface SigninWithLinkProps {
   handleSignIn: () => void
   error: ErrorProps
 }
+
+export interface BottomLinkProps {
+  title: string
+  link: string
+  url: string
+}
+
+export interface FormSceletonProps {
+  children: React.ReactNode
+  title: string
+}
+
+export interface SigninWithEmailPasswordProps {
+  handleSignIn: () => void
+  email: string
+  setEmail: (email: string) => void
+  password: string
+  setPassword: (passowrd: string) => void
+}

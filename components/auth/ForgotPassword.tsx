@@ -3,12 +3,10 @@ import { useState } from 'react'
 import BtnSpinner from '../spinners/BtnSpinner'
 import AuthInput from './AuthInput'
 import FormSceleton from './FormSceleton'
+import type { ErrorProps } from '../../lib/types/signin'
 
 export default function ForgotPassword({}: {}): JSX.Element {
-  const [error, setError] = useState<{
-    error: string | undefined
-    success: string | undefined
-  } | null>(null)
+  const [error, setError] = useState<ErrorProps | null>(null)
   const [email, setEmail] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState<boolean>(false)
 

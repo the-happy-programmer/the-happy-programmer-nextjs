@@ -46,7 +46,7 @@ export default function SignIn({}: {}): JSX.Element {
     if (user) {
       router.replace('/profile')
     }
-  }, [user])
+  }, [user, router])
   return (
     <div className="h-full w-full bg-gray-50 dark:bg-gray-800">
       <div className="flex justify-center pt-10 md:pt-20 lg:pt-20 xl:pt-20">

@@ -36,7 +36,7 @@ export default function Home({
         router.push('/resetpassword')
       }
     })
-  }, [])
+  }, [router])
 
   return (
     <>

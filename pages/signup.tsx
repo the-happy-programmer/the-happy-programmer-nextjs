@@ -12,7 +12,7 @@ export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
     if (user) {
       router.replace('/profile')
     }
-  }, [user])
+  }, [user, router])
   return (
     <div className="h-full w-full bg-gray-50 dark:bg-gray-800">
       <SignupForm />

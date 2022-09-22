@@ -1,11 +1,6 @@
-export default function ErrorMessage({
-  error,
-}: {
-  error: {
-    error: string | undefined
-    success: string | undefined
-  }
-}) {
+import type { ErrorProps } from '../../lib/types/signin'
+
+export default function ErrorMessage({ error }: { error: ErrorProps }) {
   if (!error) return null
   return (
     <div

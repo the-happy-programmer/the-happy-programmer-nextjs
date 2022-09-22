@@ -1,16 +1,12 @@
+import type { SigninWithEmailPasswordProps } from '../../lib/types/signin'
+
 export function SignWithLink({
   email,
   setEmail,
   password,
   setPassword,
   handleSignIn,
-}: {
-  handleSignIn: () => void
-  email: string
-  setEmail: (email: string) => void
-  password: string
-  setPassword: (passowrd: string) => void
-}) {
+}: SigninWithEmailPasswordProps) {
   return (
     <form onSubmit={handleSignIn}>
       <input

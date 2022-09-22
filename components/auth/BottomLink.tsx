@@ -1,14 +1,11 @@
 import Link from 'next/link'
+import type { BottomLinkProps } from '../../lib/types/signin'
 
 export default function BottomLink({
   title,
   link,
   url,
-}: {
-  title: string
-  link: string
-  url: string
-}): JSX.Element {
+}: BottomLinkProps): JSX.Element {
   return (
     <div className="mx-auto  flex max-w-md flex-row justify-center gap-x-1 pt-5 pb-28">
       <p className="text-xs text-gray-900 text-opacity-40 dark:text-gray-50">
