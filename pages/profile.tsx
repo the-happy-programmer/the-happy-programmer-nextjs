@@ -1,15 +1,20 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabase } from '../lib/utils/supabaseclient'
 import { withAuthRequired, User } from '@supabase/supabase-auth-helpers/nextjs'
 import { useRouter } from 'next/router'
 import SvgtoReact from '../components/Svgtoreact'
 import Link from 'next/link'
+import FullPageSpinner from '../components/spinners/FullPageSpinner'
 export default function Profile(): JSX.Element {
   const router = useRouter()
   const { isLoading, user } = useUser()
-  console.log('USER:', user)
+
+  if (isLoading) {
+    return <FullPageSpinner />
+  }
+
   return (
     <div className="container">
       <div className="mx-auto max-w-md py-20 text-gray-900 dark:text-gray-50">
@@ -20,7 +25,7 @@ export default function Profile(): JSX.Element {
               <p className="max-w-xs font-medium">{user?.email || ''}</p>
               <Happybutton
                 onClick={() => {
-                  supabaseClient.auth.signOut()
+                  supabase.auth.signOut()
                   router.replace('/signin')
                 }}
               >

@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router'
 import { GetServerSideProps } from 'next'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import SignupForm from '../components/auth/SignupForm'
 
 export default function SignUp({}: {}): JSX.Element | Promise<boolean> {

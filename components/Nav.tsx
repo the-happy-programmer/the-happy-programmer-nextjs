@@ -1,12 +1,11 @@
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import SideBar from './SideBar'
 import scroll from '../lib/scroll'
 import Link from 'next/link'
 import Spinner from './spinners/Spinner'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
 
 const Nav = () => {

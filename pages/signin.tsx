@@ -7,7 +7,7 @@ import SignInForm from '../components/auth/SignInForm'
 import { SignWithLink } from '../components/auth/SignWithLink'
 import ForgotPassword from '../components/auth/ForgotPassword'
 import BottomLink from '../components/auth/BottomLink'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabase } from '../lib/utils/supabaseclient'
 
 export default function SignIn({}: {}): JSX.Element {
   const router = useRouter()
@@ -25,7 +25,7 @@ export default function SignIn({}: {}): JSX.Element {
 
   const signin = async () => {
     setLoading(true)
-    const { error, user: createdUser } = await supabaseClient.auth.signIn({
+    const { error, user: createdUser } = await supabase.auth.signIn({
       email,
       password,
     })

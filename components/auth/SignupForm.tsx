@@ -1,10 +1,10 @@
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabase } from '../../lib/utils/supabaseclient'
 import { useState } from 'react'
-import BtnSpinner from '../spinners/BtnSpinner'
-import SvgtoReact from '../Svgtoreact'
 import AuthInput from './AuthInput'
+import BtnSpinner from '../spinners/BtnSpinner'
 import BottomLink from './BottomLink'
 import FormSceleton from './FormSceleton'
+import SvgtoReact from '../Svgtoreact'
 
 export default function SignupForm({}): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false)
@@ -15,7 +15,7 @@ export default function SignupForm({}): JSX.Element {
 
   const signup = async () => {
     setLoading(true)
-    const { error, user: createdUser } = await supabaseClient.auth.signUp(
+    const { error, user: createdUser } = await supabase.auth.signUp(
       {
         email: email as string,
         password: password as string,
