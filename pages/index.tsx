@@ -29,14 +29,14 @@ export default function Home({
   moderntechnologies,
   info,
 }: HomeProps): JSX.Element {
-  const router = useRouter()
+  const { replace } = useRouter()
   useEffect(() => {
     supabase.auth.onAuthStateChange(async (event, session) => {
       if (event == 'PASSWORD_RECOVERY') {
-        router.push('/resetpassword')
+        replace('/resetpassword')
       }
     })
-  }, [router])
+  }, [replace])
 
   return (
     <>

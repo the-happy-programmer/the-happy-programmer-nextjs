@@ -5,14 +5,14 @@ import { useEffect } from 'react'
 import SignupForm from '../components/auth/SignupForm'
 
 export default function SignUp({}: {}): JSX.Element | Promise<boolean> {
-  const router = useRouter()
+  const { replace } = useRouter()
   const { user } = useUser()
 
   useEffect(() => {
     if (user) {
-      router.replace('/profile')
+      replace('/profile')
     }
-  }, [user, router])
+  }, [user, replace])
   return (
     <div className="h-full w-full bg-gray-50 dark:bg-gray-800">
       <SignupForm />
