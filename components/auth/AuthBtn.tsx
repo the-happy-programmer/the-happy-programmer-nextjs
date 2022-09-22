@@ -7,7 +7,10 @@ interface BtnProps {
   icon: string
   title: string
   onClick?: MouseEventHandler<HTMLButtonElement>
-  setError: (error: string) => void
+  setError: (error: {
+    error: string | undefined
+    success: string | undefined
+  }) => void
 }
 
 export default function AuthBtn({
@@ -18,7 +21,7 @@ export default function AuthBtn({
   const handleProviderSignIn = async (provider: Provider) => {
     const { error } = await supabase.auth.signIn({ provider })
     if (error) {
-      setError(error?.message as string)
+      setError({ error: error?.message, success: undefined })
     }
   }
 

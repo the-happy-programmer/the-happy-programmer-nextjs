@@ -7,10 +7,14 @@ import { useUser } from '@supabase/supabase-auth-helpers/react'
 import router from 'next/router'
 import SvgtoReact from '../components/Svgtoreact'
 import BottomLink from '../components/auth/BottomLink'
+import ErrorMessage from '../components/auth/ErrorMessage'
 
-export default function ForgotPassword({}: {}) {
+export default function ForgotPassword({}: {}): JSX.Element {
   const { isLoading, user } = useUser()
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<{
+    error: string | undefined
+    success: string | undefined
+  } | null>(null)
   const [password, setPassword] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState<boolean>(false)
 
@@ -26,10 +30,10 @@ export default function ForgotPassword({}: {}) {
     })
 
     if (resetError) {
-      setError(resetError.message)
+      setError({ error: resetError.message, success: undefined })
     }
     if (data) {
-      setError('Password updated successfully')
+      setError({ error: undefined, success: 'Password updated successfully' })
     }
   }
 
@@ -57,9 +61,14 @@ export default function ForgotPassword({}: {}) {
           full={true}
           disabled={!password?.length || loading}
         />
-        <div className="mt-5 rounded-md border border-danger p-2 text-danger">
-          {error}
-        </div>
+        <ErrorMessage
+          error={
+            error as {
+              error: string | undefined
+              success: string | undefined
+            }
+          }
+        />
       </FormSceleton>
       <BottomLink title="Back to" link="profile" url="/profile" />
     </div>

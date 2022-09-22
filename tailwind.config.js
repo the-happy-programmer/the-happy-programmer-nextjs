@@ -13,6 +13,7 @@ module.exports = {
     },
     colors: {
       blue: colors.blue,
+      teal: colors.teal,
       accent: '#0041d6',
       darkaccent: '#4198ff',
       danger: '#DD4A68',

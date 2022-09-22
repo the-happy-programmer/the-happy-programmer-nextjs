@@ -4,7 +4,7 @@ import BtnSpinner from '../spinners/BtnSpinner'
 import AuthInput from './AuthInput'
 import FormSceleton from './FormSceleton'
 
-export default function ForgotPassword({}: {}) {
+export default function ForgotPassword({}: {}): JSX.Element {
   const [error, setError] = useState<{
     error: string | undefined
     success: string | undefined

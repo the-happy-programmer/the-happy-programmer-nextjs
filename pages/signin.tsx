@@ -17,7 +17,10 @@ export default function SignIn({}: {}): JSX.Element {
   const [signinwithlink, setSigninWithLink] = useState<boolean>(false)
   const [signinwithemailpassword, setSigninWithEmailPassword] =
     useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<{
+    error: string | undefined
+    success: string | undefined
+  } | null>(null)
   const [email, setEmail] = useState<string | undefined>(undefined)
   const [password, setPassword] = useState<string | undefined>(undefined)
   const [remember, setRemember] = useState<boolean>(false)
@@ -34,7 +37,7 @@ export default function SignIn({}: {}): JSX.Element {
     setPassword('')
     if (error) {
       console.log('error', error.message)
-      setError(error.message)
+      setError({ error: error.message, success: undefined })
     }
     if (createdUser) {
       console.log(createdUser)
@@ -71,7 +74,12 @@ export default function SignIn({}: {}): JSX.Element {
           setRemember={setRemember}
           loading={loading}
           signin={signin}
-          error={error as string}
+          error={
+            error as {
+              error: string | undefined
+              success: string | undefined
+            }
+          }
         />
       )}
       {signinwithlink && (
@@ -80,7 +88,12 @@ export default function SignIn({}: {}): JSX.Element {
           setEmail={setEmail}
           loading={loading}
           handleSignIn={signin}
-          error={error as string}
+          error={
+            error as {
+              error: string | undefined
+              success: string | undefined
+            }
+          }
         />
       )}
       {forgotpassword && <ForgotPassword />}

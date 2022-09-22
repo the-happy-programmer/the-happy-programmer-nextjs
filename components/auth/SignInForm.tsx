@@ -1,6 +1,7 @@
 import BtnSpinner from '../spinners/BtnSpinner'
 import AuthBtn from './AuthBtn'
 import AuthInput from './AuthInput'
+import ErrorMessage from './ErrorMessage'
 import FormSceleton from './FormSceleton'
 
 export default function SignInForm({
@@ -25,12 +26,17 @@ export default function SignInForm({
   password: string
   setPassword: (password: string) => void
   setEmail: (email: string) => void
-  error: string
+  error: {
+    error: string | undefined
+    success: string | undefined
+  }
   remember: boolean
   setRemember: (remember: boolean) => void
   loading: boolean
   signin: () => void
-  setError: (error: string) => void
+  setError: (
+    error: { error: string | undefined; success: string | undefined } | null
+  ) => void
 }): JSX.Element {
   return (
     <>
@@ -79,7 +85,7 @@ export default function SignInForm({
           full={true}
           disabled={!email?.length || !password?.length || loading}
         />
-        <p className="pt-3 text-danger">{error}</p>
+        <ErrorMessage error={error} />
         <div className="my-8 flex items-center">
           <div className="mr-3 flex-grow border-t border-gray-900 border-opacity-5 dark:border-gray-50"></div>
           <div className="text-gray-900 text-opacity-25 dark:text-gray-50">
