@@ -8,6 +8,7 @@ import { SignWithLink } from '../components/auth/SignWithLink'
 import ForgotPassword from '../components/auth/ForgotPassword'
 import BottomLink from '../components/auth/BottomLink'
 import { supabase } from '../lib/utils/supabaseclient'
+import type { ErrorProps } from '../lib/types/signin'
 
 export default function SignIn({}: {}): JSX.Element {
   const router = useRouter()
@@ -17,10 +18,7 @@ export default function SignIn({}: {}): JSX.Element {
   const [signinwithlink, setSigninWithLink] = useState<boolean>(false)
   const [signinwithemailpassword, setSigninWithEmailPassword] =
     useState<boolean>(true)
-  const [error, setError] = useState<{
-    error: string | undefined
-    success: string | undefined
-  } | null>(null)
+  const [error, setError] = useState<ErrorProps | null>(null)
   const [email, setEmail] = useState<string | undefined>(undefined)
   const [password, setPassword] = useState<string | undefined>(undefined)
   const [remember, setRemember] = useState<boolean>(false)
@@ -32,11 +30,9 @@ export default function SignIn({}: {}): JSX.Element {
       email,
       password,
     })
-
     setEmail('')
     setPassword('')
     if (error) {
-      console.log('error', error.message)
       setError({ error: error.message, success: undefined })
     }
     if (createdUser) {
@@ -74,12 +70,7 @@ export default function SignIn({}: {}): JSX.Element {
           setRemember={setRemember}
           loading={loading}
           signin={signin}
-          error={
-            error as {
-              error: string | undefined
-              success: string | undefined
-            }
-          }
+          error={error as ErrorProps}
         />
       )}
       {signinwithlink && (
@@ -88,12 +79,7 @@ export default function SignIn({}: {}): JSX.Element {
           setEmail={setEmail}
           loading={loading}
           handleSignIn={signin}
-          error={
-            error as {
-              error: string | undefined
-              success: string | undefined
-            }
-          }
+          error={error as ErrorProps}
         />
       )}
       {forgotpassword && <ForgotPassword />}

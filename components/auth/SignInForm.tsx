@@ -3,6 +3,7 @@ import AuthBtn from './AuthBtn'
 import AuthInput from './AuthInput'
 import ErrorMessage from './ErrorMessage'
 import FormSceleton from './FormSceleton'
+import type { SigninFormProps } from '../../lib/types/signin'
 
 export default function SignInForm({
   setForgotPassword,
@@ -18,26 +19,7 @@ export default function SignInForm({
   loading,
   signin,
   setError,
-}: {
-  setForgotPassword: (password: boolean) => void
-  setSigninWithEmailPassword: (password: boolean) => void
-  setSigninWithLink: (link: boolean) => void
-  email: string
-  password: string
-  setPassword: (password: string) => void
-  setEmail: (email: string) => void
-  error: {
-    error: string | undefined
-    success: string | undefined
-  }
-  remember: boolean
-  setRemember: (remember: boolean) => void
-  loading: boolean
-  signin: () => void
-  setError: (
-    error: { error: string | undefined; success: string | undefined } | null
-  ) => void
-}): JSX.Element {
+}: SigninFormProps): JSX.Element {
   return (
     <>
       <FormSceleton title="Sign in">

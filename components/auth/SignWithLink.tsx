@@ -2,6 +2,7 @@ import BtnSpinner from '../spinners/BtnSpinner'
 import AuthInput from './AuthInput'
 import ErrorMessage from './ErrorMessage'
 import FormSceleton from './FormSceleton'
+import type { SigninWithLinkProps } from '../../lib/types/signin'
 
 export function SignWithLink({
   email,
@@ -9,16 +10,7 @@ export function SignWithLink({
   handleSignIn,
   loading,
   error,
-}: {
-  email: string
-  setEmail: (email: string) => void
-  loading: boolean
-  handleSignIn: () => void
-  error: {
-    error: string | undefined
-    success: string | undefined
-  }
-}): JSX.Element {
+}: SigninWithLinkProps): JSX.Element {
   return (
     <FormSceleton title="Sign in with magic link">
       <AuthInput
