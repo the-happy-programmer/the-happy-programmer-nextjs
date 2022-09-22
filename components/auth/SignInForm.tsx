@@ -34,7 +34,7 @@ export default function SignInForm({
 }): JSX.Element {
   return (
     <>
-      <FormSceleton title="Sign in with your email">
+      <FormSceleton title="Sign in">
         <AuthInput
           icon="email"
           value={email}

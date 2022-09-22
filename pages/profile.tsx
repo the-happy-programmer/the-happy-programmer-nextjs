@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import SvgtoReact from '../components/Svgtoreact'
 import Link from 'next/link'
 import FullPageSpinner from '../components/spinners/FullPageSpinner'
+
 export default function Profile(): JSX.Element {
   const router = useRouter()
   const { isLoading, user } = useUser()
@@ -24,9 +25,13 @@ export default function Profile(): JSX.Element {
             <div className="flex flex-row items-center justify-between py-3">
               <p className="max-w-xs font-medium">{user?.email || ''}</p>
               <Happybutton
-                onClick={() => {
-                  supabase.auth.signOut()
-                  router.replace('/signin')
+                onClick={async () => {
+                  try {
+                    const { error } = await supabase.auth.signOut()
+                    router.replace('/signin')
+                  } catch (error) {
+                    console.log(error)
+                  }
                 }}
               >
                 Sign Out

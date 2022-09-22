@@ -1,7 +1,7 @@
 import SvgtoReact from '../Svgtoreact'
 import { MouseEventHandler } from 'react'
 import type { Provider } from '@supabase/supabase-js'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs/utils/initSupabase'
+import { supabase } from '../../lib/utils/supabaseclient'
 
 interface BtnProps {
   icon: string
@@ -16,7 +16,7 @@ export default function AuthBtn({
   setError,
 }: BtnProps): JSX.Element {
   const handleProviderSignIn = async (provider: Provider) => {
-    const { error } = await supabaseClient.auth.signIn({ provider })
+    const { error } = await supabase.auth.signIn({ provider })
     if (error) {
       setError(error?.message as string)
     }

@@ -1,4 +1,4 @@
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabase } from '../lib/utils/supabaseclient'
 import { useEffect, useState } from 'react'
 import AuthInput from '../components/auth/AuthInput'
 import FormSceleton from '../components/auth/FormSceleton'
@@ -21,7 +21,7 @@ export default function ForgotPassword({}: {}) {
   }, [user])
 
   const handleResetPassword = async () => {
-    const { data, error: resetError } = await supabaseClient.auth.update({
+    const { data, error: resetError } = await supabase.auth.update({
       password: password,
     })
 
@@ -57,7 +57,9 @@ export default function ForgotPassword({}: {}) {
           full={true}
           disabled={!password?.length || loading}
         />
-        <div className="text-danger">{error}</div>
+        <div className="mt-5 rounded-md border border-danger p-2 text-danger">
+          {error}
+        </div>
       </FormSceleton>
       <BottomLink title="Back to" link="profile" url="/profile" />
     </div>

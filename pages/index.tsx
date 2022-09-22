@@ -7,7 +7,7 @@ import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
 import type { SEOProps } from '../lib/types/seo'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabase } from '../lib/utils/supabaseclient'
 import { useEffect } from 'react'
 import NewSupport from '../components/home/NewSupport'
 
@@ -31,9 +31,8 @@ export default function Home({
 }: HomeProps): JSX.Element {
   const router = useRouter()
   useEffect(() => {
-    supabaseClient.auth.onAuthStateChange(async (event, session) => {
+    supabase.auth.onAuthStateChange(async (event, session) => {
       if (event == 'PASSWORD_RECOVERY') {
-        console.log('PASSWORD_RECOVERY')
         router.push('/resetpassword')
       }
     })

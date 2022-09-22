@@ -1,4 +1,4 @@
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabase } from '../../lib/utils/supabaseclient'
 import { useState } from 'react'
 import BtnSpinner from '../spinners/BtnSpinner'
 import AuthInput from './AuthInput'
@@ -15,7 +15,7 @@ export default function ForgotPassword({}: {}) {
   const handleResetPassword = async () => {
     setLoading(true)
     const { data, error: resetError } =
-      await supabaseClient.auth.api.resetPasswordForEmail(email as string)
+      await supabase.auth.api.resetPasswordForEmail(email as string)
 
     if (resetError) {
       setError({ error: resetError.message, success: undefined })
