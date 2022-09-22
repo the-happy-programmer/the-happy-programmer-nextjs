@@ -36,8 +36,14 @@ export default function SignIn({}: {}): JSX.Element {
     if (createdUser) {
       setEmail('')
       setPassword('')
-      console.log(createdUser)
+      console.log('dolores')
       router.replace('/')
+    }
+    if (!password) {
+      setError({
+        error: undefined,
+        success: 'Check your email for the magic link.',
+      })
     }
     setLoading(false)
   }
