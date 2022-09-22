@@ -8,13 +8,11 @@ import router from 'next/router'
 import SvgtoReact from '../components/Svgtoreact'
 import BottomLink from '../components/auth/BottomLink'
 import ErrorMessage from '../components/auth/ErrorMessage'
+import type { ErrorProps } from '../lib/types/signin'
 
 export default function ForgotPassword({}: {}): JSX.Element {
   const { isLoading, user } = useUser()
-  const [error, setError] = useState<{
-    error: string | undefined
-    success: string | undefined
-  } | null>(null)
+  const [error, setError] = useState<ErrorProps | null>(null)
   const [password, setPassword] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState<boolean>(false)
 
@@ -61,14 +59,7 @@ export default function ForgotPassword({}: {}): JSX.Element {
           full={true}
           disabled={!password?.length || loading}
         />
-        <ErrorMessage
-          error={
-            error as {
-              error: string | undefined
-              success: string | undefined
-            }
-          }
-        />
+        <ErrorMessage error={error as ErrorProps} />
       </FormSceleton>
       <BottomLink title="Back to" link="profile" url="/profile" />
     </div>

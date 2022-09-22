@@ -4,6 +4,7 @@ import BtnSpinner from '../spinners/BtnSpinner'
 import AuthInput from './AuthInput'
 import FormSceleton from './FormSceleton'
 import type { ErrorProps } from '../../lib/types/signin'
+import ErrorMessage from './ErrorMessage'
 
 export default function ForgotPassword({}: {}): JSX.Element {
   const [error, setError] = useState<ErrorProps | null>(null)
@@ -43,13 +44,7 @@ export default function ForgotPassword({}: {}): JSX.Element {
         full={true}
         disabled={!email?.length}
       />
-      <div
-        className={
-          error?.success ? 'text-accent dark:text-darkaccent' : 'text-danger'
-        }
-      >
-        <p className="pt-6">{error?.success || error?.error}</p>
-      </div>
+      <ErrorMessage error={error as ErrorProps} />
     </FormSceleton>
   )
 }

@@ -30,12 +30,12 @@ export default function SignIn({}: {}): JSX.Element {
       email,
       password,
     })
-    setEmail('')
-    setPassword('')
     if (error) {
       setError({ error: error.message, success: undefined })
     }
     if (createdUser) {
+      setEmail('')
+      setPassword('')
       console.log(createdUser)
       router.replace('/')
     }

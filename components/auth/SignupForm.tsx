@@ -5,10 +5,12 @@ import BtnSpinner from '../spinners/BtnSpinner'
 import BottomLink from './BottomLink'
 import FormSceleton from './FormSceleton'
 import SvgtoReact from '../Svgtoreact'
+import type { ErrorProps } from '../../lib/types/signin'
+import ErrorMessage from './ErrorMessage'
 
 export default function SignupForm({}): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<ErrorProps | null>(null)
   const [email, setEmail] = useState<string | null>(null)
   const [username, setUsername] = useState<string | null>(null)
   const [password, setPassword] = useState<string | null>(null)
@@ -27,13 +29,15 @@ export default function SignupForm({}): JSX.Element {
       }
     )
     if (error) {
-      console.log('error', error.message)
-      setError(error.message)
+      setError({ error: error.message, success: undefined })
     }
     if (createdUser) {
       setPassword('')
       setEmail('')
-      setError('Check your email for the confirmation link.')
+      setError({
+        error: undefined,
+        success: 'Check your email for the confirmation link.',
+      })
       console.log('createdUser', createdUser)
     }
     setLoading(false)
@@ -79,7 +83,7 @@ export default function SignupForm({}): JSX.Element {
             !email?.length || !password?.length || !username?.length || loading
           }
         />
-        <div className="pt-8 text-danger">{error}</div>
+        <ErrorMessage error={error as ErrorProps} />
       </FormSceleton>
       <BottomLink
         title="Already have an account?"
