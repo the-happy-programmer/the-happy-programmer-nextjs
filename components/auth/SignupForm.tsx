@@ -38,7 +38,6 @@ export default function SignupForm({}): JSX.Element {
         error: undefined,
         success: 'Check your email for the confirmation link.',
       })
-      console.log('createdUser', createdUser)
     }
     setLoading(false)
   }

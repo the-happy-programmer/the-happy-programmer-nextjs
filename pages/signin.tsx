@@ -36,7 +36,6 @@ export default function SignIn({}: {}): JSX.Element {
     if (createdUser) {
       setEmail('')
       setPassword('')
-      console.log('dolores')
       router.replace('/')
     }
     if (!password) {
