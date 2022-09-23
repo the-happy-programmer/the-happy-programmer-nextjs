@@ -14,7 +14,7 @@ export default function DropDownContainer({
         {title}{' '}
         <span className=" text-gray-500 dark:text-gray-400">{subtitle}</span>
       </p>
-      <div className="container divide-y divide-gray-200 px-3 dark:divide-gray-700 ">
+      <div className="container max-w-xl divide-y divide-gray-200 px-3 dark:divide-gray-700 ">
         {info.map(([title, subtitle]) => (
           <DropDown key={title} title={title} subtitle={subtitle} />
         ))}

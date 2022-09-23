@@ -12,16 +12,18 @@ export default function DropDown({ title, subtitle }: TitleSub) {
   return (
     <div className="w-full p-3">
       <div
-        className="flex cursor-pointer flex-row justify-between"
+        className="mx-auto flex max-w-md cursor-pointer flex-row justify-between"
         onClick={(e) => (open ? setOpen(false) : setOpen(true))}
       >
-        <p className="cursor-pointer py-3 text-lg font-bold text-gray-900 dark:text-gray-50">
+        <p className="cursor-pointer py-3 text-gray-900 dark:text-gray-50">
           {title}
         </p>
         <SvgtoReact name="arrow" height={15} className={style} />
       </div>
       {open ? (
-        <p className="py-5 text-gray-600 dark:text-gray-300">{subtitle}</p>
+        <p className="mx-auto max-w-md py-5 font-light text-gray-800 dark:text-gray-100">
+          {subtitle}
+        </p>
       ) : null}
     </div>
   )
