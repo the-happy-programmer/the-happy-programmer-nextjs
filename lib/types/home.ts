@@ -34,4 +34,5 @@ export interface HomeProps {
   support: SupportType
   moderntechnologies: TitleSubIcons
   info: string[][]
+  supportDesc: { title: string; desc: string }
 }

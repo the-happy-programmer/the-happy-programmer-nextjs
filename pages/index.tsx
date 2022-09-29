@@ -2,14 +2,13 @@ import { GetStaticProps } from 'next'
 import HeroCarousel from '../components/home/HeroCarousel'
 import SubHero from '../components/home/SubHero'
 import Subscribe from '../components/home/Subscribe'
-import Support from '../components/home/Support'
 import Technologies from '../components/home/Technologies'
 import Meta from '../components/seo/Meta'
 import DropDownContainer from '../components/about/DropDownContainer'
 import type { SEOProps } from '../lib/types/seo'
 import { supabase } from '../lib/utils/supabaseclient'
 import { useEffect } from 'react'
-import NewSupport from '../components/home/NewSupport'
+import NewSupport from '../components/home/subscribe/NewSupport'
 
 import type {
   SubHeroProps,
@@ -28,6 +27,7 @@ export default function Home({
   support,
   moderntechnologies,
   info,
+  supportDesc,
 }: HomeProps): JSX.Element {
   const { replace } = useRouter()
   useEffect(() => {
@@ -65,13 +65,13 @@ export default function Home({
           subtitle={moderntechnologies.subtitle}
           icons={moderntechnologies.icons}
         />
-        {/* <NewSupport /> */}
-        <Support
+        <NewSupport support={support} supportDesc={supportDesc} />
+        {/* <Support
           title={support.title}
           subtitle={support.subtitle}
           prices={support.prices}
           benefits={support.benefits}
-        />
+        /> */}
         <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
         <DropDownContainer
           title="How else you can benefit from THP"
@@ -83,6 +83,17 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const supportDesc: { title: string; subtitle: string } = {
+    title: 'support to our newsletter',
+    subtitle: 'Get the latest news and updates from THP',
+  }
+  const support: { title: string; icon: string }[] = [
+    { title: 'title', icon: 'support/swift' },
+    { title: 'title', icon: 'support/mobile' },
+    { title: 'title', icon: 'support/server' },
+    { title: 'title', icon: 'support/web' },
+  ]
+
   const info: string[][] = [
     [
       'Sponsored Posts',
@@ -151,41 +162,22 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   ]
 
-  const support: SupportType = {
-    title: 'Support',
-    subtitle: 'Please consider supporting this website monthly.',
-    prices: ['£2,5', '£4', '£8'],
-    benefits: [
-      ['Early access', 'Patron-only updates', 'Chat community'],
-      [
-        'Early access',
-        'Patron-only updates',
-        'Chat community',
-        'Share source code',
-      ],
-      [
-        'Early access',
-        'Patron-only updates',
-        'Chat community',
-        'Share source code',
-        'Personal Mentoring',
-      ],
-    ],
-  }
   const subscribe: TitleSubtitle = {
     title: 'Subscribe',
     subtitle:
       'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
   }
+
   return {
     props: {
-      seo: seo,
-      hero: hero,
-      subhero: subhero,
-      subscribe: subscribe,
-      support: support,
-      moderntechnologies: moderntechnologies,
-      info: info,
+      seo,
+      hero,
+      subhero,
+      subscribe,
+      support,
+      moderntechnologies,
+      info,
+      supportDesc,
     },
   }
 }
