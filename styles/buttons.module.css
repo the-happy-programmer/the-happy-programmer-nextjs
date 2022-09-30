@@ -6,6 +6,10 @@
   @apply focus:outline-none inline-block cursor-pointer rounded-md border border-gray-900  bg-gray-900 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-50 shadow-lg hover:border-opacity-10 hover:bg-opacity-80 dark:border-gray-50 dark:bg-gray-50 dark:text-gray-900;
 }
 
+.fullbtn {
+  @apply focus:outline-none inline-block w-full cursor-pointer rounded-md border  border-gray-900 bg-gray-900 py-2 text-xs font-medium capitalize leading-6 tracking-wide text-gray-50 shadow-lg hover:border-opacity-10 hover:bg-opacity-80 dark:border-gray-50 dark:bg-gray-50 dark:text-gray-900;
+}
+
 .signin {
   @apply mx-auto mt-10 max-w-md rounded-md border border-gray-900 border-opacity-5 bg-gray-100 px-8 py-10 dark:border-gray-50 dark:border-opacity-10 dark:bg-gray-800;
   animation: movingshadow 8s infinite;
