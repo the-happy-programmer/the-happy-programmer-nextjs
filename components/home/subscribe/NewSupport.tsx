@@ -2,9 +2,10 @@ import SubDesc from './SubDesc'
 import style from '../../../styles/buttons.module.css'
 import SvgtoReact from '../../Svgtoreact'
 import TabButton from '../../TabButtons/TabButton'
+import { useState } from 'react'
 
 export default function NewSupport({ support, supportDesc }): JSX.Element {
-  const [avtive, setActive] = useState(true)
+  const [active, setActive] = useState<boolean>(true)
   return (
     <div className="bg-gray-100 dark:bg-gray-800">
       <div className="container flex flex-col border-b py-20">
@@ -20,7 +21,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
           firstBtn="Monthly"
           SecondBtn="Yearly"
           active={active}
-          setActive={}
+          setActive={setActive}
         />
         <div className="flex flex-row pt-10 pb-32">
           <div className="flex w-1/2 flex-col justify-center gap-y-10 border-r border-gray-900 border-opacity-10">
@@ -51,9 +52,11 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
             </SubDesc>
           </div>
           <div className="mx-auto flex w-1/2 max-w-sm flex-col text-center">
-            <p className="text-3xl font-bold dark:text-gray-50">£5</p>
+            <p className="text-3xl font-bold dark:text-gray-50">
+              {active ? '£5' : '£50'}
+            </p>
             <p className="text-gray-900 text-opacity-60 dark:text-gray-50">
-              per month
+              {active ? 'monthly' : 'yearly'}
             </p>
             <div className="mx-auto grid w-full grid-cols-2 gap-2 py-16">
               {[

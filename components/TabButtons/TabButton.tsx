@@ -3,7 +3,7 @@ interface TabButtonProps {
   SecondBtn: string
   icon?: string
   active: boolean
-  setActive: () => void
+  setActive: (acrive: boolean) => void
 }
 
 export default function TabButton({
@@ -14,9 +14,23 @@ export default function TabButton({
   setActive,
 }: TabButtonProps): JSX.Element {
   return (
-    <div className="flex flex-row border">
-      <button className="py-2 px-6">{firstBtn}</button>
-      <button className="">{SecondBtn}</button>
+    <div className="mx-auto flex flex-row rounded-full border bg-gray-50">
+      <button
+        onClick={() => setActive(true)}
+        className={`${
+          active ? 'rounded-full border border-gray-900 bg-gray-50 shadow' : ''
+        } border border-gray-100 border-opacity-70  py-2 px-6`}
+      >
+        {firstBtn}
+      </button>
+      <button
+        onClick={() => setActive(false)}
+        className={`${
+          !active ? 'rounded-full border border-gray-900 bg-gray-50 shadow' : ''
+        } border border-gray-100 border-opacity-70  py-2 px-6`}
+      >
+        {SecondBtn}
+      </button>
     </div>
   )
 }
