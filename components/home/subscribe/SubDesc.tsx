@@ -10,7 +10,7 @@ export default function SubDesc({
   icon: string
 }): JSX.Element {
   return (
-    <div className="flex flex-row gap-x-5">
+    <div className="flex flex-row content-center gap-x-5">
       <SvgtoReact
         name={icon}
         className="h-15 w-15 fill-current text-gray-800 dark:text-gray-50"

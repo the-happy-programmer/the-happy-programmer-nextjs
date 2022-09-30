@@ -1,8 +1,10 @@
 import SubDesc from './SubDesc'
 import style from '../../../styles/buttons.module.css'
 import SvgtoReact from '../../Svgtoreact'
+import TabButton from '../../TabButtons/TabButton'
 
 export default function NewSupport({ support, supportDesc }): JSX.Element {
+  const [avtive, setActive] = useState(true)
   return (
     <div className="bg-gray-100 dark:bg-gray-800">
       <div className="container flex flex-col border-b py-20">
@@ -14,6 +16,12 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
             Become an expert in programming
           </h3>
         </div>
+        <TabButton
+          firstBtn="Monthly"
+          SecondBtn="Yearly"
+          active={active}
+          setActive={}
+        />
         <div className="flex flex-row pt-10 pb-32">
           <div className="flex w-1/2 flex-col justify-center gap-y-10 border-r border-gray-900 border-opacity-10">
             <SubDesc title="Apple products development" icon="support/swift">
