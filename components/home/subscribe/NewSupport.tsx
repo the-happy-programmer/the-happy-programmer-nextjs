@@ -56,7 +56,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
               {active ? '£5' : '£50'}
             </p>
             <p className="text-gray-900 text-opacity-60 dark:text-gray-50">
-              {active ? 'monthly' : 'yearly'}
+              {active ? 'per month' : 'per year'}
             </p>
             <div className="mx-auto grid w-full grid-cols-2 gap-2 py-16">
               {[
@@ -67,7 +67,10 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 'Personal Mentoring',
                 'Complete Projects',
               ].map((item) => (
-                <div className="flex-none rounded-md bg-gray-50 p-3 text-sm">
+                <div
+                  key={item}
+                  className="flex-none rounded-md bg-gray-50 p-3 text-sm"
+                >
                   <div className="flex flex-row">
                     <SvgtoReact
                       name="check"
