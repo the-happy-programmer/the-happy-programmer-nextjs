@@ -66,12 +66,6 @@ export default function Home({
           icons={moderntechnologies.icons}
         />
         <NewSupport support={support} supportDesc={supportDesc} />
-        {/* <Support
-          title={support.title}
-          subtitle={support.subtitle}
-          prices={support.prices}
-          benefits={support.benefits}
-        /> */}
         <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
         <DropDownContainer
           title="How else you can benefit from THP"

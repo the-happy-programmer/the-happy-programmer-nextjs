@@ -1,41 +1,33 @@
-import HappyLink from '../HappyLink'
-import SvgtoReact from '../Svgtoreact'
 import type { TitleSubIcons } from '../../lib/types/home'
+
+const TechLink = ({
+  name,
+  active,
+}: {
+  name: string
+  active: boolean
+}): JSX.Element => (
+  <div className="flex cursor-pointer flex-col items-center text-gray-800 dark:text-gray-100">
+    <p>{name}</p>
+    {active && <div className="mt-2 h-2 w-2 rounded-full bg-blue-500" />}
+  </div>
+)
 
 export default function Technologies({
   title,
   subtitle,
   icons,
-}: TitleSubIcons) {
+}: TitleSubIcons): JSX.Element {
   return (
-    <div className="border-b border-gray-200 py-20  dark:border-gray-700">
-      <div className="container flex flex-col place-content-center items-center justify-between gap-14 px-3 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
-        <div className="grid grid-cols-4 justify-items-center gap-10 sm:gap-10 md:gap-20 lg:gap-20 xl:gap-20">
-          {icons.map((icon) => (
-            <SvgtoReact
-              key={icon}
-              name={icon}
-              className="fill-current text-gray-900 dark:text-gray-50"
-              height={45}
-            />
-          ))}
-        </div>
-        <div className="w-80">
-          <p className="text-left text-3xl font-bold dark:text-gray-50">
-            {title}
-          </p>
-          <p className="py-8 dark:text-gray-300">{subtitle}</p>
-          <HappyLink href={'/about'} classes="dark:text-darkaccent text-accent">
-            <div className="flex flex-row items-center gap-x-3 text-center">
-              Learn more about our courses
-              <SvgtoReact
-                name="arrow"
-                height={15}
-                className="-rotate-90 transform fill-current text-accent dark:text-darkaccent"
-              />
-            </div>
-          </HappyLink>
-        </div>
+    <div className="flex flex-col py-20 px-10">
+      <div>
+        <p className="pb-2 uppercase">{title}</p>
+        <h3 className="text-3xl font-bold leading-relaxed">{subtitle}</h3>
+      </div>
+      <div className="flex flex-row gap-x-10 pt-5">
+        <TechLink name="Web" active={false} />
+        <TechLink name="Mobile" active={false} />
+        <TechLink name="SSG" active={true} />
       </div>
     </div>
   )
