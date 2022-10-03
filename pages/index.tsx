@@ -63,9 +63,8 @@ export default function Home({
         <Technologies
           title={moderntechnologies.title}
           subtitle={moderntechnologies.subtitle}
-          icons={moderntechnologies.icons}
         />
-        <NewSupport support={support} supportDesc={supportDesc} />
+        <NewSupport />
         <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
         <DropDownContainer
           title="How else you can benefit from THP"

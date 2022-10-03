@@ -4,7 +4,7 @@ import SvgtoReact from '../../Svgtoreact'
 import TabButton from '../../TabButtons/TabButton'
 import { useState } from 'react'
 
-export default function NewSupport({ support, supportDesc }): JSX.Element {
+export default function NewSupport({}): JSX.Element {
   const [active, setActive] = useState<boolean>(true)
   return (
     <div className="bg-gray-100 dark:bg-gray-800">
@@ -29,6 +29,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
               <div>
                 Swift is the main language for creating Apps in{' '}
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/ios"
                   className="text-accent underline dark:text-darkaccent"
@@ -37,6 +38,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 </a>
                 ,
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/ipados"
                   className="text-accent underline dark:text-darkaccent"
@@ -45,6 +47,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 </a>
                 ,{' '}
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/macos/"
                   className="text-accent underline dark:text-darkaccent"
@@ -53,6 +56,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 </a>{' '}
                 and{' '}
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/watchos/"
                   className="text-accent underline dark:text-darkaccent"
@@ -65,6 +69,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
               <div>
                 Courses in React{' '}
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://nextjs.org"
                   className="text-accent underline dark:text-darkaccent"
@@ -73,6 +78,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 </a>
                 ,{' '}
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://v3.nuxtjs.org"
                   className="text-accent underline dark:text-darkaccent"
@@ -87,6 +93,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 The fastest growing market mobile development is being taught
                 and difficult concepts explained, such as{' '}
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://reactnative.dev"
                   className="text-accent underline dark:text-darkaccent"
@@ -95,6 +102,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 </a>
                 ,{' '}
                 <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://flutter.dev/"
                   className="text-accent underline dark:text-darkaccent"
@@ -108,6 +116,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 To become and all around develoner you need to learn to create
                 servers, here is the right place to learn{' '}
                 <a
+                  rel="noreferrer"
                   className="text-accent underline dark:text-darkaccent"
                   href="https://expressjs.com"
                 >
@@ -115,6 +124,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
                 </a>
                 ,{' '}
                 <a
+                  rel="noreferrer"
                   className="text-accent underline dark:text-darkaccent"
                   href="https://nodejs.org/en/"
                 >

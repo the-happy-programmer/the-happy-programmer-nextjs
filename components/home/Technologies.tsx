@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import type { TitleSubIcons } from '../../lib/types/home'
+import type { TitleSubtitle } from '../../lib/types/home'
 import SvgtoReact from '../Svgtoreact'
 import TechLink from './TechLink'
 export default function Technologies({
   title,
   subtitle,
-  icons,
-}: TitleSubIcons): JSX.Element {
+}: TitleSubtitle): JSX.Element {
   const [icon, setIcon] = useState<string>('web')
   return (
     <div>
