@@ -45,7 +45,7 @@ export default function Technologies({
           </div>
         </div>
       </div>
-      <p className="px-10 pb-10 pt-10 text-gray-900 text-opacity-60 dark:text-gray-50 sm:pt-10 lg:pt-0 xl:pt-0">
+      <p className="container px-10 pb-10 pt-10 text-gray-900 text-opacity-60 dark:text-gray-50 sm:pt-10 lg:pt-0 xl:pt-0">
         The Happy Programmer
       </p>
     </div>

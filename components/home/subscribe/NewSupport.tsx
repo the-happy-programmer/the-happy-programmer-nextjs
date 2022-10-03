@@ -106,7 +106,21 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
             <SubDesc title="Server Development" icon="support/server">
               <div>
                 To become and all around develoner you need to learn to create
-                servers, here is the right place.
+                servers, here is the right place to learn{' '}
+                <a
+                  className="text-accent underline dark:text-darkaccent"
+                  href="https://expressjs.com"
+                >
+                  ExpressJS
+                </a>
+                ,{' '}
+                <a
+                  className="text-accent underline dark:text-darkaccent"
+                  href="https://nodejs.org/en/"
+                >
+                  NodeJS
+                </a>{' '}
+                .
               </div>
             </SubDesc>
           </div>
