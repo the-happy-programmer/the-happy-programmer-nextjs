@@ -23,8 +23,8 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
           active={active}
           setActive={setActive}
         />
-        <div className="flex flex-row pt-10 pb-32">
-          <div className="flex w-1/2 flex-col justify-center gap-y-10 border-r border-gray-900 border-opacity-10">
+        <div className="flex flex-col pt-10 pb-32 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
+          <div className="flex flex-col items-center gap-y-10 border-r border-gray-900 border-opacity-10 md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
             <SubDesc title="Apple products development" icon="support/swift">
               <div>
                 Swift is the main language for creating Apps in <a>iOS</a>,
@@ -51,7 +51,7 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
               </div>
             </SubDesc>
           </div>
-          <div className="mx-auto flex w-1/2 max-w-sm flex-col text-center">
+          <div className="mx-auto flex w-1/2 max-w-sm flex-col pt-10 text-center sm:pt-10 md:pt-0 lg:pt-0 xl:pt-0">
             <p className="text-3xl font-bold dark:text-gray-50">
               {active ? '£5' : '£50'}
             </p>

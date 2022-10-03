@@ -21,6 +21,7 @@
   --code-colour-9: #53a053;
   --code-colour-10: #727376;
   --code-colour-11: green;
+  --accent-colour: #0041d6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,6 +45,7 @@
     --code-colour-9: #ff8b39;
     --code-colour-10: #f0eff1;
     --code-colour-11: rgb(0, 13, 128);
+    --accent-colour: #4198ff;
   }
 }
 

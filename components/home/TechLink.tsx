@@ -18,7 +18,7 @@ export default function TechLink({
         {name}
       </p>
       {current && (
-        <div className="my-auto mt-2 h-2 w-2 rounded-full bg-blue-500 sm:mt-2 md:ml-2 lg:ml-2 xl:ml-2" />
+        <div className="my-auto mt-2 h-2 w-2 rounded-full bg-accent dark:bg-darkaccent sm:mt-2 md:ml-2 lg:ml-2 xl:ml-2" />
       )}
     </div>
   )
