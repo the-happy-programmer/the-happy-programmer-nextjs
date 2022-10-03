@@ -27,21 +27,80 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
           <div className="flex flex-col items-center gap-y-10 border-r border-gray-900 border-opacity-10 md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
             <SubDesc title="Apple products development" icon="support/swift">
               <div>
-                Swift is the main language for creating Apps in <a>iOS</a>,
-                <a>PadOS</a>, <a>MacOS</a> and
-                <a>WatchOS</a>
+                Swift is the main language for creating Apps in{' '}
+                <a
+                  target="_blank"
+                  href="https://developer.apple.com/ios"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  iOS
+                </a>
+                ,
+                <a
+                  target="_blank"
+                  href="https://developer.apple.com/ipados"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  iPadOS
+                </a>
+                ,{' '}
+                <a
+                  target="_blank"
+                  href="https://developer.apple.com/macos/"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  MacOS
+                </a>{' '}
+                and{' '}
+                <a
+                  target="_blank"
+                  href="https://developer.apple.com/watchos/"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  WatchOS
+                </a>
               </div>
             </SubDesc>
             <SubDesc title="Web Development" icon="support/web">
               <div>
-                Courses in React Nexts. NuxtJS. Javascript is being taugh in
-                detail in THP
+                Courses in React{' '}
+                <a
+                  target="_blank"
+                  href="https://nextjs.org"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  NextJS
+                </a>
+                ,{' '}
+                <a
+                  target="_blank"
+                  href="https://v3.nuxtjs.org"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  NuxtJS
+                </a>
+                . Javascript is being taugh in detail in THP
               </div>
             </SubDesc>
             <SubDesc title="Mobile Development" icon="support/mobile">
               <div>
                 The fastest growing market mobile development is being taught
-                and difficult concepts explained
+                and difficult concepts explained, such as{' '}
+                <a
+                  target="_blank"
+                  href="https://reactnative.dev"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  React Native
+                </a>
+                ,{' '}
+                <a
+                  target="_blank"
+                  href="https://flutter.dev/"
+                  className="text-accent underline dark:text-darkaccent"
+                >
+                  Flutter
+                </a>
               </div>
             </SubDesc>
             <SubDesc title="Server Development" icon="support/server">
@@ -69,16 +128,16 @@ export default function NewSupport({ support, supportDesc }): JSX.Element {
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex-none rounded-md bg-gray-50 p-3 text-sm"
+                  className="flex-none rounded-md bg-gray-50 p-3 text-sm dark:bg-gray-700 "
                 >
                   <div className="flex flex-row">
                     <SvgtoReact
                       name="check"
                       height={20}
                       width={20}
-                      className="stroke-current text-gray-900"
+                      className="stroke-current text-gray-900 dark:text-gray-50"
                     />
-                    <p className="mx-auto text-center font-light text-gray-900 text-opacity-60">
+                    <p className="mx-auto text-center font-light text-gray-900 text-opacity-60 dark:text-gray-50">
                       {item}
                     </p>
                   </div>
