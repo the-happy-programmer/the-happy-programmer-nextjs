@@ -53,7 +53,7 @@ export default function Home({
           }}
         />
       </Meta>
-      <div className="bg-gray-50 dark:bg-gray-900">
+      <div className="overflow-hidden bg-gray-50 dark:bg-gray-900">
         <HeroCarousel
           title={hero.title}
           subtitle={hero.subtitle}
