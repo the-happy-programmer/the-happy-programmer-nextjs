@@ -9,7 +9,7 @@ export default function Technologies({
   const [icon, setIcon] = useState<string>('web')
   return (
     <div>
-      <div className="container flex flex-col px-10 pb-72 pt-40 md:flex-row md:items-center lg:flex-row lg:items-center xl:flex-row xl:items-center">
+      <div className="container flex flex-col px-14 pb-72 pt-40 sm:px-14 md:flex-row md:items-center md:px-3 lg:flex-row lg:items-center lg:px-10 xl:flex-row xl:items-center xl:px-3">
         <div className="max-w-xs">
           <p className="pb-2 text-sm uppercase text-gray-800 dark:text-gray-100">
             {title}
@@ -23,6 +23,7 @@ export default function Technologies({
             currentIcon={icon}
             name="Web"
             active={false}
+            icons={['vue', 'react']}
             setIcon={setIcon}
           />
           <TechLink
@@ -30,12 +31,14 @@ export default function Technologies({
             name="Mobile"
             active={false}
             setIcon={setIcon}
+            icons={['flutter', 'swift']}
           />
           <TechLink
             currentIcon={icon}
             name="SSG"
             active={true}
             setIcon={setIcon}
+            icons={['nextjs', 'nuxtjs']}
           />
         </div>
         <div className="relative right-4 flex items-center py-32">
