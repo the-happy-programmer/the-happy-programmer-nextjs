@@ -32,7 +32,10 @@ export default function TechLink({
       </div>
       <div className="hidden flex-row gap-x-3 sm:hidden md:flex lg:flex xl:flex">
         {icons.map((icon) => (
-          <div className="rounded-md bg-gray-200 p-3 dark:bg-gray-700">
+          <div
+            key={icon}
+            className="rounded-md bg-gray-200 p-3 dark:bg-gray-700"
+          >
             <SvgtoReact
               name={icon}
               height={20}
