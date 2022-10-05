@@ -18,7 +18,7 @@ export default function Technologies({
             {subtitle}
           </h3>
         </div>
-        <div className="flex flex-row gap-x-10 pt-5 pl-0 sm:flex-row sm:pl-0 md:flex-col md:pl-20 lg:flex-col lg:pl-20 xl:flex-col xl:pl-20">
+        <div className="flex flex-row gap-y-4 gap-x-10 pt-5 pl-0 sm:flex-row sm:pl-0 md:flex-col md:pl-20 lg:flex-col lg:pl-20 xl:flex-col xl:pl-20">
           <TechLink
             currentIcon={icon}
             name="Web"
