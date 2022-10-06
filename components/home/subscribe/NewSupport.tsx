@@ -7,8 +7,8 @@ import { useState } from 'react'
 export default function NewSupport({}): JSX.Element {
   const [active, setActive] = useState<boolean>(true)
   return (
-    <div className="bg-gray-100 dark:bg-gray-800">
-      <div className="container flex flex-col border-b py-20">
+    <div className="border-b border-t bg-gray-100 dark:border-gray-50 dark:border-opacity-10 dark:bg-gray-800">
+      <div className="container flex flex-col py-20">
         <div className="mx-auto max-w-xs pb-10 pt-20 text-center">
           <p className="py-2 text-sm font-semibold uppercase text-accent dark:text-darkaccent">
             full-featured
