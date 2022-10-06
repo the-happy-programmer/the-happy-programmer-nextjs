@@ -20,7 +20,6 @@ export interface SigninFormProps {
     error: { error: string | undefined; success: string | undefined } | null
   ) => void
 }
-
 export interface SigninWithLinkProps {
   email: string
   setEmail: (email: string) => void
