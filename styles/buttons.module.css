@@ -12,6 +12,7 @@
 
 .signin {
   @apply mx-auto mt-10 max-w-lg rounded-md border border-gray-900 border-opacity-5 bg-gray-100 px-12 py-10 dark:border-gray-50 dark:border-opacity-10 dark:bg-gray-800;
+  animation: movingshadow 8s infinite;
 }
 
 @keyframes movingshadow {
