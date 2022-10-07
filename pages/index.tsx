@@ -9,7 +9,7 @@ import type { SEOProps } from '../lib/types/seo'
 import { supabase } from '../lib/utils/supabaseclient'
 import { useEffect } from 'react'
 import NewSupport from '../components/home/subscribe/NewSupport'
-
+import { useUser } from '../lib/utils/useUser'
 import type {
   SubHeroProps,
   TitleSubtitle,
@@ -29,6 +29,7 @@ export default function Home({
   info,
   supportDesc,
 }: HomeProps): JSX.Element {
+  const { user, isLoading, subscription } = useUser()
   const { replace } = useRouter()
   useEffect(() => {
     supabase.auth.onAuthStateChange(async (event, session) => {
@@ -64,7 +65,7 @@ export default function Home({
           title={moderntechnologies.title}
           subtitle={moderntechnologies.subtitle}
         />
-        <NewSupport />
+        {!subscription && <NewSupport />}
         <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
         <DropDownContainer
           title="How else you can benefit from THP"

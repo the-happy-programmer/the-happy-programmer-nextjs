@@ -6,11 +6,10 @@ import SideBar from './SideBar'
 import scroll from '../lib/scroll'
 import Link from 'next/link'
 import Spinner from './spinners/Spinner'
-import { useUser } from '@supabase/supabase-auth-helpers/react'
+import { useUser } from '../lib/utils/useUser'
 
 const Nav = () => {
   const { isLoading, user } = useUser()
-
   const [sidebar, setsidebar] = useState<boolean>(false)
   const links: string[][] = [
     ['/blog', 'Blog'],

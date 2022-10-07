@@ -1,6 +1,6 @@
 import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
-import { useUser } from '@supabase/supabase-auth-helpers/react'
+import { useUser } from '../lib/utils/useUser'
 import { supabase } from '../lib/utils/supabaseclient'
 import { withAuthRequired, User } from '@supabase/supabase-auth-helpers/nextjs'
 import { useRouter } from 'next/router'
@@ -30,7 +30,7 @@ export default function Profile(): JSX.Element {
                     const { error } = await supabase.auth.signOut()
                     router.replace('/signin')
                   } catch (error) {
-                    console.log(error)
+                    console.error(error)
                   }
                 }}
               >
