@@ -2,15 +2,16 @@ import Table from '../components/profile/Table'
 import Happybutton from '../components/Happybutton'
 import { useUser } from '../lib/utils/useUser'
 import { supabase } from '../lib/utils/supabaseclient'
-import { withAuthRequired, User } from '@supabase/supabase-auth-helpers/nextjs'
+import { withAuthRequired } from '@supabase/supabase-auth-helpers/nextjs'
 import { useRouter } from 'next/router'
 import SvgtoReact from '../components/Svgtoreact'
 import Link from 'next/link'
 import FullPageSpinner from '../components/spinners/FullPageSpinner'
+import styles from '../styles/buttons.module.css'
 
 export default function Profile(): JSX.Element {
   const router = useRouter()
-  const { isLoading, user } = useUser()
+  const { isLoading, user, subscription } = useUser()
 
   if (isLoading) {
     return <FullPageSpinner />
@@ -48,6 +49,20 @@ export default function Profile(): JSX.Element {
                   />
                 </div>
               </Link>
+            </div>
+          </Table>
+          <Table title="Subscription">
+            <div className="flex flex-row items-center justify-between py-3">
+              <>
+                {!subscription ? (
+                  <div className="">No plans Yet</div>
+                ) : (
+                  subscription
+                )}
+                <Link href={'/support'}>
+                  <a className={styles.sbtn}>Choose A Plan</a>
+                </Link>
+              </>
             </div>
           </Table>
           <button className="rounded border border-gray-200 bg-gray-900 bg-opacity-0 py-2.5 px-4 font-medium text-danger hover:border-opacity-80 hover:bg-opacity-5 hover:text-opacity-80 dark:border-gray-700 dark:bg-gray-50">
