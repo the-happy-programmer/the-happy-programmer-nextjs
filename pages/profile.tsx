@@ -75,5 +75,3 @@ export default function Profile(): JSX.Element {
 }
 
 export const getServerSideProps = withAuthRequired({ redirectTo: '/signin' })
-
-// test
