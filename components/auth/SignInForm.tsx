@@ -69,11 +69,11 @@ export default function SignInForm({
         />
         <ErrorMessage error={error} />
         <div className="my-8 flex items-center">
-          <div className="mr-3 flex-grow border-t border-gray-900 border-opacity-5 dark:border-gray-50"></div>
+          <div className="mr-3 flex-grow border-t border-gray-900 border-opacity-5 dark:border-gray-50" />
           <div className="text-gray-900 text-opacity-25 dark:text-gray-50">
             Or
           </div>
-          <div className="ml-3 flex-grow border-t border-gray-900 border-opacity-5 dark:border-gray-50"></div>
+          <div className="ml-3 flex-grow border-t border-gray-900 border-opacity-5 dark:border-gray-50" />
         </div>
         <div className="flex flex-col justify-around space-y-4">
           <AuthBtn title="github" icon="github" setError={setError} />
