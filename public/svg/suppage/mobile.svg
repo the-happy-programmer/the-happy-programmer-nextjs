@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.625 25">
+  <g id="Group_518" data-name="Group 518" transform="translate(-150.783 -2454.852)">
+    <path id="Subtraction_27" data-name="Subtraction 27" d="M13.281,25H2.344A2.346,2.346,0,0,1,0,22.657V2.344A2.346,2.346,0,0,1,2.344,0H13.281a2.346,2.346,0,0,1,2.344,2.344V22.657A2.346,2.346,0,0,1,13.281,25ZM7.813,20.313a1.562,1.562,0,1,0,1.562,1.562A1.565,1.565,0,0,0,7.813,20.313ZM2.695,1.042a2,2,0,0,0-2,2V17.1a2,2,0,0,0,2,2H12.93a2,2,0,0,0,2-2V3.042a2,2,0,0,0-2-2Z" transform="translate(150.783 2454.852)" fill="#888"/>
+    <rect id="Rectangle_742" data-name="Rectangle 742" width="11.394" height="4.288" rx="1" transform="translate(152.684 2463.853)" fill="#888"/>
+    <g id="Group_517" data-name="Group 517" transform="translate(152.684 2456.853)">
+      <rect id="Rectangle_743" data-name="Rectangle 743" width="5.43" height="5.43" rx="1" transform="translate(5.964 0)" fill="#888"/>
+      <rect id="Rectangle_744" data-name="Rectangle 744" width="5.43" height="5.43" rx="1" transform="translate(0 0)" fill="#888"/>
+    </g>
+    <rect id="Rectangle_745" data-name="Rectangle 745" width="11.394" height="4.288" rx="1" transform="translate(152.684 2468.853)" fill="#888"/>
+  </g>
+</svg>
