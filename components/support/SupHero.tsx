@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import SvgtoReact from '../components/Svgtoreact'
-import TabButton from '../components/TabButtons/TabButton'
-import styles from '../styles/buttons.module.css'
-export default function Support({}: {}): JSX.Element {
-  const [active, setActive] = useState<boolean>(false)
+import SvgtoReact from '../Svgtoreact'
+import TabButton from '../TabButtons/TabButton'
+import styles from '../../styles/buttons.module.css'
+export default function SupHero(): JSX.Element {
+  const [active, setActive] = useState<boolean>(true)
+
   return (
     <div>
       <div className="mx-auto bg-blue-800 pt-20">
