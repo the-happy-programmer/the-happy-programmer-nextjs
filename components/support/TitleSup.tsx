@@ -24,9 +24,7 @@ export default function TitleSup({
           {subtitle}
         </p>
       </div>
-      <div className="flex flex-row flex-wrap justify-between py-10">
-        {children}
-      </div>
+      {children}
     </div>
   )
 }
