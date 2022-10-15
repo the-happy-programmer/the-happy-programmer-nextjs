@@ -1,13 +1,10 @@
+import type { SupHeroProps } from '../../lib/types/support'
 import style from '../../styles/buttons.module.css'
 export default function SupCard({
   title,
   subtitle,
   buttonstr,
-}: {
-  title: string
-  subtitle: string
-  buttonstr: string
-}): JSX.Element {
+}: SupHeroProps): JSX.Element {
   return (
     <div className="container my-20 flex flex-col items-center rounded-2xl bg-gray-800 p-20 text-center shadow-2xl dark:bg-gray-100">
       <h4 className="text-4xl font-bold text-gray-50 dark:text-gray-900">

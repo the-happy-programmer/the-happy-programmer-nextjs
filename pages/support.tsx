@@ -9,6 +9,7 @@ import type {
   BenefitsProps,
   KeyFeaturesProps,
   SupHeroProps,
+  SupportProps,
 } from '../lib/types/support'
 
 export default function Support({
@@ -17,13 +18,7 @@ export default function Support({
   BenefitsStr,
   customerReview,
   startToday,
-}: {
-  keyfeatures: KeyFeaturesProps[]
-  supHero: SupHeroProps
-  BenefitsStr: BenefitsProps
-  customerReview: TitleSubtitle
-  startToday: SupHeroProps
-}): JSX.Element {
+}: SupportProps): JSX.Element {
   return (
     <>
       <SupHero strings={supHero} />

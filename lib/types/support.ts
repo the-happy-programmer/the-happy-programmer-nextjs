@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { TitleSubtitle } from './home'
 
 export interface KeyFeaturesProps {
   icon: string
@@ -24,4 +25,12 @@ export interface TitleSupProps {
   title: string
   subtitle: string
   tag?: string | undefined
+}
+
+export interface SupportProps {
+  keyfeatures: KeyFeaturesProps[]
+  supHero: SupHeroProps
+  BenefitsStr: BenefitsProps
+  customerReview: TitleSubtitle
+  startToday: SupHeroProps
 }
