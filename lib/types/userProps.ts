@@ -27,3 +27,27 @@ export interface Subscription {
   trial_end?: string
   prices?: Price
 }
+
+export interface Price {
+  id: string /* primary key */
+  product_id?: string /* foreign key to products.id */
+  active?: boolean
+  description?: string
+  unit_amount?: number
+  currency?: string
+  type?: string
+  interval?: Stripe.Price.Recurring.Interval
+  interval_count?: number
+  trial_period_days?: number | null
+  metadata?: Stripe.Metadata
+  products?: Product
+}
+
+export interface Product {
+  id: string /* primary key */
+  active?: boolean
+  name?: string
+  description?: string
+  image?: string
+  metadata?: Stripe.Metadata
+}
