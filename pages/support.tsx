@@ -4,6 +4,7 @@ import SupCard from '../components/support/SupCard'
 import SupCustomer from '../components/support/SupCustomer'
 import SupHero from '../components/support/SupHero'
 import TitleSup from '../components/support/TitleSup'
+import type { TitleSubtitle } from '../lib/types/home'
 import type {
   BenefitsProps,
   KeyFeaturesProps,
@@ -14,10 +15,14 @@ export default function Support({
   keyfeatures,
   supHero,
   BenefitsStr,
+  customerReview,
+  startToday,
 }: {
   keyfeatures: KeyFeaturesProps[]
   supHero: SupHeroProps
   BenefitsStr: BenefitsProps
+  customerReview: TitleSubtitle
+  startToday: SupHeroProps
 }): JSX.Element {
   return (
     <>
@@ -41,21 +46,34 @@ export default function Support({
       </TitleSup>
 
       <TitleSup
-        title="key features"
-        subtitle="cutting edge technologies from start to finish. Web, mobile and more. Complete courses to take you to the next level. Getting started is easy."
+        title={customerReview.title}
+        subtitle={customerReview.subtitle as string}
       >
         <SupCustomer />
       </TitleSup>
       <SupAnnouncement
-        title="Get Started Today"
-        subtitle="The fastest growing market mobile development is being taught and difficult concepts explained"
-        buttonstr="Get Started"
+        title={startToday.title}
+        subtitle={startToday.subtitle as string}
+        buttonstr={startToday.buttonstr}
       />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = () => {
+  const startToday: SupHeroProps = {
+    title: 'Get Started Today',
+    subtitle:
+      'The Happy Programmer is growing fast and we would love for you to join the journey. Learn all the concepts you need and get the means to start earning as as a developer.',
+    buttonstr: 'Start Now',
+  }
+
+  const customerReview: TitleSubtitle = {
+    title: 'What others say about us',
+    subtitle:
+      'users have said their opinion about us also we have special contributions in developing technologies for current time.',
+  }
+
   const supHero: SupHeroProps = {
     tag: 'Fully-Features',
     title: 'Become an expert in programming',
@@ -94,6 +112,6 @@ export const getStaticProps: GetStaticProps = () => {
     },
   ]
   return {
-    props: { keyfeatures, supHero, BenefitsStr },
+    props: { keyfeatures, supHero, BenefitsStr, customerReview, startToday },
   }
 }

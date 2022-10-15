@@ -1,18 +1,13 @@
-import { ReactNode } from 'react'
+import type { TitleSupProps } from '../../lib/types/support'
 
 export default function TitleSup({
   children,
   title,
   subtitle,
   tag,
-}: {
-  children: ReactNode
-  title: string
-  subtitle: string
-  tag?: string | undefined
-}): JSX.Element {
+}: TitleSupProps): JSX.Element {
   return (
-    <div className="container pt-20">
+    <div className="container py-20">
       <div>
         <p className="text-xs font-semibold uppercase text-gray-900 text-opacity-50 dark:text-gray-50">
           {tag}

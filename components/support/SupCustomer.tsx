@@ -9,9 +9,9 @@ export default function SupCustomer(): JSX.Element {
           className="mx-auto mb-3 fill-current text-blue-900 text-opacity-30"
           height={40}
         />
-        <p>
-          I liked how simple everything was explained. easy to follow and to
-          remember
+        <p className="font-semibold italic">
+          " I liked how simple everything was explained. easy to follow and to
+          remember "
         </p>
         <div className="fle-row flex justify-center gap-x-2 pt-5">
           {[...Array(5)].map((e) => (
