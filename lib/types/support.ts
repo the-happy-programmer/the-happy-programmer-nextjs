@@ -12,6 +12,7 @@ export interface SupHeroProps {
   buttonstr: string
   features?: string[]
   subtitle?: string
+  price?: number
 }
 
 export interface BenefitsProps {

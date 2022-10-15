@@ -34,7 +34,14 @@ export default function SupHero({
             <p className="pb-5 text-sm text-gray-900 text-opacity-60 dark:text-gray-50">
               {active ? 'per month' : 'per year'}
             </p>
-            <button className={styles.fullbtn}>{strings.buttonstr}</button>
+            <button
+              onClick={() => {
+                console.log('das')
+              }}
+              className={styles.fullbtn}
+            >
+              {strings.buttonstr}
+            </button>
           </div>
         </div>
       </div>

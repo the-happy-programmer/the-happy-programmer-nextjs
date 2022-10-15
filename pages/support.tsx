@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import { useState } from 'react'
 import SupAnnouncement from '../components/support/SupAnnouncement'
 import SupCard from '../components/support/SupCard'
 import SupCustomer from '../components/support/SupCustomer'
@@ -12,6 +13,8 @@ import type {
   SupportProps,
 } from '../lib/types/support'
 
+type price = 5 | 50
+
 export default function Support({
   keyfeatures,
   supHero,
@@ -19,6 +22,7 @@ export default function Support({
   customerReview,
   startToday,
 }: SupportProps): JSX.Element {
+  const [price, setPrice] = useState<price>(5)
   return (
     <>
       <SupHero strings={supHero} />
