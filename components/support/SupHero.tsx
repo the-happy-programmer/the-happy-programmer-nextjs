@@ -48,7 +48,10 @@ export default function SupHero({
       <div className="mx-auto flex w-96 flex-col gap-y-4 rounded-b-2xl bg-gray-100 p-10 shadow-2xl dark:bg-gray-800">
         <div className="mx-auto flex flex-col gap-y-4">
           {strings.features?.map((item) => (
-            <div className="flex max-w-sm flex-row items-center gap-x-5">
+            <div
+              key={item}
+              className="flex max-w-sm flex-row items-center gap-x-5"
+            >
               <SvgtoReact
                 name="check"
                 height={20}

@@ -10,8 +10,8 @@ export default function SupCustomer(): JSX.Element {
           height={40}
         />
         <p className="font-semibold italic">
-          " I liked how simple everything was explained. easy to follow and to
-          remember "
+          &quot; I liked how simple everything was explained. easy to follow and
+          to remember &quot;
         </p>
         <div className="fle-row flex justify-center gap-x-2 pt-5">
           {[...Array(5)].map((e) => (
@@ -21,7 +21,10 @@ export default function SupCustomer(): JSX.Element {
       </div>
       <div className="center flex flex-row justify-center pt-10 ">
         {[...Array(4)].map((_, index) => (
-          <div className="relative -mr-3 h-10 w-10 rounded-full border-2 border-gray-200 dark:border-gray-50">
+          <div
+            key={index}
+            className="relative -mr-3 h-10 w-10 rounded-full border-2 border-gray-200 dark:border-gray-50"
+          >
             <Image
               layout="fill"
               objectFit="cover"
