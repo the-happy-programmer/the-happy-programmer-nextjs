@@ -3,6 +3,7 @@ import style from '../../../styles/buttons.module.css'
 import SvgtoReact from '../../Svgtoreact'
 import TabButton from '../../TabButtons/TabButton'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function NewSupport({}): JSX.Element {
   const [active, setActive] = useState<boolean>(true)
@@ -168,7 +169,9 @@ export default function NewSupport({}): JSX.Element {
                 </div>
               ))}
               <div className="col-span-2 pt-3">
-                <button className={style.fullbtn}>Get Started today</button>
+                <Link href={'/support'}>
+                  <a className={style.fullbtn}>Get Started today</a>
+                </Link>
               </div>
             </div>
             <p className="text-sm text-gray-900 text-opacity-50 dark:text-gray-50">
