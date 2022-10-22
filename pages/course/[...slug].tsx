@@ -39,6 +39,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const courseslugs = getAllinks(`course/${slug[0]}`)
 
   const con = await markdownToHtml(content || '')
+  console.log('COURSES:', courseslugs)
   return { props: { content: con, meta, courseslugs } }
 }
 

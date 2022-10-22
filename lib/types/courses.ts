@@ -9,7 +9,7 @@ export interface CourseProps {
   experty: string
 }
 
-export type Tags = 'NuxtJS' | 'tailwind' | 'vue' | 'NextJS'
+export type Tags = 'NuxtJS' | 'tailwind' | 'vue' | 'NextJS' | 'js' | 'reactjs'
 
 export interface CoursesSlugs {
   name: string

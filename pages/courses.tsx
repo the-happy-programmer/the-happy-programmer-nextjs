@@ -53,6 +53,17 @@ export const getStaticProps: GetStaticProps = async () => {
       author: 'Tony',
       experty: 'Software Engineer',
     },
+    {
+      id: 2,
+      link: '/course/algorithms/introduction',
+      tags: ['ts', 'algorithms'],
+      title: 'All Algorithms in one place',
+      description:
+        'Every algorithm you need to know in one place, from sorting to searching and more',
+      image: '',
+      author: 'Tony',
+      experty: 'Software Engineer',
+    },
   ]
   return { props: { courses, header } }
 }
