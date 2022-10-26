@@ -74,10 +74,12 @@ export default function Footer(): JSX.Element {
     return (
       <div className="flex flex-col gap-y-2 pt-2">
         {links.map(([link, href]) => (
-          <Link href={href} key={link}>
-            <p className="cursor-pointer text-sm hover:text-gray-900 dark:hover:text-gray-50">
-              {link}
-            </p>
+          <Link
+            className="cursor-pointer text-sm hover:text-gray-900 dark:hover:text-gray-50"
+            href={href}
+            key={link}
+          >
+            {link}
           </Link>
         ))}
       </div>
@@ -135,7 +137,7 @@ export default function Footer(): JSX.Element {
                   <SvgtoReact
                     name={icon}
                     height={15}
-                    className="cursor-pointer fill-current text-gray-500 hover:text-gray-900 dark:hover:text-gray-50"
+                    className="fill-current cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-gray-50"
                   />
                 </Link>
               ))}
@@ -185,7 +187,7 @@ export default function Footer(): JSX.Element {
             />
           ))}
         </div>
-        <div className="justify-self-auto fill-current stroke-current text-gray-500 dark:text-gray-400">
+        <div className="fill-current stroke-current justify-self-auto text-gray-500 dark:text-gray-400">
           <Svgtoreact name="fulllogo" height={20} width={100} />
         </div>
         <p className="text-sm text-gray-400 dark:text-gray-500">

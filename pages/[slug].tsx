@@ -44,16 +44,17 @@ export default function Post({
       />
       <Headerlayout>
         <div className="container flex flex-col items-center px-3 py-3">
-          <Link href="/blog">
-            <a className="flex flex-row place-self-start fill-current pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-              <SvgtoReact
-                className="mr-3 rotate-90 transform self-center "
-                name="arrow"
-                height={15}
-                width={15}
-              />
-              Back to posts
-            </a>
+          <Link
+            className="fill-current flex flex-row place-self-start pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            href="/blog"
+          >
+            <SvgtoReact
+              className="mr-3 rotate-90 transform self-center "
+              name="arrow"
+              height={15}
+              width={15}
+            />
+            Back to posts
           </Link>
           {postIcon(categories)}
           <h1 className="p-3 text-center text-3xl font-bold text-gray-900 dark:text-gray-50">

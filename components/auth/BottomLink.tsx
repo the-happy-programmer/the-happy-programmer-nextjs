@@ -11,10 +11,11 @@ export default function BottomLink({
       <p className="text-xs text-gray-900 text-opacity-40 dark:text-gray-50">
         {title}
       </p>
-      <Link href={url}>
-        <a className="text-xs font-semibold hover:underline dark:text-gray-50">
-          {link}
-        </a>
+      <Link
+        className="text-xs font-semibold hover:underline dark:text-gray-50"
+        href={url}
+      >
+        {link}
       </Link>
     </div>
   )

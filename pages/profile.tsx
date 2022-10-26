@@ -59,8 +59,8 @@ export default function Profile(): JSX.Element {
                 ) : (
                   subscription
                 )}
-                <Link href={'/support'}>
-                  <a className={styles.sbtn}>Choose A Plan</a>
+                <Link className={styles.sbtn} href={'/support'}>
+                  Choose A Plan
                 </Link>
               </>
             </div>

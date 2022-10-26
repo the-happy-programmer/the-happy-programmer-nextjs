@@ -65,13 +65,13 @@ export default function Search({
               type="text"
               onChange={changeInput}
               placeholder="Search posts..."
-              className="outline-none rounder-t w-full rounded-t-2xl bg-gray-50 p-3 px-16 text-gray-900 placeholder-gray-300 dark:bg-gray-800 dark:text-gray-50"
+              className="rounder-t w-full rounded-t-2xl bg-gray-50 p-3 px-16 text-gray-900 placeholder-gray-300 outline-none dark:bg-gray-800 dark:text-gray-50"
             />
             <div
               onClick={() => closeSearch()}
               className="absolute inset-y-0 right-0 mr-6 flex items-center bg-gray-50 dark:bg-gray-800"
             >
-              <div className="cursor-pointer rounded-md border border-gray-200 fill-current p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:border-gray-600 dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-gray-400">
+              <div className="fill-current cursor-pointer rounded-md border border-gray-200 p-1 text-xs text-gray-300 hover:border-gray-300 hover:text-gray-500 dark:border-gray-600 dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-gray-400">
                 ESC
               </div>
             </div>
@@ -87,17 +87,21 @@ export default function Search({
                 </span>
                 <ul className="py-3 text-accent dark:text-darkaccent">
                   <li className="py-3">
-                    <Link href="/" passHref>
-                      <a className="cursor-pointer hover:underline">
-                        The Hapy Programmer
-                      </a>
+                    <Link
+                      className="cursor-pointer hover:underline"
+                      href="/"
+                      passHref
+                    >
+                      The Hapy Programmer
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://happynuxtjs.com/" passHref>
-                      <a className="cursor-pointer hover:underline">
-                        Happy NuxtJS
-                      </a>
+                    <Link
+                      className="cursor-pointer hover:underline"
+                      href="https://happynuxtjs.com/"
+                      passHref
+                    >
+                      Happy NuxtJS
                     </Link>
                   </li>
                 </ul>
@@ -137,7 +141,7 @@ export default function Search({
                         <div>
                           <SvgtoReact
                             name="arrow-right"
-                            className="cursor-pointer justify-self-end fill-current text-gray-300 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400"
+                            className="fill-current cursor-pointer justify-self-end text-gray-300 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400"
                             height={15}
                             width={15}
                           />

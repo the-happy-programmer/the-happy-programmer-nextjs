@@ -23,10 +23,13 @@ export default function HappyLink({
       : ''
 
   return (
-    <Link href={href} aria-label={ariaLabel}>
-      <a className={`${classes}  ${current}`} aria-label={ariaLabel}>
-        {children}
-      </a>
+    <Link
+      className={`${classes}  ${current}`}
+      aria-label={ariaLabel}
+      href={href}
+      // aria-label={ariaLabel}
+    >
+      {children}
     </Link>
   )
 }

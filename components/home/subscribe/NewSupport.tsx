@@ -169,8 +169,8 @@ export default function NewSupport({}): JSX.Element {
                 </div>
               ))}
               <div className="col-span-2 pt-3">
-                <Link href={'/support'}>
-                  <a className={style.fullbtn}>Get Started today</a>
+                <Link className={style.fullbtn} href={'/support'}>
+                  Get Started today
                 </Link>
               </div>
             </div>
