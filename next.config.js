@@ -1,4 +1,7 @@
 module.exports = {
+  experimental: {
+    appDir: true,
+  },
   images: {
     domains: [
       'secure.gravatar.com',
@@ -6,7 +9,7 @@ module.exports = {
       'i2.wp.com',
       'https://i2.wp.com/thehappyprogrammer.com',
       'lh3.googleusercontent.com',
-      "avatars.githubusercontent.com"
+      'avatars.githubusercontent.com',
     ],
   },
   swcMinify: true,

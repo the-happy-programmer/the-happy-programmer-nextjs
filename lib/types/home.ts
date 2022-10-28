@@ -31,8 +31,6 @@ export interface HomeProps {
   hero: TitleSubIcons
   subhero: SubHeroProps['subhero']
   subscribe: TitleSubtitle
-  support: SupportType
   moderntechnologies: TitleSubIcons
   info: string[][]
-  supportDesc: { title: string; desc: string }
 }
