@@ -1,3 +1,5 @@
+'use client'
+
 import SubDesc from './SubDesc'
 import style from '../../../styles/buttons.module.css'
 import SvgtoReact from '../../Svgtoreact'
