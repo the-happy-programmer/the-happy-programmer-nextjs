@@ -9,6 +9,7 @@ import CourseHeader from '../../components/course/CourseHeader'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
 import { CoursesHeader, CoursesSlugs } from '../../lib/types/courses'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Subscribe from '../../components/home/Subscribe'
 
 export default function Pag({
   content,
