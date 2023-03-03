@@ -18,7 +18,7 @@ export default function HeroCarousel({
           {subtitle}
         </p>
         <HappyButton xl={true} href="#subscribe">
-          Subsribe
+          Subscribe
         </HappyButton>
       </div>
       <div>
