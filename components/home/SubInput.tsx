@@ -43,7 +43,7 @@ export default function SubInput(): JSX.Element {
         type="submit"
         className="rounded-md bg-gray-900 px-10 py-3 font-semibold text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200"
       >
-        Subrcibe
+        Subscribe
       </button>
       <div className="flex flex-row items-center justify-center gap-x-2 pt-4">
         {!message && error && (
