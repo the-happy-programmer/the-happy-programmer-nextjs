@@ -1,6 +1,8 @@
+'use client'
 import SubDesc from './SubDesc'
 import style from '../../../styles/buttons.module.css'
 import SvgtoReact from '../../Svgtoreact'
+import Check from '@/public/svg/check.svg'
 import TabButton from '../../TabButtons/TabButton'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -156,8 +158,7 @@ export default function NewSupport({}): JSX.Element {
                   className="flex-none rounded-md bg-gray-50 p-3 text-sm dark:bg-gray-700 "
                 >
                   <div className="flex flex-row">
-                    <SvgtoReact
-                      name="check"
+                    <Check
                       height={20}
                       width={20}
                       className="stroke-current text-gray-900 dark:text-gray-50"

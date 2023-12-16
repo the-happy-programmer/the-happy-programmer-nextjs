@@ -1,5 +1,6 @@
 import type { SEOProps } from './seo'
 import type { TitleSub } from './general'
+import { ReactComponentElement } from 'react'
 export interface TitleSubtitle extends TitleSub {
   title: string
   subtitle?: string
@@ -21,7 +22,7 @@ export interface SubHeroProps {
 }
 
 export interface HeroProps {
-  icon: string
+  icon: any
   title: string
   subtitle: string
 }

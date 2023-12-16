@@ -1,3 +1,4 @@
+'use client'
 import SvgtoReact from './Svgtoreact'
 import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
@@ -9,7 +10,6 @@ import Spinner from './spinners/Spinner'
 import { useUser } from '../lib/utils/useUser'
 
 const Nav = () => {
-  const { isLoading, user } = useUser()
   const [sidebar, setsidebar] = useState<boolean>(false)
   const links: string[][] = [
     ['/blog', 'Blog'],
@@ -18,10 +18,10 @@ const Nav = () => {
   ]
 
   const userNav = () => {
-    if (isLoading) {
+    if (false) {
       return <Spinner />
     }
-    if (user) {
+    if (false) {
       return (
         <Link href="/profile">
           <SvgtoReact
