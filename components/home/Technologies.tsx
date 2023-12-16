@@ -1,5 +1,6 @@
+'use client'
 import { useState } from 'react'
-import type { TitleSubtitle } from '../../lib/types/home'
+import type { TitleSubtitle } from '@/lib/types/home'
 import SvgtoReact from '../Svgtoreact'
 import TechLink from './TechLink'
 export default function Technologies({

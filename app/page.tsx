@@ -5,7 +5,7 @@ import Subscribe from '@/components/home/Subscribe'
 import Technologies from '@/components/home/Technologies'
 import NewSupport from '@/components/home/subscribe/NewSupport'
 import type { Metadata } from 'next'
-import { hero, subhero } from './data'
+import { hero, moderntechnologies, subhero } from './data'
 
 export const metadata: Metadata = {
   title: 'The Happy Programmer',
@@ -22,12 +22,12 @@ export default function Page() {
         icon={hero.icon}
       />
       <SubHero subhero={subhero} />
-      {/* 
+
       <Technologies
         title={moderntechnologies.title}
         subtitle={moderntechnologies.subtitle}
       />
-      
+      {/* 
       {!true && <NewSupport />}
       <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
       <DropDownContainer
