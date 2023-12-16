@@ -1,7 +1,7 @@
-import Meta from '../seo/Meta'
-import SvgToReact from '../Svgtoreact'
-import SubInput from '../home/SubInput'
-import type { CoursesHeader } from '../../lib/types/courses'
+import Meta from '../../seo/Meta'
+import SvgToReact from '../../Svgtoreact'
+import SubInput from '../../home/SubInput'
+import type { CoursesHeader } from '../../../lib/types/courses'
 
 export default function CourseHeader({
   meta,

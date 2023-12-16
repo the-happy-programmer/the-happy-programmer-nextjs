@@ -87,17 +87,21 @@ export default function Search({
                 </span>
                 <ul className="py-3 text-accent dark:text-darkaccent">
                   <li className="py-3">
-                    <Link href="/" passHref>
-                      <a className="cursor-pointer hover:underline">
-                        The Hapy Programmer
-                      </a>
+                    <Link
+                      href="/"
+                      passHref
+                      className="cursor-pointer hover:underline"
+                    >
+                      The Hapy Programmer
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://happynuxtjs.com/" passHref>
-                      <a className="cursor-pointer hover:underline">
-                        Happy NuxtJS
-                      </a>
+                    <Link
+                      href="https://happynuxtjs.com/"
+                      passHref
+                      className="cursor-pointer hover:underline"
+                    >
+                      Happy NuxtJS
                     </Link>
                   </li>
                 </ul>
@@ -124,7 +128,7 @@ export default function Search({
               )}
               {searchList.map((post: PostProps) => (
                 <div key={post.meta.title} className="h-full rounded-t-3xl">
-                  <Link href={`/${post.link}`}>
+                  <Link href={`/${post.link}`} passHref>
                     <div
                       onClick={() => closeSearch()}
                       className="cursor-pointer border-b border-gray-200 px-7 py-6 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700"

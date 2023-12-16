@@ -3,10 +3,12 @@ import type { PostProps } from '../lib/types/blog'
 
 const tagsitter = (tag: string[]) => {
   return tag.map((tag) => (
-    <Link href={`/tag/${tag}`} key={tag}>
-      <a className="mr-2.5 cursor-pointer py-0.5 text-xs font-semibold uppercase text-gray-900 text-opacity-60 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50">
-        {tag}
-      </a>
+    <Link
+      href={`/tag/${tag}`}
+      key={tag}
+      className="mr-2.5 cursor-pointer py-0.5 text-xs font-semibold uppercase text-gray-900 text-opacity-60 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-50"
+    >
+      {tag}
     </Link>
   ))
 }
@@ -24,20 +26,22 @@ export default function Posthome({
       {plain ? (
         <div className="flex flex-row items-center pb-3">{tagsitter(tags)}</div>
       ) : null}
-      <Link href={`/${post.link}`}>
-        <a className="mr-auto flex w-auto flex-row text-xl font-semibold text-gray-800 hover:underline dark:text-gray-50">
-          {title}
-        </a>
+      <Link
+        href={`/${post.link}`}
+        className="mr-auto flex w-auto flex-row text-xl font-semibold text-gray-800 hover:underline dark:text-gray-50"
+      >
+        {title}
       </Link>
       <p className="leading-loose text-gray-900 text-opacity-70 dark:text-gray-50">
         {description}
       </p>
       <div className="pt-3">
         {plain ? (
-          <Link href={`/author/${author.toLowerCase()}`}>
-            <a className="capitalize hover:underline dark:text-gray-50">
-              {author}
-            </a>
+          <Link
+            href={`/author/${author.toLowerCase()}`}
+            className="capitalize hover:underline dark:text-gray-50"
+          >
+            {author}
           </Link>
         ) : null}
         <p className="text-gray-500 dark:text-gray-400">{pubDate}</p>
