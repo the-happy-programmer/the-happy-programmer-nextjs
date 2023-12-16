@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import type { TitleSub } from '../../lib/types/general'
 import SvgtoReact from '../Svgtoreact'
