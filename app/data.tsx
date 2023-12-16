@@ -1,4 +1,5 @@
-import { TitleSubIcons } from '@/lib/types/home'
+import { SubHeroProps, TitleSubIcons, TitleSubtitle } from '@/lib/types/home'
+import { SEOProps } from '@/lib/types/seo'
 
 const supportDesc: { title: string; subtitle: string } = {
   title: 'support to our newsletter',
@@ -85,15 +86,13 @@ const subscribe: TitleSubtitle = {
     'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
 }
 
-return {
-  props: {
-    seo,
-    hero,
-    subhero,
-    subscribe,
-    support,
-    moderntechnologies,
-    info,
-    supportDesc,
-  },
+export {
+  seo,
+  hero,
+  subhero,
+  subscribe,
+  support,
+  moderntechnologies,
+  info,
+  supportDesc,
 }
