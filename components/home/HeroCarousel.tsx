@@ -4,7 +4,6 @@ import HeroCode from '@/public/svg/herocode.svg'
 export default function HeroCarousel({
   title,
   subtitle,
-  icon,
 }: TitleSubtitle): JSX.Element {
   return (
     <div className="container flex flex-col-reverse items-center justify-between py-8 px-4 text-center sm:flex-col-reverse sm:py-20 sm:text-center md:flex-row md:py-20 md:text-left lg:flex-row lg:py-20 lg:text-left xl:flex-row xl:py-20 xl:text-left">

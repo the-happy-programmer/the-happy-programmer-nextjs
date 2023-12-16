@@ -1,6 +1,4 @@
-import SvgtoReact from '../Svgtoreact'
-
-import { SubHeroProps } from '../../lib/types/home'
+import { SubHeroProps } from '@/lib/types/home'
 
 export default function SubHero({ subhero }: SubHeroProps): JSX.Element {
   return (
@@ -9,13 +7,12 @@ export default function SubHero({ subhero }: SubHeroProps): JSX.Element {
         {subhero.map((sub) => (
           <div
             className="flex max-w-md flex-row items-center gap-x-4 py-8 sm:py-8 md:py-28 lg:py-28 xl:py-28 "
-            key={sub.icon}
+            key={sub.title}
           >
             <div className="rounded-md bg-gradient-to-r from-blue-400  to-blue-700 p-4">
-              <SvgtoReact
+              <sub.icon
                 className="fill-current stroke-current text-gray-100  dark:text-gray-800"
                 height={20}
-                name={sub.icon}
               />
             </div>
             <div className="">

@@ -1,5 +1,7 @@
 import { SubHeroProps, TitleSubIcons, TitleSubtitle } from '@/lib/types/home'
-import { SEOProps } from '@/lib/types/seo'
+import Understand from '@/public/svg/understand.svg'
+import Create from '@/public/svg/create.svg'
+import Grow from '@/public/svg/grow.svg'
 
 const supportDesc: { title: string; subtitle: string } = {
   title: 'support to our newsletter',
@@ -58,17 +60,17 @@ const hero: TitleSubtitle = {
 
 const subhero: SubHeroProps['subhero'] = [
   {
-    icon: 'understand',
+    icon: Understand,
     title: 'Understand',
     subtitle: 'hard programming concepts explained in the simplest way.',
   },
   {
-    icon: 'create',
+    icon: Create,
     title: 'Create',
     subtitle: 'Learn by coding in modern technologies on every device.',
   },
   {
-    icon: 'grow',
+    icon: Grow,
     title: 'Grow',
     subtitle: 'be an expert and see yourself grow to a professional.',
   },

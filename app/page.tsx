@@ -5,7 +5,7 @@ import Subscribe from '@/components/home/Subscribe'
 import Technologies from '@/components/home/Technologies'
 import NewSupport from '@/components/home/subscribe/NewSupport'
 import type { Metadata } from 'next'
-import { hero } from './data'
+import { hero, subhero } from './data'
 
 export const metadata: Metadata = {
   title: 'The Happy Programmer',
@@ -21,8 +21,8 @@ export default function Page() {
         subtitle={hero.subtitle}
         icon={hero.icon}
       />
-      {/* <SubHero subhero={subhero} />
-      
+      <SubHero subhero={subhero} />
+      {/* 
       <Technologies
         title={moderntechnologies.title}
         subtitle={moderntechnologies.subtitle}
