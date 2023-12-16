@@ -74,10 +74,12 @@ export default function Footer(): JSX.Element {
     return (
       <div className="flex flex-col gap-y-2 pt-2">
         {links.map(([link, href]) => (
-          <Link href={href} key={link}>
-            <p className="cursor-pointer text-sm hover:text-gray-900 dark:hover:text-gray-50">
-              {link}
-            </p>
+          <Link
+            href={href}
+            key={link}
+            className="cursor-pointer text-sm hover:text-gray-900 dark:hover:text-gray-50"
+          >
+            {link}
           </Link>
         ))}
       </div>
@@ -131,7 +133,7 @@ export default function Footer(): JSX.Element {
           <div>
             <div className="flex flex-row justify-center space-x-5 pt-3 sm:justify-center md:justify-start lg:justify-start xl:justify-start">
               {socials.map(([link, icon]) => (
-                <Link href={link} key={link}>
+                <Link href={link} key={link} passHref>
                   <SvgtoReact
                     name={icon}
                     height={15}

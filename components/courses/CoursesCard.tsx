@@ -16,10 +16,11 @@ export default function CoursesCard({
           className="flex cursor-pointer flex-col rounded-md border border-gray-900 border-opacity-5 bg-gray-50 py-12 px-8 hover:border-gray-50 hover:shadow-lg dark:border-gray-50 dark:border-opacity-20 dark:bg-gray-900 dark:hover:border-gray-900 "
         >
           <TagCourse tags={course.tags} />
-          <Link href={course.link}>
-            <h3 className="cursor-pointer text-lg font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent">
-              {course.title}
-            </h3>
+          <Link
+            href={course.link}
+            className="cursor-pointer text-lg font-bold hover:text-accent dark:text-gray-50 dark:hover:text-darkaccent"
+          >
+            {course.title}
           </Link>
           <p className="pt-2 text-sm leading-normal text-gray-600 line-clamp-4 dark:text-gray-300">
             {course.description}

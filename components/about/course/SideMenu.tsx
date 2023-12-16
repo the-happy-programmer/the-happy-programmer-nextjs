@@ -2,7 +2,7 @@ import CourseSearch from './CourseSearch'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import type { CoursesSlugs } from '../../lib/types/courses'
+import type { CoursesSlugs } from '../../../lib/types/courses'
 
 export default function SideMenu({
   courseslugs,

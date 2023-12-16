@@ -40,7 +40,7 @@ export default function Profile(): JSX.Element {
             </div>
             <div className="flex flex-row items-center justify-between py-3">
               <p className="max-w-xs font-medium">Passowrd:*******</p>
-              <Link href="/resetpassword">
+              <Link href="/resetpassword" passHref>
                 <div className="group cursor-pointer rounded-full border-2 border-gray-900 border-opacity-40 p-1.5 hover:border-opacity-0 dark:border-gray-50">
                   <SvgtoReact
                     name="pencil"
@@ -59,8 +59,8 @@ export default function Profile(): JSX.Element {
                 ) : (
                   subscription
                 )}
-                <Link href={'/support'}>
-                  <a className={styles.sbtn}>Choose A Plan</a>
+                <Link href={'/support'} className={styles.sbtn}>
+                  Choose A Plan
                 </Link>
               </>
             </div>

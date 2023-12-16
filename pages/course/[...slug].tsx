@@ -1,11 +1,11 @@
-import Content from '../../components/course/Content'
+import Content from '../../components/about/course/Content'
 import {
   getDirectories,
   getDocBySlug,
   getAllinks,
 } from '../../lib/courseslib/courseapi'
-import SideMenu from '../../components/course/SideMenu'
-import CourseHeader from '../../components/course/CourseHeader'
+import SideMenu from '../../components/about/course/SideMenu'
+import CourseHeader from '../../components/about/course/CourseHeader'
 import { markdownToHtml } from '../../lib/courseslib/htmlmarkdown'
 import { CoursesHeader, CoursesSlugs } from '../../lib/types/courses'
 import { GetStaticPaths, GetStaticProps } from 'next'

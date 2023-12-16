@@ -34,8 +34,8 @@ export default function SideBar({
         <div className="px-5 py-6">
           {links.map(([link, name]) => (
             <div className="py-3" key={name}>
-              <Link href={link}>
-                <a onClick={(e) => closeSidebar()}>{name}</a>
+              <Link href={link} onClick={(e) => closeSidebar()}>
+                {name}
               </Link>
             </div>
           ))}

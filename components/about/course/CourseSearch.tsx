@@ -1,6 +1,6 @@
-import SvgToReact from '../Svgtoreact'
+import SvgToReact from '../../Svgtoreact'
 import { useState } from 'react'
-import { CoursesSlugs } from '../../lib/types/courses'
+import { CoursesSlugs } from '../../../lib/types/courses'
 import { ChangeEvent } from 'react'
 export default function CourseSearch({
   palceholder,

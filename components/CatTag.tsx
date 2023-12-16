@@ -16,17 +16,21 @@ export default function CatTag({
       <div className="divide-y dark:divide-gray-700">
         {tags?.map((cat) => (
           <div className="py-2.5" key={cat}>
-            <Link href={`/tag/${cat}`}>
-              <a className="cursor-pointer text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
-                {cat}
-              </a>
+            <Link
+              href={`/tag/${cat}`}
+              className="cursor-pointer text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+            >
+              {cat}
             </Link>
           </div>
         ))}
         {categories?.map((cat) => (
           <div className="py-2.5" key={cat}>
-            <Link href={`/category/${cat}`}>
-              <a className="flex cursor-pointer flex-row  text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50">
+            <Link
+              href={`/category/${cat}`}
+              className="flex cursor-pointer flex-row  text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+            >
+              <>
                 <div>
                   <SvgtoReact
                     className="pr-2"
@@ -34,9 +38,8 @@ export default function CatTag({
                     height={20}
                   />
                 </div>
-
                 <p className="overflow-hidden overflow-ellipsis">{cat}</p>
-              </a>
+              </>
             </Link>
           </div>
         ))}
