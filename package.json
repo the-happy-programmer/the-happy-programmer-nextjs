@@ -12,7 +12,8 @@
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.73",
     "@stripe/stripe-js": "^1.38.1",
-    "@supabase/supabase-auth-helpers": "^1.4.2",
+    "@supabase/auth-helpers-nextjs": "^0.8.7",
+    "@supabase/supabase-js": "^2.39.0",
     "@types/react-transition-group": "^4.4.5",
     "classnames": "^2.3.1",
     "next": "^14.0.4",
