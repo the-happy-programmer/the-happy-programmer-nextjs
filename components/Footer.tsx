@@ -1,3 +1,4 @@
+'use client'
 import Svgtoreact from './Svgtoreact'
 import Link from 'next/link'
 import SvgtoReact from './Svgtoreact'

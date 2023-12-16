@@ -1,8 +1,8 @@
+'use client'
 import Link from 'next/link'
 import type { LinkProps } from 'next/link'
-import { useRouter } from 'next/router'
 import { HTMLAttributes, ReactNode } from 'react'
-
+import { usePathname } from 'next/navigation'
 interface HappyLinkProps extends HTMLAttributes<LinkProps> {
   href: URL | string
   children: ReactNode
@@ -16,9 +16,9 @@ export default function HappyLink({
   classes,
   ariaLabel,
 }: HappyLinkProps): JSX.Element {
-  const router = useRouter()
+  const router = usePathname()
   const current =
-    router.asPath === href
+    router === href
       ? 'text-gray-900 dark:text-gray-50 border-b-4 border-gray-900 dark:border-gray-50'
       : ''
 
