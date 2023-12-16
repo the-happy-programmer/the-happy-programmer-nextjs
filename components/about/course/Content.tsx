@@ -1,4 +1,4 @@
-import styles from '../../styles/course.module.css'
+import styles from '../../../styles/course.module.css'
 
 export default function Content({ content }: { content: string }): JSX.Element {
   return (

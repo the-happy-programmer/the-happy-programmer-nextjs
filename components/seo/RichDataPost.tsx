@@ -11,7 +11,7 @@ export default function Meta({
   slug,
 }: RichSEOProps): JSX.Element {
   return (
-    <head>
+    <Head>
       <title>{title}</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta property="og:title" content={title} />
@@ -39,6 +39,6 @@ export default function Meta({
     `,
         }}
       />
-    </head>
+    </Head>
   )
 }
