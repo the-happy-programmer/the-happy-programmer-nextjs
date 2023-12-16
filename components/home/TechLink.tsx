@@ -2,42 +2,42 @@ import SvgtoReact from '../Svgtoreact'
 
 export default function TechLink({
   name,
-  setIcon,
-  currentIcon,
+  current,
   icons,
+  tab,
+  setOnClick,
 }: {
   name: string
-  active: boolean
-  setIcon: (icon: string) => void
-  currentIcon: string
-  icons: string[]
+  current: number
+  icons: any[]
+  tab: number
+  setOnClick: () => void
 }): JSX.Element {
-  const current = currentIcon === name.toLocaleLowerCase()
+  const currentIcon = current === tab
   return (
     <div>
       <div className="flex cursor-pointer flex-col items-center py-3  sm:flex-col md:flex-row lg:flex-row xl:flex-row">
         <div>
           <p
             className={`${
-              current ? 'text-opacity-100' : 'text-opacity-60'
+              currentIcon ? 'text-opacity-100' : 'text-opacity-60'
             } text-gray-800 hover:text-opacity-100 dark:text-gray-50`}
-            onClick={() => setIcon(name.toLocaleLowerCase())}
+            onClick={setOnClick}
           >
             {name}
           </p>
         </div>
-        {current && (
+        {currentIcon && (
           <div className="my-auto mt-2 h-2 w-2 rounded-full bg-accent dark:bg-darkaccent sm:mt-2 md:ml-2 lg:ml-2 xl:ml-2" />
         )}
       </div>
       <div className="hidden flex-row gap-x-3 sm:hidden md:flex lg:flex xl:flex">
-        {icons.map((icon) => (
+        {icons.map((Icon, index) => (
           <div
-            key={icon}
+            key={index}
             className="rounded-md bg-gray-200 p-3 dark:bg-gray-700"
           >
-            <SvgtoReact
-              name={icon}
+            <Icon
               height={20}
               width={20}
               className="fill-current text-gray-900 dark:text-gray-50"
