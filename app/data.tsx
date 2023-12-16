@@ -49,12 +49,6 @@ const moderntechnologies: TitleSubIcons = {
   subtitle: 'The most modern technologies available stay tuned for more',
 }
 
-const seo: SEOProps = {
-  title: 'The Happy Programmer',
-  description:
-    'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
-}
-
 const hero: TitleSubtitle = {
   title: 'Courses in every technology.',
   subtitle:
@@ -87,7 +81,6 @@ const subscribe: TitleSubtitle = {
 }
 
 export {
-  seo,
   hero,
   subhero,
   subscribe,

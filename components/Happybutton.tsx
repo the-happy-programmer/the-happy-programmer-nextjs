@@ -1,3 +1,4 @@
+'use client'
 import { ReactNode, MouseEventHandler } from 'react'
 import styles from '../styles/buttons.module.css'
 interface BtnProps {

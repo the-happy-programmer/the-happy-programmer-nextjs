@@ -1,7 +1,6 @@
 import HappyButton from '../Happybutton'
-import SvgtoReact from '../Svgtoreact'
 import type { TitleSubtitle } from '../../lib/types/home'
-
+import HeroCode from '@/public/svg/herocode.svg'
 export default function HeroCarousel({
   title,
   subtitle,
@@ -23,7 +22,7 @@ export default function HeroCarousel({
       </div>
       <div>
         <div className="h-96">
-          <SvgtoReact name={icon} className="h-96" />
+          <HeroCode className="h-96" />
         </div>
       </div>
     </div>
