@@ -1,10 +1,10 @@
 'use server'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/utils/supabase/server'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 export const signInWithGitHub = async () => {
   const cookieStore = cookies()
-  const supabase = createServerComponentClient({ cookies: () => cookieStore })
+  const supabase = createClient(cookieStore)
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'github',
     options: {
