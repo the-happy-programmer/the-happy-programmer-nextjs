@@ -1,4 +1,3 @@
-import { supabase } from '../../lib/utils/supabaseclient'
 import { useState } from 'react'
 import AuthInput from './AuthInput'
 import BtnSpinner from '../spinners/BtnSpinner'
@@ -7,8 +6,11 @@ import FormSceleton from './FormSceleton'
 import SvgtoReact from '../Svgtoreact'
 import type { ErrorProps } from '../../lib/types/signin'
 import ErrorMessage from './ErrorMessage'
+import { SupabaseClient } from '@supabase/supabase-js'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 export default function SignupForm({}): JSX.Element {
+  const supabase = createClientComponentClient()
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<ErrorProps | null>(null)
   const [email, setEmail] = useState<string | null>(null)
