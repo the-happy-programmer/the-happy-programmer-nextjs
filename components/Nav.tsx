@@ -7,7 +7,6 @@ import SideBar from './SideBar'
 import scroll from '../lib/scroll'
 import Link from 'next/link'
 import Spinner from './spinners/Spinner'
-import { useUser } from '../lib/utils/useUser'
 
 const Nav = () => {
   const [sidebar, setsidebar] = useState<boolean>(false)
