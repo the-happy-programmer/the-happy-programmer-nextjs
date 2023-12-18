@@ -1,21 +1,18 @@
-import Table from '../components/profile/Table'
-import Happybutton from '../components/Happybutton'
-import { useUser } from '../lib/utils/useUser'
-import { supabase } from '../lib/utils/supabaseclient'
-import { withAuthRequired } from '@supabase/supabase-auth-helpers/nextjs'
-import { useRouter } from 'next/router'
-import SvgtoReact from '../components/Svgtoreact'
+import Table from '@/components/profile/Table'
 import Link from 'next/link'
-import FullPageSpinner from '../components/spinners/FullPageSpinner'
-import styles from '../styles/buttons.module.css'
+import styles from '@/styles/buttons.module.css'
+import { createClient } from '@/lib/utils/supabase/server'
+import { cookies } from 'next/headers'
+import PencilIcon from '@/public/svg/pencil.svg'
+import { redirect } from 'next/navigation'
 
-export default function Profile(): JSX.Element {
-  const router = useRouter()
-  const { isLoading, user, subscription } = useUser()
-
-  if (isLoading) {
-    return <FullPageSpinner />
-  }
+export default async function Profile() {
+  const subscription = false
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
   return (
     <div className="container">
@@ -25,25 +22,23 @@ export default function Profile(): JSX.Element {
           <Table title="Account Details">
             <div className="flex flex-row items-center justify-between py-3">
               <p className="max-w-xs font-medium">{user?.email || ''}</p>
-              <Happybutton
-                onClick={async () => {
-                  try {
-                    const { error } = await supabase.auth.signOut()
-                    router.replace('/signin')
-                  } catch (error) {
-                    console.error(error)
-                  }
+              <form
+                action={async () => {
+                  'use server'
+                  const cookieStore = cookies()
+                  const supabase = createClient(cookieStore)
+                  await supabase.auth.signOut()
+                  return redirect('/signin')
                 }}
               >
-                Sign Out
-              </Happybutton>
+                <button className={styles.sbtn}>Sign Out</button>
+              </form>
             </div>
             <div className="flex flex-row items-center justify-between py-3">
               <p className="max-w-xs font-medium">Passowrd:*******</p>
               <Link href="/resetpassword" passHref>
                 <div className="group cursor-pointer rounded-full border-2 border-gray-900 border-opacity-40 p-1.5 hover:border-opacity-0 dark:border-gray-50">
-                  <SvgtoReact
-                    name="pencil"
+                  <PencilIcon
                     className="stroke-curren text-gray-900 text-opacity-40 group-hover:text-opacity-0 dark:text-gray-50"
                     height={16}
                   />
@@ -73,5 +68,3 @@ export default function Profile(): JSX.Element {
     </div>
   )
 }
-
-export const getServerSideProps = withAuthRequired({ redirectTo: '/signin' })

@@ -10,16 +10,18 @@ import { User } from '@supabase/supabase-js'
 import UserIcon from '@/public/svg/user-icon.svg'
 import styles from '@/styles/buttons.module.css'
 const Nav = () => {
-  const [sidebar, setsidebar] = useState<boolean>(false)
-  const [user, setUser] = useState<{ user: User } | { user: null }>({
-    user: null,
-  })
   const supabase = createClient()
+  const [sidebar, setsidebar] = useState<boolean>(false)
+  const [user, setUser] = useState<{ user: User | null }>({ user: null })
 
   useEffect(() => {
     const getUser = async () => {
-      const { data } = await supabase.auth.getUser()
-      setUser(data)
+      try {
+        const { data } = await supabase.auth.getUser()
+        setUser(data)
+      } catch (error) {
+        console.error(error)
+      }
     }
     getUser()
   }, [supabase])
@@ -28,26 +30,6 @@ const Nav = () => {
     ['/about', 'About'],
     ['https://happynuxtjs.com/', 'NuxtJS'],
   ]
-
-  const userNav = () => {
-    if (user) {
-      return (
-        <Link href="/profile">
-          <UserIcon
-            width={26}
-            height={26}
-            className="cursor-pointer stroke-current hover:text-gray-900 active:text-gray-50 dark:hover:text-gray-50"
-          />
-        </Link>
-      )
-    } else {
-      return (
-        <Link href="/signup" className={styles.sbtn}>
-          Sign Up
-        </Link>
-      )
-    }
-  }
 
   return (
     <div className="h-17 sticky top-0 z-50 bg-gray-100 bg-opacity-90 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-gray-900">
@@ -75,7 +57,19 @@ const Nav = () => {
                 </div>
               ))}
               <div className="flex h-10 items-center justify-items-end">
-                {userNav()}
+                {user.user ? (
+                  <Link href="/profile">
+                    <UserIcon
+                      width={26}
+                      height={26}
+                      className="cursor-pointer stroke-current hover:text-gray-900 active:text-gray-50 dark:hover:text-gray-50"
+                    />
+                  </Link>
+                ) : (
+                  <Link href="/signin" className={styles.sbtn}>
+                    Sign Up
+                  </Link>
+                )}
               </div>
             </div>
             <button
