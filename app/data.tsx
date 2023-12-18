@@ -81,8 +81,14 @@ const subscribe: TitleSubtitle = {
   subtitle:
     'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
 }
+const navLinks: string[][] = [
+  ['/blog', 'Blog'],
+  ['/about', 'About'],
+  ['https://happynuxtjs.com/', 'NuxtJS'],
+]
 
 export {
+  navLinks,
   hero,
   subhero,
   subscribe,

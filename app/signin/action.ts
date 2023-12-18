@@ -16,3 +16,16 @@ export const signInWithGitHub = async () => {
   }
   return redirect(data.url)
 }
+
+export const signInWithPassword = async () => {
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: '',
+    password: '',
+  })
+  if (error) {
+    redirect('/login?message=Could not authenticate user')
+  }
+  redirect('/')
+}
