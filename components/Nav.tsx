@@ -1,15 +1,28 @@
 'use client'
 import SvgtoReact from './Svgtoreact'
-import HappyButton from './Happybutton'
 import HappyLink from './HappyLink'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SideBar from './SideBar'
 import scroll from '../lib/scroll'
 import Link from 'next/link'
-import Spinner from './spinners/Spinner'
-
+import { createClient } from '@/lib/utils/supabase/client'
+import { User } from '@supabase/supabase-js'
+import UserIcon from '@/public/svg/user-icon.svg'
+import styles from '@/styles/buttons.module.css'
 const Nav = () => {
   const [sidebar, setsidebar] = useState<boolean>(false)
+  const [user, setUser] = useState<{ user: User } | { user: null }>({
+    user: null,
+  })
+  const supabase = createClient()
+
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await supabase.auth.getUser()
+      setUser(data)
+    }
+    getUser()
+  }, [supabase])
   const links: string[][] = [
     ['/blog', 'Blog'],
     ['/about', 'About'],
@@ -17,22 +30,22 @@ const Nav = () => {
   ]
 
   const userNav = () => {
-    if (false) {
-      return <Spinner />
-    }
-    if (false) {
+    if (user) {
       return (
         <Link href="/profile">
-          <SvgtoReact
-            name="user-icon"
-            height={26}
+          <UserIcon
             width={26}
+            height={26}
             className="cursor-pointer stroke-current hover:text-gray-900 active:text-gray-50 dark:hover:text-gray-50"
           />
         </Link>
       )
     } else {
-      return <HappyButton href="/signin">Sign In</HappyButton>
+      return (
+        <Link href="/signup" className={styles.sbtn}>
+          Sign Up
+        </Link>
+      )
     }
   }
 
