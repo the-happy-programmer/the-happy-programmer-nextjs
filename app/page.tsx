@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
 }
 
-export default function Page() {
+export default async function Page() {
   return (
     <div className="overflow-hidden bg-gray-50 dark:bg-gray-900">
       <HeroCarousel

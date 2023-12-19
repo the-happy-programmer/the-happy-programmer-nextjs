@@ -9,6 +9,10 @@
   @apply focus:outline-none inline-block cursor-pointer rounded-md border border-gray-900  bg-gray-900 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-50 shadow-lg hover:border-opacity-10 hover:bg-opacity-80 dark:border-gray-50 dark:bg-gray-50 dark:text-gray-900;
 }
 
+.iconBtn {
+  @apply focus:outline-none flex cursor-pointer flex-row justify-center gap-x-4 rounded-md border border-gray-900  bg-gray-900 py-2 px-4 text-xs font-medium capitalize leading-6 tracking-wide text-gray-50 shadow-lg hover:border-opacity-10 hover:bg-opacity-80 dark:border-gray-50 dark:bg-gray-50 dark:text-gray-900;
+}
+
 .fullbtn {
   @apply focus:outline-none inline-block w-full cursor-pointer rounded-md border  border-gray-900 bg-gray-900 py-2 text-xs font-medium capitalize leading-6 tracking-wide text-gray-50 shadow-lg hover:border-opacity-10 hover:bg-opacity-80 dark:border-gray-50 dark:bg-gray-50 dark:text-gray-900;
 }

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { LinkProps } from 'next/link'
 import { HTMLAttributes, ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
+
 interface HappyLinkProps extends HTMLAttributes<LinkProps> {
   href: URL | string
   children: ReactNode

@@ -9,7 +9,7 @@ export default function Sitelayout({
 }): JSX.Element {
   return (
     <div className="mx-auto bg-gray-50 dark:bg-gray-900">
-      <Nav />
+      {/* <Nav /> */}
       {children}
       <Footer />
     </div>
