@@ -18,7 +18,7 @@ export default function ForgotPassword({}: {}): JSX.Element {
           className="mb-0 flex flex-col space-y-6 rounded-lg py-4 sm:p-6 lg:p-8"
         >
           <div>
-            <label for="password" className="sr-only">
+            <label htmlFor="password" className="sr-only">
               Password
             </label>
 
@@ -56,8 +56,6 @@ export default function ForgotPassword({}: {}): JSX.Element {
           </div>
 
           <button className={style.sbtn}>Reset Password</button>
-
-          <p className="text-center text-sm text-gray-500">No account?</p>
         </form>
       </div>
     </div>

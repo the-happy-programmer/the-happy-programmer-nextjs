@@ -37,7 +37,7 @@ export default async function Profile() {
               </div>
               <div className="flex flex-row items-center justify-between py-3">
                 <p className="max-w-xs font-medium">Passowrd:*******</p>
-                <Link href="/resetpassword" passHref>
+                <Link href="/profile/resetpassword" passHref>
                   <div className="group cursor-pointer rounded-full border-2 border-gray-900 border-opacity-40 p-1.5 hover:border-opacity-0 dark:border-gray-50">
                     <PencilIcon
                       className="stroke-curren text-gray-900 text-opacity-40 group-hover:text-opacity-0 dark:text-gray-50"

@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     const supabase = createClient(cookieStore)
     await supabase.auth.exchangeCodeForSession(code)
 
-    return NextResponse.redirect(`${requestUrl.origin}/update-password`)
+    return NextResponse.redirect(`${requestUrl.origin}/profile/resetpassword`)
   }
 
   console.error('ERROR: Invalid auth code or no auth code found')

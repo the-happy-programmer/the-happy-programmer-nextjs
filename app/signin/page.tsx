@@ -94,12 +94,12 @@ const SignInPage = ({
 
           <button className={style.sbtn}>Sign in</button>
 
-          <p className="text-center text-sm text-gray-500">
-            No account?
-            <Link className="underline" href="/singup">
-              Sign up
-            </Link>
-          </p>
+          <Link
+            className="px-2 text-sm text-accent underline"
+            href="/forgot-password"
+          >
+            Forgot Password?
+          </Link>
         </form>
         <Seperator />
         <form action={signInWithGitHub} className="flex max-w-lg flex-col">
@@ -112,7 +112,9 @@ const SignInPage = ({
           </button>
         </form>
         {searchParams?.message && (
-          <p className="mt-4 p-4 text-base">{searchParams.message}</p>
+          <div className="border-1 mt-10 rounded-md border border-gray-700">
+            <p className="p-4 text-base text-danger">{searchParams.message}</p>
+          </div>
         )}
       </div>
     </div>

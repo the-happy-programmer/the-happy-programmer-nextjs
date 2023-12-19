@@ -27,7 +27,7 @@ export const signInWithPassword = async (formData: FormData) => {
     password: password as string,
   })
   if (error) {
-    redirect('/signin?message=Check Your Email')
+    redirect('/signin?message=Not Valid Login credentials')
   }
   redirect('/')
 }

@@ -1,16 +1,14 @@
 import Logo from '@/public/svg/logo.svg'
 import HappyLink from './HappyLink'
-import SideBar from './SideBar'
-
 import Link from 'next/link'
 import { createClient } from '@/lib/utils/supabase/server'
-import { User } from '@supabase/supabase-js'
 import UserIcon from '@/public/svg/user-icon.svg'
 import styles from '@/styles/buttons.module.css'
 import { cookies } from 'next/headers'
 import MobileSideBar from './MobileSideBar'
 import { navLinks } from '@/app/data'
-const Nav = async () => {
+
+async function Nav() {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
 
