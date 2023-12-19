@@ -24,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-transition-group": "^4.4.5",
     "rehype-code-titles": "^1.2.0",
+    "rehype-pretty-code": "^0.12.2",
     "rehype-prism-plus": "^1.6.3",
     "sharp": "^0.30.7",
     "stripe": "^10.13.0"

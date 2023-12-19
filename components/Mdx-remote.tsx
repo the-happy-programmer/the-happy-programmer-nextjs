@@ -1,8 +1,9 @@
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote/rsc'
-import { serialize } from 'next-mdx-remote/serialize'
+
 import Image from 'next/image'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeCodeTitles from 'rehype-code-titles'
+import rehypePrettyCode from 'rehype-pretty-code'
 interface Props {
   mdxSource: MDXRemoteSerializeResult
 }
@@ -23,13 +24,11 @@ export async function CustomMDX(props: any) {
   return (
     <MDXRemote
       {...props}
-      options={serialize({
-        scope: {},
+      options={{
         mdxOptions: {
-          remarkPlugins: [],
-          rehypePlugins: [rehypePrism, rehypeCodeTitles],
+          rehypePlugins: [rehypePrettyCode, rehypeCodeTitles],
         },
-      })}
+      }}
       components={{ ...components, ...(props.components || {}) }}
     />
   )
