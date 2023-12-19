@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import SvgtoReact from '../Svgtoreact'
 import { useState } from 'react'
-import scroll from '../../lib/scroll'
 import type { PostProps } from '../../lib/types/blog'
 
 export default function Search({
