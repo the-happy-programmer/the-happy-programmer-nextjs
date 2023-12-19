@@ -17,15 +17,17 @@ export const signInWithGitHub = async () => {
   return redirect(data.url)
 }
 
-export const signInWithPassword = async () => {
+export const signInWithPassword = async (formData: FormData) => {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
+  const email = formData.get('email')
+  const password = formData.get('password')
   const { data, error } = await supabase.auth.signInWithPassword({
-    email: '',
-    password: '',
+    email: email as string,
+    password: password as string,
   })
   if (error) {
-    redirect('/login?message=Could not authenticate user')
+    redirect('/signin?message=Check Your Email')
   }
   redirect('/')
 }
