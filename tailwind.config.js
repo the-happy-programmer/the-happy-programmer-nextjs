@@ -61,5 +61,5 @@ module.exports = {
       borderColor: ['checked'],
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/typography')],
 }
