@@ -13,7 +13,6 @@ const SignInPage = ({
       <h1 className="text-indigo-600 text-center text-2xl font-bold text-gray-900 dark:text-gray-50 sm:text-3xl">
         Get started today
       </h1>
-
       <p className="mx-auto mt-4 max-w-md text-center dark:text-gray-300">
         dive into the world of coding with our online courses. Sign up now and
         start your programming journey today!
@@ -24,7 +23,7 @@ const SignInPage = ({
           className="mb-0 flex flex-col space-y-6 rounded-lg py-4 sm:p-6 lg:p-8"
         >
           <div>
-            <label for="email" className="sr-only">
+            <label htmlFor="email" className="sr-only">
               Email
             </label>
 
@@ -56,7 +55,7 @@ const SignInPage = ({
           </div>
 
           <div>
-            <label for="password" className="sr-only">
+            <label htmlFor="password" className="sr-only">
               Password
             </label>
 
