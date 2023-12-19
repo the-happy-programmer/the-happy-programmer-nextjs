@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SvgtoReact from '../Svgtoreact'
+import SvgtoReact from '@/components/Svgtoreact'
 import { useState } from 'react'
 import type { PostProps } from '@/lib/types/blog'
 import scroll from '@/lib/scroll'
