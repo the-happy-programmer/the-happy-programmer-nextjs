@@ -4,23 +4,29 @@ import SvgtoReact from '@/components/Svgtoreact'
 import Subscribe from '@/components/home/Subscribe'
 import Headerlayout from '@/widget/Headerlayout'
 import Image from 'next/image'
-import { markdownToHtml } from '@/lib/courseslib/htmlmarkdown'
 import RichDataPost from '@/components/seo/RichDataPost'
 import Link from 'next/link'
-import { getDocBySlug } from '@/lib/courseslib/courseapi'
-import type { PostProps } from '@/lib/types/blog'
-import type { TitleSub } from '@/lib/types/general'
+import { getAllinks, getDocBySlug } from '@/lib/courseslib/courseapi'
 import { ReactNode } from 'react'
 import { socials, subscribe } from './data'
 
-interface PageProps extends PostProps {
-  socials: string[][]
-  subscribe: TitleSub
+export async function generateStaticParams() {
+  const allSlugs = getAllinks('course/blog')
+
+  return (
+    allSlugs.map(({ name }) => ({
+      slug: name,
+    })) || []
+  )
 }
 
-export default async function Post({ slug }: { slug: string }) {
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const { slug } = params
   const post = getDocBySlug(slug as string, 'course/blog')
-  const pp = await markdownToHtml(post.content)
   const { author, pubDate, categories, title, avatar, description } = post.meta
   const postIcon = (categories: string[]): ReactNode =>
     categories.map((category) => (
@@ -97,7 +103,7 @@ export default async function Post({ slug }: { slug: string }) {
           </div>
         </div>
       </Headerlayout>
-      <Postbody content={pp as string} />
+      <Postbody content={post.content} />
       <div className="bg-gray-100  dark:bg-gray-800">
         <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
       </div>
