@@ -2,29 +2,26 @@ import HappyLink from '@/components/HappyLink'
 import Postbody from '@/components/PostBody'
 import SvgtoReact from '@/components/Svgtoreact'
 import Subscribe from '@/components/home/Subscribe'
-import { GetStaticPaths, GetStaticProps } from 'next'
 import Headerlayout from '@/widget/Headerlayout'
 import Image from 'next/image'
 import { markdownToHtml } from '@/lib/courseslib/htmlmarkdown'
 import RichDataPost from '@/components/seo/RichDataPost'
 import Link from 'next/link'
-import { getDocBySlug, getAllinks } from '@/lib/courseslib/courseapi'
+import { getDocBySlug } from '@/lib/courseslib/courseapi'
 import type { PostProps } from '@/lib/types/blog'
 import type { TitleSub } from '@/lib/types/general'
 import { ReactNode } from 'react'
+import { socials, subscribe } from './data'
 
 interface PageProps extends PostProps {
   socials: string[][]
   subscribe: TitleSub
 }
 
-export default function Post({
-  meta,
-  socials,
-  content,
-  subscribe,
-}: PageProps): JSX.Element {
-  const { author, pubDate, categories, title, avatar, description } = meta
+export default async function Post({ slug }: { slug: string }) {
+  const post = getDocBySlug(slug as string, 'course/blog')
+  const pp = await markdownToHtml(post.content)
+  const { author, pubDate, categories, title, avatar, description } = post.meta
   const postIcon = (categories: string[]): ReactNode =>
     categories.map((category) => (
       <div key={category} className="h-16">
@@ -100,48 +97,10 @@ export default function Post({
           </div>
         </div>
       </Headerlayout>
-      <Postbody content={content as string} />
+      <Postbody content={pp as string} />
       <div className="bg-gray-100  dark:bg-gray-800">
         <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
       </div>
     </>
   )
-}
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params as { slug: string }
-  const subscribe: TitleSub = {
-    title: 'Subscribe',
-    subtitle:
-      'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
-  }
-  const socials: string[][] = [
-    ['https://twitter.com/happy_prog', 'twitter'],
-    ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
-    [
-      'https://www.facebook.com/The-Happy-Programmer-106178104593013',
-      'facebook',
-    ],
-    ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
-  ]
-
-  const post = getDocBySlug(slug as string, 'course/blog')
-  const pp = await markdownToHtml(post.content)
-  return {
-    props: {
-      meta: post.meta,
-      socials: socials,
-      content: pp,
-      subscribe,
-    },
-  }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const allSlugs = getAllinks('course/blog')
-
-  return {
-    paths: allSlugs.map(({ name }) => `/${name}`) || [],
-    fallback: false,
-  }
 }
