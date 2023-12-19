@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getHighlighter } from 'shiki'
-import rehypeSlug from 'rehype-slug'
 
 import Image from 'next/image'
 import rehypePrism from 'rehype-prism-plus'
@@ -25,15 +24,16 @@ export async function CustomMDX(props: any) {
   const options = {
     keepBackground: false,
     theme: moonlightII,
-
   };
   return (
     <MDXRemote
       {...props}
       options={{
         mdxOptions: {
-          rehypePlugins: [[rehypePrettyCode, options], rehypeSlug ],
+          rehypePlugins: [[rehypePrettyCode, options], rehypePrism ],
+          format: 'mdx',
         },
+        parseFrontmatter: true,
       }}
       components={{ ...components, ...(props.components || {}) }}
     />

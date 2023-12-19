@@ -22,7 +22,7 @@ export default function Courses(): JSX.Element {
           </div>
         </div>
         <div className="container grid grid-cols-1 gap-5 px-2 pt-14 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
- <CoursesCard  /> 
+                <CoursesCard  /> 
         </div>
       </div>
     </div>
