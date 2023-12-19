@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from 'react'
 import SvgtoReact from '../Svgtoreact'
 import Search from './Search'
