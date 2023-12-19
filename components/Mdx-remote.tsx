@@ -16,9 +16,9 @@ const components = {
     <Image
       {...props}
       alt={props.alt}
-      className="large-text"
-      height={100}
-      width={650}
+      className="large-text mx-auto"
+      height={200}
+      width={350}
     />
   ),
 }
