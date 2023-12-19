@@ -1,9 +1,16 @@
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote/rsc'
+import {
+  BUNDLED_LANGUAGES,
+  getHighlighter,
+  type HighlighterOptions,
+} from 'shiki'
 
 import Image from 'next/image'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrettyCode from 'rehype-pretty-code'
+import oneDarkPro from 'shiki/themes/one-dark-pro.json'
+
 interface Props {
   mdxSource: MDXRemoteSerializeResult
 }
@@ -21,16 +28,17 @@ const components = {
 }
 
 export async function CustomMDX(props: any) {
+  const myoptions = {
+    keepBackground: false,
+    theme: oneDarkPro,
+  }
   return (
     <MDXRemote
       {...props}
       options={{
+        parseFrontmatter: true,
         mdxOptions: {
-          rehypePlugins: [rehypePrettyCode, rehypeCodeTitles],
-          theme: {
-            dark: 'github-dark-dimmed',
-            light: 'github-light',
-          },
+          rehypePlugins: [rehypePrettyCode, rehypeCodeTitles, myoptions],
         },
       }}
       components={{ ...components, ...(props.components || {}) }}
