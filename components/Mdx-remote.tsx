@@ -27,6 +27,10 @@ export async function CustomMDX(props: any) {
       options={{
         mdxOptions: {
           rehypePlugins: [rehypePrettyCode, rehypeCodeTitles],
+          theme: {
+            dark: 'github-dark-dimmed',
+            light: 'github-light',
+          },
         },
       }}
       components={{ ...components, ...(props.components || {}) }}
