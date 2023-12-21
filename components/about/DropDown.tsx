@@ -7,7 +7,7 @@ import classNames from 'classnames'
 export default function DropDown({ title, subtitle }: TitleSub) {
   const [open, setOpen] = useState<boolean>(false)
   const style = classNames(
-    'transform self-center fill-current text-gray-700 dark:text-gray-100',
+    'transform self-center fill-current text-stone-700 dark:text-stone-100',
     { '-rotate-180': open, 'rotate-0': !open }
   )
   return (
@@ -16,13 +16,13 @@ export default function DropDown({ title, subtitle }: TitleSub) {
         className="mx-auto flex max-w-md cursor-pointer flex-row justify-between"
         onClick={(e) => (open ? setOpen(false) : setOpen(true))}
       >
-        <p className="cursor-pointer py-3 text-gray-900 dark:text-gray-50">
+        <p className="cursor-pointer py-3 text-default-900 dark:text-stone-50">
           {title}
         </p>
         <SvgtoReact name="arrow" height={15} className={style} />
       </div>
       {open ? (
-        <p className="mx-auto max-w-md py-5 font-light text-gray-800 dark:text-gray-100">
+        <p className="mx-auto max-w-md py-5 font-light text-stone-800 dark:text-stone-100">
           {subtitle}
         </p>
       ) : null}

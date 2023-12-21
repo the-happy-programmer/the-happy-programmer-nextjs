@@ -14,14 +14,14 @@ export default function TabButton({
   setActive,
 }: TabButtonProps): JSX.Element {
   return (
-    <div className="mx-auto flex flex-row rounded-full border bg-gray-50 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-50">
+    <div className="mx-auto flex flex-row rounded-full border bg-stone-50 text-default-900 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-50">
       <button
         onClick={() => setActive(true)}
         className={`${
           active
-            ? 'rounded-full border border-gray-900 border-opacity-70 bg-gray-50 shadow dark:border-gray-50 dark:border-opacity-0 dark:bg-gray-700'
+            ? 'rounded-full border border-default-900 border-opacity-70 bg-stone-50 shadow dark:border-stone-50 dark:border-opacity-0 dark:bg-stone-700'
             : ''
-        } rounded-full border border-gray-100 py-2 px-6 dark:border-gray-800`}
+        } rounded-full border border-stone-100 py-2 px-6 dark:border-stone-800`}
       >
         {firstBtn}
       </button>
@@ -29,9 +29,9 @@ export default function TabButton({
         onClick={() => setActive(false)}
         className={`${
           !active
-            ? 'rounded-full border border-gray-800 bg-gray-50 shadow dark:border-gray-50 dark:border-opacity-0 dark:bg-gray-700'
+            ? 'rounded-full border border-stone-800 bg-stone-50 shadow dark:border-stone-50 dark:border-opacity-0 dark:bg-stone-700'
             : ''
-        } rounded-full border border-gray-100 border-opacity-70  py-2 px-6 dark:border-gray-800  `}
+        } rounded-full border border-stone-100 border-opacity-70  py-2 px-6 dark:border-stone-800  `}
       >
         {SecondBtn}
       </button>

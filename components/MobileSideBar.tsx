@@ -8,7 +8,7 @@ import scroll from '../lib/scroll'
 const MobileSideBar = () => {
   const [sidebar, setsidebar] = useState<boolean>(false)
   return (
-    <div className="flex text-gray-900 dark:text-gray-50 sm:hidden md:hidden lg:hidden xl:hidden">
+    <div className="flex text-default-900 dark:text-stone-50 sm:hidden md:hidden lg:hidden xl:hidden">
       <button
         onClick={(e) => {
           scroll('hidden')
@@ -17,7 +17,7 @@ const MobileSideBar = () => {
       >
         <BurgerIcon
           name="burger"
-          className="stroke-current text-gray-900 dark:text-gray-50"
+          className="stroke-current text-default-900 dark:text-stone-50"
           height={15}
         />
       </button>

@@ -3,7 +3,7 @@ import SvgtoReact from '../Svgtoreact'
 export default function SupCustomer(): JSX.Element {
   return (
     <div className="py-12">
-      <div className="mx-auto max-w-sm rounded-2xl border border-gray-900 border-opacity-10 bg-gray-100 p-10 text-center text-gray-700 dark:border-gray-50 dark:bg-gray-800 dark:text-gray-100">
+      <div className="mx-auto max-w-sm rounded-2xl border border-default-900 border-opacity-10 bg-stone-100 p-10 text-center text-stone-700 dark:border-stone-50 dark:bg-stone-800 dark:text-stone-100">
         <SvgtoReact
           name="support/quote"
           className="mx-auto mb-3 fill-current text-blue-900 text-opacity-30"
@@ -23,7 +23,7 @@ export default function SupCustomer(): JSX.Element {
         {[...Array(4)].map((_, index) => (
           <div
             key={index}
-            className="relative -mr-3 h-10 w-10 rounded-full border-2 border-gray-200 dark:border-gray-50"
+            className="relative -mr-3 h-10 w-10 rounded-full border-2 border-stone-200 dark:border-stone-50"
           >
             <Image
               layout="fill"
@@ -34,7 +34,7 @@ export default function SupCustomer(): JSX.Element {
             />
           </div>
         ))}
-        <p className="my-auto ml-6 text-gray-900 text-opacity-50 dark:text-gray-50">
+        <p className="my-auto ml-6 text-default-900 text-opacity-50 dark:text-stone-50">
           {' '}
           + 10 users...
         </p>

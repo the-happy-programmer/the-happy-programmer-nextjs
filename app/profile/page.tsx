@@ -15,9 +15,9 @@ export default async function Profile() {
   } = await supabase.auth.getUser()
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
+    <div className="bg-stone-50 dark:bg-default-900">
       <div className="container ">
-        <div className="mx-auto max-w-md py-20 text-gray-900 dark:text-gray-50">
+        <div className="mx-auto max-w-md py-20 text-default-900 dark:text-stone-50">
           <h1 className="text-3xl font-bold ">Profile</h1>
           <div className="flex flex-col gap-y-8 py-5">
             <Table title="Account Details">
@@ -38,9 +38,9 @@ export default async function Profile() {
               <div className="flex flex-row items-center justify-between py-3">
                 <p className="max-w-xs font-medium">Passowrd:*******</p>
                 <Link href="/profile/resetpassword" passHref>
-                  <div className="group cursor-pointer rounded-full border-2 border-gray-900 border-opacity-40 p-1.5 hover:border-opacity-0 dark:border-gray-50">
+                  <div className="group cursor-pointer rounded-full border-2 border-default-900 border-opacity-40 p-1.5 hover:border-opacity-0 dark:border-stone-50">
                     <PencilIcon
-                      className="stroke-curren text-gray-900 text-opacity-40 group-hover:text-opacity-0 dark:text-gray-50"
+                      className="stroke-curren text-default-900 text-opacity-40 group-hover:text-opacity-0 dark:text-stone-50"
                       height={16}
                     />
                   </div>
@@ -61,7 +61,7 @@ export default async function Profile() {
                 </>
               </div>
             </Table>
-            <button className="rounded border border-gray-200 bg-gray-900 bg-opacity-0 py-2.5 px-4 font-medium text-danger hover:border-opacity-80 hover:bg-opacity-5 hover:text-opacity-80 dark:border-gray-700 dark:bg-gray-50">
+            <button className="rounded border border-stone-200 bg-default-900 bg-opacity-0 py-2.5 px-4 font-medium text-danger hover:border-opacity-80 hover:bg-opacity-5 hover:text-opacity-80 dark:border-stone-700 dark:bg-stone-50">
               Delete Account
             </button>
           </div>

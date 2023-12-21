@@ -21,10 +21,10 @@ export default function Technologies({
     <div>
       <div className="container flex flex-col px-14 pb-72 pt-40 sm:px-14 md:flex-row md:items-center md:px-3 lg:flex-row lg:items-center lg:px-10 xl:flex-row xl:items-center xl:px-3">
         <div className="max-w-xs">
-          <p className="pb-2 text-sm uppercase text-gray-800 dark:text-gray-100">
+          <p className="pb-2 text-sm uppercase text-gray-800 dark:text-stone-100">
             {title}
           </p>
-          <h3 className="text-3xl font-bold leading-relaxed text-gray-800 dark:text-gray-100">
+          <h3 className="text-3xl font-bold leading-relaxed text-stone-800 dark:text-stone-100">
             {subtitle}
           </h3>
         </div>
@@ -59,7 +59,7 @@ export default function Technologies({
           </div>
         </div>
       </div>
-      <p className="container px-10 pb-10 pt-14 text-xs text-gray-900 text-opacity-60 dark:text-gray-50 sm:px-10 sm:pt-10 md:px-10  lg:pt-0 xl:pt-0">
+      <p className="container px-10 pb-10 pt-14 text-xs text-default-900 text-opacity-60 dark:text-stone-50 sm:px-10 sm:pt-10 md:px-10  lg:pt-0 xl:pt-0">
         The Happy Programmer
       </p>
     </div>

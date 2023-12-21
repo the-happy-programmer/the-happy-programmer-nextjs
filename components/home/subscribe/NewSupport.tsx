@@ -10,13 +10,13 @@ import Link from 'next/link'
 export default function NewSupport({}): JSX.Element {
   const [active, setActive] = useState<boolean>(true)
   return (
-    <div className="border-b border-t bg-gray-100 dark:border-gray-50 dark:border-opacity-10 dark:bg-gray-800">
+    <div className="border-b border-t bg-stone-100 dark:border-stone-50 dark:border-opacity-10 dark:bg-stone-800">
       <div className="container flex flex-col py-20">
         <div className="mx-auto max-w-xs pb-10 pt-20 text-center">
           <p className="py-2 text-sm font-semibold uppercase text-accent dark:text-darkaccent">
             full-featured
           </p>
-          <h3 className="text-3xl font-bold dark:text-gray-50">
+          <h3 className="text-3xl font-bold dark:text-stone-50">
             Become an expert in programming
           </h3>
         </div>
@@ -27,7 +27,7 @@ export default function NewSupport({}): JSX.Element {
           setActive={setActive}
         />
         <div className="flex flex-col pt-10 pb-32 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
-          <div className="flex flex-col items-center gap-y-10 border-r border-gray-900 border-opacity-10 md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
+          <div className="flex flex-col items-center gap-y-10 border-r border-default-900 border-opacity-10 md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
             <SubDesc title="Apple products development" icon="support/swift">
               <div>
                 Swift is the main language for creating Apps in{' '}
@@ -138,10 +138,10 @@ export default function NewSupport({}): JSX.Element {
             </SubDesc>
           </div>
           <div className="mx-auto flex w-1/2 max-w-sm flex-col pt-10 text-center sm:pt-10 md:pt-0 lg:pt-0 xl:pt-0">
-            <p className="text-3xl font-bold dark:text-gray-50">
+            <p className="text-3xl font-bold dark:text-stone-50">
               {active ? '£5' : '£50'}
             </p>
-            <p className="text-gray-900 text-opacity-60 dark:text-gray-50">
+            <p className="text-default-900 text-opacity-60 dark:text-stone-50">
               {active ? 'per month' : 'per year'}
             </p>
             <div className="mx-auto grid w-full grid-cols-2 gap-2 py-16">
@@ -155,15 +155,15 @@ export default function NewSupport({}): JSX.Element {
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex-none rounded-md bg-gray-50 p-3 text-sm dark:bg-gray-700 "
+                  className="flex-none rounded-md bg-stone-50 p-3 text-sm dark:bg-stone-700 "
                 >
                   <div className="flex flex-row">
                     <Check
                       height={20}
                       width={20}
-                      className="stroke-current text-gray-900 dark:text-gray-50"
+                      className="stroke-current text-default-900 dark:text-stone-50"
                     />
-                    <p className="mx-auto text-center font-light text-gray-900 text-opacity-60 dark:text-gray-50">
+                    <p className="mx-auto text-center font-light text-default-900 text-opacity-60 dark:text-stone-50">
                       {item}
                     </p>
                   </div>
@@ -175,7 +175,7 @@ export default function NewSupport({}): JSX.Element {
                 </Link>
               </div>
             </div>
-            <p className="text-sm text-gray-900 text-opacity-50 dark:text-gray-50">
+            <p className="text-sm text-default-900 text-opacity-50 dark:text-stone-50">
               Try THP subscription now
             </p>
           </div>

@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer'
-import Nav from '@/components/Nav'
+import MyNavBar from '@/components/Navigation/MyNavBar'
 import { Providers } from '@/components/Providers'
 import '@/styles/global.css'
 import Script from 'next/script'
@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   const id = process.env.NEXT_PUBLIC_ANALYTICS_ID
   return (
-    <html lang="en">
+    <html lang="en" className='dark'>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
         strategy="afterInteractive"
@@ -24,13 +24,13 @@ export default function RootLayout({
             gtag('config', '${id}');
             `}
       </Script>
-      <Providers>
         <body>
-          <Nav />
+      <Providers>
+          <MyNavBar />
           <main>{children}</main>
           <Footer />
-        </body>
       </Providers>
+        </body>
     </html>
   )
 }

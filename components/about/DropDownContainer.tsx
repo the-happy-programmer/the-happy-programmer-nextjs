@@ -9,12 +9,12 @@ export default function DropDownContainer({
   info: string[][]
 }): JSX.Element {
   return (
-    <div className="mx-auto bg-gray-100 py-20 dark:bg-gray-800">
-      <p className="container py-6 text-center text-3xl font-bold text-gray-800 dark:text-gray-50">
+    <div className="mx-auto bg-stone-100 py-20 dark:bg-stone-800">
+      <p className="container py-6 text-center text-3xl font-bold text-stone-800 dark:text-stone-50">
         {title}{' '}
-        <span className=" text-gray-500 dark:text-gray-400">{subtitle}</span>
+        <span className=" text-stone-500 dark:text-stone-400">{subtitle}</span>
       </p>
-      <div className="container max-w-xl divide-y divide-gray-200 px-3 dark:divide-gray-700 ">
+      <div className="container max-w-xl divide-y divide-stone-200 px-3 dark:divide-stone-700 ">
         {info.map(([title, subtitle]) => (
           <DropDown key={title} title={title} subtitle={subtitle} />
         ))}

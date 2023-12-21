@@ -15,15 +15,15 @@ export const metadata: Metadata = {
 
 export default function About({}: {}): JSX.Element {
   return (
-    <div className=" bg-gray-50 dark:bg-gray-900">
-      <div className="dark:border-gray-700">
+    <div className=" bg-stone-50 dark:bg-default-900">
+      <div className="dark:border-stone-700">
         <Headerlayout>
           <div className="container flex flex-col items-center justify-center pt-5 text-center sm:flex-row sm:pt-16 sm:text-left md:flex-row md:pt-16 md:text-left lg:flex-row lg:pt-16 lg:text-left xl:flex-row xl:pt-16 xl:text-left">
             <div>
               <SvgtoReact height={150} name="face" />
             </div>
 
-            <div className="my-auto text-gray-900 dark:text-gray-50 sm:pl-8 md:pl-8 lg:pl-8 xl:pl-8">
+            <div className="my-auto text-default-900 dark:text-stone-50 sm:pl-8 md:pl-8 lg:pl-8 xl:pl-8">
               <h1 className={titlestyle}>{author.desc}</h1>
               <p className={subtitlestyle(false, false)}>{author.job}</p>
               <a
@@ -35,7 +35,7 @@ export default function About({}: {}): JSX.Element {
             </div>
           </div>
         </Headerlayout>
-        <div className="border-t bg-gray-100 py-10 dark:border-gray-700 dark:bg-gray-800">
+        <div className="border-t bg-stone-100 py-10 dark:border-stone-700 dark:bg-stone-800">
           <DisplayInfo title="Socials" subtitle=" Follow me on my socials">
             {socials.map(([link, svg, desc]) => (
               <DisplayCard

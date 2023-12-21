@@ -29,15 +29,15 @@ export default function SideMenu({
             className={`
               ${
                 currentPath(slug.link)
-                  ? "border-l-4 border-gray-900 text-gray-900 dark:border-gray-50 dark:text-gray-50"
-                  : "border-l-4 border-gray-100 text-gray-400 dark:border-gray-800 dark:text-gray-400"
+                  ? "border-l-4 border-default-900 text-default-900 dark:border-stone-50 dark:text-stone-50"
+                  : "border-l-4 border-stone-100 text-stone-400 dark:border-stone-800 dark:text-stone-400"
               } py-1.5 pl-7`}
           >
             <Link href={slug.link}>{slug.name}</Link>
           </li>
         ))}
         {courses.length === 0 && (
-          <li className="text-gray-800 dark:text-gray-100">no results</li>
+          <li className="text-stone-800 dark:text-stone-100">no results</li>
         )}
       </ul>
     </div>

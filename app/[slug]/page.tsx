@@ -64,7 +64,7 @@ export default async function PostPage({
         <div className="container flex flex-col items-center px-3 py-3">
           <Link
             href="/blog"
-            className="fill-current flex flex-row place-self-start pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="fill-current flex flex-row place-self-start pl-2 text-stone-600 hover:text-default-900 dark:text-stone-400 dark:hover:text-stone-50"
           >
             <>
               <SvgtoReact
@@ -77,7 +77,7 @@ export default async function PostPage({
             </>
           </Link>
           {postIcon(categories)}
-          <h1 className="p-3 text-center text-3xl font-bold text-gray-900 dark:text-gray-50">
+          <h1 className="p-3 text-center text-3xl font-bold text-default-900 dark:text-stone-50">
             {title}
           </h1>
           <div className="center flex flex-row">
@@ -93,18 +93,18 @@ export default async function PostPage({
             <div className="mt-0 flex flex-col pl-2">
               <HappyLink
                 href={`author/${author.toLowerCase()}`}
-                classes="text-gray-900 dark:text-gray-50 hover:underline"
+                classes="text-default-900 dark:text-stone-50 hover:underline"
               >
                 {author}
               </HappyLink>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-stone-500 dark:text-stone-400">
                 {pubDate}
               </p>
             </div>
           </div>
           <div className="mt-4 flex flex-row">
             {socials.map(([link, names], i) => (
-              <div key={link} className="text-gray-500 dark:text-gray-300">
+              <div key={link} className="text-stone-500 dark:text-stone-300">
                 <HappyLink
                   key={names}
                   href={link}
@@ -119,7 +119,7 @@ export default async function PostPage({
         </div>
       </Headerlayout>
       <Postbody content={post.content} />
-      <div className="bg-gray-100  dark:bg-gray-800">
+      <div className="bg-stone-100  dark:bg-stone-800">
         <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
       </div>
     </>

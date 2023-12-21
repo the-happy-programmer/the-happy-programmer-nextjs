@@ -49,7 +49,7 @@ export default function CoursePage({
   return (
     <>
       <CourseHeader meta={meta} />
-      <div className="bg-gray-100 dark:bg-gray-800">
+      <div className="bg-stone-100 dark:bg-stone-800">
         <div className="container flex flex-row">
           <SideMenu courseslugs={courseslugs} />
           <Content content={content} />

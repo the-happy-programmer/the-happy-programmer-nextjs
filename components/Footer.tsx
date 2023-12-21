@@ -78,7 +78,7 @@ export default function Footer(): JSX.Element {
           <Link
             href={href}
             key={link}
-            className="cursor-pointer text-sm hover:text-gray-900 dark:hover:text-gray-50"
+            className="cursor-pointer text-sm hover:text-default-900 dark:hover:text-stone-50"
           >
             {link}
           </Link>
@@ -111,24 +111,24 @@ export default function Footer(): JSX.Element {
   }
 
   return (
-    <div className="z-50 border-t border-gray-200 bg-gray-100 py-14  dark:border-gray-700 dark:bg-gray-800">
-      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-gray-600 dark:text-gray-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:items-baseline md:text-left lg:w-full lg:flex-row lg:items-baseline lg:text-left xl:w-full xl:flex-row xl:items-baseline xl:text-left">
+    <div className="z-50 border-t border-stone-200 bg-stone-100 py-14  dark:border-stone-700 dark:bg-stone-800">
+      <div className="container mx-auto flex w-60 flex-col justify-around space-y-10 text-center text-stone-600 dark:text-stone-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:items-baseline md:text-left lg:w-full lg:flex-row lg:items-baseline lg:text-left xl:w-full xl:flex-row xl:items-baseline xl:text-left">
         <div>
-          <p className="font-semibold text-gray-900 dark:text-gray-50">Pages</p>
+          <p className="font-semibold text-default-900 dark:text-stone-50">Pages</p>
           {allLiks(pages.pages)}
         </div>
         <div>
-          <p className="font-semibold text-gray-900 dark:text-gray-50">Tags</p>
+          <p className="font-semibold text-default-900 dark:text-stone-50">Tags</p>
           {allLiks(tags.pages)}
         </div>
         <div>
-          <p className="font-semibold text-gray-900 dark:text-gray-50">
+          <p className="font-semibold text-default-900 dark:text-stone-50">
             Categories
           </p>
           {allLiks(categories.pages)}
         </div>
         <div>
-          <p className="font-semibold text-gray-900 dark:text-gray-50">
+          <p className="font-semibold text-default-900 dark:text-stone-50">
             {followus.title}
           </p>
           <div>
@@ -138,7 +138,7 @@ export default function Footer(): JSX.Element {
                   <SvgtoReact
                     name={icon}
                     height={15}
-                    className="cursor-pointer fill-current text-gray-500 hover:text-gray-900 dark:hover:text-gray-50"
+                    className="cursor-pointer fill-current text-stone-500 hover:text-default-900 dark:hover:text-stone-50"
                   />
                 </Link>
               ))}
@@ -150,14 +150,14 @@ export default function Footer(): JSX.Element {
                 name="email"
                 placeholder="subscribe"
                 ref={inputEl}
-                className="rounded-md bg-gray-700 py-4 pl-5 pr-10 text-gray-50 shadow-sm"
+                className="rounded-md bg-stone-700 py-4 pl-5 pr-10 text-stone-50 shadow-sm"
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-5">
                 <SvgtoReact
                   name="email"
                   height={15}
                   width={15}
-                  className="fill-current text-gray-400"
+                  className="fill-current text-stone-400"
                 />
               </div>
             </form>
@@ -181,17 +181,17 @@ export default function Footer(): JSX.Element {
           {courses.map((icon) => (
             <Svgtoreact
               key={icon}
-              className="fill-current text-gray-500"
+              className="fill-current text-stone-500"
               name={icon}
               height={30}
               width={30}
             />
           ))}
         </div>
-        <div className="justify-self-auto fill-current stroke-current text-gray-500 dark:text-gray-400">
+        <div className="justify-self-auto fill-current stroke-current text-stone-500 dark:text-stone-400">
           <Svgtoreact name="fulllogo" height={20} width={100} />
         </div>
-        <p className="text-sm text-gray-400 dark:text-gray-500">
+        <p className="text-sm text-stone-400 dark:text-stone-500">
           Copyright © {currentYear} Inc. All rights reserved.
         </p>
       </div>
