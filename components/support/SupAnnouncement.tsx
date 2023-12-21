@@ -1,5 +1,6 @@
-import type { SupHeroProps } from '../../lib/types/support'
-import style from '../../styles/buttons.module.css'
+import type { SupHeroProps } from "@/lib/types/support";
+import style from "@/styles/buttons.module.css";
+
 export default function SupCard({
   title,
   subtitle,
@@ -10,10 +11,10 @@ export default function SupCard({
       <h4 className="text-4xl font-bold text-gray-50 dark:text-gray-900">
         {title}
       </h4>
-      <p className="max-w-lg pt-5 pb-7 text-gray-50 text-opacity-70 dark:text-gray-900">
+      <p className="max-w-lg pb-7 pt-5 text-gray-50 text-opacity-70 dark:text-gray-900">
         {subtitle}
       </p>
       <button className={style.lbtndark}>{buttonstr}</button>
     </div>
-  )
+  );
 }
