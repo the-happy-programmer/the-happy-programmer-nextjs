@@ -1,17 +1,17 @@
-import Footer from '@/components/Footer'
-import MyNavBar from '@/components/Navigation/MyNavBar'
-import { Providers } from '@/components/Providers'
-import '@/styles/global.css'
-import Script from 'next/script'
+import Footer from "@/components/Footer";
+import MyNavBar from "@/components/Navigation/Nav";
+import { Providers } from "@/components/Providers";
+import "@/styles/global.css";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const id = process.env.NEXT_PUBLIC_ANALYTICS_ID
+  const id = process.env.NEXT_PUBLIC_ANALYTICS_ID;
   return (
-    <html lang="en" className='dark'>
+    <html lang="en" className="dark">
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
         strategy="afterInteractive"
@@ -24,13 +24,13 @@ export default function RootLayout({
             gtag('config', '${id}');
             `}
       </Script>
-        <body>
-      <Providers>
+      <body>
+        <Providers>
           <MyNavBar />
           <main>{children}</main>
           <Footer />
-      </Providers>
-        </body>
+        </Providers>
+      </body>
     </html>
-  )
+  );
 }
