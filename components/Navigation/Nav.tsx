@@ -22,7 +22,7 @@ export default async function Nav() {
     data: { user },
   } = await supabase.auth.getUser();
   return (
-    <Navbar isBordered>
+    <Navbar isBordered className="py-1">
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
           <Link href="/">
@@ -59,6 +59,7 @@ export default async function Nav() {
           color="default"
           variant="flat"
           className="text-default-500"
+          disableRipple
           startContent={<SvgtoReact name="search" width={16} />}
           endContent={<Kbd keys={["command"]}>K</Kbd>}
         >
