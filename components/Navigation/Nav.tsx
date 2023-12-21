@@ -12,6 +12,7 @@ import { Button } from "@nextui-org/button";
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/utils/supabase/server";
 import { Kbd } from "@nextui-org/react";
+import ThemeToggle from "./ThemeToggle";
 
 export default async function Nav() {
   const cookieStore = cookies();
@@ -52,6 +53,8 @@ export default async function Nav() {
       </NavbarContent>
 
       <NavbarContent as="div" className="items-center" justify="end">
+        <ThemeToggle />
+
         <Button
           color="default"
           variant="flat"
