@@ -1,39 +1,38 @@
-import HappyLink from '@/components/HappyLink'
-import Postbody from '@/components/PostBody'
-import SvgtoReact from '@/components/Svgtoreact'
-import Subscribe from '@/components/home/Subscribe'
-import Headerlayout from '@/widget/Headerlayout'
-import Image from 'next/image'
-import RichDataPost from '@/components/seo/RichDataPost'
-import Link from 'next/link'
-import { getAllinks, getDocBySlug } from '@/lib/courseslib/courseapi'
-import { ReactNode } from 'react'
-import { socials, subscribe } from './data'
+import HappyLink from "@/components/HappyLink";
+import Postbody from "@/components/PostBody";
+import SvgtoReact from "@/components/Svgtoreact";
+import Subscribe from "@/components/home/Subscribe";
+import Headerlayout from "@/widget/Headerlayout";
+import Image from "next/image";
+import RichDataPost from "@/components/seo/RichDataPost";
+import Link from "next/link";
+import { getAllinks, getDocBySlug } from "@/lib/courseslib/courseapi";
+import { ReactNode } from "react";
+import { socials, subscribe } from "./data";
 
 export async function generateStaticParams() {
-  const allSlugs = getAllinks('course/blog')
-
+  const allSlugs = getAllinks("course/blog");
   return (
     allSlugs.map(({ name }) => ({
       slug: name,
     })) || []
-  )
+  );
 }
 
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string };
 }) {
-  const { slug } = params
-  const post = getDocBySlug(slug as string, 'course/blog')
-  const { author, pubDate, categories, title, avatar, description } = post.meta
+  const { slug } = params;
+  const post = getDocBySlug(slug as string, "course/blog");
+  const { author, pubDate, categories, title, avatar, description } = post.meta;
   const postIcon = (categories: string[]): ReactNode =>
     categories.map((category) => (
       <div key={category} className="h-16">
         <SvgtoReact height={60} width={60} className="mr-4" name={category} />
       </div>
-    ))
+    ));
 
   return (
     <>
@@ -42,14 +41,14 @@ export default async function PostPage({
         description={description}
         date={pubDate}
         firstName={author}
-        image={'/me.webp'}
+        image={"/me.webp"}
         slug={`/${author.toLowerCase()}`}
       />
       <Headerlayout>
         <div className="container flex flex-col items-center px-3 py-3">
           <Link
             href="/blog"
-            className="flex flex-row place-self-start fill-current pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="fill-current flex flex-row place-self-start pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
           >
             <>
               <SvgtoReact
@@ -97,7 +96,7 @@ export default async function PostPage({
                 >
                   {names}
                 </HappyLink>
-                {socials.length - 1 === i ? '' : '•'}
+                {socials.length - 1 === i ? "" : "•"}
               </div>
             ))}
           </div>
@@ -108,5 +107,5 @@ export default async function PostPage({
         <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
       </div>
     </>
-  )
+  );
 }

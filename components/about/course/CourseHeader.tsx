@@ -9,7 +9,7 @@ export default function CourseHeader({
 }): JSX.Element {
   return (
     <>
-      <div className="container flex flex-col items-center space-y-2 py-12">
+      <div className="container flex  flex-col items-center space-y-2 py-12">
         <SvgToReact name={meta.icon} height={55} width={55} />
         <p className="text-sm text-gray-700 dark:text-gray-300">
           {meta.coursetitle}

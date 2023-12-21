@@ -23,12 +23,13 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const { meta } = getDocBySlug(params.slug[1], `course/${params.slug[0]}`);
-  console.log(meta);
+
   return {
     title: meta.coursetitle,
     description: meta.description,
     openGraph: {
-      images: "",
+      title: `${process.env.SITE_URL}/`,
+      images: meta.icon,
     },
   };
 }
