@@ -16,7 +16,6 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const { meta } = getDocBySlug(params.slug, "course/blog");
-  console.log(meta);
   return {
     title: meta.coursetitle,
     description: meta.description,

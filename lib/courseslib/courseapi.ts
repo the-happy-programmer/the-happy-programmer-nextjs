@@ -2,7 +2,6 @@ const fs = require("fs-extra");
 import { join } from "path";
 import matter from "gray-matter";
 import { PostProps } from "../types/blog";
-import { CoursesHeader } from "../types/courses";
 
 /**
  * @description Returns an array of all posts in a directory sorted by date
