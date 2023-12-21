@@ -15,7 +15,7 @@ const ThemeToggle = () => {
     <>
       {theme !== "light" ? (
         <Button variant="bordered" onClick={() => setTheme("light")}>
-          <SvgtoReact name="" />
+          light
         </Button>
       ) : (
         <Button variant="bordered" onClick={() => setTheme("dark")}>

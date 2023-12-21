@@ -39,7 +39,7 @@ export default async function Nav() {
               NuxtJS
             </Link>
           </NavbarItem>
-          <NavbarItem isActive>
+          <NavbarItem>
             <Link href="/about" color="foreground">
               About
             </Link>
