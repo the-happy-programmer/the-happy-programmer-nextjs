@@ -2,12 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import TagCourse from './TagCourse'
 import type { CourseProps } from '../../lib/types/courses'
+import { courses } from '@/app/courses/data'
 
-export default function CoursesCard({
-  courses,
-}: {
-  courses: CourseProps[]
-}): JSX.Element {
+
+
+export default function CoursesCard(): JSX.Element {
   return (
     <>
       {courses.map((course: CourseProps) => (

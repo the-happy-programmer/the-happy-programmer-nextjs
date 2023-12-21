@@ -1,5 +1,5 @@
 import SubInput from './SubInput'
-import type { TitleSubtitle } from '../../lib/types/home'
+import type { TitleSubtitle } from '@/lib/types/home'
 
 export default function Subscribe({
   title,

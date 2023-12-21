@@ -1,12 +1,9 @@
-import styles from '../../../styles/course.module.css'
+import { CustomMDX } from "@/components/Mdx-remote";
 
 export default function Content({ content }: { content: string }): JSX.Element {
   return (
-    <div className="flex-col">
-      <div
-        className={styles.content}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+    <div className="prose flex-col dark:prose-invert">
+      <CustomMDX source={content} />
     </div>
-  )
+  );
 }

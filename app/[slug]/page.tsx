@@ -1,36 +1,54 @@
-import HappyLink from '../components/HappyLink'
-import Postbody from '../components/PostBody'
-import SvgtoReact from '../components/Svgtoreact'
-import Subscribe from '../components/home/Subscribe'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import Headerlayout from '../widget/Headerlayout'
-import Image from 'next/image'
-import { markdownToHtml } from '../lib/courseslib/htmlmarkdown'
-import RichDataPost from '../components/seo/RichDataPost'
-import Link from 'next/link'
-import { getDocBySlug, getAllinks } from '../lib/courseslib/courseapi'
-import type { PostProps } from '../lib/types/blog'
-import type { TitleSub } from '../lib/types/general'
-import { ReactNode } from 'react'
+import HappyLink from "@/components/HappyLink";
+import Postbody from "@/components/PostBody";
+import SvgtoReact from "@/components/Svgtoreact";
+import Subscribe from "@/components/home/Subscribe";
+import Headerlayout from "@/widget/Headerlayout";
+import Image from "next/image";
+import RichDataPost from "@/components/seo/RichDataPost";
+import Link from "next/link";
+import { getAllinks, getDocBySlug } from "@/lib/courseslib/courseapi";
+import { ReactNode } from "react";
+import { socials, subscribe } from "./data";
+import { Metadata, ResolvingMetadata } from "next";
 
-interface PageProps extends PostProps {
-  socials: string[][]
-  subscribe: TitleSub
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { meta } = getDocBySlug(params.slug, "course/blog");
+  return {
+    title: meta.coursetitle,
+    description: meta.description,
+    openGraph: {
+      title: meta.coursetitle + " | The Happy Programmer",
+      description: meta.description,
+    },
+  };
 }
 
-export default function Post({
-  meta,
-  socials,
-  content,
-  subscribe,
-}: PageProps): JSX.Element {
-  const { author, pubDate, categories, title, avatar, description } = meta
+export async function generateStaticParams() {
+  const allSlugs = getAllinks("course/blog");
+  return (
+    allSlugs.map(({ name }) => ({
+      slug: name,
+    })) || []
+  );
+}
+
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const post = getDocBySlug(slug as string, "course/blog");
+  const { author, pubDate, categories, title, avatar, description } = post.meta;
   const postIcon = (categories: string[]): ReactNode =>
     categories.map((category) => (
       <div key={category} className="h-16">
         <SvgtoReact height={60} width={60} className="mr-4" name={category} />
       </div>
-    ))
+    ));
 
   return (
     <>
@@ -39,14 +57,14 @@ export default function Post({
         description={description}
         date={pubDate}
         firstName={author}
-        image={'/me.webp'}
+        image={"/me.webp"}
         slug={`/${author.toLowerCase()}`}
       />
       <Headerlayout>
         <div className="container flex flex-col items-center px-3 py-3">
           <Link
             href="/blog"
-            className="flex flex-row place-self-start fill-current pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            className="fill-current flex flex-row place-self-start pl-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
           >
             <>
               <SvgtoReact
@@ -94,54 +112,16 @@ export default function Post({
                 >
                   {names}
                 </HappyLink>
-                {socials.length - 1 === i ? '' : '•'}
+                {socials.length - 1 === i ? "" : "•"}
               </div>
             ))}
           </div>
         </div>
       </Headerlayout>
-      <Postbody content={content as string} />
+      <Postbody content={post.content} />
       <div className="bg-gray-100  dark:bg-gray-800">
         <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
       </div>
     </>
-  )
-}
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params as { slug: string }
-  const subscribe: TitleSub = {
-    title: 'Subscribe',
-    subtitle:
-      'Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared',
-  }
-  const socials: string[][] = [
-    ['https://twitter.com/happy_prog', 'twitter'],
-    ['https://www.patreon.com/thehappyprogrammer', 'patreon'],
-    [
-      'https://www.facebook.com/The-Happy-Programmer-106178104593013',
-      'facebook',
-    ],
-    ['https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg', 'youtube'],
-  ]
-
-  const post = getDocBySlug(slug as string, 'course/blog')
-  const pp = await markdownToHtml(post.content)
-  return {
-    props: {
-      meta: post.meta,
-      socials: socials,
-      content: pp,
-      subscribe,
-    },
-  }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const allSlugs = getAllinks('course/blog')
-
-  return {
-    paths: allSlugs.map(({ name }) => `/${name}`) || [],
-    fallback: false,
-  }
+  );
 }

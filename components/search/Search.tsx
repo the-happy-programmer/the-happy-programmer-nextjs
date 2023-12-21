@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import SvgtoReact from '../Svgtoreact'
+import SvgtoReact from '@/components/Svgtoreact'
 import { useState } from 'react'
-import scroll from '../../lib/scroll'
-import type { PostProps } from '../../lib/types/blog'
-
+import type { PostProps } from '@/lib/types/blog'
+import scroll from '@/lib/scroll'
+import SearchIcon from '@/public/svg/search.svg'
+import FullLogo from '@/public/svg/fulllogo.svg'
 export default function Search({
   posts,
   setSearching,
@@ -54,10 +55,9 @@ export default function Search({
         <div className="sticky top-0">
           <div className="relative flex h-16 w-full border-b border-gray-200 dark:border-gray-700">
             <div className="absolute inset-y-0 left-0 ml-6 flex items-center">
-              <SvgtoReact
+              <SearchIcon
                 height={20}
                 width={20}
-                name="search"
                 className="stroke-current text-gray-300 dark:text-gray-200"
               />
             </div>
@@ -155,7 +155,7 @@ export default function Search({
           )}
           <div className="sticky bottom-0 flex w-full justify-end rounded-b-2xl border-t border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
             <div className="fill-current stroke-current  p-4 text-gray-700 dark:text-gray-400">
-              <SvgtoReact name="fulllogo" height={30} width={75} />
+              <FullLogo height={30} width={75} />
             </div>
           </div>
         </div>

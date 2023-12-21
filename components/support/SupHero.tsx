@@ -1,17 +1,18 @@
-import { useState } from 'react'
-import SvgtoReact from '../Svgtoreact'
-import TabButton from '../TabButtons/TabButton'
-import styles from '../../styles/buttons.module.css'
-import type { SupHeroProps } from '../../lib/types/support'
+"use client";
+import { useState } from "react";
+import SvgtoReact from "@/components/Svgtoreact";
+import TabButton from "@/components/TabButtons/TabButton";
+import styles from "@/styles/buttons.module.css";
+import type { SupHeroProps } from "@/lib/types/support";
 export default function SupHero({
   strings,
 }: {
-  strings: SupHeroProps
+  strings: SupHeroProps;
 }): JSX.Element {
-  const [active, setActive] = useState<boolean>(true)
+  const [active, setActive] = useState<boolean>(true);
 
   return (
-    <div>
+    <>
       <div className="mx-auto bg-blue-600 pt-20 dark:bg-blue-900">
         <div className="container flex flex-col items-center">
           <p className="text-xs uppercase text-gray-50 text-opacity-60">
@@ -28,18 +29,13 @@ export default function SupHero({
           />
           <div className="mt-14 w-96 rounded-t-2xl bg-gray-50 p-10 text-center dark:bg-gray-900">
             <h2 className="text-3xl font-bold dark:text-gray-50">
-              {' '}
-              {active ? '£5' : '£50'}
+              {" "}
+              {active ? "£5" : "£50"}
             </h2>
             <p className="pb-5 text-sm text-gray-900 text-opacity-60 dark:text-gray-50">
-              {active ? 'per month' : 'per year'}
+              {active ? "per month" : "per year"}
             </p>
-            <button
-              onClick={() => {
-                console.log('das')
-              }}
-              className={styles.fullbtn}
-            >
+            <button onClick={() => {}} className={styles.fullbtn}>
               {strings.buttonstr}
             </button>
           </div>
@@ -65,6 +61,6 @@ export default function SupHero({
           ))}
         </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }

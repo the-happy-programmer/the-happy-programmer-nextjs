@@ -1,23 +1,24 @@
-import CourseSearch from './CourseSearch'
-import Link from 'next/link'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import type { CoursesSlugs } from '../../../lib/types/courses'
+"use client";
+import CourseSearch from "./CourseSearch";
+import Link from "next/link";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import type { CoursesSlugs } from "@/lib/types/courses";
 
 export default function SideMenu({
   courseslugs,
 }: {
-  courseslugs: CoursesSlugs[]
+  courseslugs: CoursesSlugs[];
 }): JSX.Element {
-  const [courses, setCourses] = useState<CoursesSlugs[]>(courseslugs)
-  const router = useRouter()
+  const [courses, setCourses] = useState<CoursesSlugs[]>(courseslugs);
+  const router = usePathname();
 
-  const currentPath = (path: string) => router.asPath === path
+  const currentPath = (path: string) => router === path;
 
   return (
     <div className="mr-10 pt-14">
       <CourseSearch
-        palceholder={''}
+        palceholder={""}
         allslugs={courseslugs}
         setCourses={setCourses}
       />
@@ -28,8 +29,8 @@ export default function SideMenu({
             className={`
               ${
                 currentPath(slug.link)
-                  ? 'border-l-4 border-gray-900 text-gray-900 dark:border-gray-50 dark:text-gray-50'
-                  : 'border-l-4 border-gray-100 text-gray-400 dark:border-gray-800 dark:text-gray-400'
+                  ? "border-l-4 border-gray-900 text-gray-900 dark:border-gray-50 dark:text-gray-50"
+                  : "border-l-4 border-gray-100 text-gray-400 dark:border-gray-800 dark:text-gray-400"
               } py-1.5 pl-7`}
           >
             <Link href={slug.link}>{slug.name}</Link>
@@ -40,5 +41,5 @@ export default function SideMenu({
         )}
       </ul>
     </div>
-  )
+  );
 }

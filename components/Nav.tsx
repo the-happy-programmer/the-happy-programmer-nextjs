@@ -24,7 +24,7 @@ async function Nav() {
             <div>
               <HappyLink href="/" ariaLabel="The Happy Programmer">
                 <Logo
-                  className="justify-self-center fill-current stroke-current text-gray-900 dark:text-gray-50"
+                  className="justify-self-center fill-gray-900 stroke-gray-900 dark:fill-gray-50 dark:stroke-gray-50"
                   height={30}
                 />
               </HappyLink>
