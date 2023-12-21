@@ -1,4 +1,3 @@
-import Meta from "@/components/seo/Meta";
 import SvgToReact from "@/components/Svgtoreact";
 import SubInput from "@/components/home/SubInput";
 

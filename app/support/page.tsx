@@ -18,7 +18,7 @@ type price = 5 | 50;
 
 export default function Support(): JSX.Element {
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-50 dark:bg-gray-900">
       <SupHero strings={supHero} />
       <TitleSup
         title={BenefitsStr.title as string}
