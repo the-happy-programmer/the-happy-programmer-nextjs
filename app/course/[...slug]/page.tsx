@@ -27,7 +27,7 @@ export async function generateMetadata(
     title: meta.coursetitle,
     description: meta.description,
     openGraph: {
-      title: meta.coursetitle + " | The Happy Programmer",
+      title: meta.coursetitle + " - The Happy Programmer",
       description: meta.description,
     },
   };

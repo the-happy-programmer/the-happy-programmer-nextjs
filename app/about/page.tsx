@@ -1,18 +1,17 @@
-import { Metadata } from 'next'
-import Headerlayout from '@/widget/Headerlayout'
-import DisplayInfo from '@/widget/DisplayInfo'
-import DisplayCard from '@/components/about/DisplayCard'
-import SvgtoReact from '@/components/Svgtoreact'
-import DropDownContainer from '@/components/about/DropDownContainer'
-import { projects, socials, author, info } from './data'
-import type { SEOProps } from '@/lib/types/seo'
-import { subtitlestyle, titlestyle } from '@/styles/styles'
+import { Metadata } from "next";
+import Headerlayout from "@/widget/Headerlayout";
+import DisplayInfo from "@/widget/DisplayInfo";
+import DisplayCard from "@/components/about/DisplayCard";
+import SvgtoReact from "@/components/Svgtoreact";
+import DropDownContainer from "@/components/about/DropDownContainer";
+import { projects, socials, author, info } from "./data";
+import { subtitlestyle, titlestyle } from "@/styles/styles";
 
 export const metadata: Metadata = {
-  title: 'My Name Is Tony',
+  title: "My Name Is Tony",
   description:
-    'I have developed numerous of iOS and Android apps. I have been participated in many open sourse projects. An experienced developer in web development, enterprise and mobile development. Enthusiastic with programming and technology.',
-}
+    "I have developed numerous of iOS and Android apps. I have been participated in many open sourse projects. An experienced developer in web development, enterprise and mobile development. Enthusiastic with programming and technology.",
+};
 
 export default function About({}: {}): JSX.Element {
   return (
@@ -60,5 +59,5 @@ export default function About({}: {}): JSX.Element {
         </div>
       </div>
     </div>
-  )
+  );
 }
