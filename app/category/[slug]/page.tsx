@@ -41,11 +41,11 @@ export default function Category({ params }: Props): JSX.Element {
     .filter((a: PostProps) => a.meta.categories.map((e) => e === slug));
 
   return (
-    <div>
+    <>
       <Headerlayout>
         <MyHeader subtitle="The Happy Programmer" title={slug} posts={posts} />
       </Headerlayout>
       <PostList posts={posts} tags={tags} categories={categories} />
-    </div>
+    </>
   );
 }
