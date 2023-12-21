@@ -29,11 +29,6 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
   const allSlugs = getAllinks("course/blog");
-  console.log(
-    allSlugs.map(({ name }) => ({
-      slug: name,
-    }))
-  );
   return (
     allSlugs.map(({ name }) => ({
       slug: name,
