@@ -23,7 +23,6 @@ export async function generateMetadata(
     openGraph: {
       title: meta.coursetitle + " | The Happy Programmer",
       description: meta.description,
-      images: [`${process.env.SITE_URL}/placeholder-hero.jpg`],
     },
   };
 }
