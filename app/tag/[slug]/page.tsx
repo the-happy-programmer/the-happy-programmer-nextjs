@@ -11,7 +11,7 @@ interface Props {
 
 export async function generateStaticParams() {
   const { tags } = uniqueArrayItems();
-  return tags;
+  return tags.map((tag) => ({ slug: tag }));
 }
 
 export async function generateMetadata(
