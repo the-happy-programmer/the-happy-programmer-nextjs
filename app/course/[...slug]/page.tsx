@@ -10,7 +10,9 @@ import { Metadata, ResolvingMetadata } from "next";
 
 export async function generateStaticParams() {
   const e = gatAllLinksForCourses();
-  return e.map((link) => link);
+  return e.map((link) => ({
+    slug: link.split("/").filter(Boolean).slice(-2),
+  }));
 }
 
 type Props = {
@@ -38,6 +40,7 @@ export default function CoursePage({
 }: {
   params: { slug: string[] };
 }): JSX.Element {
+  console.log(params);
   const { meta, content } = getDocBySlug(
     params.slug[1],
     `course/${params.slug[0]}`

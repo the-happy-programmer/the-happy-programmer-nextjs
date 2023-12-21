@@ -29,7 +29,7 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
   const authors = getAllAuthors();
-  return authors;
+  return authors.map((auth) => ({ slug: auth }));
 }
 
 export default function Author({ params }: Props): JSX.Element {

@@ -28,7 +28,7 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
   const { categories } = uniqueArrayItems();
-  return categories;
+  return categories.map((cat) => ({ slug: cat }));
 }
 
 export default function Category({ params }: Props): JSX.Element {
