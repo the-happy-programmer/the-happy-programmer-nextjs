@@ -9,6 +9,24 @@ import Link from "next/link";
 import { getAllinks, getDocBySlug } from "@/lib/courseslib/courseapi";
 import { ReactNode } from "react";
 import { socials, subscribe } from "./data";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { meta } = getDocBySlug(params.slug, "course/blog");
+  console.log(meta);
+  return {
+    title: meta.coursetitle,
+    description: meta.description,
+    openGraph: {
+      title: meta.coursetitle + " | The Happy Programmer",
+      description: meta.description,
+      images: [`${process.env.SITE_URL}/placeholder-hero.jpg`],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const allSlugs = getAllinks("course/blog");
