@@ -27,9 +27,7 @@ export default async function Page() {
         title={moderntechnologies.title}
         subtitle={moderntechnologies.subtitle}
       />
-
       {true && <NewSupport />}
-
       <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
       <DropDownContainer
         title="How else you can benefit from THP"

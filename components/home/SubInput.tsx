@@ -1,56 +1,60 @@
-'use client'
-import { useState, useRef } from 'react'
-import SvgtoReact from '../Svgtoreact'
+"use client";
+import { useState, useRef } from "react";
+import SvgtoReact from "../Svgtoreact";
+import { Input } from "@nextui-org/input";
+import { HiEnvelope } from "react-icons/hi2";
+import { Button } from "@nextui-org/button";
 
 export default function SubInput(): JSX.Element {
-  const inputEl = useRef<HTMLInputElement>(null)
-  const [message, setMessage] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const inputEl = useRef<HTMLInputElement>(null);
+  const [message, setMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const sub = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    const res = await fetch('/api/subscribe', {
+    e.preventDefault();
+    const res = await fetch("/api/subscribe", {
       body: JSON.stringify({
         email: inputEl.current && inputEl.current.value,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      method: 'POST',
-    })
+      method: "POST",
+    });
 
-    const { error } = await res.json()
+    const { error } = await res.json();
 
     if (error) {
-      setError('Something went wrong! please, try a valid email.')
-      setMessage(null)
-      return
+      setError("Something went wrong! please, try a valid email.");
+      setMessage(null);
+      return;
     }
-    inputEl.current && (inputEl.current.value = '')
-    setMessage('You are now subscribed')
-    setError(null)
-  }
+    inputEl.current && (inputEl.current.value = "");
+    setMessage("You are now subscribed");
+    setError(null);
+  };
 
   return (
-    <form onSubmit={sub}>
-      <input
+    <form
+      action={sub}
+      className="mx-auto flex max-w-md flex-row items-end gap-x-unit-xs"
+    >
+      <Input
         type="email"
-        name="email"
-        ref={inputEl}
-        placeholder="example@email.com"
-        className="mr-4 rounded-md border py-3 px-4 text-default-900 hover:border-default-900 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-50 dark:hover:border-stone-50 dark:focus:border-stone-50"
+        placeholder="you@example.com"
+        labelPlacement="outside"
+        size="lg"
+        startContent={
+          <HiEnvelope className="pointer-events-none flex-shrink-0 text-2xl text-default-400" />
+        }
       />
-      <button
-        id="subscribe"
-        type="submit"
-        className="rounded-md bg-default-900 px-10 py-3 font-semibold text-stone-50 hover:bg-stone-700 dark:bg-stone-50 dark:text-default-900 dark:hover:bg-stone-200"
-      >
+      <Button variant="shadow" color="primary" size="lg">
         Subscribe
-      </button>
+      </Button>
       <div className="flex flex-row items-center justify-center gap-x-2 pt-4">
         {!message && error && (
           <>
             <SvgtoReact
-              name={error && 'cancel'}
+              name={error && "cancel"}
               className="h-5 fill-current text-danger"
             />
             <p className="text-danger">{error}</p>
@@ -59,7 +63,7 @@ export default function SubInput(): JSX.Element {
         {!error && message && (
           <>
             <SvgtoReact
-              name={message && 'tick'}
+              name={message && "tick"}
               className="h-5 fill-current text-success dark:text-success"
             />
             <p className="text-success">{message}</p>
@@ -67,5 +71,5 @@ export default function SubInput(): JSX.Element {
         )}
       </div>
     </form>
-  )
+  );
 }

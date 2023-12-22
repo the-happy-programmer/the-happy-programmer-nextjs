@@ -1,17 +1,15 @@
-import SubInput from './SubInput'
-import type { TitleSubtitle } from '@/lib/types/home'
+import SubInput from "./SubInput";
+import type { TitleSubtitle } from "@/lib/types/home";
 
 export default function Subscribe({
   title,
   subtitle,
 }: TitleSubtitle): JSX.Element {
   return (
-    <div className="container py-20 text-center">
-      <p className="text-3xl font-bold dark:text-stone-50">{title}</p>
-      <p className="mx-auto max-w-2xl p-10 text-stone-700 dark:text-stone-300">
-        {subtitle}
-      </p>
+    <div className="container flex flex-col gap-y-unit-lg py-unit-4xl text-center">
+      <p className="text-3xl font-bold">{title}</p>
+      <p className="mx-auto max-w-md text-default-600">{subtitle}</p>
       <SubInput />
     </div>
-  )
+  );
 }
