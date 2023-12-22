@@ -1,19 +1,19 @@
-'use client'
-import SubDesc from './SubDesc'
-import style from '../../../styles/buttons.module.css'
-import SvgtoReact from '../../Svgtoreact'
-import Check from '@/public/svg/check.svg'
-import TabButton from '../../TabButtons/TabButton'
-import { useState } from 'react'
-import Link from 'next/link'
+"use client";
+import SubDesc from "@/components/home/subscribe/SubDesc";
+import style from "@/styles/buttons.module.css";
+import SvgtoReact from "@/components/Svgtoreact";
+import Check from "@/public/svg/check.svg";
+import TabButton from "@/components/TabButtons/TabButton";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function NewSupport({}): JSX.Element {
-  const [active, setActive] = useState<boolean>(true)
+  const [active, setActive] = useState<boolean>(true);
   return (
     <div className="border-b border-t bg-stone-100 dark:border-stone-50 dark:border-opacity-10 dark:bg-stone-800">
       <div className="container flex flex-col py-20">
         <div className="mx-auto max-w-xs pb-10 pt-20 text-center">
-          <p className="py-2 text-sm font-semibold uppercase text-accent dark:text-darkaccent">
+          <p className="text-accent dark:text-darkaccent py-2 text-sm font-semibold uppercase">
             full-featured
           </p>
           <h3 className="text-3xl font-bold dark:text-stone-50">
@@ -26,16 +26,16 @@ export default function NewSupport({}): JSX.Element {
           active={active}
           setActive={setActive}
         />
-        <div className="flex flex-col pt-10 pb-32 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
+        <div className="flex flex-col pb-32 pt-10 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
           <div className="flex flex-col items-center gap-y-10 border-r border-default-900 border-opacity-10 md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
             <SubDesc title="Apple products development" icon="support/swift">
               <div>
-                Swift is the main language for creating Apps in{' '}
+                Swift is the main language for creating Apps in{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/ios"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   iOS
                 </a>
@@ -44,25 +44,25 @@ export default function NewSupport({}): JSX.Element {
                   rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/ipados"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   iPadOS
                 </a>
-                ,{' '}
+                ,{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/macos/"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   MacOS
-                </a>{' '}
-                and{' '}
+                </a>{" "}
+                and{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://developer.apple.com/watchos/"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   WatchOS
                 </a>
@@ -70,21 +70,21 @@ export default function NewSupport({}): JSX.Element {
             </SubDesc>
             <SubDesc title="Web Development" icon="support/web">
               <div>
-                Courses in React{' '}
+                Courses in React{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://nextjs.org"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   NextJS
                 </a>
-                ,{' '}
+                ,{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://v3.nuxtjs.org"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   NuxtJS
                 </a>
@@ -94,21 +94,21 @@ export default function NewSupport({}): JSX.Element {
             <SubDesc title="Mobile Development" icon="support/mobile">
               <div>
                 The fastest growing market mobile development is being taught
-                and difficult concepts explained, such as{' '}
+                and difficult concepts explained, such as{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://reactnative.dev"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   React Native
                 </a>
-                ,{' '}
+                ,{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://flutter.dev/"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                 >
                   Flutter
                 </a>
@@ -117,41 +117,41 @@ export default function NewSupport({}): JSX.Element {
             <SubDesc title="Server Development" icon="support/server">
               <div>
                 To become and all around develoner you need to learn to create
-                servers, here is the right place to learn{' '}
+                servers, here is the right place to learn{" "}
                 <a
                   rel="noreferrer"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                   href="https://expressjs.com"
                 >
                   ExpressJS
                 </a>
-                ,{' '}
+                ,{" "}
                 <a
                   rel="noreferrer"
-                  className="text-accent underline dark:text-darkaccent"
+                  className="text-accent dark:text-darkaccent underline"
                   href="https://nodejs.org/en/"
                 >
                   NodeJS
-                </a>{' '}
+                </a>{" "}
                 .
               </div>
             </SubDesc>
           </div>
           <div className="mx-auto flex w-1/2 max-w-sm flex-col pt-10 text-center sm:pt-10 md:pt-0 lg:pt-0 xl:pt-0">
             <p className="text-3xl font-bold dark:text-stone-50">
-              {active ? '£5' : '£50'}
+              {active ? "£5" : "£50"}
             </p>
             <p className="text-default-900 text-opacity-60 dark:text-stone-50">
-              {active ? 'per month' : 'per year'}
+              {active ? "per month" : "per year"}
             </p>
             <div className="mx-auto grid w-full grid-cols-2 gap-2 py-16">
               {[
-                'Early Access',
-                'Sub-only Courses',
-                'Answer Questions',
-                'Share source code',
-                'Personal Mentoring',
-                'Complete Projects',
+                "Early Access",
+                "Sub-only Courses",
+                "Answer Questions",
+                "Share source code",
+                "Personal Mentoring",
+                "Complete Projects",
               ].map((item) => (
                 <div
                   key={item}
@@ -170,7 +170,7 @@ export default function NewSupport({}): JSX.Element {
                 </div>
               ))}
               <div className="col-span-2 pt-3">
-                <Link href={'/support'} className={style.fullbtn}>
+                <Link href={"/support"} className={style.fullbtn}>
                   Get Started today
                 </Link>
               </div>
@@ -182,5 +182,5 @@ export default function NewSupport({}): JSX.Element {
         </div>
       </div>
     </div>
-  )
+  );
 }

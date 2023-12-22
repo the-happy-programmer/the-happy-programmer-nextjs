@@ -3,8 +3,12 @@ import SubInput from "@/components/home/SubInput";
 
 export default function CourseHeader({
   meta,
+  error,
+  message,
 }: {
   [key: string]: any;
+  error: string;
+  message: string;
 }): JSX.Element {
   return (
     <div className="bg-stone-50 dark:bg-default-900">
@@ -14,7 +18,7 @@ export default function CourseHeader({
           {meta.coursetitle}
         </p>
         <h1 className="pb-3 text-3xl dark:text-stone-400">{meta.title}</h1>
-        <SubInput />
+        <SubInput error={error} message={message} />
       </div>
     </div>
   );

@@ -1,31 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --accentShadow: rgb(173, 8, 173);
-  --accentShadow2: rgb(14, 151, 151);
-  --my-gray-50: #fff;
-  --my-gray-100: #fafafa;
-  --my-gray-200: #eaeaea;
-  --my-gray-300: #999;
-  --my-icon-gray: #111;
-  --code-colour-1: #5d5d5f;
-  --code-colour-2: #a9a9aa;
-  --code-colour-3: #da70d6;
-  --code-colour-4: #e2777a;
-  --code-colour-5: #cc618e;
-  --code-colour-6: #437aed;
-  --code-colour-7: #cd6069;
-  --code-colour-8: #7c4df6;
-  --code-colour-9: #53a053;
-  --code-colour-10: #727376;
-  --code-colour-11: green;
-  --accent-colour: #0041d6;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
+    --accentShadow: rgb(173, 8, 173);
+    --accentShadow2: rgb(14, 151, 151);
+    --my-gray-50: #fff;
+    --my-gray-100: #fafafa;
+    --my-gray-200: #eaeaea;
+    --my-gray-300: #999;
+    --my-icon-gray: #111;
+    --code-colour-1: #5d5d5f;
+    --code-colour-2: #a9a9aa;
+    --code-colour-3: #da70d6;
+    --code-colour-4: #e2777a;
+    --code-colour-5: #cc618e;
+    --code-colour-6: #437aed;
+    --code-colour-7: #cd6069;
+    --code-colour-8: #7c4df6;
+    --code-colour-9: #53a053;
+    --code-colour-10: #727376;
+    --code-colour-11: green;
+    --accent-colour: theme(colors.primary);
+  }
+
+  .dark {
     --accentShadow: #f0f;
     --accentShadow2: #0ff;
     --my-gray-50: #111;
@@ -44,6 +43,6 @@
     --code-colour-9: #ff8b39;
     --code-colour-10: #f0eff1;
     --code-colour-11: rgb(0, 13, 128);
-    --accent-colour: #4198ff;
+    --accent-colour: theme(colors.primary);
   }
 }

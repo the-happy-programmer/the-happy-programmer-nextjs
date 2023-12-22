@@ -6,12 +6,17 @@ import type {
 import Understand from "@/public/svg/understand.svg";
 import Create from "@/public/svg/create.svg";
 import Grow from "@/public/svg/grow.svg";
+import { GiPayMoney } from "react-icons/gi";
+import { HiGlobeAsiaAustralia } from "react-icons/hi2";
+import { HiCodeBracket } from "react-icons/hi2";
+import { HiMiniQuestionMarkCircle } from "react-icons/hi2";
 
 import type {
   BenefitsProps,
   KeyFeaturesProps,
   SupHeroProps,
 } from "@/lib/types/support";
+import { Link } from "@nextui-org/link";
 
 const supportDesc: { title: string; subtitle: string } = {
   title: "support to our newsletter",
@@ -24,24 +29,71 @@ const support: { title: string; icon: string }[] = [
   { title: "title", icon: "support/web" },
 ];
 
-const info: string[][] = [
+const SponsoredPosts = () => {
+  return (
+    <div>
+      you can mail{" "}
+      <Link href="mailto:info@thehappyprogrammer.com">
+        info@thehappyprogrammer.com
+      </Link>
+    </div>
+  );
+};
+
+const AdvPosts = () => {
+  return (
+    <div>
+      you can mail{" "}
+      <Link href="mailto:info@thehappyprogrammer.com">
+        info@thehappyprogrammer.com
+      </Link>{" "}
+      to advertise yourself.
+    </div>
+  );
+};
+
+const Questions = () => {
+  return <div>you can mail us</div>;
+};
+
+const SourceCode = () => {
+  return (
+    <div>
+      All the Source code can be found{" "}
+      <Link href="https://github.com/orgs/the-happy-programmer/" showAnchorIcon>
+        github
+      </Link>
+    </div>
+  );
+};
+
+const info: any[][] = [
   [
     "Sponsored Posts",
     "For any sponsored post, you can send us a message at our email address. We will get back to you as soon as possible. ",
+    GiPayMoney,
+    SponsoredPosts,
   ],
   [
     "Advertise yourself",
     "You can advertise your business in this website, all you have to do is send an email with your banner and the time you want the AD to last. ",
+    HiGlobeAsiaAustralia,
+    AdvPosts,
   ],
   [
     "Ask questions",
-    "You can always ask any questions you have to improve your experience",
+    "You can always ask any questions you have, to improve your experience",
+    HiMiniQuestionMarkCircle,
+    Questions,
   ],
   [
     "Source code",
     "The happy programmer provides source code to all members you can see the code by yourself.",
+    HiCodeBracket,
+    SourceCode,
   ],
 ];
+
 const moderntechnologies: TitleSubIcons = {
   icons: [
     "react",
@@ -150,7 +202,69 @@ const keyfeatures: KeyFeaturesProps[] = [
   },
 ];
 
+const socials: string[][] = [
+  ["https://twitter.com/happy_prog", "twitter"],
+  ["https://www.patreon.com/thehappyprogrammer", "patreon"],
+  ["https://www.facebook.com/The-Happy-Programmer-106178104593013", "facebook"],
+  ["https://www.youtube.com/channel/UCdZM2azChLnEch1hRnEx9Xg", "youtube"],
+  ["https://www.github.com/MyNameIsBond", "github"],
+];
+
+const followus: { title: string; copyrights: string; sub: string } = {
+  title: "Follow us",
+  copyrights: "Copyright © 2022 Inc. All rights reserved.",
+  sub: "subscribe to our newsletter",
+};
+
+interface FooterProps {
+  title: string;
+  pages: string[][];
+}
+
+const pages: FooterProps = {
+  title: "Pages",
+  pages: [
+    ["Home", "/"],
+    ["Courses", "/courses"],
+    ["Blog", "/blog"],
+    ["About", "/about"],
+  ],
+};
+
+const tags: FooterProps = {
+  title: "Tags",
+  pages: [
+    ["Swift", "/tag/swift"],
+    ["SwiftUI", "/tag/swiftui"],
+    ["Announcements", "/tag/announcements"],
+    ["NuxtJS", "/tag/nuxtjs"],
+  ],
+};
+
+const categories: FooterProps = {
+  title: "Categories",
+  pages: [
+    ["Announcements", "/category/announcements"],
+    ["SwiftUI", "/category/swiftui"],
+  ],
+};
+
+const courses: string[] = [
+  "courses/vue",
+  "courses/reactjs",
+  "courses/swift",
+  "courses/nuxtjs",
+  "courses/flutter",
+  "courses/tailwind",
+  "courses/frontity",
+];
+
 export {
+  followus,
+  pages,
+  tags,
+  categories,
+  courses,
   startToday,
   customerReview,
   supHero,
