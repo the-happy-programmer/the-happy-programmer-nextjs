@@ -13,7 +13,12 @@ export const metadata: Metadata = {
     "The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.",
 };
 
-export default async function Page() {
+export default async function Page({
+  params,
+}: {
+  params: { error: string; message: string };
+}) {
+  const { error, message } = params;
   return (
     <div className="overflow-hidden bg-background">
       <HeroCarousel
@@ -28,7 +33,12 @@ export default async function Page() {
         subtitle={moderntechnologies.subtitle}
       />
       {true && <NewSupport />}
-      <Subscribe subtitle={subscribe.subtitle} title={subscribe.title} />
+      <Subscribe
+        subtitle={subscribe.subtitle}
+        error={error}
+        message={message}
+        title={subscribe.title}
+      />
       <DropDownContainer
         title="How else you can benefit from THP"
         info={info}
