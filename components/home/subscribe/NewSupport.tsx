@@ -1,32 +1,43 @@
 "use client";
 import SubDesc from "@/components/home/subscribe/SubDesc";
 import style from "@/styles/buttons.module.css";
-import SvgtoReact from "@/components/Svgtoreact";
 import Check from "@/public/svg/check.svg";
-import TabButton from "@/components/TabButtons/TabButton";
 import { useState } from "react";
 import Link from "next/link";
+import { Chip } from "@nextui-org/chip";
+import { Tab, Tabs } from "@nextui-org/tabs";
 
 export default function NewSupport({}): JSX.Element {
-  const [active, setActive] = useState<boolean>(true);
+  const [active, setActive] = useState<string>("month");
   return (
-    <div className="border-b border-t bg-stone-100 dark:border-stone-50 dark:border-opacity-10 dark:bg-stone-800">
-      <div className="container flex flex-col py-20">
-        <div className="mx-auto max-w-xs pb-10 pt-20 text-center">
-          <p className="text-accent dark:text-darkaccent py-2 text-sm font-semibold uppercase">
-            full-featured
-          </p>
-          <h3 className="text-3xl font-bold dark:text-stone-50">
+    <div className="border-y border-divider bg-default-50">
+      <div className="container flex flex-col py-unit-3xl">
+        <div className="mx-auto flex max-w-xs flex-col items-center gap-y-unit-sm pb-unit-xl pt-unit-3xl text-center">
+          <Chip
+            variant="shadow"
+            classNames={{
+              base: "bg-gradient-to-br from-primary to-secondary border-white/50 shadow-secondary/30",
+              content: "drop-shadow shadow-black text-white",
+            }}
+          >
+            Become an expert in programming
+          </Chip>
+          <h3 className="text-3xl font-bold">
             Become an expert in programming
           </h3>
         </div>
-        <TabButton
-          firstBtn="Monthly"
-          SecondBtn="Yearly"
-          active={active}
-          setActive={setActive}
-        />
-        <div className="flex flex-col pb-32 pt-10 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
+        <Tabs
+          size="lg"
+          className="mx-auto"
+          color="default"
+          aria-label="Tabs colors"
+          radius="full"
+          onSelectionChange={(key) => setActive(key as string)}
+        >
+          <Tab key="year" title="Year" />
+          <Tab key="month" title="Month" />
+        </Tabs>
+        <div className="flex flex-col pb-32 pt-unit-xl sm:flex-col md:flex-row lg:flex-row xl:flex-row">
           <div className="flex flex-col items-center gap-y-10 border-r border-default-900 border-opacity-10 md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
             <SubDesc title="Apple products development" icon="support/swift">
               <div>
@@ -139,10 +150,10 @@ export default function NewSupport({}): JSX.Element {
           </div>
           <div className="mx-auto flex w-1/2 max-w-sm flex-col pt-10 text-center sm:pt-10 md:pt-0 lg:pt-0 xl:pt-0">
             <p className="text-3xl font-bold dark:text-stone-50">
-              {active ? "£5" : "£50"}
+              {active === "month" ? "£5" : "£50"}
             </p>
             <p className="text-default-900 text-opacity-60 dark:text-stone-50">
-              {active ? "per month" : "per year"}
+              {active === "month" ? "per month" : "per year"}
             </p>
             <div className="mx-auto grid w-full grid-cols-2 gap-2 py-16">
               {[
