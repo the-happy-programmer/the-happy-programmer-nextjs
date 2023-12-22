@@ -21,6 +21,7 @@ export default async function Nav() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
   return (
     <Navbar isBordered className="py-1">
       <NavbarContent justify="start">
@@ -54,7 +55,6 @@ export default async function Nav() {
 
       <NavbarContent as="div" className="items-center" justify="end">
         <ThemeToggle />
-
         <Button
           color="default"
           variant="flat"
@@ -63,19 +63,26 @@ export default async function Nav() {
           startContent={<SvgtoReact name="search" width={16} />}
           endContent={<Kbd keys={["command"]}>K</Kbd>}
         >
-          Delete user
+          Search...
         </Button>
-        <Link href="/profile">
-          <Avatar
-            isBordered
-            as="button"
-            className="transition-transform"
-            color="default"
-            name="Jason Hughes"
-            size="sm"
-            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-          />
-        </Link>
+        {user ? (
+          <Link href="/profile">
+            <Avatar
+              isBordered
+              as="button"
+              className="transition-transform"
+              color="default"
+              title={user?.user_metadata?.user_name}
+              name={user?.user_metadata?.user_name}
+              size="sm"
+              src={user?.user_metadata.avatar_url}
+            />
+          </Link>
+        ) : (
+          <Button href="/signin" as={Link} color="primary" variant="flat">
+            Sign In
+          </Button>
+        )}
       </NavbarContent>
     </Navbar>
   );

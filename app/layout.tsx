@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   const id = process.env.NEXT_PUBLIC_ANALYTICS_ID;
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
         strategy="afterInteractive"
