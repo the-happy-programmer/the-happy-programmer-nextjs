@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Page({
-  params,
+  searchParams,
 }: {
-  params: { error: string; message: string };
+  searchParams: { error: boolean; message: string };
 }) {
-  const { error, message } = params;
+  const { message, error } = searchParams;
   return (
     <div className="overflow-hidden bg-background">
       <HeroCarousel
