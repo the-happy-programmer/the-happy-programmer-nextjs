@@ -4,7 +4,7 @@ import DisplayInfo from "@/widget/DisplayInfo";
 import DisplayCard from "@/components/about/DisplayCard";
 import SvgtoReact from "@/components/Svgtoreact";
 import DropDownContainer from "@/components/about/DropDownContainer";
-import { projects, socials, author, info } from "./data";
+import { projects, socials, author } from "./data";
 import { subtitlestyle, titlestyle } from "@/styles/styles";
 
 export const metadata: Metadata = {
@@ -55,7 +55,7 @@ export default function About({}: {}): JSX.Element {
               <DisplayCard key={link} svg={svg} desc={desc} link={link} />
             ))}
           </DisplayInfo>
-          {/* <DropDownContainer title="Know more about me" info={info} /> */}
+          <DropDownContainer title="Know more about me" />
         </div>
       </div>
     </div>

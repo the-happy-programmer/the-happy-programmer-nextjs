@@ -5,7 +5,7 @@ import Subscribe from "@/components/home/Subscribe";
 import Technologies from "@/components/home/Technologies";
 import NewSupport from "@/components/home/subscribe/NewSupport";
 import type { Metadata } from "next";
-import { hero, info, moderntechnologies, subhero, subscribe } from "./data";
+import { hero, moderntechnologies, subhero, subscribe } from "./data";
 
 export const metadata: Metadata = {
   title: "The Happy Programmer",
@@ -39,10 +39,7 @@ export default async function Page({
         message={message}
         title={subscribe.title}
       />
-      <DropDownContainer
-        title="How else you can benefit from THP"
-        info={info}
-      />
+      <DropDownContainer title="How else you can benefit from THP" />
     </div>
   );
 }

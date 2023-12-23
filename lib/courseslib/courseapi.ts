@@ -89,7 +89,6 @@ export const gatAllLinksForCourses = (): string[] => {
   links.forEach((element) => {
     if (element.name !== "blog") {
       const all = getAllinks(element.link.substring(1, element.link.length));
-      console.log(all);
       all.map(({ link, name }) => allLinks.push(link));
     }
   });
