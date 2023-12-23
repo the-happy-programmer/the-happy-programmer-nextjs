@@ -39,7 +39,7 @@ export default function NewSupport({}): JSX.Element {
         </Tabs>
         <div className="flex flex-col justify-between pb-unit-4xl pt-unit-xl sm:flex-col md:flex-row lg:flex-row xl:flex-row">
           <div className="flex flex-col items-center gap-y-unit-xl  md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
-            <SubDesc title="Apple products development" icon="support/swift">
+            <SubDesc title="Apple products development" icon="courses/swift">
               <div>
                 Swift is the main language for creating Apps in{" "}
                 <a
@@ -149,7 +149,7 @@ export default function NewSupport({}): JSX.Element {
             </SubDesc>
           </div>
           <div className="mx-auto w-full max-w-sm">
-            <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
+            <div className="rounded-2xl border border-secondary p-6 shadow-sm ring-1 ring-secondary sm:order-last sm:px-8 lg:p-12">
               <div className="text-center">
                 <div className="text-lg font-medium">
                   <Chip
@@ -187,7 +187,7 @@ export default function NewSupport({}): JSX.Element {
                     <Check
                       height={20}
                       width={20}
-                      className="stroke-current text-default-900 dark:text-stone-50"
+                      className="stroke-current text-default-900"
                     />
                     <span className="text-default-700">{item}</span>
                   </li>
@@ -196,10 +196,10 @@ export default function NewSupport({}): JSX.Element {
               <div className="pt-unit-xl">
                 <Button
                   disableRipple
-                  href="/subscribe"
+                  href="/support"
                   variant="shadow"
                   as={Link}
-                  className="w-full border-white/50 bg-gradient-to-br from-primary to-secondary text-white shadow-secondary/30"
+                  className="w-full bg-gradient-to-br from-primary to-secondary text-white shadow-secondary/30"
                 >
                   Get Started
                 </Button>
