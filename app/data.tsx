@@ -11,6 +11,12 @@ import { HiGlobeAsiaAustralia } from "react-icons/hi2";
 import { HiCodeBracket } from "react-icons/hi2";
 import { HiMiniQuestionMarkCircle } from "react-icons/hi2";
 
+// sup home
+import { DiSwift } from "react-icons/di";
+import { MdOutlineWeb } from "react-icons/md";
+import { FaMobileAlt } from "react-icons/fa";
+import { FaServer } from "react-icons/fa";
+
 import type {
   BenefitsProps,
   KeyFeaturesProps,
@@ -259,7 +265,31 @@ const courses: string[] = [
   "courses/frontity",
 ];
 
+const featuresToSub = [
+  // [
+  //   "Apple products development",
+  //   "Swift is the main language for creating Apps in iOS,iPadOS, MacOS and WatchOS",
+  //   DiSwift,
+  // ],
+  [
+    "Web Development",
+    "Courses in React NextJS, NuxtJS. Javascript is being taugh in detail in THP",
+    MdOutlineWeb,
+  ],
+  [
+    "Mobile Development",
+    "The fastest growing market mobile. Development is being taught and difficult concepts explained, such as React Native, Flutter",
+    FaMobileAlt,
+  ],
+  [
+    "Server Development",
+    "To become and all around develoner you need to learn to create servers, here is the right place to learn ExpressJS, NodeJS.",
+    FaServer,
+  ],
+];
+
 export {
+  featuresToSub,
   followus,
   pages,
   tags,

@@ -1,9 +1,10 @@
 "use client";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { info } from "@/app/data";
 export default function DropDownContainer({
   title,
+  info,
 }: {
+  info: string[][];
   title: string;
 }): JSX.Element {
   return (

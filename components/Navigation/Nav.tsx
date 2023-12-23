@@ -79,7 +79,13 @@ export default async function Nav() {
             />
           </Link>
         ) : (
-          <Button href="/signin" as={Link} color="primary" variant="flat">
+          <Button
+            href="/signin"
+            disableRipple
+            as={Link}
+            color="primary"
+            variant="flat"
+          >
             Sign In
           </Button>
         )}

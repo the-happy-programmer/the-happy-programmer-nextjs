@@ -6,6 +6,7 @@ import { Link } from "@nextui-org/link";
 import { Chip } from "@nextui-org/chip";
 import { Tab, Tabs } from "@nextui-org/tabs";
 import { Button } from "@nextui-org/button";
+import { featuresToSub } from "@/app/data";
 
 export default function NewSupport({}): JSX.Element {
   const [active, setActive] = useState<string>("month");
@@ -39,114 +40,20 @@ export default function NewSupport({}): JSX.Element {
         </Tabs>
         <div className="flex flex-col justify-between pb-unit-4xl pt-unit-xl sm:flex-col md:flex-row lg:flex-row xl:flex-row">
           <div className="flex flex-col items-center gap-y-unit-xl  md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
-            <SubDesc title="Apple products development" icon="courses/swift">
-              <div>
-                Swift is the main language for creating Apps in{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/ios"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  iOS
-                </a>
-                ,
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/ipados"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  iPadOS
-                </a>
-                ,{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/macos/"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  MacOS
-                </a>{" "}
-                and{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/watchos/"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  WatchOS
-                </a>
+            {featuresToSub.map(([title, subtitle, Icon]) => (
+              <div
+                key={title as string}
+                className="group flex flex-row gap-x-unit-lg rounded-xl p-unit-md  hover:bg-content2"
+              >
+                <Icon className="h-14 w-14 rounded-md bg-content2 p-unit-md text-default-600 group-hover:bg-content1 group-hover:text-primary" />
+                <div className="flex flex-col gap-y-unit-sm">
+                  <p className="font-semibold">{title as string}</p>
+                  <p className="max-w-sm leading-relaxed text-default-600">
+                    {subtitle as string}
+                  </p>
+                </div>
               </div>
-            </SubDesc>
-            <SubDesc title="Web Development" icon="support/web">
-              <div>
-                Courses in React{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://nextjs.org"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  NextJS
-                </a>
-                ,{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://v3.nuxtjs.org"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  NuxtJS
-                </a>
-                . Javascript is being taugh in detail in THP
-              </div>
-            </SubDesc>
-            <SubDesc title="Mobile Development" icon="support/mobile">
-              <div>
-                The fastest growing market mobile development is being taught
-                and difficult concepts explained, such as{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://reactnative.dev"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  React Native
-                </a>
-                ,{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://flutter.dev/"
-                  className="text-accent dark:text-darkaccent underline"
-                >
-                  Flutter
-                </a>
-              </div>
-            </SubDesc>
-            <SubDesc title="Server Development" icon="support/server">
-              <div>
-                To become and all around develoner you need to learn to create
-                servers, here is the right place to learn{" "}
-                <a
-                  rel="noreferrer"
-                  className="text-accent dark:text-darkaccent underline"
-                  href="https://expressjs.com"
-                >
-                  ExpressJS
-                </a>
-                ,{" "}
-                <a
-                  rel="noreferrer"
-                  className="text-accent dark:text-darkaccent underline"
-                  href="https://nodejs.org/en/"
-                >
-                  NodeJS
-                </a>{" "}
-                .
-              </div>
-            </SubDesc>
+            ))}
           </div>
           <div className="mx-auto w-full max-w-sm">
             <div className="rounded-2xl border border-secondary p-6 shadow-sm ring-1 ring-secondary sm:order-last sm:px-8 lg:p-12">
@@ -174,7 +81,7 @@ export default function NewSupport({}): JSX.Element {
                   </span>
                 </p>
               </div>
-              <ul className="mt-6 space-y-2">
+              <ul className="mt-6 space-y-unit-sm">
                 {[
                   "Early Access",
                   "Sub-only Courses",
@@ -183,7 +90,7 @@ export default function NewSupport({}): JSX.Element {
                   "Personal Mentoring",
                   "Complete Projects",
                 ].map((item) => (
-                  <li className="flex items-center gap-2" key={item}>
+                  <li className="flex items-center gap-x-unit-sm" key={item}>
                     <Check
                       height={20}
                       width={20}

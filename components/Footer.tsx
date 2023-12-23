@@ -103,7 +103,7 @@ export default function Footer(): JSX.Element {
           {courses.map((icon) => (
             <Svgtoreact
               key={icon}
-              className="fill-current text-default-600"
+              className="fill-current text-default-500"
               name={icon}
               height={30}
             />

@@ -27,7 +27,7 @@ export default function About({}: {}): JSX.Element {
               <h1 className={titlestyle}>{author.desc}</h1>
               <p className={subtitlestyle(false, false)}>{author.job}</p>
               <a
-                className="text-accent hover:underline dark:text-darkaccent"
+                className="text-accent dark:text-darkaccent hover:underline"
                 href={`mailto:${author.mail}`}
               >
                 {author.mail}
@@ -55,7 +55,7 @@ export default function About({}: {}): JSX.Element {
               <DisplayCard key={link} svg={svg} desc={desc} link={link} />
             ))}
           </DisplayInfo>
-          <DropDownContainer title="Know more about me" info={info} />
+          {/* <DropDownContainer title="Know more about me" info={info} /> */}
         </div>
       </div>
     </div>
