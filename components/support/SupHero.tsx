@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import SvgtoReact from "@/components/Svgtoreact";
-import TabButton from "@/components/TabButtons/TabButton";
 import styles from "@/styles/buttons.module.css";
 import type { SupHeroProps } from "@/lib/types/support";
 export default function SupHero({
@@ -21,12 +20,7 @@ export default function SupHero({
           <h1 className="max-w-sm pb-10 text-center text-4xl font-bold text-stone-50">
             {strings.title}
           </h1>
-          <TabButton
-            firstBtn="Monthly"
-            SecondBtn="Yearly"
-            active={active}
-            setActive={setActive}
-          />
+
           <div className="mt-14 w-96 rounded-t-2xl bg-stone-50 p-10 text-center dark:bg-default-900">
             <h2 className="text-3xl font-bold dark:text-stone-50">
               {" "}

@@ -1,12 +1,14 @@
 module.exports = {
   images: {
-    domains: [
-      "secure.gravatar.com",
-      "i1.wp.com",
-      "i2.wp.com",
-      "https://i2.wp.com/thehappyprogrammer.com",
-      "lh3.googleusercontent.com",
-      "avatars.githubusercontent.com",
+    remotePatterns: [
+      { protocol: "https", hostname: "**.gravatar.com" },
+      { protocol: "https", hostname: "**.wp.com" },
+      {
+        protocol: "https",
+        hostname: "https://i2.wp.com/thehappyprogrammer.com",
+      },
+      { protocol: "https", hostname: "**.googleusercontent.com" },
+      { protocol: "https", hostname: "**.githubusercontent.com" },
     ],
   },
   swcMinify: true,

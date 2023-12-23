@@ -1,6 +1,5 @@
 "use client";
 import SubDesc from "@/components/home/subscribe/SubDesc";
-import style from "@/styles/buttons.module.css";
 import Check from "@/public/svg/check.svg";
 import { useState } from "react";
 import { Link } from "@nextui-org/link";
@@ -164,7 +163,6 @@ export default function NewSupport({}): JSX.Element {
                   </Chip>
                   <span className="sr-only">Plan</span>
                 </div>
-
                 <p className="mt-2 sm:mt-4">
                   <strong className="text-3xl font-bold  sm:text-4xl">
                     {" "}
@@ -176,7 +174,6 @@ export default function NewSupport({}): JSX.Element {
                   </span>
                 </p>
               </div>
-
               <ul className="mt-6 space-y-2">
                 {[
                   "Early Access",
@@ -187,26 +184,19 @@ export default function NewSupport({}): JSX.Element {
                   "Complete Projects",
                 ].map((item) => (
                   <li className="flex items-center gap-2" key={item}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-5 w-5 text-primary"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
+                    <Check
+                      height={20}
+                      width={20}
+                      className="stroke-current text-default-900 dark:text-stone-50"
+                    />
                     <span className="text-default-700">{item}</span>
                   </li>
                 ))}
               </ul>
               <div className="pt-unit-xl">
                 <Button
+                  disableRipple
+                  href="/subscribe"
                   variant="shadow"
                   as={Link}
                   className="w-full border-white/50 bg-gradient-to-br from-primary to-secondary text-white shadow-secondary/30"
@@ -216,46 +206,6 @@ export default function NewSupport({}): JSX.Element {
               </div>
             </div>
           </div>
-          {/* <div className="mx-auto flex w-1/2 max-w-sm flex-col pt-10 text-center sm:pt-10 md:pt-0 lg:pt-0 xl:pt-0">
-            <p className="text-3xl font-bold dark:text-stone-50">
-              {active === "month" ? "£5" : "£50"}
-            </p>
-            <p className="text-default-600">
-              {active === "month" ? "per month" : "per year"}
-            </p>
-            <div className="mx-auto grid w-full grid-cols-2 gap-2 py-unit-xl">
-              {[
-                "Early Access",
-                "Sub-only Courses",
-                "Answer Questions",
-                "Share source code",
-                "Personal Mentoring",
-                "Complete Projects",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex-none rounded-md bg-default-100 p-3 text-sm"
-                >
-                  <div className="flex flex-row">
-                    <Check
-                      height={20}
-                      width={20}
-                      className="stroke-current text-default-900 dark:text-stone-50"
-                    />
-                    <p className="mx-auto text-center font-light text-default-900 text-opacity-60 dark:text-stone-50">
-                      {item}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <div className="col-span-2 pt-3">
-                <Link href={"/support"} className={style.fullbtn}>
-                  Get Started today
-                </Link>
-              </div>
-            </div>
-            <p className="text-sm text-default-600">Try THP subscription now</p>
-          </div> */}
         </div>
       </div>
     </div>
