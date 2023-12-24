@@ -147,7 +147,7 @@ const subhero: SubHeroProps["subhero"] = [
 const subscribe: TitleSubtitle = {
   title: "Subscribe",
   subtitle:
-    "Subscribe to get notified of new content and course that will come in the near future. In any way, you will not get spammed or your data be shared",
+    "Subscribe for updates on upcoming content and courses—no spam or data sharing",
 };
 const navLinks: string[][] = [
   ["/blog", "Blog"],

@@ -8,8 +8,9 @@ import RichDataPost from "@/components/seo/RichDataPost";
 import Link from "next/link";
 import { getAllinks, getDocBySlug } from "@/lib/courseslib/courseapi";
 import { ReactNode } from "react";
-import { socials, subscribe } from "./data";
+import { socials } from "./data";
 import { Metadata, ResolvingMetadata } from "next";
+import { subscribe } from "../data";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
@@ -64,7 +65,7 @@ export default async function PostPage({
         <div className="container flex flex-col items-center px-3 py-3">
           <Link
             href="/blog"
-            className="fill-current flex flex-row place-self-start pl-2 text-stone-600 hover:text-default-900 dark:text-stone-400 dark:hover:text-stone-50"
+            className="flex flex-row place-self-start fill-current pl-2 text-stone-600 hover:text-default-900 dark:text-stone-400 dark:hover:text-stone-50"
           >
             <>
               <SvgtoReact
