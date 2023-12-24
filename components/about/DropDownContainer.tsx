@@ -1,24 +1,31 @@
-import DropDown from './DropDown'
+"use client";
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
+import { info } from "@/app/data";
 export default function DropDownContainer({
   title,
-  subtitle,
-  info,
 }: {
-  title: string
-  subtitle?: string
-  info: string[][]
+  title: string;
 }): JSX.Element {
   return (
-    <div className="mx-auto bg-gray-100 py-20 dark:bg-gray-800">
-      <p className="container py-6 text-center text-3xl font-bold text-gray-800 dark:text-gray-50">
-        {title}{' '}
-        <span className=" text-gray-500 dark:text-gray-400">{subtitle}</span>
-      </p>
-      <div className="container max-w-xl divide-y divide-gray-200 px-3 dark:divide-gray-700 ">
-        {info.map(([title, subtitle]) => (
-          <DropDown key={title} title={title} subtitle={subtitle} />
-        ))}
+    <div className="border-content border-t border-divider py-unit-3xl">
+      <div className="pb-unit-xl text-center">
+        <p className="inline text-xl font-semibold tracking-tight lg:text-3xl">
+          {title}
+        </p>
       </div>
+      <Accordion selectionMode="multiple" className="container max-w-2xl">
+        {info.map(([title, subtitle, Icon, SubTilt]) => (
+          <AccordionItem
+            key={title}
+            aria-label={title}
+            startContent={<Icon className="h-8 w-8" />}
+            subtitle={<SubTilt />}
+            title={title}
+          >
+            {subtitle}
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
-  )
+  );
 }

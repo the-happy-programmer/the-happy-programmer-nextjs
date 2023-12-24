@@ -10,15 +10,15 @@ export default function CatTag({
 }: CatTagProps): JSX.Element {
   return (
     <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
-      <p className="py-2 text-xs font-bold uppercase text-gray-800 dark:text-gray-100">
+      <p className="py-2 text-xs font-bold uppercase text-stone-800 dark:text-stone-100">
         {title}
       </p>
-      <div className="divide-y dark:divide-gray-700">
+      <div className="divide-y dark:divide-stone-700">
         {tags?.map((cat) => (
           <div className="py-2.5" key={cat}>
             <Link
               href={`/tag/${cat}`}
-              className="cursor-pointer text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+              className="cursor-pointer text-sm text-stone-600 hover:text-default-900 dark:text-stone-300 dark:hover:text-stone-50"
             >
               {cat}
             </Link>
@@ -28,7 +28,7 @@ export default function CatTag({
           <div className="py-2.5" key={cat}>
             <Link
               href={`/category/${cat}`}
-              className="flex cursor-pointer flex-row  text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+              className="flex cursor-pointer flex-row  text-sm text-stone-600 hover:text-default-900 dark:text-stone-300 dark:hover:text-stone-50"
             >
               <>
                 <div>
@@ -46,7 +46,7 @@ export default function CatTag({
       </div>
       {banner?.map(([subtitle, link, href]) => (
         <div key={link}>
-          <p className="block pb-2 text-sm leading-normal text-gray-600 dark:text-gray-400">
+          <p className="block pb-2 text-sm leading-normal text-stone-600 dark:text-stone-400">
             {subtitle}
           </p>
           <a

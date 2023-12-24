@@ -5,11 +5,11 @@ import SignInLogo from '@/public/svg/signinlogo.svg'
 import style from '@/styles/buttons.module.css'
 export default function ForgotPassword({}: {}): JSX.Element {
   return (
-    <div className="h-full w-full bg-gray-50 dark:bg-gray-800">
+    <div className="h-full w-full bg-stone-50 dark:bg-stone-800">
       <div className="flex justify-center pt-10 md:pt-20 lg:pt-20 xl:pt-20">
         <SignInLogo
           height={40}
-          className="stroke-current text-gray-900 dark:text-gray-900"
+          className="stroke-current text-default-900 dark:text-default-900"
         />
       </div>
       <div className="mx-auto max-w-lg px-4 pb-20">
@@ -26,14 +26,14 @@ export default function ForgotPassword({}: {}): JSX.Element {
               <input
                 type="text"
                 name="email"
-                className="w-full rounded-lg border-gray-200 p-4 pl-12 text-sm shadow-sm dark:bg-gray-700 dark:text-gray-50"
+                className="w-full rounded-lg border-stone-200 p-4 pl-12 text-sm shadow-sm dark:bg-stone-700 dark:text-stone-50"
                 placeholder="Enter email"
               />
 
               <span className="end-0 absolute inset-y-0 grid place-content-center px-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-gray-400"
+                  className="h-4 w-4 text-stone-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

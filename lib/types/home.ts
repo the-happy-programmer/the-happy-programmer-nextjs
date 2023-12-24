@@ -1,39 +1,40 @@
-import type { SEOProps } from './seo'
-import type { TitleSub } from './general'
-import { ReactComponentElement } from 'react'
+import type { SEOProps } from "./seo";
+import type { TitleSub } from "./general";
 export interface TitleSubtitle extends TitleSub {
-  title: string
-  subtitle?: string
-  desc?: string
-  icon?: string
+  title: string;
+  subtitle?: string;
+  desc?: string;
+  icon?: string;
+  error?: string;
+  message?: string;
 }
 
 export interface SupportType extends TitleSubtitle {
-  prices: string[]
-  benefits: string[][]
+  prices: string[];
+  benefits: string[][];
 }
 
 export interface TitleSubIcons extends TitleSubtitle {
-  icons: string[]
+  icons: string[];
 }
 
 export interface SubHeroProps {
-  subhero: Array<HeroProps>
+  subhero: Array<HeroProps>;
 }
 
 export interface HeroProps {
-  icon: any
-  title: string
-  subtitle: string
+  icon: any;
+  title: string;
+  subtitle: string;
 }
 
 export interface HomeProps {
-  seo: SEOProps
-  hero: TitleSubIcons
-  subhero: SubHeroProps['subhero']
-  subscribe: TitleSubtitle
-  support: SupportType
-  moderntechnologies: TitleSubIcons
-  info: string[][]
-  supportDesc: { title: string; desc: string }
+  seo: SEOProps;
+  hero: TitleSubIcons;
+  subhero: SubHeroProps["subhero"];
+  subscribe: TitleSubtitle;
+  support: SupportType;
+  moderntechnologies: TitleSubIcons;
+  info: string[][];
+  supportDesc: { title: string; desc: string };
 }

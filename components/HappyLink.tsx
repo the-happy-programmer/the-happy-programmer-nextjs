@@ -20,7 +20,7 @@ export default function HappyLink({
   const router = usePathname()
   const current =
     router === href
-      ? 'text-gray-900 dark:text-gray-50 border-b-4 border-gray-900 dark:border-gray-50'
+      ? 'text-default-900 dark:text-stone-50 border-b-4 border-default-900 dark:border-stone-50'
       : ''
 
   return (

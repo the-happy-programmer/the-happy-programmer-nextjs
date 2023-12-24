@@ -1,71 +1,69 @@
-'use client'
-import { useState, useRef } from 'react'
-import SvgtoReact from '../Svgtoreact'
+import { Input } from "@nextui-org/input";
+import { HiXCircle } from "react-icons/hi2";
+import { HiEnvelope } from "react-icons/hi2";
+import { Button } from "@nextui-org/button";
+import { HiCheckCircle } from "react-icons/hi2";
+import { subscribeEmail } from "@/app/action";
+import { Chip } from "@nextui-org/chip";
 
-export default function SubInput(): JSX.Element {
-  const inputEl = useRef<HTMLInputElement>(null)
-  const [message, setMessage] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const sub = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    const res = await fetch('/api/subscribe', {
-      body: JSON.stringify({
-        email: inputEl.current && inputEl.current.value,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-
-    const { error } = await res.json()
-
-    if (error) {
-      setError('Something went wrong! please, try a valid email.')
-      setMessage(null)
-      return
-    }
-    inputEl.current && (inputEl.current.value = '')
-    setMessage('You are now subscribed')
-    setError(null)
-  }
-
+export default function SubInput({
+  message,
+  error,
+}: {
+  message: string;
+  error: string;
+}): JSX.Element {
   return (
-    <form onSubmit={sub}>
-      <input
-        type="email"
-        name="email"
-        ref={inputEl}
-        placeholder="example@email.com"
-        className="mr-4 rounded-md border py-3 px-4 text-gray-900 hover:border-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-50 dark:hover:border-gray-50 dark:focus:border-gray-50"
-      />
-      <button
-        id="subscribe"
-        type="submit"
-        className="rounded-md bg-gray-900 px-10 py-3 font-semibold text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200"
+    <>
+      <form
+        action={subscribeEmail}
+        className="mx-auto flex max-w-md flex-row items-end gap-x-unit-xs"
       >
-        Subscribe
-      </button>
+        <Input
+          type="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+          labelPlacement="outside"
+          size="lg"
+          startContent={
+            <HiEnvelope className="pointer-events-none flex-shrink-0 text-2xl text-default-400" />
+          }
+        />
+        <Button
+          variant="shadow"
+          type="submit"
+          disableRipple
+          color="primary"
+          size="lg"
+        >
+          Subscribe
+        </Button>
+      </form>
       <div className="flex flex-row items-center justify-center gap-x-2 pt-4">
-        {!message && error && (
+        {error === "true" && message && (
           <>
-            <SvgtoReact
-              name={error && 'cancel'}
-              className="h-5 fill-current text-danger"
-            />
-            <p className="text-danger">{error}</p>
+            <Chip
+              startContent={<HiXCircle className="h-5" />}
+              variant="faded"
+              color="danger"
+            >
+              {message}
+            </Chip>
           </>
         )}
-        {!error && message && (
+        {error === "false" && message && (
           <>
-            <SvgtoReact
-              name={message && 'tick'}
-              className="h-5 fill-current text-success dark:text-success"
-            />
-            <p className="text-success">{message}</p>
+            <Chip
+              startContent={<HiCheckCircle className="h-5" />}
+              variant="faded"
+              color="success"
+            >
+              {message}
+            </Chip>
           </>
         )}
       </div>
-    </form>
-  )
+    </>
+  );
 }

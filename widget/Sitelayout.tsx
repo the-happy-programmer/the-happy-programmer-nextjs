@@ -1,5 +1,5 @@
 import Footer from '../components/Footer'
-import Nav from '../components/Nav'
+import Nav from '../components/Navigation/Nav'
 import { ReactNode } from 'react'
 
 export default function Sitelayout({
@@ -8,7 +8,7 @@ export default function Sitelayout({
   children: ReactNode
 }): JSX.Element {
   return (
-    <div className="mx-auto bg-gray-50 dark:bg-gray-900">
+    <div className="mx-auto bg-stone-50 dark:bg-default-900">
       {/* <Nav /> */}
       {children}
       <Footer />

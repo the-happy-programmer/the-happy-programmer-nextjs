@@ -1,15 +1,15 @@
-import Footer from '@/components/Footer'
-import Nav from '@/components/Nav'
-import { Providers } from '@/components/Providers'
-import '@/styles/global.css'
-import Script from 'next/script'
+import Footer from "@/components/Footer";
+import MyNavBar from "@/components/Navigation/Nav";
+import { Providers } from "@/components/Providers";
+import "@/styles/global.css";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const id = process.env.NEXT_PUBLIC_ANALYTICS_ID
+  const id = process.env.NEXT_PUBLIC_ANALYTICS_ID;
   return (
     <html lang="en">
       <Script
@@ -24,13 +24,13 @@ export default function RootLayout({
             gtag('config', '${id}');
             `}
       </Script>
-      <Providers>
-        <body>
-          <Nav />
+      <body>
+        <Providers>
+          <MyNavBar />
           <main>{children}</main>
           <Footer />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
-  )
+  );
 }

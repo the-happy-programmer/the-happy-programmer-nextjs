@@ -11,22 +11,22 @@ export default function Support({
   const [currentsupport, setcurrentsupport] = useState<number>(0)
 
   return (
-    <div className="border-b text-gray-900 dark:border-gray-700 dark:text-gray-300">
+    <div className="border-b text-default-900 dark:border-stone-700 dark:text-stone-300">
       <div className="container px-4 py-10">
         <div className="text-center">
-          <p className="text-3xl font-bold dark:text-gray-50">{title}</p>
+          <p className="text-3xl font-bold dark:text-stone-50">{title}</p>
           <p className="py-5 pb-10">{subtitle}</p>
         </div>
         <div className="min-w-min">
           <div className="flex flex-col-reverse justify-center gap-y-10 sm:flex-col md:flex-row md:gap-x-16 lg:flex-row lg:gap-x-16 xl:flex-row xl:gap-x-16">
-            <div className="flex flex-col gap-y-10 rounded-lg border-gray-700">
+            <div className="flex flex-col gap-y-10 rounded-lg border-stone-700">
               {prices.map((price, index) => (
                 <div
                   key={index}
                   className={`cursor-pointer rounded-lg border px-6 py-2 ${
                     index === currentsupport
-                      ? 'bg-gray-900 text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200'
-                      : 'bg-gray-50 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-gray-800'
+                      ? 'bg-default-900 text-stone-50 hover:bg-stone-700 dark:bg-stone-50 dark:text-default-900 dark:hover:bg-stone-200'
+                      : 'bg-stone-50 hover:bg-stone-100 dark:border-stone-700 dark:bg-default-900 dark:text-stone-100 dark:hover:bg-stone-800'
                   }`}
                   onClick={(e) => setcurrentsupport(index)}
                 >
@@ -36,8 +36,8 @@ export default function Support({
                       <p
                         className={`text-sm ${
                           index === currentsupport
-                            ? 'text-gray-400 dark:text-gray-500'
-                            : 'text-gray-500 dark:text-gray-400'
+                            ? 'text-stone-400 dark:text-stone-500'
+                            : 'text-stone-500 dark:text-stone-400'
                         } `}
                       >
                         per month (+VAT)
@@ -48,30 +48,30 @@ export default function Support({
                       name="tick"
                       className={
                         index === currentsupport
-                          ? 'fill-current text-gray-50 dark:text-gray-700'
-                          : 'fill-current text-gray-700 dark:text-gray-50'
+                          ? 'fill-current text-stone-50 dark:text-stone-700'
+                          : 'fill-current text-stone-700 dark:text-stone-50'
                       }
                     />
                   </div>
                 </div>
               ))}
             </div>
-            <div className=" flex flex-col rounded-lg border border-gray-200 px-5 dark:border-gray-700">
+            <div className=" flex flex-col rounded-lg border border-stone-200 px-5 dark:border-stone-700">
               {benefits[currentsupport].map((e) => (
                 <div key={e} className="m-5 flex flex-row gap-x-5">
                   <SvgtoReact
-                    className="fill-current text-gray-700 dark:text-gray-200"
+                    className="fill-current text-stone-700 dark:text-stone-200"
                     name="tick"
                     height={26}
                   />
-                  <p className="text-gray-700 dark:text-gray-50">{e}</p>
+                  <p className="text-stone-700 dark:text-stone-50">{e}</p>
                 </div>
               ))}
               <a
                 href="https://www.patreon.com/thehappyprogrammer"
                 target="_blank"
                 rel="noreferrer"
-                className="-mx-5 mt-auto rounded-b-lg bg-gray-900 py-4 text-center font-semibold text-gray-50 hover:bg-gray-700 dark:bg-gray-50 dark:text-gray-900 hover:dark:bg-gray-200 dark:hover:bg-gray-200"
+                className="-mx-5 mt-auto rounded-b-lg bg-default-900 py-4 text-center font-semibold text-stone-50 hover:bg-stone-700 dark:bg-stone-50 dark:text-default-900 hover:dark:bg-stone-200 dark:hover:bg-stone-200"
               >
                 {title}
               </a>

@@ -15,7 +15,7 @@ export default function SupCard({
         </div>
       </div>
       <div className="w-20">
-        <h4 className="pt-24 text-xl font-semibold capitalize dark:text-gray-50">
+        <h4 className="pt-24 text-xl font-semibold capitalize dark:text-stone-50">
           {title}
         </h4>
       </div>

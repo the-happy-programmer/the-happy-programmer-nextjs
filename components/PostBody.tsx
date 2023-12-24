@@ -7,7 +7,7 @@ export default function Postbody({
   content: string;
 }): JSX.Element {
   return (
-    <div className="border-b border-t border-gray-200 bg-gray-100 dark:border-gray-700  dark:bg-gray-800">
+    <div className="border-b border-t border-stone-200 bg-stone-100 dark:border-stone-700  dark:bg-stone-800">
       <div className="prose mx-auto dark:prose-invert">
         <CustomMDX source={content} />
       </div>

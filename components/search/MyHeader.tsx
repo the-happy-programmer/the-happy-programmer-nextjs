@@ -20,7 +20,7 @@ export default function MyHeader({
           <SearchIcon
             height={16}
             width={16}
-            className="stroke-current text-gray-500 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-50"
+            className="stroke-current text-stone-500 group-hover:text-stone-600 dark:text-stone-500 dark:group-hover:text-stone-50"
           />
         </div>
         <SearchButton posts={posts} />

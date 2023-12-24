@@ -10,16 +10,16 @@ export const metadata: Metadata = {
 
 export default function Courses(): JSX.Element {
   return (
-    <div className="bg-gray-100 py-12 dark:bg-gray-800">
+    <div className="bg-stone-100 py-12 dark:bg-stone-800">
       <div className="container pt-12">
         <div className="mx-auto flex flex-col items-center py-5">
-          <h1 className="text-3xl font-semibold dark:text-gray-50">
+          <h1 className="text-3xl font-semibold dark:text-stone-50">
             {header.title}
           </h1>
-          <h2 className="max-w-xs pb-5 pt-2 text-center text-gray-600 dark:text-gray-400">
+          <h2 className="max-w-xs pb-5 pt-2 text-center text-stone-600 dark:text-stone-400">
             {header.subtitle}
           </h2>
-          <div className="bg-gray-100 px-7 py-1 dark:bg-gray-800">
+          <div className="bg-stone-100 px-7 py-1 dark:bg-stone-800">
             <SearchCourses />
           </div>
         </div>

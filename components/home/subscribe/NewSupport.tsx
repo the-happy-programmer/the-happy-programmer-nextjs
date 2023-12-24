@@ -1,186 +1,120 @@
-'use client'
-import SubDesc from './SubDesc'
-import style from '../../../styles/buttons.module.css'
-import SvgtoReact from '../../Svgtoreact'
-import Check from '@/public/svg/check.svg'
-import TabButton from '../../TabButtons/TabButton'
-import { useState } from 'react'
-import Link from 'next/link'
+"use client";
+import SubDesc from "@/components/home/subscribe/SubDesc";
+import Check from "@/public/svg/check.svg";
+import { useState } from "react";
+import { Link } from "@nextui-org/link";
+import { Chip } from "@nextui-org/chip";
+import { Tab, Tabs } from "@nextui-org/tabs";
+import { Button } from "@nextui-org/button";
+import { featuresToSub } from "@/app/data";
 
 export default function NewSupport({}): JSX.Element {
-  const [active, setActive] = useState<boolean>(true)
+  const [active, setActive] = useState<string>("month");
   return (
-    <div className="border-b border-t bg-gray-100 dark:border-gray-50 dark:border-opacity-10 dark:bg-gray-800">
-      <div className="container flex flex-col py-20">
-        <div className="mx-auto max-w-xs pb-10 pt-20 text-center">
-          <p className="py-2 text-sm font-semibold uppercase text-accent dark:text-darkaccent">
-            full-featured
-          </p>
-          <h3 className="text-3xl font-bold dark:text-gray-50">
+    <div className="border-y border-divider bg-default-50">
+      <div className="container flex flex-col py-unit-3xl">
+        <div className="mx-auto flex max-w-xs flex-col items-center gap-y-unit-sm pb-unit-xl pt-unit-3xl text-center">
+          <Chip
+            variant="shadow"
+            classNames={{
+              base: "bg-gradient-to-br from-primary to-secondary border-white/50 shadow-secondary/30",
+              content: "drop-shadow shadow-black text-white",
+            }}
+          >
+            FULL-FEATURED
+          </Chip>
+          <h3 className="text-3xl font-bold">
             Become an expert in programming
           </h3>
         </div>
-        <TabButton
-          firstBtn="Monthly"
-          SecondBtn="Yearly"
-          active={active}
-          setActive={setActive}
-        />
-        <div className="flex flex-col pt-10 pb-32 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
-          <div className="flex flex-col items-center gap-y-10 border-r border-gray-900 border-opacity-10 md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
-            <SubDesc title="Apple products development" icon="support/swift">
-              <div>
-                Swift is the main language for creating Apps in{' '}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/ios"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  iOS
-                </a>
-                ,
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/ipados"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  iPadOS
-                </a>
-                ,{' '}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/macos/"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  MacOS
-                </a>{' '}
-                and{' '}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://developer.apple.com/watchos/"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  WatchOS
-                </a>
+        <Tabs
+          size="lg"
+          className="mx-auto"
+          color="default"
+          aria-label="Tabs colors"
+          radius="full"
+          onSelectionChange={(key) => setActive(key as string)}
+        >
+          <Tab key="year" title="Year" />
+          <Tab key="month" title="Month" />
+        </Tabs>
+        <div className="flex flex-col justify-between pb-unit-4xl pt-unit-xl sm:flex-col md:flex-row lg:flex-row xl:flex-row">
+          <div className="flex flex-col items-center gap-y-unit-xl  md:w-1/2 md:justify-center lg:w-1/2 lg:justify-center xl:w-1/2 xl:justify-center">
+            {featuresToSub.map(([title, subtitle, Icon]) => (
+              <div
+                key={title as string}
+                className="group flex flex-row gap-x-unit-lg rounded-xl p-unit-md  hover:bg-content2"
+              >
+                <Icon className="h-14 w-14 rounded-md bg-content2 p-unit-md text-default-600 group-hover:bg-content1 group-hover:text-primary" />
+                <div className="flex flex-col gap-y-unit-sm">
+                  <p className="font-semibold">{title as string}</p>
+                  <p className="max-w-sm leading-relaxed text-default-600">
+                    {subtitle as string}
+                  </p>
+                </div>
               </div>
-            </SubDesc>
-            <SubDesc title="Web Development" icon="support/web">
-              <div>
-                Courses in React{' '}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://nextjs.org"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  NextJS
-                </a>
-                ,{' '}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://v3.nuxtjs.org"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  NuxtJS
-                </a>
-                . Javascript is being taugh in detail in THP
-              </div>
-            </SubDesc>
-            <SubDesc title="Mobile Development" icon="support/mobile">
-              <div>
-                The fastest growing market mobile development is being taught
-                and difficult concepts explained, such as{' '}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://reactnative.dev"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  React Native
-                </a>
-                ,{' '}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://flutter.dev/"
-                  className="text-accent underline dark:text-darkaccent"
-                >
-                  Flutter
-                </a>
-              </div>
-            </SubDesc>
-            <SubDesc title="Server Development" icon="support/server">
-              <div>
-                To become and all around develoner you need to learn to create
-                servers, here is the right place to learn{' '}
-                <a
-                  rel="noreferrer"
-                  className="text-accent underline dark:text-darkaccent"
-                  href="https://expressjs.com"
-                >
-                  ExpressJS
-                </a>
-                ,{' '}
-                <a
-                  rel="noreferrer"
-                  className="text-accent underline dark:text-darkaccent"
-                  href="https://nodejs.org/en/"
-                >
-                  NodeJS
-                </a>{' '}
-                .
-              </div>
-            </SubDesc>
+            ))}
           </div>
-          <div className="mx-auto flex w-1/2 max-w-sm flex-col pt-10 text-center sm:pt-10 md:pt-0 lg:pt-0 xl:pt-0">
-            <p className="text-3xl font-bold dark:text-gray-50">
-              {active ? '£5' : '£50'}
-            </p>
-            <p className="text-gray-900 text-opacity-60 dark:text-gray-50">
-              {active ? 'per month' : 'per year'}
-            </p>
-            <div className="mx-auto grid w-full grid-cols-2 gap-2 py-16">
-              {[
-                'Early Access',
-                'Sub-only Courses',
-                'Answer Questions',
-                'Share source code',
-                'Personal Mentoring',
-                'Complete Projects',
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex-none rounded-md bg-gray-50 p-3 text-sm dark:bg-gray-700 "
-                >
-                  <div className="flex flex-row">
+          <div className="mx-auto w-full max-w-sm">
+            <div className="rounded-2xl border border-secondary p-6 shadow-sm ring-1 ring-secondary sm:order-last sm:px-8 lg:p-12">
+              <div className="text-center">
+                <div className="text-lg font-medium">
+                  <Chip
+                    variant="shadow"
+                    classNames={{
+                      base: "bg-gradient-to-br from-primary to-secondary border-white/50 shadow-secondary/30",
+                      content: "drop-shadow shadow-black text-white",
+                    }}
+                  >
+                    Pro
+                  </Chip>
+                  <span className="sr-only">Plan</span>
+                </div>
+                <p className="mt-2 sm:mt-4">
+                  <strong className="text-3xl font-bold  sm:text-4xl">
+                    {" "}
+                    {active === "month" ? "£5" : "£50"}{" "}
+                  </strong>
+
+                  <span className="text-sm font-medium text-default-600">
+                    {active === "month" ? "/month" : "/year"}
+                  </span>
+                </p>
+              </div>
+              <ul className="mt-6 space-y-unit-sm">
+                {[
+                  "Early Access",
+                  "Sub-only Courses",
+                  "Answer Questions",
+                  "Share source code",
+                  "Personal Mentoring",
+                  "Complete Projects",
+                ].map((item) => (
+                  <li className="flex items-center gap-x-unit-sm" key={item}>
                     <Check
                       height={20}
                       width={20}
-                      className="stroke-current text-gray-900 dark:text-gray-50"
+                      className="stroke-current text-default-900"
                     />
-                    <p className="mx-auto text-center font-light text-gray-900 text-opacity-60 dark:text-gray-50">
-                      {item}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <div className="col-span-2 pt-3">
-                <Link href={'/support'} className={style.fullbtn}>
-                  Get Started today
-                </Link>
+                    <span className="text-default-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-unit-xl">
+                <Button
+                  disableRipple
+                  href="/support"
+                  variant="shadow"
+                  as={Link}
+                  className="w-full bg-gradient-to-br from-primary to-secondary text-white shadow-secondary/30"
+                >
+                  Get Started
+                </Button>
               </div>
             </div>
-            <p className="text-sm text-gray-900 text-opacity-50 dark:text-gray-50">
-              Try THP subscription now
-            </p>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

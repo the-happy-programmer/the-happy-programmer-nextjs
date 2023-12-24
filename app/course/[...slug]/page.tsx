@@ -36,11 +36,12 @@ export async function generateMetadata(
 }
 
 export default function CoursePage({
+  searchParams,
   params,
 }: {
   params: { slug: string[] };
+  searchParams: { error: string; message: string };
 }): JSX.Element {
-  console.log(params);
   const { meta, content } = getDocBySlug(
     params.slug[1],
     `course/${params.slug[0]}`
@@ -48,8 +49,12 @@ export default function CoursePage({
   const courseslugs = getAllinks(`course/${params.slug[0]}`);
   return (
     <>
-      <CourseHeader meta={meta} />
-      <div className="bg-gray-100 dark:bg-gray-800">
+      <CourseHeader
+        error={searchParams.error}
+        message={searchParams.message}
+        meta={meta}
+      />
+      <div className="bg-stone-100 dark:bg-stone-800">
         <div className="container flex flex-row">
           <SideMenu courseslugs={courseslugs} />
           <Content content={content} />
