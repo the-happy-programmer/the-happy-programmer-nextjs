@@ -1,15 +1,16 @@
-import { titlestyle, subtitlestyle } from '../../styles/styles'
-import { PostProps } from '../../lib/types/blog'
-import SearchIcon from '@/public/svg/search.svg'
-import SearchButton from './SearchButton'
+import { titlestyle, subtitlestyle } from '../../styles/styles';
+import { PostProps } from '../../lib/types/blog';
+import SearchIcon from '@/public/svg/search.svg';
+import SearchButton from './SearchButton';
+
 export default function MyHeader({
   title,
   subtitle,
   posts,
 }: {
-  title: string
-  subtitle: string
-  posts: PostProps[]
+  title: string;
+  subtitle: string;
+  posts: PostProps[];
 }) {
   return (
     <div className="container px-4 pt-10 sm:pt-12 md:pt-16  lg:pt-20 xl:pt-20">
@@ -26,5 +27,5 @@ export default function MyHeader({
         <SearchButton posts={posts} />
       </div>
     </div>
-  )
+  );
 }
