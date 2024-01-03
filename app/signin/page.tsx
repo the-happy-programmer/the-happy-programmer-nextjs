@@ -40,7 +40,6 @@ const SignInPage = ({
               }
             />
           </div>
-
           <div>
             <Input
               type="password"
