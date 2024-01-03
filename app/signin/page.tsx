@@ -1,11 +1,11 @@
-import { signInWithGitHub, signInWithPassword } from "./action";
-import style from "@/styles/buttons.module.css";
-import GitHubIcon from "@/public/svg/github.svg";
-import { Link } from "@nextui-org/link";
-import Seperator from "@/components/Seperator";
-import { HiEnvelope, HiKey } from "react-icons/hi2";
-import { Input } from "@nextui-org/input";
-import { Button } from "@nextui-org/button";
+import { signInWithGitHub, signInWithPassword } from './action';
+import style from '@/styles/buttons.module.css';
+import GitHubIcon from '@/public/svg/github.svg';
+import { Link } from '@nextui-org/link';
+import Seperator from '@/components/Seperator';
+import { HiEnvelope, HiKey } from 'react-icons/hi2';
+import { Input } from '@nextui-org/input';
+import { Button } from '@nextui-org/button';
 
 const SignInPage = ({
   searchParams,
@@ -53,7 +53,7 @@ const SignInPage = ({
               }
             />
           </div>
-          <Button color="primary" variant="shadow" type="submit">
+          <Button color="primary" type="submit">
             Sign In
           </Button>
           <Link
