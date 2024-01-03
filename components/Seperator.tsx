@@ -1,13 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import { Divider } from "@nextui-org/divider";
 const Seperator = () => {
   return (
-    <div className="mb-4 flex items-center">
-      <div className="mr-3 flex-grow border-t border-stone-200 dark:border-stone-700"></div>
-      <span className="text-stone-400">OR</span>
-      <div className="ml-3 flex-grow border-t border-stone-200 dark:border-stone-700"></div>
+    <div className="mb-4 flex items-center py-6">
+      <div className="mr-3 flex-grow border-t border-divider" />
+      <span className="text-sm text-divider">OR</span>
+      <div className="ml-3 flex-grow border-t border-divider" />
     </div>
-  )
-}
+  );
+};
 
-export default Seperator
+export default Seperator;

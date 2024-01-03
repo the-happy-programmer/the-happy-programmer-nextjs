@@ -19,7 +19,9 @@ export default function Footer(): JSX.Element {
             color="foreground"
             href={href}
             key={link}
-            className="cursor-pointer text-sm text-default-600"
+            underline="hover"
+            size="sm"
+            className="cursor-pointer text-default-600"
           >
             {link}
           </Link>

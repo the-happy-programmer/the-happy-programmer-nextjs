@@ -1,8 +1,7 @@
-import SvgtoReact from '@/components/Svgtoreact'
-import Link from 'next/link'
-import { forgotPassword } from './action'
-import SignInLogo from '@/public/svg/signinlogo.svg'
-import style from '@/styles/buttons.module.css'
+import { forgotPassword } from './action';
+import SignInLogo from '@/public/svg/signinlogo.svg';
+import style from '@/styles/buttons.module.css';
+
 export default function ForgotPassword({}: {}): JSX.Element {
   return (
     <div className="h-full w-full bg-stone-50 dark:bg-stone-800">
@@ -30,7 +29,7 @@ export default function ForgotPassword({}: {}): JSX.Element {
                 placeholder="Enter email"
               />
 
-              <span className="end-0 absolute inset-y-0 grid place-content-center px-4">
+              <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4 text-stone-400"
@@ -58,5 +57,5 @@ export default function ForgotPassword({}: {}): JSX.Element {
         </form>
       </div>
     </div>
-  )
+  );
 }
