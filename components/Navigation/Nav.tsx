@@ -1,18 +1,19 @@
-import React from "react";
-import { Avatar } from "@nextui-org/avatar";
-import SvgtoReact from "@/components/Svgtoreact";
+import React from 'react';
+import { Avatar } from '@nextui-org/avatar';
+import SvgtoReact from '@/components/Svgtoreact';
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-} from "@nextui-org/navbar";
-import { Link } from "@nextui-org/link";
-import { Button } from "@nextui-org/button";
-import { cookies } from "next/headers";
-import { createClient } from "@/lib/utils/supabase/server";
-import { Kbd } from "@nextui-org/react";
-import ThemeToggle from "./ThemeToggle";
+} from '@nextui-org/navbar';
+import { Link } from '@nextui-org/link';
+import { Button } from '@nextui-org/button';
+import { cookies } from 'next/headers';
+import { createClient } from '@/lib/utils/supabase/server';
+import { Kbd } from '@nextui-org/react';
+import ThemeToggle from './ThemeToggle';
+import SearchTrigger from './SearchTrigger';
 
 export default async function Nav() {
   const cookieStore = cookies();
@@ -55,16 +56,7 @@ export default async function Nav() {
 
       <NavbarContent as="div" className="items-center" justify="end">
         <ThemeToggle />
-        <Button
-          color="default"
-          variant="flat"
-          className="text-default-500"
-          disableRipple
-          startContent={<SvgtoReact name="search" width={16} />}
-          endContent={<Kbd keys={["command"]}>K</Kbd>}
-        >
-          Search...
-        </Button>
+        <SearchTrigger />
         {user ? (
           <Link href="/profile">
             <Avatar
