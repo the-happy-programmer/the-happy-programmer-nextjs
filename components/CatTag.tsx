@@ -1,6 +1,7 @@
-import Link from 'next/link'
-import type { CatTagProps } from '../lib/types/blog'
-import SvgtoReact from './Svgtoreact'
+import Link from 'next/link';
+import type { CatTagProps } from '../lib/types/blog';
+import SvgtoReact from './Svgtoreact';
+import { Chip } from '@nextui-org/chip';
 
 export default function CatTag({
   categories,
@@ -10,17 +11,16 @@ export default function CatTag({
 }: CatTagProps): JSX.Element {
   return (
     <div className="hidden pt-6 md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col">
-      <p className="py-2 text-xs font-bold uppercase text-stone-800 dark:text-stone-100">
+      <p className="py-2 text-xs font-bold uppercase text-content1-foreground">
         {title}
       </p>
-      <div className="divide-y dark:divide-stone-700">
+      <div className="divide-y divide-divider">
         {tags?.map((cat) => (
           <div className="py-2.5" key={cat}>
-            <Link
-              href={`/tag/${cat}`}
-              className="cursor-pointer text-sm text-stone-600 hover:text-default-900 dark:text-stone-300 dark:hover:text-stone-50"
-            >
-              {cat}
+            <Link href={`/tag/${cat}`}>
+              <Chip color="default" size="sm" variant="flat">
+                {cat}
+              </Chip>{' '}
             </Link>
           </div>
         ))}
@@ -51,12 +51,12 @@ export default function CatTag({
           </p>
           <a
             href={href}
-            className="text-sm text-accent hover:underline dark:text-darkaccent"
+            className="text-accent dark:text-darkaccent text-sm hover:underline"
           >
             {link}
           </a>
         </div>
       ))}
     </div>
-  )
+  );
 }

@@ -1,11 +1,11 @@
 import { Link } from '@nextui-org/link';
-import type { PostProps } from '../lib/types/blog';
+import type { PostProps } from '@/lib/types/blog';
 import { Chip } from '@nextui-org/chip';
 import { Divider } from '@nextui-org/divider';
 const TagSitter = ({ tag }: { tag: string[] }) => {
   return tag.map((tag) => (
     <Link href={`/tag/${tag}`} key={tag}>
-      <Chip color="default" size="sm" variant="bordered">
+      <Chip color="default" size="sm" variant="flat">
         {tag}
       </Chip>
     </Link>
