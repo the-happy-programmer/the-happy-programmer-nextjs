@@ -3,9 +3,5 @@ export default function Headerlayout({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
-  return (
-    <div className="h-72">
-      <div>{children}</div>
-    </div>
-  );
+  return <div className="h-72">{children}</div>;
 }
