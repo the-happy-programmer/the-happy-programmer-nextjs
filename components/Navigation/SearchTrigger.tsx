@@ -13,7 +13,7 @@ import {
 import { useState } from 'react';
 
 const SearchTrigger = () => {
-  const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <>
       <Button
@@ -27,13 +27,19 @@ const SearchTrigger = () => {
       >
         Search...
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        isOpen={isOpen}
+        backdrop="blur"
+        onOpenChange={onOpenChange}
+        classNames={{
+          body: '',
+        }}
+        shouldBlockScroll={true}
+        hideCloseButton={true}
+      >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
               <ModalBody>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -54,14 +60,6 @@ const SearchTrigger = () => {
                   eiusmod et. Culpa deserunt nostrud ad veniam.
                 </p>
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
             </>
           )}
         </ModalContent>
