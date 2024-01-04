@@ -34,7 +34,6 @@ export default function PostList({
         <div className="sticky top-16 h-screen">
           <CatTag tags={tags} title="Tags" />
           <CatTag categories={categories} title="Categories" />
-          {banner && <CatTag title="War in Ukraine 🇺🇦" banner={banner} />}
         </div>
       </div>
     </main>
