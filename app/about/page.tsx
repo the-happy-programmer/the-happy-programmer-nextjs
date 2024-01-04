@@ -34,26 +34,28 @@ export default function About({}: {}): JSX.Element {
           </div>
         </div>
       </Headerlayout>
-      <div className="border-t border-divider bg-default-50 py-unit-xl">
-        <DisplayInfo title="Socials" subtitle=" Follow me on my socials">
-          {socials.map(([link, svg, desc]) => (
-            <DisplayCard
-              key={link}
-              svg={svg}
-              desc={desc}
-              link={link}
-              socials={true}
-            />
-          ))}
-        </DisplayInfo>
-        <DisplayInfo
-          title="Experience"
-          subtitle=" You can see my projects on GitHub"
-        >
-          {projects.map(([svg, desc, link]) => (
-            <DisplayCard key={link} svg={svg} desc={desc} link={link} />
-          ))}
-        </DisplayInfo>
+      <div className="border-t border-divider bg-content2 py-unit-xl">
+        <div className="pb-unit-3xl">
+          <DisplayInfo title="Socials" subtitle="Follow me on my socials">
+            {socials.map(([link, svg, desc]) => (
+              <DisplayCard
+                key={link}
+                svg={svg}
+                desc={desc}
+                link={link}
+                socials={true}
+              />
+            ))}
+          </DisplayInfo>
+          <DisplayInfo
+            title="Experience"
+            subtitle="You can see my projects on GitHub"
+          >
+            {projects.map(([svg, desc, link]) => (
+              <DisplayCard key={link} svg={svg} desc={desc} link={link} />
+            ))}
+          </DisplayInfo>
+        </div>
         <DropDownContainer title="Know more about me" />
       </div>
     </>
