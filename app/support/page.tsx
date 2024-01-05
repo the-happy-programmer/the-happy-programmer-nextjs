@@ -1,24 +1,24 @@
-import { useState } from "react";
-import SupAnnouncement from "@/components/support/SupAnnouncement";
-import SupCard from "@/components/support/SupCard";
-import SupCustomer from "@/components/support/SupCustomer";
-import SupHero from "@/components/support/SupHero";
-import TitleSup from "@/components/support/TitleSup";
+import { useState } from 'react';
+import SupAnnouncement from '@/components/support/SupAnnouncement';
+import SupCard from '@/components/support/SupCard';
+import SupCustomer from '@/components/support/SupCustomer';
+import SupHero from '@/components/support/SupHero';
+import TitleSup from '@/components/support/TitleSup';
 
-import type { KeyFeaturesProps } from "@/lib/types/support";
+import type { KeyFeaturesProps } from '@/lib/types/support';
 import {
   BenefitsStr,
   customerReview,
   keyfeatures,
   startToday,
   supHero,
-} from "../data";
+} from '../data';
 
 type price = 5 | 50;
 
 export default function Support(): JSX.Element {
   return (
-    <div className="bg-stone-50 dark:bg-default-900">
+    <>
       <SupHero strings={supHero} />
       <TitleSup
         title={BenefitsStr.title as string}
@@ -49,6 +49,6 @@ export default function Support(): JSX.Element {
         subtitle={startToday.subtitle as string}
         buttonstr={startToday.buttonstr}
       />
-    </div>
+    </>
   );
 }
