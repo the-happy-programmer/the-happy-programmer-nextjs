@@ -24,7 +24,7 @@ export default function SupHero({
           >
             {strings.tag}
           </Chip>
-          <h1 className="inline max-w-lg text-center text-3xl font-semibold tracking-tight lg:text-4xl">
+          <h1 className="inline max-w-lg pt-unit-sm text-center text-3xl font-semibold tracking-tight lg:text-4xl">
             {strings.title}
           </h1>
           <Tabs

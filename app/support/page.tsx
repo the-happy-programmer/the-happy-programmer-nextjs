@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import SupAnnouncement from '@/components/support/SupAnnouncement';
 import SupCard from '@/components/support/SupCard';
 import SupCustomer from '@/components/support/SupCustomer';
@@ -14,8 +13,6 @@ import {
   supHero,
 } from '../data';
 
-type price = 5 | 50;
-
 export default function Support(): JSX.Element {
   return (
     <>
@@ -25,7 +22,7 @@ export default function Support(): JSX.Element {
         subtitle={BenefitsStr.subtitle as string}
         tag={BenefitsStr.tag}
       >
-        <div className="flex flex-row flex-wrap justify-between py-10">
+        <div className="flex flex-row flex-wrap justify-between py-unit-xl">
           {keyfeatures.map((features: KeyFeaturesProps) => {
             return (
               <SupCard
