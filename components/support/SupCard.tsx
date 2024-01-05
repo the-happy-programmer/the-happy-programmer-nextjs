@@ -10,16 +10,11 @@ export default function SupCard({
 }): JSX.Element {
   return (
     <Card className="w-56 p-unit-lg">
-      <div className="flex h-16 w-16 flex-col content-center items-center justify-center rounded-full bg-primary-100">
-        <SvgtoReact
-          name={icon}
-          height={25}
-          width={25}
-          className="fill-content1-foreground"
-        />
+      <div className="flex h-16 w-16 flex-col content-center items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary">
+        <SvgtoReact name={icon} height={25} width={25} className="fill-white" />
       </div>
-      <div className="w-20">
-        <h4 className="pt-24 text-xl font-semibold capitalize dark:text-stone-50">
+      <div className="w-unit-2xl">
+        <h4 className="pt-unit-3xl text-xl font-semibold capitalize">
           {title}
         </h4>
       </div>
