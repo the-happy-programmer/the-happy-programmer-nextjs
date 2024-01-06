@@ -1,5 +1,4 @@
 import type { SupHeroProps } from '@/lib/types/support';
-import style from '@/styles/buttons.module.css';
 import { Button } from '@nextui-org/button';
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
 
