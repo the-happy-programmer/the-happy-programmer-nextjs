@@ -17,7 +17,7 @@ export default function SupCard({
           <p className="mx-auto w-full max-w-lg text-center">{subtitle}</p>
         </CardBody>
         <CardFooter>
-          <Button size="lg" color="primary" className="mx-auto">
+          <Button size="lg" color="primary" disableRipple className="mx-auto">
             {buttonstr}
           </Button>
         </CardFooter>

@@ -49,6 +49,7 @@ export default function SupHero({
               onClick={() => {}}
               variant="shadow"
               color="primary"
+              disableRipple
               className="w-full bg-gradient-to-tr from-primary-500 to-secondary-500 text-white"
             >
               {strings.buttonstr}
