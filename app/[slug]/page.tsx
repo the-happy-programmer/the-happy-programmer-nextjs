@@ -1,34 +1,36 @@
-import HappyLink from "@/components/HappyLink";
-import Postbody from "@/components/PostBody";
-import SvgtoReact from "@/components/Svgtoreact";
-import Subscribe from "@/components/home/Subscribe";
-import Headerlayout from "@/widget/Headerlayout";
-import Image from "next/image";
-import RichDataPost from "@/components/seo/RichDataPost";
-import Link from "next/link";
-import { getAllinks, getDocBySlug } from "@/lib/courseslib/courseapi";
-import { ReactNode } from "react";
-import { socials } from "./data";
-import { Metadata, ResolvingMetadata } from "next";
-import { subscribe } from "../data";
+import HappyLink from '@/components/HappyLink';
+import Postbody from '@/components/PostBody';
+import SvgtoReact from '@/components/Svgtoreact';
+import Subscribe from '@/components/home/Subscribe';
+import Headerlayout from '@/widget/Headerlayout';
+import RichDataPost from '@/components/seo/RichDataPost';
+import { getAllinks, getDocBySlug } from '@/lib/courseslib/courseapi';
+import { ReactNode } from 'react';
+import { socials } from './data';
+import { Metadata, ResolvingMetadata } from 'next';
+import { subscribe } from '../data';
+import { HiArrowSmallLeft } from 'react-icons/hi2';
+import { Button } from '@nextui-org/button';
+import { Link } from '@nextui-org/link';
+import { Avatar } from '@nextui-org/avatar';
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { meta } = getDocBySlug(params.slug, "course/blog");
+  const { meta } = getDocBySlug(params.slug, 'course/blog');
   return {
     title: meta.coursetitle,
     description: meta.description,
     openGraph: {
-      title: meta.coursetitle + " | The Happy Programmer",
+      title: meta.coursetitle + ' | The Happy Programmer',
       description: meta.description,
     },
   };
 }
 
 export async function generateStaticParams() {
-  const allSlugs = getAllinks("course/blog");
+  const allSlugs = getAllinks('course/blog');
   return (
     allSlugs.map(({ name }) => ({
       slug: name,
@@ -42,7 +44,7 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const { slug } = params;
-  const post = getDocBySlug(slug as string, "course/blog");
+  const post = getDocBySlug(slug as string, 'course/blog');
   const { author, pubDate, categories, title, avatar, description } = post.meta;
   const postIcon = (categories: string[]): ReactNode =>
     categories.map((category) => (
@@ -58,63 +60,48 @@ export default async function PostPage({
         description={description}
         date={pubDate}
         firstName={author}
-        image={"/me.webp"}
+        image={'/me.webp'}
         slug={`/${author.toLowerCase()}`}
       />
       <Headerlayout>
         <div className="container flex flex-col items-center px-3 py-3">
-          <Link
+          <Button
+            disableRipple
+            as={Link}
             href="/blog"
-            className="flex flex-row place-self-start fill-current pl-2 text-stone-600 hover:text-default-900 dark:text-stone-400 dark:hover:text-stone-50"
+            className="place-self-start"
+            variant="light"
+            startContent={<HiArrowSmallLeft />}
           >
-            <>
-              <SvgtoReact
-                className="mr-3 rotate-90 transform self-center "
-                name="arrow"
-                height={15}
-                width={15}
-              />
-              Back to posts
-            </>
-          </Link>
+            Back to posts
+          </Button>
           {postIcon(categories)}
-          <h1 className="p-3 text-center text-3xl font-bold text-default-900 dark:text-stone-50">
-            {title}
-          </h1>
+          <h1 className="p-unit-sm text-center text-3xl font-bold">{title}</h1>
           <div className="center flex flex-row">
             <div className="mt-1 place-self-end">
-              <Image
-                src={avatar}
-                height={35}
-                width={35}
-                alt="Picture of the author"
-                className="rounded-full "
-              />
+              <Avatar isBordered color="default" src={avatar} />
             </div>
             <div className="mt-0 flex flex-col pl-2">
-              <HappyLink
+              <Link
                 href={`author/${author.toLowerCase()}`}
-                classes="text-default-900 dark:text-stone-50 hover:underline"
+                underline="hover"
+                color="foreground"
               >
                 {author}
-              </HappyLink>
-              <p className="text-sm text-stone-500 dark:text-stone-400">
-                {pubDate}
-              </p>
+              </Link>
+              <p className="text-sm text-default-600">{pubDate}</p>
             </div>
           </div>
-          <div className="mt-4 flex flex-row">
+          <div className="mt-4 flex flex-row gap-x-unit-xs">
             {socials.map(([link, names], i) => (
-              <div key={link} className="text-stone-500 dark:text-stone-300">
-                <HappyLink
-                  key={names}
-                  href={link}
-                  classes="px-1.5 text-accent dark:text-darkaccent hover:underline"
-                >
+              <>
+                <Link key={names} href={link} underline="hover">
                   {names}
-                </HappyLink>
-                {socials.length - 1 === i ? "" : "•"}
-              </div>
+                </Link>
+                <p className="text-default-400">
+                  {socials.length - 1 === i ? '' : '•'}
+                </p>
+              </>
             ))}
           </div>
         </div>
