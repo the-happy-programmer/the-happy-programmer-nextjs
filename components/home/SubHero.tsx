@@ -1,10 +1,10 @@
-import { SubHeroProps } from "@/lib/types/home";
+import { SubHeroProps } from '@/lib/types/home';
 
 export default function SubHero({ subhero }: SubHeroProps): JSX.Element {
   return (
     <div className="border-y border-divider bg-default-50">
       <div className="container">
-        <div className="container flex flex-col items-center justify-between gap-x-10 px-3 sm:flex-col md:flex-row xl:flex-row">
+        <div className="items-top container flex flex-col justify-between gap-x-10 px-3 sm:flex-col md:flex-row xl:flex-row">
           {subhero.map((sub) => (
             <div
               className="flex max-w-md flex-row items-start gap-x-unit-lg py-8 sm:py-8 md:py-28 lg:py-28 xl:py-28"

@@ -1,42 +1,42 @@
-import { Metadata } from "next";
-import Headerlayout from "@/widget/Headerlayout";
-import DisplayInfo from "@/widget/DisplayInfo";
-import DisplayCard from "@/components/about/DisplayCard";
-import SvgtoReact from "@/components/Svgtoreact";
-import DropDownContainer from "@/components/about/DropDownContainer";
-import { projects, socials, author } from "./data";
-import { subtitlestyle, titlestyle } from "@/styles/styles";
+import { Metadata } from 'next';
+import Headerlayout from '@/widget/Headerlayout';
+import DisplayInfo from '@/widget/DisplayInfo';
+import DisplayCard from '@/components/about/DisplayCard';
+import SvgtoReact from '@/components/Svgtoreact';
+import DropDownContainer from '@/components/about/DropDownContainer';
+import { projects, socials, author } from './data';
+import { Link } from '@nextui-org/link';
 
 export const metadata: Metadata = {
-  title: "My Name Is Tony",
+  title: 'My Name Is Tony',
   description:
-    "I have developed numerous of iOS and Android apps. I have been participated in many open sourse projects. An experienced developer in web development, enterprise and mobile development. Enthusiastic with programming and technology.",
+    'I have developed numerous of iOS and Android apps. I have been participated in many open sourse projects. An experienced developer in web development, enterprise and mobile development. Enthusiastic with programming and technology.',
 };
 
 export default function About({}: {}): JSX.Element {
   return (
-    <div className=" bg-stone-50 dark:bg-default-900">
-      <div className="dark:border-stone-700">
-        <Headerlayout>
-          <div className="container flex flex-col items-center justify-center pt-5 text-center sm:flex-row sm:pt-16 sm:text-left md:flex-row md:pt-16 md:text-left lg:flex-row lg:pt-16 lg:text-left xl:flex-row xl:pt-16 xl:text-left">
-            <div>
-              <SvgtoReact height={150} name="face" />
-            </div>
-
-            <div className="my-auto text-default-900 dark:text-stone-50 sm:pl-8 md:pl-8 lg:pl-8 xl:pl-8">
-              <h1 className={titlestyle}>{author.desc}</h1>
-              <p className={subtitlestyle(false, false)}>{author.job}</p>
-              <a
-                className="text-accent dark:text-darkaccent hover:underline"
-                href={`mailto:${author.mail}`}
-              >
-                {author.mail}
-              </a>
-            </div>
+    <>
+      <Headerlayout>
+        <div className="container flex flex-col items-center justify-center pt-5 text-center sm:flex-row sm:pt-16 sm:text-left md:flex-row md:pt-16 md:text-left lg:flex-row lg:pt-16 lg:text-left xl:flex-row xl:pt-16 xl:text-left">
+          <SvgtoReact height={150} name="face" />
+          <div className="my-auto sm:pl-8 md:pl-8 lg:pl-8 xl:pl-8">
+            <h1 className="text-4xl font-semibold tracking-tight lg:text-4xl">
+              {author.desc}
+            </h1>
+            <p className="py-unit-xs text-xs text-default-800">{author.job}</p>
+            <Link
+              color="primary"
+              underline="hover"
+              href={`mailto:${author.mail}`}
+            >
+              {author.mail}
+            </Link>
           </div>
-        </Headerlayout>
-        <div className="border-t bg-stone-100 py-10 dark:border-stone-700 dark:bg-stone-800">
-          <DisplayInfo title="Socials" subtitle=" Follow me on my socials">
+        </div>
+      </Headerlayout>
+      <div className="border-t border-divider bg-content2 py-unit-xl">
+        <div className="pb-unit-3xl">
+          <DisplayInfo title="Socials" subtitle="Follow me on my socials">
             {socials.map(([link, svg, desc]) => (
               <DisplayCard
                 key={link}
@@ -49,15 +49,15 @@ export default function About({}: {}): JSX.Element {
           </DisplayInfo>
           <DisplayInfo
             title="Experience"
-            subtitle=" You can see my projects on GitHub"
+            subtitle="You can see my projects on GitHub"
           >
             {projects.map(([svg, desc, link]) => (
               <DisplayCard key={link} svg={svg} desc={desc} link={link} />
             ))}
           </DisplayInfo>
-          <DropDownContainer title="Know more about me" />
         </div>
+        <DropDownContainer title="Know more about me" />
       </div>
-    </div>
+    </>
   );
 }

@@ -1,16 +1,16 @@
-import DropDownContainer from "@/components/about/DropDownContainer";
-import HeroCarousel from "@/components/home/HeroCarousel";
-import SubHero from "@/components/home/SubHero";
-import Subscribe from "@/components/home/Subscribe";
-import Technologies from "@/components/home/Technologies";
-import NewSupport from "@/components/home/subscribe/NewSupport";
-import type { Metadata } from "next";
-import { hero, moderntechnologies, subhero, subscribe } from "./data";
+import DropDownContainer from '@/components/about/DropDownContainer';
+import HeroCarousel from '@/components/home/HeroCarousel';
+import SubHero from '@/components/home/SubHero';
+import Subscribe from '@/components/home/Subscribe';
+import Technologies from '@/components/home/Technologies';
+import NewSupport from '@/components/home/subscribe/NewSupport';
+import type { Metadata } from 'next';
+import { hero, moderntechnologies, subhero, subscribe } from './data';
 
 export const metadata: Metadata = {
-  title: "The Happy Programmer",
+  title: 'The Happy Programmer',
   description:
-    "The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.",
+    'The Happy Programmer is a programming website focused on teaching programming technologies like iOS, Flutter and more. Courses in mobile development daily iOS and Flutter blog posts.',
 };
 
 export default async function Page({
