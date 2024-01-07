@@ -1,6 +1,4 @@
 import { PostProps } from '../../lib/types/blog';
-import SearchIcon from '@/public/svg/search.svg';
-import SearchButton from './SearchButton';
 import SearchTrigger from '../Navigation/SearchTrigger';
 
 export default function MyHeader({
