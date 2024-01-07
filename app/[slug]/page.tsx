@@ -107,9 +107,7 @@ export default async function PostPage({
         </div>
       </Headerlayout>
       <Postbody content={post.content} />
-      <div className="bg-stone-100  dark:bg-stone-800">
-        <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
-      </div>
+      <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
     </>
   );
 }
