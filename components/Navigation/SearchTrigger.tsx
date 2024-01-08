@@ -63,11 +63,12 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
         backdrop="blur"
         onOpenChange={onOpenChange}
         scrollBehavior="inside"
-        className="rounded-md bg-default-100/20"
+        className="bg-default-100/20 text-xl"
+        radius="lg"
         classNames={{
-          body: 'p-0 gap-0 bg-default-100/20',
-          header: 'p-0 bg-default-100/20',
-          footer: 'bg-default-100/20',
+          body: 'p-0 gap-0',
+          header: 'p-0',
+          footer: 'flex flex-row items-center justify-between',
         }}
         shouldBlockScroll={true}
         hideCloseButton={true}
@@ -78,13 +79,15 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
               <ModalBody>
                 <ModalHeader>
                   <Input
+                    radius="lg"
+                    variant="flat"
+                    className=""
                     classNames={{
                       input: [
                         'focus:bg-transparent',
-                        'bg-transparent',
-                        'hover:bg-transparent',
+                        'bg-transparent hover:bg-transparent',
                         'text-black/90 dark:text-white/90',
-                        'placeholder:text-default-700/50 dark:placeholder:text-white/60',
+                        'placeholder:text-default-700/50',
                       ],
                       innerWrapper: ['bg-transparent', 'hover:bg-transparent'],
                       inputWrapper: [
@@ -93,6 +96,8 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                         'hover:bg-default-100/20',
                         'group-data-[focus=true]:bg-default-100/20',
                         '!cursor-text',
+                        'group-data-[hover=true]:bg-default-100/20',
+                        'rounded-b-none',
                       ],
                     }}
                     startContent={<HiMiniMagnifyingGlass />}
@@ -100,7 +105,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                   />
                 </ModalHeader>
                 <ModalBody>{JSON.stringify(posts)}</ModalBody>
-                <ModalFooter className="flex flex-row items-center justify-between">
+                <ModalFooter>
                   <p>whatever</p>
                   <FullLogo
                     height={20}
