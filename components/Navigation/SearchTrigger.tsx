@@ -18,6 +18,7 @@ import { useState } from 'react';
 import { PostProps } from '@/lib/types/blog';
 import { Input } from '@nextui-org/input';
 import { Link } from '@nextui-org/link';
+import { Divider } from '@nextui-org/react';
 
 const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -70,7 +71,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
           body: 'p-0 gap-0',
           header: 'p-0',
           footer:
-            'flex flex-row items-center justify-between border-t border-divider',
+            'flex flex-row items-center justify-between border-t border-divider p-unit-sm',
         }}
         shouldBlockScroll={true}
         hideCloseButton={true}
@@ -82,6 +83,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                 <ModalHeader>
                   <Input
                     onChange={(e) => changeInput(e)}
+                    maxLength={50}
                     radius="lg"
                     variant="flat"
                     placeholder="search the happy programmer"
@@ -113,12 +115,25 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                   {searchList.length === 0 && (
                     <div className="flex flex-col items-center justify-center p-unit-xl">
                       <p className="text-lg">
-                        no resaults for &quot;{searchQuery}&quot;
+                        no results for &quot;{searchQuery}&quot;
                       </p>
-                      <p className="">Search something else</p>
+                      <p className="text-sm text-default-600">
+                        Search something else
+                      </p>
                     </div>
                   )}
                   <div className="flex flex-col gap-y-unit-sm py-unit-sm">
+                    {searchList.length !== 0 && searchQuery.length !== 0 && (
+                      <>
+                        <div className="py-unit-sm">
+                          <div className="flex flex-row justify-between px-unit-md">
+                            <p>{searchList.length === 1 ? 'Post' : 'Posts'}</p>
+                            {searchList.length}
+                          </div>
+                        </div>
+                        <Divider />
+                      </>
+                    )}
                     {searchList.map((e) => (
                       <div key={e.meta.title} className="px-unit-sm">
                         <Button
