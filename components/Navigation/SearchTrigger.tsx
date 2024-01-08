@@ -83,6 +83,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                 <ModalHeader>
                   <Input
                     onChange={(e) => changeInput(e)}
+                    maxLength={50}
                     radius="lg"
                     variant="flat"
                     placeholder="search the happy programmer"
@@ -114,9 +115,11 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                   {searchList.length === 0 && (
                     <div className="flex flex-col items-center justify-center p-unit-xl">
                       <p className="text-lg">
-                        no resaults for &quot;{searchQuery}&quot;
+                        no results for &quot;{searchQuery}&quot;
                       </p>
-                      <p className="">Search something else</p>
+                      <p className="text-sm text-default-600">
+                        Search something else
+                      </p>
                     </div>
                   )}
                   <div className="flex flex-col gap-y-unit-sm py-unit-sm">
