@@ -1,54 +1,54 @@
-import Link from 'next/link'
-import SvgtoReact from '@/components/Svgtoreact'
-import { useState } from 'react'
-import type { PostProps } from '@/lib/types/blog'
-import scroll from '@/lib/scroll'
-import SearchIcon from '@/public/svg/search.svg'
-import FullLogo from '@/public/svg/fulllogo.svg'
+import Link from 'next/link';
+import SvgtoReact from '@/components/Svgtoreact';
+import { useState } from 'react';
+import type { PostProps } from '@/lib/types/blog';
+import scroll from '@/lib/scroll';
+import SearchIcon from '@/public/svg/search.svg';
+import FullLogo from '@/public/svg/fulllogo.svg';
 export default function Search({
   posts,
   setSearching,
 }: {
-  posts: PostProps[]
-  setSearching: Function
+  posts: PostProps[];
+  setSearching: Function;
 }) {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchList, setSearchList] = useState<PostProps[]>([])
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchList, setSearchList] = useState<PostProps[]>([]);
   const filterItems = (arr: PostProps[], query: any) => {
     return arr.filter(
       (el) =>
         el.meta.description?.toLowerCase().includes(query) ||
         el.meta.title?.toLowerCase().includes(query)
-    )
-  }
+    );
+  };
 
   const closeSearch = () => {
-    scroll('auto')
-    setSearching(false)
-  }
+    scroll('auto');
+    setSearching(false);
+  };
 
   const changeInput = (e: { target: { value: string } }) => {
     if (e.target.value === '') {
-      setSearchList([])
-      setSearchQuery(e.target.value)
-      return
+      setSearchList([]);
+      setSearchQuery(e.target.value);
+      return;
     }
-    setSearchQuery(e.target.value.toLowerCase())
-    setSearchList(filterItems(posts, e.target.value.toLowerCase()))
-    return
-  }
+    setSearchQuery(e.target.value.toLowerCase());
+    setSearchList(filterItems(posts, e.target.value.toLowerCase()));
+    return;
+  };
 
   const icontitle = (tag: string[]) =>
     tag.map((tag) => (
       <div key={tag}>
         <SvgtoReact height={20} width={20} name={tag.toLowerCase()} />
       </div>
-    ))
+    ));
 
   return (
     <div
       tabIndex={0}
-      className="fixed top-0 bottom-0 left-0 right-0
+      className="fixed bottom-0 left-0 right-0 top-0
      z-50 h-screen w-screen bg-stone-200 bg-opacity-95 dark:bg-stone-800"
     >
       <div className="container m-auto mt-10 h-2/4 w-11/12 max-w-2xl overflow-y-auto rounded-2xl border border-stone-200 bg-stone-50 shadow-2xl dark:border-stone-700 dark:bg-stone-800 sm:mt-20 sm:w-full md:mt-32 lg:mt-32 xl:mt-32">
@@ -65,7 +65,7 @@ export default function Search({
               type="text"
               onChange={changeInput}
               placeholder="Search posts..."
-              className="outline-none rounder-t w-full rounded-t-2xl bg-stone-50 p-3 px-16 text-default-900 placeholder-stone-300 dark:bg-stone-800 dark:text-stone-50"
+              className="rounder-t w-full rounded-t-2xl bg-stone-50 p-3 px-16 text-default-900 placeholder-stone-300 outline-none dark:bg-stone-800 dark:text-stone-50"
             />
             <div
               onClick={() => closeSearch()}
@@ -85,7 +85,7 @@ export default function Search({
                 <span className="text-default-900 dark:text-stone-50">
                   &quot;{searchQuery}&quot;
                 </span>
-                <ul className="py-3 text-accent dark:text-darkaccent">
+                <ul className="text-accent dark:text-darkaccent py-3">
                   <li className="py-3">
                     <Link
                       href="/"
@@ -161,5 +161,5 @@ export default function Search({
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -30,6 +30,7 @@ const SignInPage = ({
         >
           <div>
             <Input
+              isRequired
               type="email"
               label="Email"
               name="email"
@@ -42,6 +43,7 @@ const SignInPage = ({
           </div>
           <div>
             <Input
+              isRequired
               type="password"
               label="Password"
               name="password"

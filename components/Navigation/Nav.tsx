@@ -11,11 +11,11 @@ import { Link } from '@nextui-org/link';
 import { Button } from '@nextui-org/button';
 import { cookies } from 'next/headers';
 import { createClient } from '@/lib/utils/supabase/server';
-import { Kbd } from '@nextui-org/react';
 import ThemeToggle from './ThemeToggle';
 import SearchTrigger from './SearchTrigger';
+import { PostProps } from '@/lib/types/blog';
 
-export default async function Nav() {
+export default async function Nav({ posts }: { posts: PostProps[] }) {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
@@ -56,7 +56,7 @@ export default async function Nav() {
 
       <NavbarContent as="div" className="items-center" justify="end">
         <ThemeToggle />
-        <SearchTrigger />
+        <SearchTrigger posts={posts} />
         {user ? (
           <Link href="/profile">
             <Avatar

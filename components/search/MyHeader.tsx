@@ -1,6 +1,4 @@
 import { PostProps } from '../../lib/types/blog';
-import SearchIcon from '@/public/svg/search.svg';
-import SearchButton from './SearchButton';
 import SearchTrigger from '../Navigation/SearchTrigger';
 
 export default function MyHeader({
@@ -19,7 +17,7 @@ export default function MyHeader({
         {title}
       </h1>
       <div className="relative float-left mt-unit-xl">
-        <SearchTrigger />
+        <SearchTrigger posts={posts} />
       </div>
     </div>
   );
