@@ -67,7 +67,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
         className="border border-divider bg-default-100/50 text-lg"
         radius="lg"
         classNames={{
-          body: 'p-0 gap-0 flex flex-col gap-y-unit-sm',
+          body: 'p-0 gap-0',
           header: 'p-0',
           footer:
             'flex flex-row items-center justify-between border-t border-divider',
@@ -118,28 +118,35 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                       <p className="">Search something else</p>
                     </div>
                   )}
-                  {searchList.map((e) => (
-                    <div key={e.meta.title} className="px-unit-sm">
-                      <Button
-                        href={e.link}
-                        onClick={onClose}
-                        className="flex h-auto w-full flex-row justify-between bg-default-400/50 shadow-sm dark:bg-default-300/50"
-                        as={Link}
-                        disableRipple
-                        color="default"
-                        variant="flat"
-                        startContent={<IconTitle tag={e.meta.categories} />}
-                        endContent={<HiArrowLongRight />}
-                      >
-                        <div className="mr-auto flex flex-col gap-y-unit-1 py-unit-sm pl-unit-xs">
-                          <p className="max-w-lg text-ellipsis  text-xs text-default-600">
-                            {e.meta.description}
-                          </p>
-                          <p className="">{e.meta.title}</p>
-                        </div>
-                      </Button>
-                    </div>
-                  ))}
+                  <div className="flex flex-col gap-y-unit-sm py-unit-sm">
+                    {searchList.map((e) => (
+                      <div key={e.meta.title} className="px-unit-sm">
+                        <Button
+                          href={e.link}
+                          onClick={onClose}
+                          className="flex h-auto w-full flex-row justify-between bg-default-400/50 shadow-sm dark:bg-default-300/50"
+                          as={Link}
+                          disableRipple
+                          color="default"
+                          variant="flat"
+                          startContent={<IconTitle tag={e.meta.categories} />}
+                          endContent={<HiArrowLongRight />}
+                        >
+                          <div className="mr-auto flex max-w-sm flex-col gap-y-unit-1 py-unit-sm pl-unit-xs">
+                            <p className="truncate" title={e.meta.title}>
+                              {e.meta.title}
+                            </p>
+                            <p
+                              className="max-w-lg truncate text-xs text-default-600"
+                              title={e.meta.description}
+                            >
+                              {e.meta.description}
+                            </p>
+                          </div>
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
                 </ModalBody>
                 <ModalFooter>
                   <Button

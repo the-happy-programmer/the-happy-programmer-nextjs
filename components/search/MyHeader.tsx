@@ -17,7 +17,7 @@ export default function MyHeader({
         {title}
       </h1>
       <div className="relative float-left mt-unit-xl">
-        <SearchTrigger />
+        <SearchTrigger posts={posts} />
       </div>
     </div>
   );

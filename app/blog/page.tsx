@@ -27,7 +27,7 @@ const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
 const { categories, tags }: { categories: string[]; tags: string[] } =
   uniqueArrayItems();
 
-export default function Blog({}) {
+export default async function Blog({}) {
   return (
     <>
       <Headerlayout>
