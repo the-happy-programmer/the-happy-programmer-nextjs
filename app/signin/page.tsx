@@ -54,7 +54,7 @@ const SignInPage = ({
               }
             />
           </div>
-          <Button color="primary" type="submit">
+          <Button disableRipple color="primary" type="submit">
             Sign In
           </Button>
           <Link
