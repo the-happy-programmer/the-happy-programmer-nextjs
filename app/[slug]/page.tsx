@@ -93,14 +93,14 @@ export default async function PostPage({
           </div>
           <div className="mt-4 flex flex-row gap-x-unit-xs">
             {socials.map(([link, names], i) => (
-              <>
-                <Link key={names} href={link} underline="hover">
+              <div key={link}>
+                <Link href={link} underline="hover">
                   {names}
                 </Link>
                 <p className="text-default-400">
                   {socials.length - 1 === i ? '' : '•'}
                 </p>
-              </>
+              </div>
             ))}
           </div>
         </div>
