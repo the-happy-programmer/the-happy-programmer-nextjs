@@ -32,7 +32,6 @@ export async function generateMetadata(
 
 export default function Tags({ params }: Props): JSX.Element {
   const { slug } = params
-  console.log(params)
   const allDocs = getAllDocs('course/blog')
   const { categories, tags } = uniqueArrayItems()
 
