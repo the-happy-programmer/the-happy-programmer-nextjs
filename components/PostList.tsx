@@ -1,19 +1,18 @@
 import Posthome from './Posthome'
 import CatTag from './CatTag'
 import type { PostProps } from '../lib/types/blog'
+import { Divider } from '@nextui-org/divider'
 
 export default function PostList({
   current,
   posts,
   categories,
   tags,
-  banner,
 }: {
   current?: string
   posts: PostProps[]
   categories: string[]
   tags: string[]
-  banner?: string[][]
 }): JSX.Element {
   return (
     <main className="border-t border-divider bg-content1">
@@ -24,9 +23,8 @@ export default function PostList({
           ))}
           {(posts.length as number) >= 5 ? (
             <div className="py-20">
-              <p className="border-b border-stone-200 py-3 text-2xl text-default-900 dark:border-stone-700 dark:text-stone-50 ">
-                Older Posts
-              </p>
+              <p className="py-3 text-2xl">Older Posts</p>
+              <Divider />
               {posts?.slice(5).map((post) => (
                 <Posthome post={post} key={post.link} plain={false} />
               ))}
