@@ -9,7 +9,7 @@ export default function PostList({
   tags,
   banner,
 }: {
-  current: string
+  current?: string
   posts: PostProps[]
   categories: string[]
   tags: string[]
