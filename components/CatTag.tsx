@@ -5,6 +5,7 @@ import { Chip } from '@nextui-org/chip';
 import { Button } from '@nextui-org/button';
 
 export default function CatTag({
+  current,
   categories,
   title,
   tags,
@@ -19,7 +20,11 @@ export default function CatTag({
         {tags?.map((cat) => (
           <div key={cat}>
             <Link href={`/tag/${cat}`}>
-              <Chip color="default" size="sm" variant="flat">
+              <Chip
+                color={cat === current ? 'primary' : 'default'}
+                size="sm"
+                variant={cat === current ? 'solid' : 'flat'}
+              >
                 {cat}
               </Chip>{' '}
             </Link>
@@ -30,6 +35,7 @@ export default function CatTag({
             <Button
               href={`/category/${cat}`}
               as={Link}
+              disableRipple
               variant="light"
               startContent={
                 <SvgtoReact name={cat.toLowerCase()} height={20} width={20} />

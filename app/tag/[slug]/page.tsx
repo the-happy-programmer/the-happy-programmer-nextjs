@@ -1,10 +1,10 @@
-import MyHeader from "@/components/search/MyHeader";
-import PostList from "@/components/PostList";
-import Headerlayout from "@/widget/Headerlayout";
-import { getAllDocs } from "@/lib/courseslib/courseapi";
-import { uniqueArrayItems } from "@/lib/uniqueArrayItems";
-import { Metadata, ResolvingMetadata } from "next";
-import { PostProps } from "@/lib/types/blog";
+import MyHeader from '@/components/search/MyHeader';
+import PostList from '@/components/PostList';
+import Headerlayout from '@/widget/Headerlayout';
+import { getAllDocs } from '@/lib/courseslib/courseapi';
+import { uniqueArrayItems } from '@/lib/uniqueArrayItems';
+import { Metadata, ResolvingMetadata } from 'next';
+import { PostProps } from '@/lib/types/blog';
 interface Props {
   params: { slug: string };
 }
@@ -32,7 +32,8 @@ export async function generateMetadata(
 
 export default function Tags({ params }: Props): JSX.Element {
   const { slug } = params;
-  const allDocs = getAllDocs("course/blog");
+  console.log(params);
+  const allDocs = getAllDocs('course/blog');
   const { categories, tags } = uniqueArrayItems();
 
   const posts: PostProps[] = allDocs
@@ -49,6 +50,7 @@ export default function Tags({ params }: Props): JSX.Element {
         />
       </Headerlayout>
       <PostList
+        current={slug}
         posts={posts}
         categories={categories}
         tags={tags}

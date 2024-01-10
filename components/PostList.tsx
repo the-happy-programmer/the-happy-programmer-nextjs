@@ -3,11 +3,13 @@ import CatTag from './CatTag';
 import type { PostProps } from '../lib/types/blog';
 
 export default function PostList({
+  current,
   posts,
   categories,
   tags,
   banner,
 }: {
+  current: string;
   posts: PostProps[];
   categories: string[];
   tags: string[];
@@ -32,7 +34,7 @@ export default function PostList({
           ) : null}
         </div>
         <div className="sticky top-16 h-screen">
-          <CatTag tags={tags} title="Tags" />
+          <CatTag tags={tags} title="Tags" current={current} />
           <CatTag categories={categories} title="Categories" />
         </div>
       </div>
