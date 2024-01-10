@@ -30,4 +30,5 @@ export interface CatTagProps {
   title: string
   tags?: string[]
   banner?: string[][]
+  current?: string
 }
