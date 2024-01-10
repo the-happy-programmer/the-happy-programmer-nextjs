@@ -1,27 +1,33 @@
-import React from 'react';
-import { Avatar } from '@nextui-org/avatar';
-import SvgtoReact from '@/components/Svgtoreact';
+import React from 'react'
+import { Avatar } from '@nextui-org/avatar'
+import SvgtoReact from '@/components/Svgtoreact'
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-} from '@nextui-org/navbar';
-import { Link } from '@nextui-org/link';
-import { Button } from '@nextui-org/button';
-import { cookies } from 'next/headers';
-import { createClient } from '@/lib/utils/supabase/server';
-import ThemeToggle from './ThemeToggle';
-import SearchTrigger from './SearchTrigger';
-import { PostProps } from '@/lib/types/blog';
+} from '@nextui-org/navbar'
+import { Link } from '@nextui-org/link'
+import { Button } from '@nextui-org/button'
+import { cookies } from 'next/headers'
+import { createClient } from '@/lib/utils/supabase/server'
+import ThemeToggle from './ThemeToggle'
+import SearchTrigger from './SearchTrigger'
+import { PostProps } from '@/lib/types/blog'
+import { getAllDocs } from '@/lib/courseslib/courseapi'
 
-export default async function Nav({ posts }: { posts: PostProps[] }) {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
+  link: post.link,
+  meta: post.meta,
+}))
+
+export default async function Nav() {
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
 
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await supabase.auth.getUser()
 
   return (
     <Navbar isBordered className="py-1">
@@ -83,5 +89,5 @@ export default async function Nav({ posts }: { posts: PostProps[] }) {
         )}
       </NavbarContent>
     </Navbar>
-  );
+  )
 }

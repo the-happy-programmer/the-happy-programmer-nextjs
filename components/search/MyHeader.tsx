@@ -1,14 +1,18 @@
-import { PostProps } from '../../lib/types/blog';
-import SearchTrigger from '../Navigation/SearchTrigger';
+import { getAllDocs } from '@/lib/courseslib/courseapi'
+import { PostProps } from '../../lib/types/blog'
+import SearchTrigger from '../Navigation/SearchTrigger'
+
+const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
+  link: post.link,
+  meta: post.meta,
+}))
 
 export default function MyHeader({
   title,
   subtitle,
-  posts,
 }: {
-  title: string;
-  subtitle: string;
-  posts: PostProps[];
+  title: string
+  subtitle: string
 }) {
   return (
     <div className="container px-4 pt-10 sm:pt-12 md:pt-16  lg:pt-20 xl:pt-20">
@@ -20,5 +24,5 @@ export default function MyHeader({
         <SearchTrigger posts={posts} />
       </div>
     </div>
-  );
+  )
 }

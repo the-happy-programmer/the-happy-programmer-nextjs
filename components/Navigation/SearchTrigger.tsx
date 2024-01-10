@@ -1,11 +1,11 @@
-'use client';
-import { Button } from '@nextui-org/button';
-import SvgtoReact from '../Svgtoreact';
-import { Kbd } from '@nextui-org/kbd';
-import FullLogo from '@/public/svg/fulllogo.svg';
-import { HiMiniMagnifyingGlass } from 'react-icons/hi2';
-import { HiArrowLongRight } from 'react-icons/hi2';
-import Github from '@/public/svg/github.svg';
+'use client'
+import { Button } from '@nextui-org/button'
+import SvgtoReact from '../Svgtoreact'
+import { Kbd } from '@nextui-org/kbd'
+import FullLogo from '@/public/svg/fulllogo.svg'
+import { HiMiniMagnifyingGlass } from 'react-icons/hi2'
+import { HiArrowLongRight } from 'react-icons/hi2'
+import Github from '@/public/svg/github.svg'
 import {
   Modal,
   ModalContent,
@@ -13,38 +13,38 @@ import {
   useDisclosure,
   ModalHeader,
   ModalFooter,
-} from '@nextui-org/modal';
-import { useState } from 'react';
-import { PostProps } from '@/lib/types/blog';
-import { Input } from '@nextui-org/input';
-import { Link } from '@nextui-org/link';
-import { Divider } from '@nextui-org/react';
+} from '@nextui-org/modal'
+import { useState } from 'react'
+import { PostProps } from '@/lib/types/blog'
+import { Input } from '@nextui-org/input'
+import { Link } from '@nextui-org/link'
+import { Divider } from '@nextui-org/react'
 
 const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchList, setSearchList] = useState<PostProps[]>(posts);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchList, setSearchList] = useState<PostProps[]>(posts)
   const changeInput = (e: { target: { value: string } }) => {
     if (e.target.value === '') {
-      setSearchList(posts);
-      setSearchQuery(e.target.value);
-      return;
+      setSearchList(posts)
+      setSearchQuery(e.target.value)
+      return
     }
-    setSearchQuery(e.target.value.toLowerCase());
-    setSearchList(filterItems(posts, e.target.value.toLowerCase()));
-    return;
-  };
+    setSearchQuery(e.target.value.toLowerCase())
+    setSearchList(filterItems(posts, e.target.value.toLowerCase()))
+    return
+  }
   const filterItems = (arr: PostProps[], query: any) => {
     return arr.filter(
       (el) =>
         el.meta.description?.toLowerCase().includes(query) ||
         el.meta.title?.toLowerCase().includes(query)
-    );
-  };
+    )
+  }
   const IconTitle = ({ tag }: { tag: string[] }) =>
     tag.map((tag) => (
       <SvgtoReact key={tag} height={25} width={25} name={tag.toLowerCase()} />
-    ));
+    ))
 
   return (
     <>
@@ -187,7 +187,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default SearchTrigger;
+export default SearchTrigger

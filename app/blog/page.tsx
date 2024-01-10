@@ -34,7 +34,6 @@ export default async function Blog({}) {
         <MyHeader
           subtitle="Be an expert in programming"
           title="The Happy Programmer"
-          posts={posts}
         />
       </Headerlayout>
       <PostList posts={posts} tags={tags} categories={categories} />

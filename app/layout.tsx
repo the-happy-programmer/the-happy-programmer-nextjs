@@ -1,23 +1,17 @@
-import Footer from '@/components/Footer';
-import MyNavBar from '@/components/Navigation/Nav';
-import { Providers } from '@/components/Providers';
-import { getAllDocs } from '@/lib/courseslib/courseapi';
-import { PostProps } from '@/lib/types/blog';
-import '@/styles/global.css';
-import Script from 'next/script';
+import Footer from '@/components/Footer'
+import MyNavBar from '@/components/Navigation/Nav'
+import { Providers } from '@/components/Providers'
+import { getAllDocs } from '@/lib/courseslib/courseapi'
+import { PostProps } from '@/lib/types/blog'
+import '@/styles/global.css'
+import Script from 'next/script'
 
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
-  const id = process.env.NEXT_PUBLIC_ANALYTICS_ID;
-  const posts: PostProps[] = await getAllDocs('course/blog').map(
-    (post: PostProps) => ({
-      link: post.link,
-      meta: post.meta,
-    })
-  );
+  const id = process.env.NEXT_PUBLIC_ANALYTICS_ID
   return (
     <html lang="en">
       <Script
@@ -34,11 +28,11 @@ export default async function RootLayout({
       </Script>
       <body>
         <Providers>
-          <MyNavBar posts={posts} />
+          <MyNavBar />
           <main>{children}</main>
           <Footer />
         </Providers>
       </body>
     </html>
-  );
+  )
 }
