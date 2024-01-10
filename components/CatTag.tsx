@@ -1,8 +1,8 @@
-import { Link } from '@nextui-org/link';
-import type { CatTagProps } from '../lib/types/blog';
-import SvgtoReact from './Svgtoreact';
-import { Chip } from '@nextui-org/chip';
-import { Button } from '@nextui-org/button';
+import { Link } from '@nextui-org/link'
+import type { CatTagProps } from '../lib/types/blog'
+import SvgtoReact from './Svgtoreact'
+import { Chip } from '@nextui-org/chip'
+import { Button } from '@nextui-org/button'
 
 export default function CatTag({
   current,
@@ -60,5 +60,5 @@ export default function CatTag({
         </div>
       ))}
     </div>
-  );
+  )
 }

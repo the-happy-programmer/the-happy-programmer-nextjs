@@ -1,6 +1,6 @@
-import Posthome from './Posthome';
-import CatTag from './CatTag';
-import type { PostProps } from '../lib/types/blog';
+import Posthome from './Posthome'
+import CatTag from './CatTag'
+import type { PostProps } from '../lib/types/blog'
 
 export default function PostList({
   current,
@@ -9,11 +9,11 @@ export default function PostList({
   tags,
   banner,
 }: {
-  current: string;
-  posts: PostProps[];
-  categories: string[];
-  tags: string[];
-  banner?: string[][];
+  current: string
+  posts: PostProps[]
+  categories: string[]
+  tags: string[]
+  banner?: string[][]
 }): JSX.Element {
   return (
     <main className="border-t border-divider bg-content1">
@@ -35,9 +35,13 @@ export default function PostList({
         </div>
         <div className="sticky top-16 h-screen">
           <CatTag tags={tags} title="Tags" current={current} />
-          <CatTag categories={categories} title="Categories" />
+          <CatTag
+            categories={categories}
+            current={current}
+            title="Categories"
+          />
         </div>
       </div>
     </main>
-  );
+  )
 }
