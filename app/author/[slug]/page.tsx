@@ -29,8 +29,9 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
   const authors = getAllAuthors()
-  console.log(authors)
-  return authors.map((auth) => ({ slug: auth }))
+  const lowercaseAthorNames = Array.from(authors, (name) => name.toLowerCase())
+
+  return lowercaseAthorNames.map((auth) => ({ slug: auth }))
 }
 
 export default function Author({ params }: Props): JSX.Element {
