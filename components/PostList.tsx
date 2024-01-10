@@ -23,7 +23,7 @@ export default function PostList({
           ))}
           {(posts.length as number) >= 5 ? (
             <div className="py-20">
-              <p className="py-3 text-2xl">Older Posts</p>
+              <h3 className="py-3 text-2xl">Older Posts</h3>
               <Divider />
               {posts?.slice(5).map((post) => (
                 <Posthome post={post} key={post.link} plain={false} />
