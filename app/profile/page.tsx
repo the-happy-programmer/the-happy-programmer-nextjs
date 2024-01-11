@@ -1,19 +1,20 @@
-import Table from '@/components/profile/Table';
-import { createClient } from '@/lib/utils/supabase/server';
-import { cookies } from 'next/headers';
-import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
-import { HiMiniPencil } from 'react-icons/hi2';
-import { signOut } from './actions';
+import Table from '@/components/profile/Table'
+import { createClient } from '@/lib/utils/supabase/server'
+import { cookies } from 'next/headers'
+import { Button } from '@nextui-org/button'
+import { Link } from '@nextui-org/link'
+import { HiMiniPencil } from 'react-icons/hi2'
+import { deleteUser, signOut } from './actions'
 
 export default async function Profile() {
-  const subscription = false;
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const subscription = false
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await supabase.auth.getUser()
 
+  const updateUserWithId = deleteUser.bind(null, user?.id)
   return (
     <div className="container">
       <div className="mx-auto max-w-md py-20">
@@ -57,11 +58,18 @@ export default async function Profile() {
               </>
             </div>
           </Table>
-          <Button disableRipple color="danger">
-            Delete Your Account
-          </Button>
+          <form action={updateUserWithId} className="w-full">
+            <Button
+              disableRipple
+              color="danger"
+              type="submit"
+              className="w-full"
+            >
+              Delete Your Account
+            </Button>
+          </form>
         </div>
       </div>
     </div>
-  );
+  )
 }
