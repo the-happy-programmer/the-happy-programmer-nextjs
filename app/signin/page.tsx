@@ -1,16 +1,15 @@
-import { signInWithGitHub, signInWithPassword } from './action';
-import style from '@/styles/buttons.module.css';
-import GitHubIcon from '@/public/svg/github.svg';
-import { Link } from '@nextui-org/link';
-import Seperator from '@/components/Seperator';
-import { HiEnvelope, HiKey } from 'react-icons/hi2';
-import { Input } from '@nextui-org/input';
-import { Button } from '@nextui-org/button';
+import { signInWithGitHub, signInWithPassword } from './action'
+import GitHubIcon from '@/public/svg/github.svg'
+import { Link } from '@nextui-org/link'
+import Seperator from '@/components/Seperator'
+import { HiEnvelope, HiKey } from 'react-icons/hi2'
+import { Input } from '@nextui-org/input'
+import { Button } from '@nextui-org/button'
 
 const SignInPage = ({
   searchParams,
 }: {
-  searchParams: { message: string };
+  searchParams: { message: string }
 }) => {
   return (
     <div className="h-full w-full bg-default-50 py-10 sm:py-32">
@@ -18,10 +17,10 @@ const SignInPage = ({
         <h1 className="text-center text-2xl font-bold sm:text-3xl">
           Get started today
         </h1>
-        <p className="mx-auto mt-4 text-center">
+        <div className="mx-auto mt-4 text-center">
           Dive into the world of coding with our online courses. Sign up now and
           start your programming journey today!
-        </p>
+        </div>
       </div>
       <div className="mx-auto max-w-sm">
         <form
@@ -84,7 +83,7 @@ const SignInPage = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SignInPage;
+export default SignInPage
