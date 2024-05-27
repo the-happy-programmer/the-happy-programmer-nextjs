@@ -31,6 +31,25 @@ const magiclink = async (
       issues: parsed.error.issues.map((issue: ZodIssue) => issue.message),
     }
   }
-
-  redirect('/signin?message=Check Your Email')
+  try {
+    const { error } = await supabase.auth.signInWithOtp({
+      email: email as string,
+    })
+    if (error) {
+      return {
+        message: 'error',
+        issues: ['Something went wrong try again in a while'],
+      }
+    }
+    return {
+      message: 'success',
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      message: 'error',
+    }
+  }
 }
+
+export { magiclink }
