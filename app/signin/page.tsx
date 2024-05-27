@@ -66,16 +66,35 @@ const SignInPage = ({
           </Link>
         </form>
         <Seperator />
-        <form action={signInWithGitHub} className="flex max-w-lg flex-col">
+        <div className="flex flex-col gap-y-unit-md">
+          <form action={signInWithGitHub} className="flex max-w-lg flex-col">
+            <Button
+              color="default"
+              variant="ghost"
+              type="submit"
+              startContent={
+                <GitHubIcon width={16} className="fill-foreground" />
+              }
+            >
+              Sign in with GitHub
+            </Button>
+          </form>
           <Button
+            href="/magiclink"
             color="default"
             variant="ghost"
+            as={Link}
             type="submit"
-            startContent={<GitHubIcon width={16} className="fill-foreground" />}
+            startContent={
+              <HiEnvelope
+                className="pointer-events-none flex-shrink-0 text-default-900"
+                width={16}
+              />
+            }
           >
-            Sign in with GitHub
+            Sign in with Magic Link
           </Button>
-        </form>
+        </div>
         {searchParams?.message && (
           <div className="mt-10 rounded-md border border-divider">
             <p className="p-4 text-base text-danger">{searchParams.message}</p>
