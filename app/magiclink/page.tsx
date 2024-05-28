@@ -1,7 +1,3 @@
-import { Input } from '@nextui-org/input'
-import { HiEnvelope } from 'react-icons/hi2'
-import { Button } from '@nextui-org/button'
-import { magiclink } from './actiont'
 import MagicLinkForm from '@/components/magilink/MagicLinkForm'
 const MagicLinkPage = () => {
   return (

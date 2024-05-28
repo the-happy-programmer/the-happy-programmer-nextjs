@@ -1,6 +1,7 @@
 'use client'
 import { magiclink } from '@/app/magiclink/actiont'
-import { Button, Input } from '@nextui-org/react'
+import { Input } from '@nextui-org/input'
+import { Button } from '@nextui-org/button'
 import { HiEnvelope } from 'react-icons/hi2'
 import { useFormState, useFormStatus } from 'react-dom'
 
@@ -14,11 +15,13 @@ const SubmitButton = ({}) => {
 }
 
 const MagicLinkForm = () => {
+  const [message, formAction] = useFormState(magiclink, null)
   return (
     <form
       className="mx-auto flex w-full max-w-sm flex-col gap-y-unit-lg pt-unit-lg"
-      action={magiclink}
+      action={formAction}
     >
+      {JSON.stringify(message)}
       <Input
         isRequired
         type="email"

@@ -26,6 +26,7 @@ const magiclink = async (
   const email = formData.get('email')
   const parsed = magiclinkSchema.parse({ email })
   if (!parsed.success) {
+    console.log(parsed.error)
     return {
       message: 'error',
       issues: parsed.error.issues.map((issue: ZodIssue) => issue.message),
