@@ -28,7 +28,7 @@ const MagicLinkForm = () => {
         name="email"
         placeholder="you@example.com"
         labelPlacement="outside"
-        isInvalid={message?.issues}
+        isInvalid={message?.issues ? true : false}
         errorMessage={message?.issues.map((issue: string) => issue)}
         endContent={
           <HiEnvelope className="pointer-events-none flex-shrink-0 text-default-400" />
