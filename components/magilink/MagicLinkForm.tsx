@@ -1,0 +1,38 @@
+'use client'
+import { magiclink } from '@/app/magiclink/actiont'
+import { Button, Input } from '@nextui-org/react'
+import { HiEnvelope } from 'react-icons/hi2'
+import { useFormState, useFormStatus } from 'react-dom'
+
+const SubmitButton = ({}) => {
+  const { pending } = useFormStatus()
+  return (
+    <Button disableRipple color="primary" type="submit">
+      Sign In
+    </Button>
+  )
+}
+
+const MagicLinkForm = () => {
+  return (
+    <form
+      className="mx-auto flex w-full max-w-sm flex-col gap-y-unit-lg pt-unit-lg"
+      action={magiclink}
+    >
+      <Input
+        isRequired
+        type="email"
+        label="Email"
+        name="email"
+        placeholder="you@example.com"
+        labelPlacement="outside"
+        endContent={
+          <HiEnvelope className="pointer-events-none flex-shrink-0 text-default-400" />
+        }
+      />
+      <SubmitButton />
+    </form>
+  )
+}
+
+export default MagicLinkForm
