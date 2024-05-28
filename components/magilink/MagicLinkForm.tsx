@@ -8,7 +8,7 @@ import { useFormState, useFormStatus } from 'react-dom'
 const SubmitButton = ({}) => {
   const { pending } = useFormStatus()
   return (
-    <Button disableRipple color="primary" type="submit">
+    <Button disableRipple color="primary" type="submit" isLoading={pending}>
       Sign In
     </Button>
   )
@@ -29,7 +29,9 @@ const MagicLinkForm = () => {
         placeholder="you@example.com"
         labelPlacement="outside"
         isInvalid={message?.issues ? true : false}
-        errorMessage={message?.issues.map((issue: string) => issue)}
+        errorMessage={
+          message?.issues ? message?.issues.map((issue: string) => issue) : null
+        }
         endContent={
           <HiEnvelope className="pointer-events-none flex-shrink-0 text-default-400" />
         }
