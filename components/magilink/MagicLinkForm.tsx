@@ -21,7 +21,6 @@ const MagicLinkForm = () => {
       className="mx-auto flex w-full max-w-sm flex-col gap-y-unit-lg pt-unit-lg"
       action={formAction}
     >
-      {JSON.stringify(message)}
       <Input
         isRequired
         type="email"
@@ -29,6 +28,8 @@ const MagicLinkForm = () => {
         name="email"
         placeholder="you@example.com"
         labelPlacement="outside"
+        isInvalid={message?.issues}
+        errorMessage={message?.issues.map((issue: string) => issue)}
         endContent={
           <HiEnvelope className="pointer-events-none flex-shrink-0 text-default-400" />
         }
