@@ -14,7 +14,7 @@ const signOut = async (formData: FormData) => {
 const deleteUser = async (userId: string | undefined) => {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
-  const { data, error } = await supabase.auth.admin.deleteUser(userId as string)
+  const { error } = await supabase.auth.admin.deleteUser(userId as string)
   if (error) {
     redirect(
       '/profile/resetpassword?message=Something went wrong try again in a while&error=true'
