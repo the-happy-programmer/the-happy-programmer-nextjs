@@ -1,11 +1,14 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import rehypePrettyCode from 'rehype-pretty-code'
+import { readFileSync } from 'fs'
 import moonlightII from '../assets/moonlight-ii.json'
-import { Code } from './Code'
+import tokyoNightColor from '../assets/tokyo-night-color-theme.json'
+import { transformerCopyButton } from '@rehype-pretty/transformers'
 import rehypeSlug from 'rehype-slug'
+import { transformer } from 'zod'
 const components = {
-  img: (props: any) => (
+  img: (props: ImageProps) => (
     <Image
       {...props}
       alt={props.alt}
@@ -14,23 +17,22 @@ const components = {
       width={350}
     />
   ),
-  pre: (props: any) => <Code code="`const numbers = [1, 2, 3]{:js}`" />,
 }
 
 export async function CustomMDX(props: any) {
   const options = {
-    keepBackground: false,
-    theme: moonlightII,
+    theme: 'tokyo-night',
+    transformers: [transformerCopyButton({ visibility: 'hover' })],
   }
   return (
     <MDXRemote
       {...props}
       options={{
-        // mdxOptions: {
-        //   remarkPlugins: [],
-        //   rehypePlugins: [[rehypePrettyCode, options], rehypeSlug],
-        // },
-        parseFrontmatter: false,
+        mdxOptions: {
+          remarkPlugins: [],
+          rehypePlugins: [[rehypePrettyCode, options], rehypeSlug],
+        },
+        parseFrontmatter: true,
       }}
       components={{ ...components, ...(props.components || {}) }}
     />

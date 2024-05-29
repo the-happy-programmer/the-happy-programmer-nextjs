@@ -12,8 +12,6 @@ import { HiArrowSmallLeft } from 'react-icons/hi2'
 import { Button } from '@nextui-org/button'
 import { Link } from '@nextui-org/link'
 import { Avatar } from '@nextui-org/avatar'
-import { Code } from '@/components/Code'
-
 export async function generateMetadata(
   { params }: { params: { slug: string } },
   parent: ResolvingMetadata
@@ -106,22 +104,6 @@ export default async function PostPage({
           </div>
         </div>
       </Headerlayout>
-      <Code
-        code={`
-  \`\`\`elixir title="fib.ex" showLineNumbers /palindrome/#v
-  defmodule Solution do
-    @spec is_palindrome(x :: integer) :: boolean
-    def is_palindrome(x) when x < 0, do: false
-    def is_palindrome(x), do: do_is_palindrome(x, get_base_10(x, 1))
-    defp do_is_palindrome(x, b10) when b10 > 1,
-      do: get_first_digit(x, b10) == rem(x, 10) and do_is_palindrome(div(x, 10), div(b10, 100))
-    defp do_is_palindrome(_, _), do: true
-    defp get_first_digit(n, b10), do: div(n, b10) |> rem(10)
-    defp get_base_10(n, b10) when n >= b10, do: get_base_10(n, b10 * 10)
-    defp get_base_10(n, b10), do: div(b10, 10)
-  end
-  \`\`\``}
-      />
       <Postbody content={post.content} />
       <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
     </>

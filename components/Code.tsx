@@ -11,7 +11,7 @@ import { transformerCopyButton } from '@rehype-pretty/transformers'
  */
 
 export async function Code({ code }: { code: string }) {
-  const highlightedCode = highlightCode(code)
+  const highlightedCode = await highlightCode(code)
   return (
     <section
       dangerouslySetInnerHTML={{
@@ -21,8 +21,8 @@ export async function Code({ code }: { code: string }) {
   )
 }
 
-export function highlightCode(code: string) {
-  const file = unified()
+export async function highlightCode(code: string) {
+  const file = await unified()
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypePrettyCode, {
