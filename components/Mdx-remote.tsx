@@ -1,13 +1,9 @@
-import fs from 'node:fs';
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { getHighlighter } from 'shiki'
-
 import Image from 'next/image'
-import rehypePrism from 'rehype-prism-plus'
-import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrettyCode from 'rehype-pretty-code'
-import moonlightII from "../assets/moonlight-ii.json"
-
+import moonlightII from '../assets/moonlight-ii.json'
+import { Code } from './Code'
+import rehypeSlug from 'rehype-slug'
 const components = {
   img: (props: any) => (
     <Image
@@ -18,22 +14,23 @@ const components = {
       width={350}
     />
   ),
+  pre: (props: any) => <Code code="`const numbers = [1, 2, 3]{:js}`" />,
 }
 
 export async function CustomMDX(props: any) {
   const options = {
     keepBackground: false,
     theme: moonlightII,
-  };
+  }
   return (
     <MDXRemote
       {...props}
       options={{
-        mdxOptions: {
-          rehypePlugins: [[rehypePrettyCode, options], rehypePrism ],
-          format: 'mdx',
-        },
-        parseFrontmatter: true,
+        // mdxOptions: {
+        //   remarkPlugins: [],
+        //   rehypePlugins: [[rehypePrettyCode, options], rehypeSlug],
+        // },
+        parseFrontmatter: false,
       }}
       components={{ ...components, ...(props.components || {}) }}
     />
