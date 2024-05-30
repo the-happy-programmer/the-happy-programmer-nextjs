@@ -47,8 +47,6 @@
   }
 }
 
-/* 
-
 pre {
   @apply rounded-lg !px-0;
 }
@@ -71,7 +69,7 @@ code[data-theme*=' '] span {
   code[data-theme*=' '],
   code[data-theme*=' '] span {
     color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
+    background-color: red;
   }
 }
 
@@ -82,7 +80,7 @@ code[data-line-numbers] {
 code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-  @apply mr-4 inline-block w-4 text-right text-gray-500;
+  @apply mr-4 inline-block w-4 text-right text-default-500;
 }
 
 pre [data-line] {
@@ -90,12 +88,11 @@ pre [data-line] {
 }
 
 [data-highlighted-line] {
-  background: rgba(200, 200, 255, 0.1);
-  @apply border-l-blue-400;
+  @apply bg-default-100;
 }
 
 [data-highlighted-chars] {
-  @apply rounded bg-zinc-600/50;
+  @apply rounded bg-default-600/50;
   box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
 }
 
@@ -120,7 +117,7 @@ pre [data-line] {
 }
 
 [data-rehype-pretty-code-title] {
-  @apply rounded-t-lg bg-zinc-700 px-3 py-2 text-sm font-semibold text-zinc-200;
+  @apply rounded-t-lg bg-default-700 px-3 py-2 text-sm font-semibold text-default-200;
 }
 
 figure[data-rehype-pretty-code-figure]:has(> [data-rehype-pretty-code-title])
@@ -135,4 +132,4 @@ pre,
 code,
 figure {
   @apply overflow-x-auto;
-} */
+}

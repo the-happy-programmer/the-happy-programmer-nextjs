@@ -1,4 +1,3 @@
-import { Code } from './Code'
 import { CustomMDX } from './Mdx-remote'
 
 export default function Postbody({
