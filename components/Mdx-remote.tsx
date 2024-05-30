@@ -3,8 +3,6 @@ import Image, { ImageProps } from 'next/image'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { transformerCopyButton } from '@rehype-pretty/transformers'
 import rehypeSlug from 'rehype-slug'
-import gitHubLight from '@/assets/gh-light.json'
-import gitHubDark from '@/assets/gh-dark.json'
 import rehypeStringify from 'rehype-stringify'
 const components = {
   img: (props: ImageProps) => (
@@ -20,10 +18,9 @@ const components = {
 
 export async function CustomMDX(props: any) {
   const options = {
-    theme: gitHubDark,
-    transformers: [transformerCopyButton({})],
+    theme: 'github-light' || 'github-dark',
+    transformers: [transformerCopyButton({ visibility: 'hover' })],
   }
-  console.log()
   return (
     <MDXRemote
       {...props}

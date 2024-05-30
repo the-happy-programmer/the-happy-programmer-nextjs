@@ -104,6 +104,11 @@ export default async function PostPage({
           </div>
         </div>
       </Headerlayout>
+      <div className="border-b border-t border-divider py-unit-3xl">
+        <div className="prose mx-auto dark:prose-invert">
+          <Code code={post.content} />
+        </div>
+      </div>
       <Postbody content={post.content} />
       <Subscribe title={subscribe.title} subtitle={subscribe.subtitle} />
     </>

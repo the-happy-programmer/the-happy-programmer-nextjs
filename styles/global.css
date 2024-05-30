@@ -60,17 +60,51 @@
     --accent-colour: theme(colors.primary);
 
     /* Code Blocks */
-    --shiki-color-text: #aac569;
-    --shiki-color-background: #011628;
-    --shiki-token-constant: #7fdbca;
-    --shiki-token-string: #edc38d;
-    --shiki-token-comment: #94a4ad;
-    --shiki-token-keyword: #c792e9;
-    --shiki-token-parameter: #d6deeb;
-    --shiki-token-function: #edc38d;
-    --shiki-token-string-expression: #7fdbca;
-    --shiki-token-punctuation: #c792e9;
-    --shiki-token-link: #79b8ff;
+    --shiki-foreground: #eeeeee;
+    --shiki-background: #333333;
+    --shiki-token-constant: #660000;
+    --shiki-token-string: #770000;
+    --shiki-token-comment: #880000;
+    --shiki-token-keyword: #990000;
+    --shiki-token-parameter: #aa0000;
+    --shiki-token-function: #bb0000;
+    --shiki-token-string-expression: #cc0000;
+    --shiki-token-punctuation: #dd0000;
+    --shiki-token-link: #ee0000;
+
+    /* Only required if using lang: 'ansi' */
+    --shiki-ansi-black: red;
+    --shiki-ansi-black-dim: red;
+    --shiki-ansi-red: red;
+    --shiki-ansi-red-dim: red;
+    --shiki-ansi-green: red;
+    --shiki-ansi-green-dim: red;
+    --shiki-ansi-yellow: red;
+    --shiki-ansi-yellow-dim: red;
+    --shiki-ansi-blue: red;
+    --shiki-ansi-blue-dim: red;
+    --shiki-ansi-magenta: red;
+    --shiki-ansi-magenta-dim: red;
+    --shiki-ansi-cyan: red;
+    --shiki-ansi-cyan-dim: red;
+    --shiki-ansi-white: red;
+    --shiki-ansi-white-dim: red;
+    --shiki-ansi-bright-black: red;
+    --shiki-ansi-bright-black-dim: red;
+    --shiki-ansi-bright-red: red;
+    --shiki-ansi-bright-red-dim: red;
+    --shiki-ansi-bright-green: red;
+    --shiki-ansi-bright-green-dim: red;
+    --shiki-ansi-bright-yellow: red;
+    --shiki-ansi-bright-yellow-dim: red;
+    --shiki-ansi-bright-blue: red;
+    --shiki-ansi-bright-blue-dim: red;
+    --shiki-ansi-bright-magenta: red;
+    --shiki-ansi-bright-magenta-dim: red;
+    --shiki-ansi-bright-cyan: red;
+    --shiki-ansi-bright-cyan-dim: red;
+    --shiki-ansi-bright-white: red;
+    --shiki-ansi-bright-white-dim: red;
   }
 }
 
