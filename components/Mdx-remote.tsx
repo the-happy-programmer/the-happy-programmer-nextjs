@@ -19,7 +19,9 @@ const components = {
 export async function CustomMDX(props: any) {
   const options = {
     theme: 'github-light' || 'github-dark',
-    transformers: [transformerCopyButton({ visibility: 'hover' })],
+    transformers: [
+      transformerCopyButton({ visibility: 'hover', feedbackDuration: 2_000 }),
+    ],
   }
   return (
     <MDXRemote
