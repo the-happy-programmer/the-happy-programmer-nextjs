@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --accentShadow: rgb(173, 8, 173);
@@ -22,6 +23,19 @@
     --code-colour-10: #727376;
     --code-colour-11: green;
     --accent-colour: theme(colors.primary);
+
+    /*  Code Blocks */
+    --shiki-color-text: #aac569;
+    --shiki-color-background: #011628;
+    --shiki-token-constant: #7fdbca;
+    --shiki-token-string: #edc38d;
+    --shiki-token-comment: #94a4ad;
+    --shiki-token-keyword: #c792e9;
+    --shiki-token-parameter: #d6deeb;
+    --shiki-token-function: #edc38d;
+    --shiki-token-string-expression: #7fdbca;
+    --shiki-token-punctuation: #c792e9;
+    --shiki-token-link: #79b8ff;
   }
 
   .dark {
@@ -44,6 +58,19 @@
     --code-colour-10: #f0eff1;
     --code-colour-11: rgb(0, 13, 128);
     --accent-colour: theme(colors.primary);
+
+    /* Code Blocks */
+    --shiki-color-text: #aac569;
+    --shiki-color-background: #011628;
+    --shiki-token-constant: #7fdbca;
+    --shiki-token-string: #edc38d;
+    --shiki-token-comment: #94a4ad;
+    --shiki-token-keyword: #c792e9;
+    --shiki-token-parameter: #d6deeb;
+    --shiki-token-function: #edc38d;
+    --shiki-token-string-expression: #7fdbca;
+    --shiki-token-punctuation: #c792e9;
+    --shiki-token-link: #79b8ff;
   }
 }
 
@@ -63,14 +90,6 @@ code[data-theme*=' '],
 code[data-theme*=' '] span {
   color: var(--shiki-light);
   background-color: var(--shiki-light-bg);
-}
-
-@media (prefers-color-scheme: dark) {
-  code[data-theme*=' '],
-  code[data-theme*=' '] span {
-    color: var(--shiki-dark);
-    background-color: red;
-  }
 }
 
 code[data-line-numbers] {
