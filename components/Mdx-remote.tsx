@@ -2,9 +2,13 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image, { ImageProps } from 'next/image'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
-import githubDark from '@/assets/gh-dark.json'
-import githubLight from '@/assets/gh-light.json'
+import { CopyButton } from '@/components/markdown/CopyButtont'
 import rehypeStringify from 'rehype-stringify'
+import {
+  postProcess,
+  Pre,
+  preProcess,
+} from '@/components/markdown/RehypePreRow'
 const components = {
   img: (props: ImageProps) => (
     <Image
@@ -15,6 +19,17 @@ const components = {
       width={350}
     />
   ),
+  pre: ({ children, raw, ...props }) => {
+    const lang = props['data-language']
+    return (
+      <pre {...props}>
+        <div className="relative">
+          <CopyButton text={raw} />
+        </div>
+        {children}
+      </pre>
+    )
+  },
 }
 
 export async function CustomMDX(props: any) {
@@ -31,7 +46,12 @@ export async function CustomMDX(props: any) {
         parseFrontmatter: true,
         mdxOptions: {
           remarkPlugins: [rehypeStringify],
-          rehypePlugins: [[rehypePrettyCode, options], rehypeSlug],
+          rehypePlugins: [
+            preProcess,
+            [rehypePrettyCode, options],
+            rehypeSlug,
+            postProcess,
+          ],
           format: 'mdx',
         },
         options: {},
