@@ -113,11 +113,11 @@
   }
 
   [data-chars-id='v'] {
-    @apply border-b-danger-600 bg-danger-800/80 font-bold !text-danger-300;
+    @apply border-b-danger-600 bg-danger-800/50 font-bold !text-danger-200;
   }
 
   [data-chars-id='s'] {
-    @apply border-b-yellow-600 bg-yellow-800/50 font-bold !text-yellow-300;
+    @apply border-b-yellow-600 bg-yellow-800/50 font-bold !text-yellow-200;
   }
 
   [data-chars-id='i'] {
