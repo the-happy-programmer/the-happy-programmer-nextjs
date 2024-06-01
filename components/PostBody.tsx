@@ -1,9 +1,9 @@
-import { CustomMDX } from './Mdx-remote';
+import { CustomMDX } from './Mdx-remote'
 
 export default function Postbody({
   content,
 }: {
-  content: string;
+  content: string
 }): JSX.Element {
   return (
     <div className="border-b border-t border-divider py-unit-3xl">
@@ -11,5 +11,5 @@ export default function Postbody({
         <CustomMDX source={content} />
       </div>
     </div>
-  );
+  )
 }

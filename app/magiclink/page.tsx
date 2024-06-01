@@ -7,8 +7,8 @@ const MagicLinkPage = () => {
           Sign in with Magic Link
         </h1>
         <div className="mx-auto mt-4 text-center">
-          Sign in with your email address and we'll send you a magic link to
-          continue.
+          Sign in with your email address and we&lsquo;ll send you a magic link
+          to continue.
         </div>
       </div>
       <MagicLinkForm />

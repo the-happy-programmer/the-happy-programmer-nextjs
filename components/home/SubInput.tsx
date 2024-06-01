@@ -1,17 +1,17 @@
-import { Input } from "@nextui-org/input";
-import { HiXCircle } from "react-icons/hi2";
-import { HiEnvelope } from "react-icons/hi2";
-import { Button } from "@nextui-org/button";
-import { HiCheckCircle } from "react-icons/hi2";
-import { subscribeEmail } from "@/app/action";
-import { Chip } from "@nextui-org/chip";
+import { Input } from '@nextui-org/input'
+import { HiXCircle } from 'react-icons/hi2'
+import { HiEnvelope } from 'react-icons/hi2'
+import { Button } from '@nextui-org/button'
+import { HiCheckCircle } from 'react-icons/hi2'
+import { subscribeEmail } from '@/app/action'
+import { Chip } from '@nextui-org/chip'
 
 export default function SubInput({
   message,
   error,
 }: {
-  message: string;
-  error: string;
+  message: string
+  error: string
 }): JSX.Element {
   return (
     <>
@@ -41,7 +41,7 @@ export default function SubInput({
         </Button>
       </form>
       <div className="flex flex-row items-center justify-center gap-x-2 pt-4">
-        {error === "true" && message && (
+        {error === 'true' && message && (
           <>
             <Chip
               startContent={<HiXCircle className="h-5" />}
@@ -52,7 +52,7 @@ export default function SubInput({
             </Chip>
           </>
         )}
-        {error === "false" && message && (
+        {error === 'false' && message && (
           <>
             <Chip
               startContent={<HiCheckCircle className="h-5" />}
@@ -65,5 +65,5 @@ export default function SubInput({
         )}
       </div>
     </>
-  );
+  )
 }
