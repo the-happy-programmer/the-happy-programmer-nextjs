@@ -2,31 +2,35 @@ import { visit } from 'unist-util-visit'
 
 export const preProcess = () => (tree) => {
   visit(tree, 'element', (node) => {
-    if (node?.type === 'element' && node?.tagName === 'pre') {
+    if (node?.tagName === 'pre') {
       const [codeEl] = node.children
       if (codeEl.tagName !== 'code') return
 
-      const rawValue = codeEl.children?.[0]?.value || ''
-      node.raw = rawValue
-      console.log('preProcess - raw:', rawValue) // Debug log
+      node.raw = codeEl.children?.[0]?.value || ''
     }
   })
 }
 
-export const postProcess = () => (tree) => {
-  visit(tree, (node) => {
-    if (node?.type === 'element' && node?.tagName === 'div') {
-      if (!('data-rehype-pretty-code-fragment' in node.properties)) {
-        return
-      }
+function extractText(nodes) {
+  let text = ''
 
-      for (const child of node.children) {
-        if (child.tagName === 'pre') {
-          console.log(child.properties['raw'])
-          console.log(node.raw)
-          child.properties['raw'] = node.raw
-        }
-      }
+  nodes.forEach((node) => {
+    if (node.type === 'text') {
+      text += node.value
+    } else if (node.children) {
+      text += extractText(node.children)
+    }
+  })
+
+  return text
+}
+
+export const postProcess = () => (tree) => {
+  visit(tree, 'element', (node) => {
+    if (node?.tagName === 'pre') {
+      const [codeEl] = node.children
+      console.log(codeEl.children)
+      node.properties['raw'] = extractText(codeEl.children)
     }
   })
 }

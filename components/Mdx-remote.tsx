@@ -1,8 +1,9 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image, { ImageProps } from 'next/image'
 import rehypePrettyCode from 'rehype-pretty-code'
-import { CopyButton } from '@/components/markdown/CopyButtont'
 import { postProcess, preProcess } from '@/components/markdown/RehypePreRow'
+import { Pre } from '@/components/markdown/Pre'
+
 const components = {
   img: (props: ImageProps) => (
     <Image
@@ -13,17 +14,7 @@ const components = {
       width={350}
     />
   ),
-  pre: ({ children, raw, ...props }) => {
-    const lang = props['data-language']
-    return (
-      <pre {...props}>
-        <div className="relative">
-          <CopyButton text={raw} />
-        </div>
-        {children}
-      </pre>
-    )
-  },
+  pre: Pre,
 }
 
 export async function CustomMDX(props: any) {
@@ -32,13 +23,14 @@ export async function CustomMDX(props: any) {
       dark: 'github-dark',
       light: 'github-light',
     },
+    transformers: [],
   }
   return (
     <MDXRemote
       {...props}
       options={{
         mdxOptions: {
-          rehypePlugins: [preProcess, [rehypePrettyCode, options], postProcess],
+          rehypePlugins: [[rehypePrettyCode, options], postProcess],
         },
         options: {},
       }}
