@@ -1,4 +1,5 @@
-import { nextui } from '@nextui-org/react'
+const {nextui} = require("@nextui-org/react");
+
 
 module.exports = {
   content: [

@@ -11,7 +11,7 @@ export const preProcess = () => (tree) => {
   })
 }
 
-function extractText(nodes) {
+const extractText = (nodes) =>  {
   let text = ''
 
   nodes.forEach((node) => {
@@ -29,8 +29,21 @@ export const postProcess = () => (tree) => {
   visit(tree, 'element', (node) => {
     if (node?.tagName === 'pre') {
       const [codeEl] = node.children
-      console.log(codeEl.children)
       node.properties['raw'] = extractText(codeEl.children)
     }
   })
+}
+
+function copyChildValueToParent(tree) {
+  visit(tree, 'element', (node, index, parent) => {
+      if (node.tagName === 'child-tag') {
+          // Assuming the value you want to copy is in node.properties.value
+          const valueToCopy = node.properties.value;
+          
+          if (parent && parent.type === 'element' && parent.tagName === 'parent-tag') {
+              // Copy the value to the parent's data attribute
+              parent.properties['data-rehype-pretty-code-title'] = valueToCopy;
+          }
+      }
+  });
 }
