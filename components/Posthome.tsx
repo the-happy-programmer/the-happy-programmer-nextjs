@@ -22,9 +22,9 @@ export default function Posthome({
   const { title, pubDate, author, tags, description } = post.meta;
   return (
     <>
-      <div className="flex flex-col py-unit-xl">
+      <div className="flex flex-col py-9">
         {plain ? (
-          <div className="flex flex-row items-center gap-x-unit-sm pb-unit-sm">
+          <div className="flex flex-row items-center gap-x-3 pb-3">
             <TagSitter tag={tags} />
           </div>
         ) : null}
@@ -38,7 +38,7 @@ export default function Posthome({
           {title}
         </Link>
         <p className="leading-loose text-default-600">{description}</p>
-        <div className="pt-unit-sm">
+        <div className="pt-3">
           {plain ? (
             <Link
               href={`/author/${author.toLowerCase()}`}

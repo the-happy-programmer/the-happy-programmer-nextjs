@@ -7,7 +7,7 @@ export default function SubHero({ subhero }: SubHeroProps): JSX.Element {
         <div className="items-top container flex flex-col justify-between gap-x-10 px-3 sm:flex-col md:flex-row xl:flex-row">
           {subhero.map((sub) => (
             <div
-              className="flex max-w-md flex-row items-start gap-x-unit-lg py-8 sm:py-8 md:py-28 lg:py-28 xl:py-28"
+              className="flex max-w-md flex-row items-start gap-x-5 py-8 sm:py-8 md:py-28 lg:py-28 xl:py-28"
               key={sub.title}
             >
               <div className="rounded-md bg-gradient-to-r from-secondary to-primary p-4">

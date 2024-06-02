@@ -19,7 +19,7 @@ export default function Technologies({
   return (
     <>
       <div className="container flex flex-col px-14 pb-72 pt-40 sm:px-14 md:flex-row md:items-center md:px-3 lg:flex-row lg:items-center lg:px-10 xl:flex-row xl:items-center xl:px-3">
-        <div className="flex max-w-xs flex-col gap-y-unit-xs">
+        <div className="flex max-w-xs flex-col gap-y-2">
           <Chip color="default" variant="flat">
             {title}
           </Chip>

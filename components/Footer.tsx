@@ -31,7 +31,7 @@ export default function Footer(): JSX.Element {
   };
 
   return (
-    <div className="z-50 border-t border-divider bg-background py-unit-2xl">
+    <div className="z-50 border-t border-divider bg-background py-12">
       <div className="container mx-auto flex w-60  flex-col justify-around space-y-10 text-center text-default-500 sm:w-60 sm:flex-col sm:text-center md:w-full md:flex-row md:items-baseline md:text-left lg:w-full lg:flex-row lg:items-baseline lg:text-left xl:w-full xl:flex-row xl:items-baseline xl:text-left">
         <div>
           <p className="font-semibold text-foreground">Pages</p>
@@ -72,7 +72,7 @@ export default function Footer(): JSX.Element {
               <Input
                 type="email"
                 label={followus.sub}
-                className="pt-unit-xl"
+                className="pt-9"
                 placeholder="you@example.com"
                 labelPlacement="outside"
                 endContent={

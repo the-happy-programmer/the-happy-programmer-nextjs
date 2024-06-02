@@ -23,7 +23,7 @@ export default function About({}: {}): JSX.Element {
             <h1 className="text-4xl font-semibold tracking-tight lg:text-4xl">
               {author.desc}
             </h1>
-            <p className="py-unit-xs text-xs text-default-800">{author.job}</p>
+            <p className="py-2 text-xs text-default-800">{author.job}</p>
             <Link
               color="primary"
               underline="hover"
@@ -34,8 +34,8 @@ export default function About({}: {}): JSX.Element {
           </div>
         </div>
       </Headerlayout>
-      <div className="border-t border-divider bg-content2 py-unit-xl">
-        <div className="pb-unit-3xl">
+      <div className="border-t border-divider bg-content2 py-9">
+        <div className="pb-20">
           <DisplayInfo title="Socials" subtitle="Follow me on my socials">
             {socials.map(([link, svg, desc]) => (
               <DisplayCard

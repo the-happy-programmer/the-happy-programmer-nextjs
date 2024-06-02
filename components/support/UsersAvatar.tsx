@@ -2,7 +2,7 @@ import { Avatar, AvatarGroup } from '@nextui-org/avatar';
 
 const UsersAvatar = () => {
   return (
-    <AvatarGroup isBordered className="pt-unit-xl">
+    <AvatarGroup isBordered className="pt-9">
       {[...Array(4)].map((_, index) => (
         <Avatar key={index + 100} src={`/images/user${index + 1}.png`} />
       ))}

@@ -8,8 +8,8 @@ export default function SupCard({
   buttonstr,
 }: SupHeroProps): JSX.Element {
   return (
-    <div className="pb-unit-3xl">
-      <Card className="container mx-auto p-unit-3xl">
+    <div className="pb-20">
+      <Card className="container mx-auto p-20">
         <CardHeader>
           <h4 className="w-full text-center text-4xl font-bold">{title}</h4>
         </CardHeader>

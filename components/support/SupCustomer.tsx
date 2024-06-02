@@ -5,7 +5,7 @@ import UsersAvatar from './UsersAvatar';
 export default function SupCustomer(): JSX.Element {
   return (
     <div className="py-12">
-      <Card className="mx-auto max-w-sm p-unit-lg">
+      <Card className="mx-auto max-w-sm p-5">
         <CardHeader>
           <SvgtoReact
             name="support/quote"

@@ -19,7 +19,7 @@ const MagicLinkForm = () => {
   return (
     <>
       <form
-        className="mx-auto flex w-full max-w-sm flex-col gap-y-unit-lg pt-unit-lg"
+        className="mx-auto flex w-full max-w-sm flex-col gap-y-5 pt-5"
         action={formAction}
       >
         <Input
@@ -42,7 +42,7 @@ const MagicLinkForm = () => {
         <SubmitButton />
       </form>
       {message?.message === 'success' && (
-        <div className="mt-unit-lg text-center">
+        <div className="mt-5 text-center">
           Check your email for the magic link
         </div>
       )}

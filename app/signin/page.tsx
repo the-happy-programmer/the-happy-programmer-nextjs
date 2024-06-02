@@ -66,7 +66,7 @@ const SignInPage = ({
           </Link>
         </form>
         <Seperator />
-        <div className="flex flex-col gap-y-unit-md">
+        <div className="flex flex-col gap-y-4">
           <form action={signInWithGitHub} className="flex max-w-lg flex-col">
             <Button
               color="default"

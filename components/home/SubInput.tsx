@@ -17,7 +17,7 @@ export default function SubInput({
     <>
       <form
         action={subscribeEmail}
-        className="mx-auto flex max-w-md flex-row items-end gap-x-unit-xs"
+        className="mx-auto flex max-w-md flex-row items-end gap-x-2"
       >
         <Input
           type="email"
