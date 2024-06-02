@@ -1,7 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image, { ImageProps } from 'next/image'
 import rehypePrettyCode from 'rehype-pretty-code'
-import { postProcess, preProcess } from '@/components/markdown/RehypePreRow'
+import { postProcess } from '@/components/markdown/RehypePreRow'
 import { Pre } from '@/components/markdown/Pre'
 
 const components = {
