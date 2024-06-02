@@ -22,7 +22,7 @@ export default function Support(): JSX.Element {
         subtitle={BenefitsStr.subtitle as string}
         tag={BenefitsStr.tag}
       >
-        <div className="flex flex-row flex-wrap justify-between gap-unit-xl  py-unit-xl">
+        <div className="flex flex-row flex-wrap justify-between gap-9  py-9">
           {keyfeatures.map((features: KeyFeaturesProps) => {
             return (
               <SupCard

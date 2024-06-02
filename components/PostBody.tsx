@@ -6,7 +6,7 @@ export default function Postbody({
   content: string
 }): JSX.Element {
   return (
-    <div className="border-b border-t border-divider py-unit-3xl">
+    <div className="border-b border-t border-divider py-20">
       <div className="prose mx-auto dark:prose-invert">
         <CustomMDX source={content} />
       </div>

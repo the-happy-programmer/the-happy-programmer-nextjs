@@ -7,8 +7,8 @@ export default function DropDownContainer({
   title: string;
 }): JSX.Element {
   return (
-    <div className="border-content border-t border-divider py-unit-3xl">
-      <div className="pb-unit-xl text-center">
+    <div className="border-content border-t border-divider py-20">
+      <div className="pb-9 text-center">
         <p className="inline text-xl font-semibold tracking-tight lg:text-3xl">
           {title}
         </p>

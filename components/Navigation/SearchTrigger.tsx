@@ -71,7 +71,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
           body: 'p-0 gap-0',
           header: 'p-0',
           footer:
-            'flex flex-row items-center justify-between border-t border-divider p-unit-sm',
+            'flex flex-row items-center justify-between border-t border-divider p-3',
         }}
         shouldBlockScroll={true}
         hideCloseButton={true}
@@ -113,7 +113,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                 </ModalHeader>
                 <ModalBody>
                   {searchList.length === 0 && (
-                    <div className="flex flex-col items-center justify-center p-unit-xl">
+                    <div className="flex flex-col items-center justify-center p-9">
                       <p className="text-lg">
                         no results for &quot;{searchQuery}&quot;
                       </p>
@@ -122,11 +122,11 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                       </p>
                     </div>
                   )}
-                  <div className="flex flex-col gap-y-unit-sm py-unit-sm">
+                  <div className="flex flex-col gap-y-3 py-3">
                     {searchList.length !== 0 && searchQuery.length !== 0 && (
                       <>
-                        <div className="py-unit-sm">
-                          <div className="flex flex-row justify-between px-unit-md">
+                        <div className="py-3">
+                          <div className="flex flex-row justify-between px-4">
                             <p>{searchList.length === 1 ? 'Post' : 'Posts'}</p>
                             {searchList.length}
                           </div>
@@ -135,7 +135,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                       </>
                     )}
                     {searchList.map((e) => (
-                      <div key={e.meta.title} className="px-unit-sm">
+                      <div key={e.meta.title} className="px-3">
                         <Button
                           href={e.link}
                           onClick={onClose}
@@ -147,7 +147,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                           startContent={<IconTitle tag={e.meta.categories} />}
                           endContent={<HiArrowLongRight />}
                         >
-                          <div className="mr-auto flex max-w-sm flex-col gap-y-unit-1 py-unit-sm pl-unit-xs">
+                          <div className="mr-auto flex max-w-sm flex-col gap-y-unit-1 py-3 pl-2">
                             <p className="truncate" title={e.meta.title}>
                               {e.meta.title}
                             </p>
@@ -170,7 +170,7 @@ const SearchTrigger = ({ posts }: { posts: PostProps[] }) => {
                     variant="ghost"
                     color="default"
                     disableRipple
-                    startContent={<Github className="h-unit-md" />}
+                    startContent={<Github className="h-4" />}
                     href="https://github.com/MyNameIsBond"
                   >
                     github

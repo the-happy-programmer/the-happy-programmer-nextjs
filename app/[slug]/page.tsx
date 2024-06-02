@@ -74,7 +74,7 @@ export default async function PostPage({
             Back to posts
           </Button>
           {postIcon(categories)}
-          <h1 className="p-unit-sm text-center text-3xl font-bold">{title}</h1>
+          <h1 className="p-3 text-center text-3xl font-bold">{title}</h1>
           <div className="center flex flex-row">
             <div className="mt-1 place-self-end">
               <Avatar isBordered color="default" src={avatar} />
@@ -90,7 +90,7 @@ export default async function PostPage({
               <p className="text-sm text-default-600">{pubDate}</p>
             </div>
           </div>
-          <div className="mt-4 flex flex-row gap-x-unit-xs">
+          <div className="mt-4 flex flex-row gap-x-2">
             {socials.map(([link, names], i) => (
               <div key={link}>
                 <Link href={link} underline="hover">

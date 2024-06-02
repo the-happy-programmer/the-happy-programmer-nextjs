@@ -20,7 +20,7 @@ export default function MyHeader({
       <h1 className="text-4xl font-semibold tracking-tight lg:text-4xl">
         {title}
       </h1>
-      <div className="relative float-left mt-unit-xl">
+      <div className="relative float-left mt-9">
         <SearchTrigger posts={posts} />
       </div>
     </div>

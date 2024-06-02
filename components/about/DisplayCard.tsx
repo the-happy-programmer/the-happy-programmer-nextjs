@@ -12,7 +12,7 @@ export default function DisplayCard({
 }: DisplayCardProps): JSX.Element {
   return (
     <Card>
-      <CardHeader className="flex flex-row items-center gap-x-unit-sm">
+      <CardHeader className="flex flex-row items-center gap-x-3">
         <SvgtoReact
           name={svg.toLowerCase()}
           className="fill-content1-foreground text-content1-foreground"

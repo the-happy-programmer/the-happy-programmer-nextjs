@@ -15,7 +15,7 @@ export default function SupHero({
 
   return (
     <>
-      <div className="relative mx-auto border-b border-divider pt-unit-3xl">
+      <div className="relative mx-auto border-b border-divider pt-20">
         <div className="container flex flex-col items-center">
           <Chip
             variant="shadow"
@@ -24,11 +24,11 @@ export default function SupHero({
           >
             {strings.tag}
           </Chip>
-          <h1 className="inline max-w-lg pt-unit-sm text-center text-3xl font-semibold tracking-tight lg:text-4xl">
+          <h1 className="inline max-w-lg pt-3 text-center text-3xl font-semibold tracking-tight lg:text-4xl">
             {strings.title}
           </h1>
           <Tabs
-            className="mx-auto pt-unit-xl"
+            className="mx-auto pt-9"
             color="default"
             aria-label="Tabs colors"
             radius="full"

@@ -16,7 +16,7 @@ export default function CatTag({
       <p className="py-2 text-xs font-bold uppercase text-content1-foreground">
         {title}
       </p>
-      <div className="flex flex-row flex-wrap gap-unit-sm">
+      <div className="flex flex-row flex-wrap gap-3">
         {tags?.map((cat) => (
           <div key={cat}>
             <Link href={`/tag/${cat}`}>
