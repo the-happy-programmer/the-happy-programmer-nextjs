@@ -12,6 +12,7 @@
   "dependencies": {
     "@auth/drizzle-adapter": "^1.4.1",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "@neondatabase/serverless": "^0.9.4",
     "@nextui-org/react": "^2.4.2",
     "@nextui-org/spinner": "^2.0.30",
     "@nextui-org/system": "^2.2.2",
@@ -23,6 +24,7 @@
     "@types/react-transition-group": "^4.4.10",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.32.0",
     "framer-motion": "^11.3.2",
     "next": "^14.2.5",
