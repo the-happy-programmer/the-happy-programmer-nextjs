@@ -3,7 +3,12 @@ const links: string[] = [
   'https://www.bing.com',
   'https://www.yahoo.com',
 ]
-const CoursesLayout = ({ children }) => {
+
+interface Props {
+  children: React.ReactNode
+}
+
+const CoursesLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className="flex flex-row">
       <div className="h-scrren h-full">
