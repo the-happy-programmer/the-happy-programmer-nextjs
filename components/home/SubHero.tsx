@@ -1,4 +1,4 @@
-import { SubHeroProps } from '@/lib/types/home';
+import { SubHeroProps } from '@/lib/types/home'
 
 export default function SubHero({ subhero }: SubHeroProps): JSX.Element {
   return (
@@ -25,5 +25,5 @@ export default function SubHero({ subhero }: SubHeroProps): JSX.Element {
         </div>
       </div>
     </div>
-  );
+  )
 }
