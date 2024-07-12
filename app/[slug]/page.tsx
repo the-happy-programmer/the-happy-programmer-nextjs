@@ -47,7 +47,7 @@ export default async function PostPage({
   const postIcon = (categories: string[]): ReactNode =>
     categories.map((category) => (
       <div key={category} className="h-16">
-        <SvgtoReact height={60} width={60} className="mr-4" name={category} />
+        <SvgtoReact height={60} width={60} name={category} />
       </div>
     ))
 
