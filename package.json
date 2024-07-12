@@ -8,9 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "generate": "drizzle-kit generate",
-    "migrate": "drizzle-kit migrate",
-    "db:migrate": "tsx ./drizzle/migrate.ts"
+    "generate": "drizzle-kit generate --dialect=postgresql --schema=drizzle/schema.ts --out=./drizzle",
+    "migrate": "tsx ./drizzle/migrate.ts"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.4.1",
@@ -27,7 +26,6 @@
     "@types/react-transition-group": "^4.4.10",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
-    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.32.0",
     "framer-motion": "^11.3.2",
     "next": "^14.2.5",
@@ -63,6 +61,7 @@
     "@types/remark-prism": "^1.3.7",
     "autoprefixer": "^10.4.19",
     "babel-plugin-inline-react-svg": "^2.0.2",
+    "dotenv": "^16.4.5",
     "drizzle-kit": "^0.23.0",
     "eslint": "8.0.0",
     "eslint-config-next": "^14.2.5",
@@ -79,6 +78,7 @@
     "remark-prism": "^1.3.6",
     "remark-toc": "^9.0.0",
     "tailwindcss": "^3.4.4",
+    "tsx": "^4.16.2",
     "turndown": "^7.2.0",
     "typescript": "^5.5.3"
   }
