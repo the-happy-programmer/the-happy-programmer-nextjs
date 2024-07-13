@@ -4,7 +4,7 @@ import { cookies } from 'next/headers'
 import { Button } from '@nextui-org/button'
 import { Link } from '@nextui-org/link'
 import { HiMiniPencil } from 'react-icons/hi2'
-import { deleteUser, signOut } from './actions'
+import { deleteUser, signOutAction } from './actions'
 
 export default async function Profile() {
   const subscription = false
@@ -23,7 +23,7 @@ export default async function Profile() {
           <Table title="Account Details">
             <div className="flex flex-row items-center justify-between py-3">
               <p className="max-w-xs font-medium">{user?.email || ''}</p>
-              <form action={signOut}>
+              <form action={signOutAction}>
                 <Button disableRipple type="submit">
                   Sign Out
                 </Button>

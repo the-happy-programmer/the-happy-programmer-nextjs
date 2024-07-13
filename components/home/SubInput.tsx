@@ -3,7 +3,7 @@ import { HiXCircle } from 'react-icons/hi2'
 import { HiEnvelope } from 'react-icons/hi2'
 import { Button } from '@nextui-org/button'
 import { HiCheckCircle } from 'react-icons/hi2'
-import { subscribeEmail } from '@/app/action'
+import { subscribeEmail } from '@/app/(application)/action'
 import { Chip } from '@nextui-org/chip'
 
 export default function SubInput({

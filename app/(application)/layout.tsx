@@ -1,10 +1,13 @@
 import Footer from '@/components/Footer'
 import MyNavBar from '@/components/Navigation/Nav'
 import { Providers } from '@/components/Providers'
-import { getAllDocs } from '@/lib/courseslib/courseapi'
-import { PostProps } from '@/lib/types/blog'
 import '@/styles/global.css'
 import Script from 'next/script'
+
+export const metadata = {
+  title: 'The Happy Programmer',
+  description: 'A blog about programming and web development',
+}
 
 export default async function RootLayout({
   children,

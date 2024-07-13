@@ -1,15 +1,15 @@
-"use client";
-import SubDesc from "@/components/home/subscribe/SubDesc";
-import Check from "@/public/svg/check.svg";
-import { useState } from "react";
-import { Link } from "@nextui-org/link";
-import { Chip } from "@nextui-org/chip";
-import { Tab, Tabs } from "@nextui-org/tabs";
-import { Button } from "@nextui-org/button";
-import { featuresToSub } from "@/app/data";
+'use client'
+import SubDesc from '@/components/home/subscribe/SubDesc'
+import Check from '@/public/svg/check.svg'
+import { useState } from 'react'
+import { Link } from '@nextui-org/link'
+import { Chip } from '@nextui-org/chip'
+import { Tab, Tabs } from '@nextui-org/tabs'
+import { Button } from '@nextui-org/button'
+import { featuresToSub } from '@/app/(application)/data'
 
 export default function NewSupport({}): JSX.Element {
-  const [active, setActive] = useState<string>("month");
+  const [active, setActive] = useState<string>('month')
   return (
     <div className="border-y border-divider bg-default-50">
       <div className="container flex flex-col py-20">
@@ -17,8 +17,8 @@ export default function NewSupport({}): JSX.Element {
           <Chip
             variant="shadow"
             classNames={{
-              base: "bg-gradient-to-br from-primary to-secondary border-white/50 shadow-secondary/30",
-              content: "drop-shadow shadow-black text-white",
+              base: 'bg-gradient-to-br from-primary to-secondary border-white/50 shadow-secondary/30',
+              content: 'drop-shadow shadow-black text-white',
             }}
           >
             FULL-FEATURED
@@ -62,8 +62,8 @@ export default function NewSupport({}): JSX.Element {
                   <Chip
                     variant="shadow"
                     classNames={{
-                      base: "bg-gradient-to-br from-primary to-secondary border-white/50 shadow-secondary/30",
-                      content: "drop-shadow shadow-black text-white",
+                      base: 'bg-gradient-to-br from-primary to-secondary border-white/50 shadow-secondary/30',
+                      content: 'drop-shadow shadow-black text-white',
                     }}
                   >
                     Pro
@@ -72,23 +72,23 @@ export default function NewSupport({}): JSX.Element {
                 </div>
                 <p className="mt-2 sm:mt-4">
                   <strong className="text-3xl font-bold  sm:text-4xl">
-                    {" "}
-                    {active === "month" ? "£5" : "£50"}{" "}
+                    {' '}
+                    {active === 'month' ? '£5' : '£50'}{' '}
                   </strong>
 
                   <span className="text-sm font-medium text-default-600">
-                    {active === "month" ? "/month" : "/year"}
+                    {active === 'month' ? '/month' : '/year'}
                   </span>
                 </p>
               </div>
               <ul className="mt-6 space-y-3">
                 {[
-                  "Early Access",
-                  "Sub-only Courses",
-                  "Answer Questions",
-                  "Share source code",
-                  "Personal Mentoring",
-                  "Complete Projects",
+                  'Early Access',
+                  'Sub-only Courses',
+                  'Answer Questions',
+                  'Share source code',
+                  'Personal Mentoring',
+                  'Complete Projects',
                 ].map((item) => (
                   <li className="flex items-center gap-x-3" key={item}>
                     <Check
@@ -116,5 +116,5 @@ export default function NewSupport({}): JSX.Element {
         </div>
       </div>
     </div>
-  );
+  )
 }

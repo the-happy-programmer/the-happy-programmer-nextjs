@@ -1,5 +1,5 @@
 'use client'
-import { magiclink } from '@/app/magiclink/actiont'
+import { magiclink } from '@/app/(auth)/magiclink/actiont'
 import { Input } from '@nextui-org/input'
 import { Button } from '@nextui-org/button'
 import { HiEnvelope } from 'react-icons/hi2'

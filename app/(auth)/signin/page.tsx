@@ -1,16 +1,17 @@
-import { signInWithGitHub, signInWithPassword } from './action'
+import { signInWithGitHub, signInWithMagicLink } from './action'
 import GitHubIcon from '@/public/svg/github.svg'
 import { Link } from '@nextui-org/link'
-import Seperator from '@/components/Seperator'
 import { HiEnvelope, HiKey } from 'react-icons/hi2'
 import { Input } from '@nextui-org/input'
 import { Button } from '@nextui-org/button'
-
-const SignInPage = ({
+import { Divider } from '@nextui-org/react'
+import { auth } from '@/auth'
+const SignInPage = async ({
   searchParams,
 }: {
   searchParams: { message: string }
 }) => {
+  const session = await auth()
   return (
     <div className="h-full w-full bg-default-50 py-10 sm:py-32">
       <div className="mx-auto max-w-sm">
@@ -24,7 +25,7 @@ const SignInPage = ({
       </div>
       <div className="mx-auto max-w-sm">
         <form
-          action={signInWithPassword}
+          action={signInWithMagicLink}
           className="mb-0 flex flex-col space-y-6 rounded-lg py-4"
         >
           <div>
@@ -40,61 +41,21 @@ const SignInPage = ({
               }
             />
           </div>
-          <div>
-            <Input
-              isRequired
-              type="password"
-              label="Password"
-              name="password"
-              placeholder="you@example.com"
-              labelPlacement="outside"
-              endContent={
-                <HiKey className="pointer-events-none flex-shrink-0 text-default-400" />
-              }
-            />
-          </div>
           <Button disableRipple color="primary" type="submit">
-            Sign In
+            Send Magic Link
           </Button>
-          <Link
-            color="foreground"
-            size="sm"
-            href="/forgot-password"
-            underline="always"
-          >
-            Forgot Password?
-          </Link>
         </form>
-        <Seperator />
-        <div className="flex flex-col gap-y-4">
-          <form action={signInWithGitHub} className="flex max-w-lg flex-col">
-            <Button
-              color="default"
-              variant="ghost"
-              type="submit"
-              startContent={
-                <GitHubIcon width={16} className="fill-foreground" />
-              }
-            >
-              Sign in with GitHub
-            </Button>
-          </form>
+        <Divider className="mt-0 mb-4" />
+        <form action={signInWithGitHub} className="flex max-w-lg flex-col">
           <Button
-            href="/magiclink"
             color="default"
             variant="ghost"
-            as={Link}
             type="submit"
-            startContent={
-              <HiEnvelope
-                className="pointer-events-none flex-shrink-0 text-default-900"
-                width={16}
-              />
-            }
+            startContent={<GitHubIcon width={16} className="fill-foreground" />}
           >
-            Sign in with Magic Link
+            Sign in with GitHub
           </Button>
-        </div>
+        </form>
         {searchParams?.message && (
           <div className="mt-10 rounded-md border border-divider">
             <p className="p-4 text-base text-danger">{searchParams.message}</p>
