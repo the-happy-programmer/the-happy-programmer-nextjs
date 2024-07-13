@@ -21,7 +21,9 @@ const page = ({ searchParams }: { searchParams: { error: string } }) => {
               email. Please try again later.
             </p>
             <div className="mx-auto w-fit pt-10">
-              <Button>Go Back</Button>
+              <Button color="primary" variant="shadow">
+                Go Back
+              </Button>
             </div>
           </div>
         </div>
