@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import BurgerIcon from '@/public/svg/burger.svg'
 import SideBar from './SideBar'
-import { navLinks } from '@/app/data'
+import { navLinks } from '@/app/(application)/data'
 import scroll from '../lib/scroll'
 
 const MobileSideBar = () => {

@@ -1,15 +1,21 @@
-import Svgtoreact from './Svgtoreact';
-import SvgtoReact from './Svgtoreact';
-import { subscribeEmail } from '@/app/action';
-import { HiEnvelope } from 'react-icons/hi2';
-import { Input } from '@nextui-org/input';
-import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
-import { categories, courses, followus, pages, tags } from '@/app/data';
-import { socials } from '@/app/about/data';
+import Svgtoreact from './Svgtoreact'
+import SvgtoReact from './Svgtoreact'
+import { subscribeEmail } from '@/app/(application)/action'
+import { HiEnvelope } from 'react-icons/hi2'
+import { Input } from '@nextui-org/input'
+import { Button } from '@nextui-org/button'
+import { Link } from '@nextui-org/link'
+import {
+  categories,
+  courses,
+  followus,
+  pages,
+  tags,
+} from '@/app/(application)/data'
+import { socials } from '@/app/(application)/about/data'
 
 export default function Footer(): JSX.Element {
-  const currentYear: number = new Date().getFullYear();
+  const currentYear: number = new Date().getFullYear()
 
   const AllLiks = (links: { links: string[][] }): JSX.Element => {
     return (
@@ -27,8 +33,8 @@ export default function Footer(): JSX.Element {
           </Link>
         ))}
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div className="z-50 border-t border-divider bg-background py-12">
@@ -111,5 +117,5 @@ export default function Footer(): JSX.Element {
         </p>
       </div>
     </div>
-  );
+  )
 }

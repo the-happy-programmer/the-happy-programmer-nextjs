@@ -1,10 +1,10 @@
-"use client";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { info } from "@/app/data";
+'use client'
+import { Accordion, AccordionItem } from '@nextui-org/accordion'
+import { info } from '@/app/(application)/data'
 export default function DropDownContainer({
   title,
 }: {
-  title: string;
+  title: string
 }): JSX.Element {
   return (
     <div className="border-content border-t border-divider py-20">
@@ -27,5 +27,5 @@ export default function DropDownContainer({
         ))}
       </Accordion>
     </div>
-  );
+  )
 }

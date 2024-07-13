@@ -1,4 +1,4 @@
-import { signInWithGitHub, signInWithPassword } from './action'
+import { signInWithGitHub, signInWithMagicLink } from './action'
 import GitHubIcon from '@/public/svg/github.svg'
 import { Link } from '@nextui-org/link'
 import { HiEnvelope, HiKey } from 'react-icons/hi2'
@@ -25,7 +25,7 @@ const SignInPage = async ({
       </div>
       <div className="mx-auto max-w-sm">
         <form
-          action={signInWithPassword}
+          action={signInWithMagicLink}
           className="mb-0 flex flex-col space-y-6 rounded-lg py-4"
         >
           <div>
