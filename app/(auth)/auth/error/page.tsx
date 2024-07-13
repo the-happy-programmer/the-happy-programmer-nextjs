@@ -1,6 +1,5 @@
-import { RxExclamationTriangle } from 'react-icons/rx'
-import { Button } from '@nextui-org/button'
 import { Spotlight } from '@/components/ui/Spotlight'
+import { Link, Button } from '@nextui-org/react'
 const page = ({ searchParams }: { searchParams: { error: string } }) => {
   console.log()
   if (searchParams.error === 'Configuration') {
@@ -21,7 +20,7 @@ const page = ({ searchParams }: { searchParams: { error: string } }) => {
               email. Please try again later.
             </p>
             <div className="mx-auto w-fit pt-10">
-              <Button color="primary" variant="shadow">
+              <Button color="primary" variant="shadow" as={Link} href="/signin">
                 Go Back
               </Button>
             </div>
