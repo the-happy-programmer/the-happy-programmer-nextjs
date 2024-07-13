@@ -15,6 +15,7 @@ import ThemeToggle from './ThemeToggle'
 import SearchTrigger from './SearchTrigger'
 import { PostProps } from '@/lib/types/blog'
 import { getAllDocs } from '@/lib/courseslib/courseapi'
+import { auth } from '@/auth'
 
 const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
   link: post.link,
@@ -24,10 +25,7 @@ const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
 export default async function Nav() {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const session = await auth()
 
   return (
     <Navbar isBordered className="py-1">
@@ -63,17 +61,17 @@ export default async function Nav() {
       <NavbarContent as="div" className="items-center" justify="end">
         <ThemeToggle />
         <SearchTrigger posts={posts} />
-        {user ? (
+        {session ? (
           <Link href="/profile">
             <Avatar
               isBordered
               as="button"
               className="transition-transform"
               color="default"
-              title={user?.user_metadata?.user_name}
-              name={user?.user_metadata?.user_name}
+              title={session.user?.name as string}
+              name={session.user?.name as string}
               size="sm"
-              src={user?.user_metadata.avatar_url}
+              src={session.user?.image as string}
             />
           </Link>
         ) : (
