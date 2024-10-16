@@ -1,7 +1,6 @@
 import { getAllDocs } from '@/lib/courseslib/courseapi'
-import { PostProps } from '../../lib/types/blog'
 import SearchTrigger from '../Navigation/SearchTrigger'
-
+import type { PostProps } from '@/lib/types/blog'
 const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
   link: post.link,
   meta: post.meta,
@@ -10,9 +9,11 @@ const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
 export default function MyHeader({
   title,
   subtitle,
+  posts,
 }: {
   title: string
   subtitle: string
+  posts: PostProps[]
 }) {
   return (
     <div className="container px-4 pt-10 sm:pt-12 md:pt-16  lg:pt-20 xl:pt-20">

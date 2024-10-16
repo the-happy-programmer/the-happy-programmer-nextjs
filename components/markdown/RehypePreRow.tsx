@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 
-export const preProcess = () => (tree) => {
+export const preProcess = () => (tree: any) => {
   visit(tree, 'element', (node) => {
     if (node?.tagName === 'pre') {
       const [codeEl] = node.children
@@ -11,10 +11,10 @@ export const preProcess = () => (tree) => {
   })
 }
 
-const extractText = (nodes) =>  {
+const extractText = (nodes: any) => {
   let text = ''
 
-  nodes.forEach((node) => {
+  nodes.forEach((node: any) => {
     if (node.type === 'text') {
       text += node.value
     } else if (node.children) {
@@ -25,7 +25,7 @@ const extractText = (nodes) =>  {
   return text
 }
 
-export const postProcess = () => (tree) => {
+export const postProcess = () => (tree: any) => {
   visit(tree, 'element', (node) => {
     if (node?.tagName === 'pre') {
       const [codeEl] = node.children
@@ -34,16 +34,20 @@ export const postProcess = () => (tree) => {
   })
 }
 
-function copyChildValueToParent(tree) {
+function copyChildValueToParent(tree: any) {
   visit(tree, 'element', (node, index, parent) => {
-      if (node.tagName === 'child-tag') {
-          // Assuming the value you want to copy is in node.properties.value
-          const valueToCopy = node.properties.value;
-          
-          if (parent && parent.type === 'element' && parent.tagName === 'parent-tag') {
-              // Copy the value to the parent's data attribute
-              parent.properties['data-rehype-pretty-code-title'] = valueToCopy;
-          }
+    if (node.tagName === 'child-tag') {
+      // Assuming the value you want to copy is in node.properties.value
+      const valueToCopy = node.properties.value
+
+      if (
+        parent &&
+        parent.type === 'element' &&
+        parent.tagName === 'parent-tag'
+      ) {
+        // Copy the value to the parent's data attribute
+        parent.properties['data-rehype-pretty-code-title'] = valueToCopy
       }
-  });
+    }
+  })
 }

@@ -6,7 +6,7 @@ import { VFileCompatible } from 'vfile'
 export async function markdownToHtml(markdown: VFileCompatible) {
   const result = await remark()
     .use(html, { sanitize: false })
-    .use(prism)
+    .use(prism as any)
     .use(remarkMdx)
     .process(markdown)
   return result.toString()
