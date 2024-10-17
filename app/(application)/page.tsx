@@ -22,7 +22,6 @@ export default async function Page() {
         icon={hero.icon}
       />
       <SubHero subhero={subhero} />
-
       <Technologies
         title={moderntechnologies.title}
         subtitle={moderntechnologies.subtitle}
