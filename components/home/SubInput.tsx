@@ -26,7 +26,10 @@ export default function SubInput(): JSX.Element {
           errorMessage={error?.fieldErrors?.email || error?.message}
           color={isSuccess ? 'success' : 'default'}
           startContent={
-            <HiEnvelope className="pointer-events-none flex-shrink-0 text-2xl text-default-400" />
+            <HiEnvelope
+              size={'16px'}
+              className="pointer-events-none flex-shrink-0 text-2xl text-default-400"
+            />
           }
         />
         <Button
