@@ -3,18 +3,13 @@ import { createClient } from '@/lib/utils/supabase/server'
 import { cookies } from 'next/headers'
 import { Button } from '@nextui-org/button'
 import { Link } from '@nextui-org/link'
-import { HiMiniPencil } from 'react-icons/hi2'
 import { deleteUser, signOutAction } from './actions'
+import { auth } from '@/auth'
+import { Avatar } from '@nextui-org/react'
 
 export default async function Profile() {
   const subscription = false
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  const updateUserWithId = deleteUser.bind(null, user?.id)
+  const session = await auth()
   return (
     <div className="container">
       <div className="mx-auto max-w-md py-20">
@@ -22,23 +17,18 @@ export default async function Profile() {
         <div className="flex flex-col gap-y-8 py-5">
           <Table title="Account Details">
             <div className="flex flex-row items-center justify-between py-3">
-              <p className="max-w-xs font-medium">{user?.email || ''}</p>
+              <div className="text-sm flex flex-row items-center gap-x-4">
+                <Avatar src={session?.user?.image!} size="sm" />
+                <div>
+                  <p className="">{session?.user?.name}</p>
+                  <p className="text-default-600">{session?.user?.email}</p>
+                </div>
+              </div>
               <form action={signOutAction}>
                 <Button disableRipple type="submit">
                   Sign Out
                 </Button>
               </form>
-            </div>
-            <div className="flex flex-row items-center justify-between py-3">
-              <p className="max-w-xs font-medium">Passowrd:*******</p>
-              <Button
-                disableRipple
-                isIconOnly
-                as={Link}
-                href="/profile/resetpassword"
-              >
-                <HiMiniPencil height={16} />
-              </Button>
             </div>
           </Table>
           <Table title="Subscription">
@@ -58,16 +48,15 @@ export default async function Profile() {
               </>
             </div>
           </Table>
-          <form action={updateUserWithId} className="w-full">
-            <Button
-              disableRipple
-              color="danger"
-              type="submit"
-              className="w-full"
-            >
-              Delete Your Account
-            </Button>
-          </form>
+          <Button
+            disableRipple
+            color="danger"
+            type="submit"
+            className="w-full"
+            disabled={true}
+          >
+            Delete Your Account
+          </Button>
         </div>
       </div>
     </div>
