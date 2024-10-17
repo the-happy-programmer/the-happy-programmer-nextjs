@@ -1,9 +1,7 @@
 import Table from '@/components/profile/Table'
-import { createClient } from '@/lib/utils/supabase/server'
-import { cookies } from 'next/headers'
 import { Button } from '@nextui-org/button'
 import { Link } from '@nextui-org/link'
-import { deleteUser, signOutAction } from './actions'
+import { signOutAction } from './actions'
 import { auth } from '@/auth'
 import { Avatar } from '@nextui-org/react'
 
