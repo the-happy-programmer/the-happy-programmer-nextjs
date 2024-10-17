@@ -1,23 +1,20 @@
+'use client'
 import { Input } from '@nextui-org/input'
-import { HiXCircle } from 'react-icons/hi2'
 import { HiEnvelope } from 'react-icons/hi2'
 import { Button } from '@nextui-org/button'
 import { HiCheckCircle } from 'react-icons/hi2'
 import { subscribeEmail } from '@/app/(application)/action'
 import { Chip } from '@nextui-org/chip'
+import { useServerAction } from 'zsa-react'
 
-export default function SubInput({
-  message,
-  error,
-}: {
-  message: string
-  error: string
-}): JSX.Element {
+export default function SubInput(): JSX.Element {
+  const { isError, isPending, isSuccess, error, executeFormAction } =
+    useServerAction(subscribeEmail)
   return (
     <>
       <form
-        action={subscribeEmail}
-        className="mx-auto flex max-w-md flex-row items-end gap-x-2"
+        action={executeFormAction}
+        className="mx-auto flex max-w-md flex-row items-start text-left gap-x-2"
       >
         <Input
           type="email"
@@ -25,41 +22,32 @@ export default function SubInput({
           required
           placeholder="you@example.com"
           labelPlacement="outside"
-          size="lg"
+          isInvalid={isError}
+          errorMessage={error?.fieldErrors?.email || error?.message}
+          color={isSuccess ? 'success' : 'default'}
           startContent={
             <HiEnvelope className="pointer-events-none flex-shrink-0 text-2xl text-default-400" />
           }
         />
         <Button
+          isLoading={isPending}
           variant="shadow"
           type="submit"
           disableRipple
           color="primary"
-          size="lg"
         >
           Subscribe
         </Button>
       </form>
       <div className="flex flex-row items-center justify-center gap-x-2 pt-4">
-        {error === 'true' && message && (
-          <>
-            <Chip
-              startContent={<HiXCircle className="h-5" />}
-              variant="faded"
-              color="danger"
-            >
-              {message}
-            </Chip>
-          </>
-        )}
-        {error === 'false' && message && (
+        {isSuccess && (
           <>
             <Chip
               startContent={<HiCheckCircle className="h-5" />}
               variant="faded"
               color="success"
             >
-              {message}
+              Thank you for subscribing
             </Chip>
           </>
         )}
