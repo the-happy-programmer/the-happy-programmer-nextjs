@@ -13,10 +13,11 @@ import {
   tags,
 } from '@/app/(application)/data'
 import { socials } from '@/app/(application)/about/data'
+import { useServerAction } from 'zsa-react'
 
 export default function Footer(): JSX.Element {
   const currentYear: number = new Date().getFullYear()
-
+  const { isPending, executeFormAction } = useServerAction(subscribeEmail)
   const AllLiks = (links: { links: string[][] }): JSX.Element => {
     return (
       <div className="flex flex-col gap-y-2 pt-2">
@@ -74,7 +75,7 @@ export default function Footer(): JSX.Element {
                 </Button>
               ))}
             </div>
-            <form action={subscribeEmail}>
+            <form action={executeFormAction}>
               <Input
                 type="email"
                 label={followus.sub}
@@ -89,6 +90,7 @@ export default function Footer(): JSX.Element {
                     color="default"
                     variant="light"
                     aria-label="Like"
+                    isLoading={isPending}
                   >
                     <HiEnvelope />
                   </Button>
