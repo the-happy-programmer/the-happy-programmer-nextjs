@@ -1,8 +1,5 @@
 import Svgtoreact from './Svgtoreact'
 import SvgtoReact from './Svgtoreact'
-import { subscribeEmail } from '@/app/(application)/action'
-import { HiEnvelope } from 'react-icons/hi2'
-import { Input } from '@nextui-org/input'
 import { Button } from '@nextui-org/button'
 import { Link } from '@nextui-org/link'
 import {
@@ -13,10 +10,10 @@ import {
   tags,
 } from '@/app/(application)/data'
 import { socials } from '@/app/(application)/about/data'
+import FooterSubButton from './FooterSubButton'
 
 export default function Footer(): JSX.Element {
   const currentYear: number = new Date().getFullYear()
-
   const AllLiks = (links: { links: string[][] }): JSX.Element => {
     return (
       <div className="flex flex-col gap-y-2 pt-2">
@@ -74,27 +71,7 @@ export default function Footer(): JSX.Element {
                 </Button>
               ))}
             </div>
-            <form action={subscribeEmail}>
-              <Input
-                type="email"
-                label={followus.sub}
-                className="pt-9"
-                placeholder="you@example.com"
-                labelPlacement="outside"
-                endContent={
-                  <Button
-                    disableRipple
-                    type="submit"
-                    isIconOnly
-                    color="default"
-                    variant="light"
-                    aria-label="Like"
-                  >
-                    <HiEnvelope />
-                  </Button>
-                }
-              />
-            </form>
+            <FooterSubButton />
           </div>
         </div>
       </div>

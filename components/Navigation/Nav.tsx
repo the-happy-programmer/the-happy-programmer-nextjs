@@ -9,8 +9,6 @@ import {
 } from '@nextui-org/navbar'
 import { Link } from '@nextui-org/link'
 import { Button } from '@nextui-org/button'
-import { cookies } from 'next/headers'
-import { createClient } from '@/lib/utils/supabase/server'
 import ThemeToggle from './ThemeToggle'
 import SearchTrigger from './SearchTrigger'
 import { PostProps } from '@/lib/types/blog'
@@ -23,8 +21,6 @@ const posts: PostProps[] = getAllDocs('course/blog').map((post: PostProps) => ({
 }))
 
 export default async function Nav() {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
   const session = await auth()
 
   return (
