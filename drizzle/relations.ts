@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm/relations";
-import { user, session, authenticator, account } from "./schema";
+import { user, session, post, authenticator, account } from "./schema";
 
 export const sessionRelations = relations(session, ({one}) => ({
 	user: one(user, {
@@ -10,8 +10,16 @@ export const sessionRelations = relations(session, ({one}) => ({
 
 export const userRelations = relations(user, ({many}) => ({
 	sessions: many(session),
+	posts: many(post),
 	authenticators: many(authenticator),
 	accounts: many(account),
+}));
+
+export const postRelations = relations(post, ({one}) => ({
+	user: one(user, {
+		fields: [post.userId],
+		references: [user.id]
+	}),
 }));
 
 export const authenticatorRelations = relations(authenticator, ({one}) => ({

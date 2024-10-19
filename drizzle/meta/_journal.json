@@ -57,6 +57,34 @@
       "when": 1729275197721,
       "tag": "0007_flippant_chat",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1729276978393,
+      "tag": "0008_long_may_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1729277102806,
+      "tag": "0009_safe_gideon",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1729279162312,
+      "tag": "0010_watery_martin_li",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1729327353354,
+      "tag": "0011_thin_selene",
+      "breakpoints": true
     }
   ]
 }
