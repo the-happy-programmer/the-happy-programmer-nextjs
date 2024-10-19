@@ -1,93 +1,108 @@
-import {
-    boolean,
-    timestamp,
-    pgTable,
-    text,
-    primaryKey,
-    integer,
-  } from "drizzle-orm/pg-core"
-  import postgres from "postgres"
-  import { drizzle } from "drizzle-orm/postgres-js"
-  import type { AdapterAccountType } from "next-auth/adapters"
-   
-  const connectionString = "postgres://postgres:postgres@localhost:5432/drizzle"
-  const pool = postgres(connectionString, { max: 1 })
-   
-  export const db = drizzle(pool)
-   
-  export const users = pgTable("user", {
-    id: text("id")
-      .primaryKey()
-      .$defaultFn(() => crypto.randomUUID()),
-    name: text("name"),
-    email: text("email").notNull(),
-    emailVerified: timestamp("emailVerified", { mode: "date" }),
-    image: text("image"),
-  })
-   
-  export const accounts = pgTable(
-    "account",
-    {
-      userId: text("userId")
-        .notNull()
-        .references(() => users.id, { onDelete: "cascade" }),
-      type: text("type").$type<AdapterAccountType>().notNull(),
-      provider: text("provider").notNull(),
-      providerAccountId: text("providerAccountId").notNull(),
-      refresh_token: text("refresh_token"),
-      access_token: text("access_token"),
-      expires_at: integer("expires_at"),
-      token_type: text("token_type"),
-      scope: text("scope"),
-      id_token: text("id_token"),
-      session_state: text("session_state"),
-    },
-    (account) => ({
-      compoundKey: primaryKey({
-        columns: [account.provider, account.providerAccountId],
-      }),
-    })
-  )
-   
-  export const sessions = pgTable("session", {
-    sessionToken: text("sessionToken").primaryKey(),
-    userId: text("userId")
-      .notNull()
-      .references(() => users.id, { onDelete: "cascade" }),
-    expires: timestamp("expires", { mode: "date" }).notNull(),
-  })
-   
-  export const verificationTokens = pgTable(
-    "verificationToken",
-    {
-      identifier: text("identifier").notNull(),
-      token: text("token").notNull(),
-      expires: timestamp("expires", { mode: "date" }).notNull(),
-    },
-    (verificationToken) => ({
-      compositePk: primaryKey({
-        columns: [verificationToken.identifier, verificationToken.token],
-      }),
-    })
-  )
-   
-  export const authenticators = pgTable(
-    "authenticator",
-    {
-      credentialID: text("credentialID").notNull().unique(),
-      userId: text("userId")
-        .notNull()
-        .references(() => users.id, { onDelete: "cascade" }),
-      providerAccountId: text("providerAccountId").notNull(),
-      credentialPublicKey: text("credentialPublicKey").notNull(),
-      counter: integer("counter").notNull(),
-      credentialDeviceType: text("credentialDeviceType").notNull(),
-      credentialBackedUp: boolean("credentialBackedUp").notNull(),
-      transports: text("transports"),
-    },
-    (authenticator) => ({
-      compositePK: primaryKey({
-        columns: [authenticator.userId, authenticator.credentialID],
-      }),
-    })
-  )
+import { pgTable, foreignKey, text, timestamp, uuid, json, date, boolean, primaryKey, integer } from "drizzle-orm/pg-core"
+  import { sql } from "drizzle-orm"
+
+
+
+
+export const session = pgTable("session", {
+	sessionToken: text().primaryKey().notNull(),
+	userId: text().notNull(),
+	expires: timestamp({ mode: 'string' }).notNull(),
+},
+(table) => {
+	return {
+		sessionUserIdSerIdFk: foreignKey({
+			columns: [table.userId],
+			foreignColumns: [user.id],
+			name: "session_userId_ser_id_fk"
+		}).onDelete("cascade"),
+	}
+});
+
+export const user = pgTable("user", {
+	id: text().primaryKey().notNull(),
+	name: text(),
+	email: text().notNull(),
+	emailVerified: timestamp({ mode: 'string' }),
+	image: text(),
+});
+
+export const post = pgTable("post", {
+	id: uuid().defaultRandom().primaryKey().notNull(),
+	title: text().notNull(),
+	description: text().notNull(),
+	tags: json().notNull(),
+	userId: text("user_id").notNull(),
+	avatar: text().notNull(),
+	categories: json().notNull(),
+	heroImage: text("hero_image").notNull(),
+	pugDate: date(),
+	modifDate: date(),
+	postContent: text("post_content").notNull(),
+	newPost: boolean("new_post"),
+},
+(table) => {
+	return {
+		userIdFk: foreignKey({
+			columns: [table.userId],
+			foreignColumns: [user.id],
+			name: "user_id_fk"
+		}),
+	}
+});
+
+export const verificationToken = pgTable("verificationToken", {
+	identifier: text().notNull(),
+	token: text().notNull(),
+	expires: timestamp({ mode: 'string' }).notNull(),
+},
+(table) => {
+	return {
+		verificationTokenIdentifierTokenPk: primaryKey({ columns: [table.identifier, table.token], name: "verificationToken_identifier_token_pk"}),
+	}
+});
+
+export const authenticator = pgTable("authenticator", {
+	credentialId: text().notNull(),
+	userId: text().notNull(),
+	providerAccountId: text().notNull(),
+	credentialPublicKey: text().notNull(),
+	counter: integer().notNull(),
+	credentialDeviceType: text().notNull(),
+	credentialBackedUp: boolean().notNull(),
+	transports: text(),
+},
+(table) => {
+	return {
+		authenticatorUserIdUserIdFk: foreignKey({
+			columns: [table.userId],
+			foreignColumns: [user.id],
+			name: "authenticator_userId_user_id_fk"
+		}).onDelete("cascade"),
+		authenticatorUserIdCredentialIdPk: primaryKey({ columns: [table.credentialId, table.userId], name: "authenticator_userId_credentialID_pk"}),
+	}
+});
+
+export const account = pgTable("account", {
+	userId: text().notNull(),
+	type: text().notNull(),
+	provider: text().notNull(),
+	providerAccountId: text().notNull(),
+	refreshToken: text("refresh_token"),
+	accessToken: text("access_token"),
+	expiresAt: integer("expires_at"),
+	tokenType: text("token_type"),
+	scope: text(),
+	idToken: text("id_token"),
+	sessionState: text("session_state"),
+},
+(table) => {
+	return {
+		accountUserIdUserIdFk: foreignKey({
+			columns: [table.userId],
+			foreignColumns: [user.id],
+			name: "account_userId_user_id_fk"
+		}).onDelete("cascade"),
+		accountProviderProviderAccountIdPk: primaryKey({ columns: [table.provider, table.providerAccountId], name: "account_provider_providerAccountId_pk"}),
+	}
+});
