@@ -16,9 +16,6 @@ import { useDebounceCallback } from 'usehooks-ts'
 import { slashCommand, suggestionItems } from './slashCommand'
 
 export default function Editor({ content }: { content: JSONContent }) {
-  const [openNode, setOpenNode] = useState(false)
-  const [openColor, setOpenColor] = useState(false)
-  const [openLink, setOpenLink] = useState(false)
   const [mycontent, setContent] = useState<JSONContent>(content)
 
   const debounce = useDebounceCallback(setContent, 500)
@@ -31,8 +28,9 @@ export default function Editor({ content }: { content: JSONContent }) {
         onUpdate={({ editor }) => {
           const json = editor.getJSON()
           debounce(json)
+          console.log(json)
         }}
-        className="prose m-10"
+        className="prose dark:prose-invert w-full"
       >
         <EditorCommand className="z-50 h-auto max-h-[330px]  w-72 overflow-y-auto rounded-md border border-muted bg-background px-1 py-2 shadow-md transition-all">
           <EditorCommandList>

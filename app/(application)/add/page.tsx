@@ -9,7 +9,9 @@ export default function AddPage({}) {
       <AddHeader title="test title" description="test description" />
       <Editor content={defaultValue} />
       <br />
-      <Button> Save </Button>
+      <Button color="primary" className="w-auto">
+        Save
+      </Button>
     </div>
   )
 }
