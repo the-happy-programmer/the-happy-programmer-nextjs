@@ -10,14 +10,15 @@ export default function SideBar({
   links: string[][]
   setsidebar: (sidebar: boolean) => void
 }) {
-  const closeSidebar = () => {
+  const    closeSidebar = () => {
     setsidebar(false)
     scroll('auto')
     return
   }
 
   return (
-    <div className="absolute bottom-0 top-0 left-0 h-screen w-screen bg-stone-300 bg-opacity-95 dark:bg-stone-800">
+   <div className="absolute bottom-0 top-0 left-0 h-screen w-screen bg-stone-300 bg-opacity-95 dark:bg-stone-800">
+
       <div className="flex h-screen w-72 flex-col border-r border-stone-200 bg-stone-100 dark:border-stone-700 dark:bg-stone-800">
         <div className="flex flex-col items-center border-b px-3 py-4 dark:border-stone-700">
           <div

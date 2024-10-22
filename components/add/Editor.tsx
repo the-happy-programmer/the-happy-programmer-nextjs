@@ -18,18 +18,16 @@ import { slashCommand, suggestionItems } from './slashCommand'
 export default function Editor({ content }: { content: JSONContent }) {
   const [mycontent, setContent] = useState<JSONContent>(content)
 
-  const debounce = useDebounceCallback(setContent, 500)
+  const debounce = useDebounceCallback((json) => {
+    setContent(json)
+  }, 5000)
 
   return (
     <EditorRoot>
       <EditorContent
         extensions={extentions}
         initialContent={mycontent}
-        onUpdate={({ editor }) => {
-          const json = editor.getJSON()
-          debounce(json)
-          console.log(json)
-        }}
+        onUpdate={debounce}
         className="prose dark:prose-invert w-full"
       >
         <EditorCommand className="z-50 h-auto max-h-[330px]  w-72 overflow-y-auto rounded-md border border-muted bg-background px-1 py-2 shadow-md transition-all">
